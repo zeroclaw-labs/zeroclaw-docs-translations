@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ZeroClaw Docs\n"
-"POT-Creation-Date: 2026-07-15T09:39:42+08:00\n"
+"POT-Creation-Date: 2026-07-15T11:17:58-07:00\n"
 "PO-Revision-Date: 2026-04-25T21:58:41-04:00\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -172,17 +172,14 @@ msgstr "/var/run/zeroclaw"
 msgid "\"0.1.0\""
 msgstr "\"0.1.0\""
 
-#: src/developing/plugin-protocol.md
-msgid "\"0.2.0\""
-msgstr "0.2.0"
-
 #: src/channels/acp.md
 msgid "\"0.7.x\""
 msgstr "0.7.x"
 
 #: src/architecture/logging.md src/gateway/a2a-discovery.md
-msgid "\"0.8.2\""
-msgstr "\"0.8.2\""
+#: src/developing/plugin-protocol.md
+msgid "\"0.8.3\""
+msgstr "0.8.3"
 
 #: src/ops/service.md
 msgid "\"1 day ago\""
@@ -2437,6 +2434,10 @@ msgstr "# 更高内存的开发板\n"
 msgid "# if the daemon exposes the local gateway (default 127.0.0.1:42617):\n"
 msgstr "# 如果守护进程暴露了本地网关（默认为 127.0.0.1:42617）：\n"
 
+#: src/maintainers/release-runbook.md
+msgid "# init submodule, refresh catalogues, tag, pin\n"
+msgstr "# 初始化子模块、刷新目录、打标签、固定版本\n"
+
 #: src/hardware/subsystem.md
 msgid "# install\n"
 msgstr "# 安装\n"
@@ -2710,7 +2711,7 @@ msgstr "# 校验两个语言目录的 .ftl 语法\n"
 msgid "# validate .po format (run before a translation PR)\n"
 msgstr "# 验证 .po 文件格式（在翻译 PR 之前运行）\n"
 
-#: src/maintainers/release-runbook.md
+#: src/maintainers/docs-and-translations.md src/maintainers/release-runbook.md
 msgid "# version from Cargo.toml\n"
 msgstr "Cargo.toml 中的版本\n"
 
@@ -35335,7 +35336,7 @@ msgid "Run health checks for configured channels (handled in main.rs for async)"
 msgstr "为配置的通道运行健康检查（异步在 main.rs 中处理）"
 
 #: src/maintainers/docs-and-translations.md
-msgid "Run it after `bump-version.sh` so the version it reads is the release version. Pass the configured provider alias explicitly with `--model-provider`; use `--config-dir` when that alias is stored outside the default config directory. To review coverage or validate format without cutting a tag, run `cargo mdbook stats` / `cargo mdbook check` in the working tree first. Pass `--no-translate` to skip the sync pass when the catalogues are already current, or an explicit version (`./scripts/release/refresh-translations.sh 0.8.2 --model-provider anthropic.release`) to override the `Cargo.toml` default. The `Validate Translations Pin` CI gate validates the pinned catalogues before merge."
+msgid "Run it after `bump-version.sh` so the version it reads is the release version. To review coverage or validate format without cutting a tag, run `cargo mdbook stats` / `cargo mdbook check` in the working tree first. Pass `--no-translate` to skip the sync pass when the catalogues are already current, or an explicit version (`./scripts/release/refresh-translations.sh 0.8.2`) to override the `Cargo.toml` default. The `Validate Translations Pin` CI gate validates the pinned catalogues before merge."
 msgstr "在 `bump-version.sh` 之后运行它，这样它读取的版本就是发布版本。使用 `--model-provider` 显式传递已配置的提供程序别名；当该别名存放在默认配置目录之外时，使用 `--config-dir`。要在不打标签的情况下查看覆盖范围或验证格式，请先在工作树中运行 `cargo mdbook stats` / `cargo mdbook check`。如果目录已经是最新的，则传递 `--no-translate` 以跳过同步流程；或者传递显式版本（`./scripts/release/refresh-translations.sh 0.8.2 --model-provider anthropic.release`）来覆盖 `Cargo.toml` 默认值。`Validate Translations Pin` CI gate 会在合并前验证已固定的目录。"
 
 #: src/tools/browser.md
@@ -40618,7 +40619,7 @@ msgid "The model sees tool results and may continue until it returns final text,
 msgstr "模型会看到工具结果，并且可以继续，直到返回最终文本、被取消，或达到迭代上限。"
 
 #: src/maintainers/docs-and-translations.md
-msgid "The model used is the alias selected by `--model-provider`, resolved from `providers.models.<kind>.<alias>`."
+msgid "The model used is whatever is configured under `providers.models.<name>`."
 msgstr "使用的模型是由 `--model-provider` 选择的别名，解析自 `providers.models.<kind>.<alias>`。"
 
 #: src/setup/nixos.md
@@ -50199,28 +50200,28 @@ msgid "`\"#0A66C2\"`"
 msgstr "`\"#0A66C2\"`"
 
 #: src/reference/config.md
-msgid "`\"/Users/dan/.zeroclaw/estop-state.json\"`"
-msgstr "`\"/Users/dan/.zeroclaw/estop-state.json\"`"
+msgid "`\"$HOME/.zeroclaw/estop-state.json\"`"
+msgstr "`\"$HOME/.zeroclaw/estop-state.json\"`"
 
 #: src/reference/config.md
-msgid "`\"/Users/dan/.zeroclaw/knowledge.db\"`"
-msgstr "`\"/Users/dan/.zeroclaw/knowledge.db\"`"
+msgid "`\"$HOME/.zeroclaw/knowledge.db\"`"
+msgstr "`\"$HOME/.zeroclaw/knowledge.db\"`"
 
 #: src/reference/config.md
-msgid "`\"/Users/dan/.zeroclaw/playbooks\"`"
-msgstr "`\"/Users/dan/.zeroclaw/playbooks\"`"
+msgid "`\"$HOME/.zeroclaw/playbooks\"`"
+msgstr "`\"$HOME/.zeroclaw/playbooks\"`"
 
 #: src/reference/config.md
-msgid "`\"/Users/dan/.zeroclaw/plugins\"`"
-msgstr "`\"/Users/dan/.zeroclaw/plugins\"`"
+msgid "`\"$HOME/.zeroclaw/plugins\"`"
+msgstr "`\"$HOME/.zeroclaw/plugins\"`"
 
 #: src/reference/config.md
-msgid "`\"/Users/dan/.zeroclaw/project-reports\"`"
-msgstr "`\"/Users/dan/.zeroclaw/project-reports\"`"
+msgid "`\"$HOME/.zeroclaw/project-reports\"`"
+msgstr "`\"$HOME/.zeroclaw/project-reports\"`"
 
 #: src/reference/config.md
-msgid "`\"/Users/dan/.zeroclaw/security-reports\"`"
-msgstr "`\"/Users/dan/.zeroclaw/security-reports\"`"
+msgid "`\"$HOME/.zeroclaw/security-reports\"`"
+msgstr "`\"$HOME/.zeroclaw/security-reports\"`"
 
 #: src/reference/config.md
 msgid "`\"0.0.0.0\"`"
@@ -52032,6 +52033,14 @@ msgstr "`Action`：封闭动词集合，通过 `strum::IntoStaticStr` 以 snake_
 msgid "`Agent::trim_history()` (`agent.rs`) applies an equivalent cap to structured `ConversationMessage` history in the ACP/gateway turn path, with additional orphan-safety cascades that avoid creating dangling `ToolResults` or `AssistantToolCalls` at the head after a drop."
 msgstr "`Agent::trim_history()` (`agent.rs`) 在 ACP/gateway 回合路径中对结构化 `ConversationMessage` 历史应用了等效的上限，并附带额外的孤儿安全级联，避免在丢弃后在开头创建悬空的 `ToolResults` 或 `AssistantToolCalls`。"
 
+#: src/getting-started/quickstart.md
+msgid "`Alt+← / Alt+b`"
+msgstr "`Alt+← / Alt+b`"
+
+#: src/getting-started/quickstart.md
+msgid "`Alt+→ / Alt+f`"
+msgstr "`Alt+→ / Alt+f`"
+
 #: src/architecture/runtime-state-and-persistence.md
 msgid "`Arc<dyn Memory>` wrapped in agent-scoping adapters"
 msgstr "`Arc<dyn Memory>` 包裹在 agent 作用域适配器中"
@@ -52605,7 +52614,7 @@ msgid "`[\"get_ticket\"]`"
 msgstr "`[\"get_ticket\"]`"
 
 #: src/reference/config.md
-msgid "`[\"git\",\"npm\",\"cargo\",\"ls\",\"cat\",\"grep\",\"find\",\"echo\",\"pwd\",\"wc\",\"head\",\"tail\",\"date\",\"df\",\"du\",\"uname\",\"uptime\",\"hostname\",\"python\",\"python3\",\"pip\",\"node\"]`"
+msgid "`[\"git\",\"npm\",\"cargo\",\"ls\",\"cat\",\"grep\",\"find\",\"echo\",\"pwd\",\"wc\",\"head\",\"tail\",\"date\",\"df\",\"du\",\"uname\",\"uptime\",\"hostname\",\"python\",\"python3\",\"pip\",\"node\",\"free\"]`"
 msgstr "`[\"git\",\"npm\",\"cargo\",\"ls\",\"cat\",\"grep\",\"find\",\"echo\",\"pwd\",\"wc\",\"head\",\"tail\",\"date\",\"df\",\"du\",\"uname\",\"uptime\",\"hostname\",\"python\",\"python3\",\"pip\",\"node\"]`"
 
 #: src/reference/config.md
@@ -54045,7 +54054,17 @@ msgid ""
 "[providers.transcription.groq.default]\n"
 "api_key = \"...\"\n"
 "```"
-msgstr "```toml\n[providers.models.anthropic.default]\napi_key = \"...\"\n\n[providers.tts.openai.default]\napi_key = \"...\"\n\n[providers.transcription.groq.default]\napi_key = \"...\"\n```"
+msgstr ""
+"```toml\n"
+"[providers.models.anthropic.default]\n"
+"api_key = \"...\"\n"
+"\n"
+"[providers.tts.openai.default]\n"
+"api_key = \"...\"\n"
+"\n"
+"[providers.transcription.groq.default]\n"
+"api_key = \"...\"\n"
+"```"
 
 #: src/providers/configuration.md
 msgid ""
@@ -60289,7 +60308,7 @@ msgid "`reflection_enabled`"
 msgstr "`reflection_enabled`"
 
 #: src/maintainers/release-runbook.md
-msgid "`refresh-translations.sh` reads the version from `Cargo.toml` (nothing typed by hand), runs the translation pass, commits and pushes the catalogues to the [`zeroclaw-labs/zeroclaw-docs-translations`](https://github.com/zeroclaw-labs/zeroclaw-docs-translations) submodule, cuts the `v{version}` tag there, and stages the main-repo gitlink pinned to that tag. It initialises the submodule if it is not already checked out. Run it after `bump-version.sh` so the `Cargo.toml` version it reads is the release version. The configured provider alias is required explicitly so the release does not depend on a hardcoded backend; pass `--config-dir` when needed. Use `--no-translate` when the catalogues are already current, or pass an explicit version before `--model-provider` to override the `Cargo.toml` default."
+msgid "`refresh-translations.sh` reads the version from `Cargo.toml` (nothing typed by hand), runs the translation pass, commits and pushes the catalogues to the [`zeroclaw-labs/zeroclaw-docs-translations`](https://github.com/zeroclaw-labs/zeroclaw-docs-translations) submodule, cuts the `v{version}` tag there, and stages the main-repo gitlink pinned to that tag. It initialises the submodule if it is not already checked out. Run it after `bump-version.sh` so the `Cargo.toml` version it reads is the release version. Pass `--no-translate` to skip the sync pass when the catalogues are already current, or an explicit version to override the `Cargo.toml` default."
 msgstr "`refresh-translations.sh` 会从 `Cargo.toml` 中读取版本（不是手动输入），运行翻译流程，将目录提交并推送到 [`zeroclaw-labs/zeroclaw-docs-translations`](https://github.com/zeroclaw-labs/zeroclaw-docs-translations) 子模块，在那里打出 `v{version}` 标签，并将主仓库的 gitlink 固定到该标签。若子模块尚未检出，它会先初始化子模块。请在 `bump-version.sh` 之后运行它，这样它读取的 `Cargo.toml` 版本就是发布版本。配置的 provider 别名需要显式指定，这样发布就不会依赖硬编码后端；需要时传入 `--config-dir`。当目录已经是最新时使用 `--no-translate`，或者在 `--model-provider` 之前传入一个显式版本，以覆盖 `Cargo.toml` 的默认值。"
 
 #: src/reference/cli.md
@@ -64096,14 +64115,6 @@ msgstr "`~/.zeroclaw/zerocode/locales/<locale>/zerocode.ftl`"
 #: src/sop/fan-in/peripheral.md src/sop/fan-in/calendar.md
 msgid "`—`"
 msgstr "—"
-
-#: src/getting-started/quickstart.md
-msgid "`⌥← / ⌥b`"
-msgstr "`⌥← / ⌥b`"
-
-#: src/getting-started/quickstart.md
-msgid "`⌥→ / ⌥f`"
-msgstr "`⌥→ / ⌥f`"
 
 #: src/plugins/index.md
 msgid "a `Linker` with exactly the imports its world and permissions call for: `logging` always, `inbound` for channels, `wasi:http` only when the manifest grants `http_client`. The HTTP context and the linked interface are derived from the same permission set and cross-checked at instantiation (`ensure_http_coherent`), so they cannot disagree."
