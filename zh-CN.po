@@ -37165,7 +37165,7 @@ msgstr "板上的 Signal 名称；匹配为 `board/signal`。"
 
 #: src/maintainers/labels.md
 msgid "Signal reviewer trust and contributor experience using `.github/label-policy.json` thresholds."
-msgstr "使用 `.github/label-policy.json` 阈值来提升 reviewer 信任和 contributor 体验。"
+msgstr "使用 `.github/label-policy.json` 阈值来提升 reviewer 信任和 contributor 体验。 [Signal]"
 
 #: src/plugins/index.md
 msgid "Signature `strict`: only components whose manifest carries a valid Ed25519 signature from a key in your trusted set load."
@@ -52615,7 +52615,7 @@ msgstr "`[\"get_ticket\"]`"
 
 #: src/reference/config.md
 msgid "`[\"git\",\"npm\",\"cargo\",\"ls\",\"cat\",\"grep\",\"find\",\"echo\",\"pwd\",\"wc\",\"head\",\"tail\",\"date\",\"df\",\"du\",\"uname\",\"uptime\",\"hostname\",\"python\",\"python3\",\"pip\",\"node\",\"free\"]`"
-msgstr "`[\"git\",\"npm\",\"cargo\",\"ls\",\"cat\",\"grep\",\"find\",\"echo\",\"pwd\",\"wc\",\"head\",\"tail\",\"date\",\"df\",\"du\",\"uname\",\"uptime\",\"hostname\",\"python\",\"python3\",\"pip\",\"node\"]`"
+msgstr "`[\"git\",\"npm\",\"cargo\",\"ls\",\"cat\",\"grep\",\"find\",\"echo\",\"pwd\",\"wc\",\"head\",\"tail\",\"date\",\"df\",\"du\",\"uname\",\"uptime\",\"hostname\",\"python\",\"python3\",\"pip\",\"node\"]` [[\"git\",\"npm\",\"cargo\",\"ls\",\"cat\",\"grep\",\"find\",\"echo\",\"pwd\",\"wc\",\"head\",\"tail\",\"date\",\"df\",\"du\",\"uname\",\"uptime\",\"hostname\",\"python\",\"python3\",\"pip\",\"node\",\"free\"]]"
 
 #: src/reference/config.md
 msgid "`[\"https://graph.microsoft.com/.default\"]`"

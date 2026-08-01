@@ -4140,7 +4140,7 @@ msgstr "**ファイル:** `crates/zeroclaw-hardware/src/tool_registry.rs`"
 
 #: src/agents/overview.md
 msgid "**Filesystem components** (the on-disk side): a per-agent workspace directory, a memory backend, and an identity (personality) source. This is where the relational graph meets a concrete directory tree."
-msgstr "**ファイルシステムコンポーネント**（ディスク側）: エージェントごとのワークスペースディレクトリ、メモリバックエンド、アイデンティティ（パーソナリティ）ソース。これは、リレーショナルグラフが具体的なディレクトリツリーと交わる場所です。"
+msgstr "**ファイルシステムコンポーネント**（ディスク側）: エージェントごとのワークスペースディレクトリ、メモリバックエンド、アイデンティティ（パーソナリティ）ソース。これは、リレーショナルグラフが具体的なディレクトリツリーと交わる場所です。 [Filesystem]"
 
 #: src/sop/fan-in/overview.md
 msgid "**Filesystem roots**"
@@ -6510,7 +6510,7 @@ msgstr "**これは開発用ボックス、ホームラボ、および一時的�
 
 #: src/contributing/cla.md
 msgid "**This protects you:** if a third party files a patent claim against ZeroClaw that covers your Contribution, your patent license to the project is not revoked."
-msgstr "**これはあなたを守ります:** 第三者があなたの寄与をカバーする特許請求をゼロクローに対して行った場合でも、プロジェクトに対するあなたの特許ライセンスは取り消されません。"
+msgstr "**これはあなたを守ります:** 第三者があなたの寄与をカバーする特許請求をゼロクローに対して行った場合でも、プロジェクトに対するあなたの特許ライセンスは取り消されません。 [ZeroClaw]"
 
 #: src/foundations/fnd-006-zero-compromise-in-practice.md
 msgid "**This relationship compounds in both directions.** A team that understands the standards gets progressively more value from AI tooling as the tools improve, because they can direct more capable tools more precisely. The gap between \"what the tool produced\" and \"what the standard requires\" becomes something they can close with direction rather than manual rewriting. A team that does not build that judgment gets a faster path to the same quality floor, without the ability to push past it. The investment described throughout this document is also, directly, an investment in the long-term effectiveness of every AI tool the team will ever use, because the value of those tools scales with the clarity of the judgment directing them."
@@ -10422,7 +10422,7 @@ msgstr "サーバーは3つのトランスポートのいずれか（`transport`
 
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "A setup guide for configuring the Telegram channel describes steps a user takes against the current version of the software. If the configuration format changes, the guide becomes wrong. → **This sounds like it should be in the repo, but it shouldn't.** Setup guides should update on their own timeline, not be coupled to code commits. The right model is: the API reference (which maps directly to configuration structs) lives in the repo, and the setup guide that walks a user through using that API lives on the Wiki, updated by anyone when the steps change."
-msgstr "**これはリポジトリに置くべきもののように思えますが、そうではありません。** セットアップガイドはコードのコミットに紐づけるのではなく、独自のタイムラインで更新されるべきです。正しいモデルは次のとおりです。APIリファレンス（設定の構造体に直接対応するもの）はリポジトリに置き、そのAPIの使い方をユーザーに案内するセットアップガイドはWikiに置いて、手順が変わったときに誰でも更新できるようにします。"
+msgstr "**これはリポジトリに置くべきもののように思えますが、そうではありません。** セットアップガイドはコードのコミットに紐づけるのではなく、独自のタイムラインで更新されるべきです。正しいモデルは次のとおりです。APIリファレンス（設定の構造体に直接対応するもの）はリポジトリに置き、そのAPIの使い方をユーザーに案内するセットアップガイドはWikiに置いて、手順が変わったときに誰でも更新できるようにします。 [Telegram]"
 
 #: src/getting-started/yolo.md
 msgid "A shared server"
@@ -11575,7 +11575,7 @@ msgstr "エージェントはドット区切りのエイリアスでプロバイ
 
 #: src/agents/operating.md
 msgid "Agents run side by side from one install. Each one keeps its own workspace, memory, and identity (see [Filesystem components](./filesystem.md)), so by default nothing one agent does leaks into another. They share only what their config references share, a provider, a channel, a bundle."
-msgstr "1回のインストールで複数のエージェントを並行して実行できます。各エージェントは、独自のワークスペース、メモリ、アイデンティティを保持するため（[ファイルシステムコンポーネント](./filesystem.md)を参照）、デフォルトでは、あるエージェントの動作が他のエージェントに漏れることはありません。共有されるのは、設定が参照するもの（プロバイダー、チャンネル、バンドル）のみです。"
+msgstr "1回のインストールで複数のエージェントを並行して実行できます。各エージェントは、独自のワークスペース、メモリ、アイデンティティを保持するため（[ファイルシステムコンポーネント](./filesystem.md)を参照）、デフォルトでは、あるエージェントの動作が他のエージェントに漏れることはありません。共有されるのは、設定が参照するもの（プロバイダー、チャンネル、バンドル）のみです。 [Filesystem]"
 
 #: src/reference/cli.md
 msgid "Alias for `paste-token` (interactive by default)"
@@ -15544,7 +15544,7 @@ msgstr "マイルストーンベースの計画が緩すぎると感じる場合
 
 #: src/channels/email.md
 msgid "Consider the Gmail Push channel below for real-time delivery instead of polling."
-msgstr "代わりにポーリングではなく、リアルタイム配信には以下のGmailプッシュチャネルを検討してください。"
+msgstr "代わりにポーリングではなく、リアルタイム配信には以下のGmailプッシュチャネルを検討してください。 [Gmail Push]"
 
 #: src/foundations/fnd-006-zero-compromise-in-practice.md
 msgid "Consider two log messages. Both compile. Both pass CI. Both are syntactically correct."
@@ -20116,7 +20116,7 @@ msgstr "ファイルはメモリではなく、ファイルシステムに従っ
 #: src/SUMMARY.md src/reference/feature-matrix.md src/channels/overview.md
 #: src/channels/filesystem.md src/security/sandboxing.md
 msgid "Filesystem"
-msgstr "ファイルシステム"
+msgstr "ファイルシステム [Filesystem]"
 
 #: src/reference/config.md
 msgid "Filesystem SOP listener instances (`[channels.filesystem.<alias>]`)."
@@ -20124,7 +20124,7 @@ msgstr "Filesystem SOP リスナーインスタンス (`[channels.filesystem.<al
 
 #: src/maintainers/pr-workflow.md
 msgid "Filesystem access boundaries and network/authentication behavior inside those crates carry the same scrutiny even when the diff looks small."
-msgstr "これらのクレート内でのファイルシステムアクセスの境界やネットワーク/認証の動作は、差分が小さく見える場合でも同じように厳密に精査されます。"
+msgstr "これらのクレート内でのファイルシステムアクセスの境界やネットワーク/認証の動作は、差分が小さく見える場合でも同じように厳密に精査されます。 [Filesystem]"
 
 #: src/sop/syntax.md src/sop/fan-in/overview.md src/sop/fan-in/filesystem.md
 msgid "Filesystem change. Live: delivered by the filesystem watcher."
@@ -20136,11 +20136,11 @@ msgstr "Filesystem の変更により SOP の実行を開始できます。ウ�
 
 #: src/SUMMARY.md src/agents/filesystem.md
 msgid "Filesystem components"
-msgstr "ファイルシステムコンポーネント"
+msgstr "ファイルシステムコンポーネント [Filesystem]"
 
 #: src/foundations/fnd-001-intentional-architecture.md
 msgid "Filesystem drivers"
-msgstr "ファイルシステムドライバ"
+msgstr "ファイルシステムドライバ [Filesystem]"
 
 #: src/channels/git.md
 msgid "Filesystem path to the RS256 private key `.pem` file, read at startup when `private_key` (inline PEM) is unset. Backward-compatible fallback for configs that predate the inline-PEM field. GitHub provider only."
@@ -21504,11 +21504,11 @@ msgstr "Gmail Pub/Sub プッシュ通知チャネルインスタンス (`[channe
 
 #: src/reference/feature-matrix.md src/channels/overview.md
 msgid "Gmail Push"
-msgstr "Gmail プッシュ"
+msgstr "Gmail プッシュ [Gmail Push]"
 
 #: src/channels/email.md
 msgid "Gmail Push (`gmail_push`)"
-msgstr "Gmail プッシュ (`gmail_push`)"
+msgstr "Gmail プッシュ (`gmail_push`) [Gmail Push]"
 
 #: src/channels/email.md
 msgid "Gmail gotchas"
@@ -25171,7 +25171,7 @@ msgstr "JSON Patch の op が `move` / `copy` / 不明です。"
 
 #: src/sop/syntax.md
 msgid "JSON path comparisons: `$.value > 85`, `$.status == \"critical\"`"
-msgstr "演算子: `>=`、`<=`、`!=`、`>`、`<`、`==`"
+msgstr "演算子: `>=`、`<=`、`!=`、`>`、`<`、`==` [JSON]"
 
 #: src/contributing/testing.md
 msgid "JSON trace fixtures"
@@ -28474,7 +28474,7 @@ msgstr "正規化されたインバウンドメッセージ"
 #: src/reference/feature-matrix.md src/channels/overview.md
 #: src/channels/social.md
 msgid "Nostr"
-msgstr "ノストラ"
+msgstr "ノストラ [Nostr]"
 
 #: src/ops/network-deployment.md
 msgid "Nostr / IMAP / MQTT"
@@ -33347,7 +33347,7 @@ msgstr "QQ Official"
 
 #: src/reference/config.md
 msgid "QQ Official Bot channel instances (`[channels.qq.<alias>]`)."
-msgstr "QQ 公式ボットチャンネルのインスタンス（`[channels.qq.<alias>]`）。"
+msgstr "QQ 公式ボットチャンネルのインスタンス（`[channels.qq.<alias>]`）。 [QQ Official]"
 
 #: src/maintainers/ci-and-actions.md
 msgid "Quality Gate (`ci.yml`)"
@@ -37150,19 +37150,19 @@ msgstr "署名: Ed25519 キーの生成または読み込みを行い、正規�
 #: src/SUMMARY.md src/reference/feature-matrix.md src/channels/overview.md
 #: src/channels/line.md src/channels/signal.md src/maintainers/pr-workflow.md
 msgid "Signal"
-msgstr "シグナル"
+msgstr "シグナル [Signal]"
 
 #: src/ops/network-deployment.md
 msgid "Signal (`signal-cli-rest-api`)"
-msgstr "シグナル (`signal-cli-rest-api`)"
+msgstr "シグナル (`signal-cli-rest-api`) [Signal]"
 
 #: src/reference/config.md
 msgid "Signal channel instances (`[channels.signal.<alias>]`)."
-msgstr "シグナルチャネルインスタンス (`[channels.signal.<alias>]`)。"
+msgstr "シグナルチャネルインスタンス (`[channels.signal.<alias>]`)。 [Signal]"
 
 #: src/sop/fan-in/peripheral.md
 msgid "Signal name on the board; matched as `board/signal`."
-msgstr "基板上のシグナル名。`board/signal` として照合されます。"
+msgstr "基板上のシグナル名。`board/signal` として照合されます。 [Signal]"
 
 #: src/maintainers/labels.md
 msgid "Signal reviewer trust and contributor experience using `.github/label-policy.json` thresholds."
@@ -37482,7 +37482,7 @@ msgstr "段階的な移行の間、一部のレガシーラベルが有効なま
 
 #: src/agents/anatomy.md
 msgid "Some of an agent's config is not a reference but a per-agent block that overrides a global default: the workspace, memory, and identity. Those are the on-disk side of the join, covered in [Filesystem components](./filesystem.md)."
-msgstr "エージェントの設定の一部は参照ではなく、グローバルなデフォルトを上書きするエージェントごとのブロックです。具体的には、ワークスペース、メモリ、アイデンティティです。これらは結合のディスク上の側面であり、[ファイルシステムコンポーネント](./filesystem.md)で説明しています。"
+msgstr "エージェントの設定の一部は参照ではなく、グローバルなデフォルトを上書きするエージェントごとのブロックです。具体的には、ワークスペース、メモリ、アイデンティティです。これらは結合のディスク上の側面であり、[ファイルシステムコンポーネント](./filesystem.md)で説明しています。 [Filesystem]"
 
 #: src/architecture/decisions/ADR-004-tool-shared-state-ownership.md
 msgid "Some older handles need migration when the daemon identity surface or reload model changes."
@@ -47877,7 +47877,7 @@ msgstr "[Filesystem チャネル](../../channels/filesystem.md): 監視対象パ
 
 #: src/agents/overview.md
 msgid "[Filesystem components](./filesystem.md): the workspace, memory, and identity that live on disk per agent."
-msgstr "[ファイルシステムコンポーネント](./filesystem.md): エージェントごとにディスク上に存在するワークスペース、メモリ、アイデンティティ。"
+msgstr "[ファイルシステムコンポーネント](./filesystem.md): エージェントごとにディスク上に存在するワークスペース、メモリ、アイデンティティ。 [Filesystem]"
 
 #: src/maintainers/reviewer-playbook.md
 msgid "[Five-minute intake](#five-minute-intake)"
@@ -48095,7 +48095,7 @@ msgstr "[メンテナー → 概要](../maintainers/index.md): メンテナー�
 
 #: src/channels/overview.md
 msgid "[Matrix](./matrix.md)"
-msgstr "[行列](./matrix.md)"
+msgstr "[行列](./matrix.md) [Matrix]"
 
 #: src/channels/chat-others.md
 msgid "[Matrix](./matrix.md): E2EE, device verification, Synapse/Dendrite specifics"
@@ -48567,7 +48567,7 @@ msgstr "[セットアップ → サービス管理](../setup/service.md): プラ
 
 #: src/channels/overview.md src/channels/chat-others.md
 msgid "[Signal](./signal.md)"
-msgstr "[シグナル](./signal.md)"
+msgstr "[シグナル](./signal.md) [Signal]"
 
 #: src/plugins/writing-a-memory-plugin.md
 msgid "[Skill bundles](../tools/skill-bundles.md): markdown-only skill distribution through the same install machinery."
@@ -55422,7 +55422,7 @@ msgstr "`cargo deny` は、アプリケーションのロジックが引き起�
 
 #: src/foundations/fnd-004-engineering-infrastructure.md
 msgid "`cargo deny` is a more capable successor to `cargo audit` for project-level dependency policy. It enforces:"
-msgstr "`cargo deny` は、プロジェクトレベルの依存関係ポリシーに対してより強力な後継ツールであり、以下を強制します："
+msgstr "`cargo deny` は、プロジェクトレベルの依存関係ポリシーに対してより強力な後継ツールであり、以下を強制します： [cargo audit]"
 
 #: src/foundations/fnd-006-zero-compromise-in-practice.md
 msgid "`cargo deny` passes"

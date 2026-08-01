@@ -427,7 +427,7 @@ msgstr "\"Réponse du LLM\""
 
 #: src/channels/matrix.md
 msgid "\"Matrix is configured correctly, checks pass, but the bot does not respond.\""
-msgstr "« La matrice est configurée correctement, les vérifications passent, mais le bot ne répond pas. »"
+msgstr "« La matrice est configurée correctement, les vérifications passent, mais le bot ne répond pas. » [Matrix]"
 
 #: src/channels/matrix.md
 msgid "\"NEWDEVICE\""
@@ -4141,7 +4141,7 @@ msgstr "**Fichier :** `crates/zeroclaw-hardware/src/tool_registry.rs`"
 
 #: src/agents/overview.md
 msgid "**Filesystem components** (the on-disk side): a per-agent workspace directory, a memory backend, and an identity (personality) source. This is where the relational graph meets a concrete directory tree."
-msgstr "**Composants du système de fichiers** (le côté sur disque) : un répertoire d'espace de travail par agent, un backend de mémoire et une source d'identité (personnalité). C'est là que le graphe relationnel rencontre une arborescence de répertoires concrète."
+msgstr "**Composants du système de fichiers** (le côté sur disque) : un répertoire d'espace de travail par agent, un backend de mémoire et une source d'identité (personnalité). C'est là que le graphe relationnel rencontre une arborescence de répertoires concrète. [Filesystem]"
 
 #: src/sop/fan-in/overview.md
 msgid "**Filesystem roots**"
@@ -10631,7 +10631,7 @@ msgstr "Serveur ACP : `crates/zeroclaw-channels/src/orchestrator/acp_server.rs`"
 
 #: src/architecture/runtime-state-and-persistence.md
 msgid "ACP session store: `crates/zeroclaw-infra/src/acp_session_store.rs`"
-msgstr "Stockage de sessions ACP : `crates/zeroclow-infra/src/acp_session_store.rs`"
+msgstr "Stockage de sessions ACP : `crates/zeroclow-infra/src/acp_session_store.rs` [crates/zeroclaw-infra/src/acp_session_store.rs]"
 
 #: src/architecture/runtime-state-and-persistence.md
 msgid "ACP sessions"
@@ -14661,7 +14661,7 @@ msgstr "ClawdTalk (SIP en temps réel)"
 
 #: src/channels/voice.md
 msgid "ClawdTalk shortcuts several of these by keeping the audio stream live; regular `voice_call` incurs STT + LLM + TTS sequentially."
-msgstr "ClawdTalk simplifie plusieurs de ces étapes en maintenant le flux audio en direct ; un appel vocal standard implique STT + LLM + TTS de manière séquentielle."
+msgstr "ClawdTalk simplifie plusieurs de ces étapes en maintenant le flux audio en direct ; un appel vocal standard implique STT + LLM + TTS de manière séquentielle. [voice_call]"
 
 #: src/reference/config.md
 msgid "ClawdTalk voice channel instances (`[channels.clawdtalk.<alias>]`)."
@@ -15544,7 +15544,7 @@ msgstr "Envisagez l’introduction de cycles à durée limitée (deux ou quatre 
 
 #: src/channels/email.md
 msgid "Consider the Gmail Push channel below for real-time delivery instead of polling."
-msgstr "Considérez le canal de poussée Gmail ci-dessous pour une livraison en temps réel au lieu d’un sondage."
+msgstr "Considérez le canal de poussée Gmail ci-dessous pour une livraison en temps réel au lieu d’un sondage. [Gmail Push]"
 
 #: src/foundations/fnd-006-zero-compromise-in-practice.md
 msgid "Consider two log messages. Both compile. Both pass CI. Both are syntactically correct."
@@ -19345,7 +19345,7 @@ msgstr "Tout est simulé"
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid "Everything on this page is checked against the contract source: the `tool-plugin` world in `wit/v0/tool.wit`, the host-side call path in `crates/zeroclaw-plugins/src/runtime.rs` and `wasm_tool.rs`, and manifest validation in `host.rs`. Source paths are citations into the ZeroClaw repository for verification; the plugin itself is your own crate in your own repository. You never need a ZeroClaw checkout to build one, only the `wit/` contract files (fetched in step 1) and an installed `zeroclaw` binary with the plugin host compiled in to run it."
-msgstr "Tout ce qui figure sur cette page est vérifié par rapport au code source du contrat : le monde `tool-plugin` dans `wit/v0/tool.wit`, le chemin d'appel côté hôte dans `crates/zeroclow-plugins/src/runtime.rs` et `wasm_tool.rs`, ainsi que la validation du manifeste dans `host.rs`. Les chemins vers les sources sont des références au dépôt ZeroClaw à des fins de vérification ; le plugin en lui-même est votre propre crate dans votre propre dépôt. Vous n'avez jamais besoin d'un checkout de ZeroClaw pour en construire un, seuls les fichiers de contrat `wit/` (récupérés à l'étape 1) et un binaire `zeroclow` installé avec l'hôte de plugin compilé sont requis pour l'exécuter."
+msgstr "Tout ce qui figure sur cette page est vérifié par rapport au code source du contrat : le monde `tool-plugin` dans `wit/v0/tool.wit`, le chemin d'appel côté hôte dans `crates/zeroclow-plugins/src/runtime.rs` et `wasm_tool.rs`, ainsi que la validation du manifeste dans `host.rs`. Les chemins vers les sources sont des références au dépôt ZeroClaw à des fins de vérification ; le plugin en lui-même est votre propre crate dans votre propre dépôt. Vous n'avez jamais besoin d'un checkout de ZeroClaw pour en construire un, seuls les fichiers de contrat `wit/` (récupérés à l'étape 1) et un binaire `zeroclow` installé avec l'hôte de plugin compilé sont requis pour l'exécuter. [zeroclaw]"
 
 #: src/foundations/fnd-005-contribution-culture.md
 msgid "Everything you practice here: understanding the RFC before you implement, asking \"why\" before you build, reviewing AI output with the same eye you would bring to a junior engineer's PR, is practice for that kind of judgment. It compounds. Every PR where you engage seriously with the architecture is a data point that makes the next architectural decision easier."
@@ -20122,7 +20122,7 @@ msgstr "Les fichiers persistent au niveau du système de fichiers, et non en mé
 #: src/SUMMARY.md src/reference/feature-matrix.md src/channels/overview.md
 #: src/channels/filesystem.md src/security/sandboxing.md
 msgid "Filesystem"
-msgstr "Système de fichiers"
+msgstr "Système de fichiers [Filesystem]"
 
 #: src/reference/config.md
 msgid "Filesystem SOP listener instances (`[channels.filesystem.<alias>]`)."
@@ -20130,7 +20130,7 @@ msgstr "Filesystem SOP instances d'écouteur ([channels.filesystem.<alias>])."
 
 #: src/maintainers/pr-workflow.md
 msgid "Filesystem access boundaries and network/authentication behavior inside those crates carry the same scrutiny even when the diff looks small."
-msgstr "Les limites d'accès au système de fichiers et le comportement réseau/authentification au sein de ces crates font l'objet du même examen rigoureux, même lorsque le diff semble petit."
+msgstr "Les limites d'accès au système de fichiers et le comportement réseau/authentification au sein de ces crates font l'objet du même examen rigoureux, même lorsque le diff semble petit. [Filesystem]"
 
 #: src/sop/syntax.md src/sop/fan-in/overview.md src/sop/fan-in/filesystem.md
 msgid "Filesystem change. Live: delivered by the filesystem watcher."
@@ -20142,11 +20142,11 @@ msgstr "Les modifications de Filesystem peuvent lancer des exécutions de SOP. L
 
 #: src/SUMMARY.md src/agents/filesystem.md
 msgid "Filesystem components"
-msgstr "Composants du système de fichiers"
+msgstr "Composants du système de fichiers [Filesystem]"
 
 #: src/foundations/fnd-001-intentional-architecture.md
 msgid "Filesystem drivers"
-msgstr "Pilotes de système de fichiers"
+msgstr "Pilotes de système de fichiers [Filesystem]"
 
 #: src/channels/git.md
 msgid "Filesystem path to the RS256 private key `.pem` file, read at startup when `private_key` (inline PEM) is unset. Backward-compatible fallback for configs that predate the inline-PEM field. GitHub provider only."
@@ -21265,7 +21265,7 @@ msgstr "Collecter les diagnostics et ouvrir un ticket :"
 
 #: src/reference/config.md
 msgid "Gemini CLI tool configuration (`[gemini_cli]` section)."
-msgstr "Configuration de l'outil CLI Gemini (section `[gemini_cli]`)."
+msgstr "Configuration de l'outil CLI Gemini (section `[gemini_cli]`). [Gemini CLI]"
 
 #: src/providers/catalog.md
 msgid "Gemini CLI: slot `gemini_cli`"
@@ -26769,7 +26769,7 @@ msgstr "Correspondance"
 #: src/SUMMARY.md src/reference/feature-matrix.md src/channels/overview.md
 #: src/channels/matrix.md
 msgid "Matrix"
-msgstr "Matrice"
+msgstr "Matrice [Matrix]"
 
 #: src/ops/network-deployment.md
 msgid "Matrix / Mattermost / Nextcloud Talk"
@@ -26805,11 +26805,11 @@ msgstr "Matrix diffuse les réponses en continu via le paramètre `stream_mode` 
 
 #: src/channels/matrix.md
 msgid "Matrix-channel-specific diagnostics:"
-msgstr "Diagnostics spécifiques au canal de la matrice :"
+msgstr "Diagnostics spécifiques au canal de la matrice : [Matrix]"
 
 #: src/ops/troubleshooting.md
 msgid "Matrix: \"unknown device\""
-msgstr "Matrice : « périphérique inconnu »"
+msgstr "Matrice : « périphérique inconnu » [Matrix]"
 
 #: src/SUMMARY.md src/reference/feature-matrix.md src/channels/overview.md
 #: src/channels/mattermost.md
@@ -27272,7 +27272,7 @@ msgstr "Les outils de mémoire (`memory_recall`, `memory_store`, `memory_forget`
 
 #: src/architecture/memory-payload-lifecycle.md
 msgid "Memory trait and entry shape: `crates/zeroclaw-api/src/memory_traits.rs`"
-msgstr "Trait Memory et forme de l'entrée : `crates/zeroclow-api/src/memory_traits.rs`"
+msgstr "Trait Memory et forme de l'entrée : `crates/zeroclow-api/src/memory_traits.rs` [crates/zeroclaw-api/src/memory_traits.rs]"
 
 #: src/agents/delegation.md
 msgid "Memory writes performed by the child are written to the parent's identity (same agent UUID at the SQL/Postgres backends; same workspace dir for Markdown). Cron-spawned runs disable `memory.auto_save` so opt-in writes still work but routine recall doesn't accumulate."
@@ -37487,7 +37487,7 @@ msgstr "Certaines étiquettes héritées peuvent rester actives pendant une migr
 
 #: src/agents/anatomy.md
 msgid "Some of an agent's config is not a reference but a per-agent block that overrides a global default: the workspace, memory, and identity. Those are the on-disk side of the join, covered in [Filesystem components](./filesystem.md)."
-msgstr "Une partie de la configuration d'un agent n'est pas une référence mais un bloc par agent qui remplace une valeur globale par défaut : le workspace, la mémoire et l'identité. Il s'agit du côté sur disque de la jointure, traité dans [Composants du système de fichiers](./filesystem.md)."
+msgstr "Une partie de la configuration d'un agent n'est pas une référence mais un bloc par agent qui remplace une valeur globale par défaut : le workspace, la mémoire et l'identité. Il s'agit du côté sur disque de la jointure, traité dans [Composants du système de fichiers](./filesystem.md). [Filesystem]"
 
 #: src/architecture/decisions/ADR-004-tool-shared-state-ownership.md
 msgid "Some older handles need migration when the daemon identity surface or reload model changes."
@@ -47121,7 +47121,7 @@ msgstr "ZeroClaw a besoin de trois choses :"
 
 #: src/channels/line.md
 msgid "ZeroClaw not running, or port not reachable"
-msgstr "ZéroClaw ne s'exécute pas, ou le port n'est pas accessible"
+msgstr "ZéroClaw ne s'exécute pas, ou le port n'est pas accessible [ZeroClaw]"
 
 #: src/hardware/arduino-uno-q-setup.md
 msgid "ZeroClaw on Arduino Uno Q: Step-by-Step Guide"
@@ -47875,7 +47875,7 @@ msgstr "[Filesystem canal](../../channels/filesystem.md): chemins surveillés, g
 
 #: src/agents/overview.md
 msgid "[Filesystem components](./filesystem.md): the workspace, memory, and identity that live on disk per agent."
-msgstr "[Composants du système de fichiers](./filesystem.md) : l'espace de travail, la mémoire et l'identité qui résident sur disque pour chaque agent."
+msgstr "[Composants du système de fichiers](./filesystem.md) : l'espace de travail, la mémoire et l'identité qui résident sur disque pour chaque agent. [Filesystem]"
 
 #: src/maintainers/reviewer-playbook.md
 msgid "[Five-minute intake](#five-minute-intake)"
@@ -48093,7 +48093,7 @@ msgstr "[Mainteneurs → Vue d'ensemble](../maintainers/index.md) : ce que font 
 
 #: src/channels/overview.md
 msgid "[Matrix](./matrix.md)"
-msgstr "[Matrice](./matrix.md)"
+msgstr "[Matrice](./matrix.md) [Matrix]"
 
 #: src/channels/chat-others.md
 msgid "[Matrix](./matrix.md): E2EE, device verification, Synapse/Dendrite specifics"
@@ -52257,7 +52257,7 @@ msgstr "`LINE: Message de <userId> rejetée par la politique`"
 
 #: src/channels/line.md
 msgid "`LINE: audio message ignored (transcription not configured)`"
-msgstr "`MESSAGE AUDIO ignoré (transcription non configurée)`"
+msgstr "`MESSAGE AUDIO ignoré (transcription non configurée)` [LINE]"
 
 #: src/channels/line.md
 msgid "`LINE: invalid X-Line-Signature`"
@@ -52589,7 +52589,7 @@ msgstr "`[\"/etc\",\"/root\",\"/home\",\"/usr\",\"/bin\",\"/sbin\",\"/lib\",\"/o
 
 #: src/reference/config.md
 msgid "`[\"Read\",\"Edit\",\"Bash\",\"Write\"]`"
-msgstr "`[\"Lire\",\"Modifier\",\"Bash\",\"Écrire\"]`"
+msgstr "`[\"Lire\",\"Modifier\",\"Bash\",\"Écrire\"]` [[\"Read\",\"Edit\",\"Bash\",\"Write\"]]"
 
 #: src/reference/config.md
 msgid "`[\"aws\",\"azure\",\"gcp\"]`"
@@ -57445,7 +57445,7 @@ msgstr "`fill` génère `<locale>/<domain>.ftl` pour chaque racine de catalogue 
 
 #: src/hardware/aardvark.md
 msgid "`find_devices()`"
-msgstr "`trouver_appareils()`"
+msgstr "`trouver_appareils()` [find_devices()]"
 
 #: src/reference/config.md
 msgid "`firecrawl`"
@@ -59864,7 +59864,7 @@ msgstr "`priority:` Quel est le degré d'urgence ?"
 
 #: src/foundations/fnd-003-governance.md
 msgid "`priority:critical`"
-msgstr "`priorité : critique`"
+msgstr "`priorité : critique` [priority:critical]"
 
 #: src/foundations/fnd-003-governance.md
 msgid "`priority:high`"
@@ -59872,11 +59872,11 @@ msgstr "`priority:high`"
 
 #: src/foundations/fnd-003-governance.md
 msgid "`priority:low`"
-msgstr "`priorité : basse`"
+msgstr "`priorité : basse` [priority:low]"
 
 #: src/foundations/fnd-003-governance.md
 msgid "`priority:medium`"
-msgstr "`priorité : moyenne`"
+msgstr "`priorité : moyenne` [priority:medium]"
 
 #: src/reference/config.md
 msgid "`probe_target`"
@@ -59936,7 +59936,7 @@ msgstr "`provider:bedrock`"
 
 #: src/maintainers/labels.md
 msgid "`provider:claude-code`"
-msgstr "`fournisseur:claude-code`"
+msgstr "`fournisseur:claude-code` [provider:claude-code]"
 
 #: src/maintainers/labels.md
 msgid "`provider:compatible`"
@@ -59952,7 +59952,7 @@ msgstr "`provider:gemini`"
 
 #: src/maintainers/labels.md
 msgid "`provider:glm`"
-msgstr "`fournisseur:glm`"
+msgstr "`fournisseur:glm` [provider:glm]"
 
 #: src/maintainers/labels.md
 msgid "`provider:kilocli`"
@@ -59960,7 +59960,7 @@ msgstr "`provider:kilocli`"
 
 #: src/maintainers/labels.md
 msgid "`provider:ollama`"
-msgstr "`fournisseur:ollama`"
+msgstr "`fournisseur:ollama` [provider:ollama]"
 
 #: src/maintainers/labels.md
 msgid "`provider:openai`"
@@ -60138,7 +60138,7 @@ msgstr "`qwen`"
 
 #: src/maintainers/reviewer-playbook.md src/maintainers/labels.md
 msgid "`r:needs-repro`"
-msgstr "`r:besoin-de-reproduction`"
+msgstr "`r:besoin-de-reproduction` [r:needs-repro]"
 
 #: src/maintainers/reviewer-playbook.md src/maintainers/labels.md
 msgid "`r:support`"
@@ -61701,12 +61701,12 @@ msgstr "`status:` Où en est-on dans le processus ?"
 #: src/foundations/fnd-003-governance.md src/maintainers/reviewer-playbook.md
 #: src/maintainers/labels.md
 msgid "`status:accepted`"
-msgstr "`status:accepté`"
+msgstr "`status:accepté` [status:accepted]"
 
 #: src/foundations/fnd-003-governance.md src/maintainers/reviewer-playbook.md
 #: src/maintainers/labels.md
 msgid "`status:blocked`"
-msgstr "`status:bloqué`"
+msgstr "`status:bloqué` [status:blocked]"
 
 #: src/foundations/fnd-003-governance.md
 msgid "`status:discussion`"
@@ -61714,20 +61714,20 @@ msgstr "`status:discussion`"
 
 #: src/foundations/fnd-003-governance.md
 msgid "`status:good-first-issue`"
-msgstr "`status:bonne-première-problématique`"
+msgstr "`status:bonne-première-problématique` [status:good-first-issue]"
 
 #: src/foundations/fnd-003-governance.md
 msgid "`status:help-wanted`"
-msgstr "`status:besoin-d-aide`"
+msgstr "`status:besoin-d-aide` [status:help-wanted]"
 
 #: src/foundations/fnd-003-governance.md src/maintainers/reviewer-playbook.md
 #: src/maintainers/labels.md
 msgid "`status:in-progress`"
-msgstr "`status:en-cours`"
+msgstr "`status:en-cours` [status:in-progress]"
 
 #: src/foundations/fnd-003-governance.md
 msgid "`status:needs-triage`"
-msgstr "`status:besoin-de-triage`"
+msgstr "`status:besoin-de-triage` [status:needs-triage]"
 
 #: src/foundations/fnd-003-governance.md src/maintainers/reviewer-playbook.md
 #: src/maintainers/labels.md

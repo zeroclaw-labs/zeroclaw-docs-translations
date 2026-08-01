@@ -37167,11 +37167,11 @@ msgstr "Instancias de canal Signal (`[channels.signal.<alias>]`)."
 
 #: src/sop/fan-in/peripheral.md
 msgid "Signal name on the board; matched as `board/signal`."
-msgstr "Nombre de la señal en la placa; coincidente como `board/signal`."
+msgstr "Nombre de la señal en la placa; coincidente como `board/signal`. [Signal]"
 
 #: src/maintainers/labels.md
 msgid "Signal reviewer trust and contributor experience using `.github/label-policy.json` thresholds."
-msgstr "Mejora la confianza de los revisores y la experiencia de los contribuyentes usando los umbrales de `.github/label-policy.json`."
+msgstr "Mejora la confianza de los revisores y la experiencia de los contribuyentes usando los umbrales de `.github/label-policy.json`. [Signal]"
 
 #: src/plugins/index.md
 msgid "Signature `strict`: only components whose manifest carries a valid Ed25519 signature from a key in your trusted set load."
@@ -52621,7 +52621,7 @@ msgstr "`[\"get_ticket\"]`"
 
 #: src/reference/config.md
 msgid "`[\"git\",\"npm\",\"cargo\",\"ls\",\"cat\",\"grep\",\"find\",\"echo\",\"pwd\",\"wc\",\"head\",\"tail\",\"date\",\"df\",\"du\",\"uname\",\"uptime\",\"hostname\",\"python\",\"python3\",\"pip\",\"node\",\"free\"]`"
-msgstr "`[\"git\",\"npm\",\"cargo\",\"ls\",\"cat\",\"grep\",\"find\",\"echo\",\"pwd\",\"wc\",\"head\",\"tail\",\"date\",\"df\",\"du\",\"uname\",\"uptime\",\"hostname\",\"python\",\"python3\",\"pip\",\"node\"]`"
+msgstr "`[\"git\",\"npm\",\"cargo\",\"ls\",\"cat\",\"grep\",\"find\",\"echo\",\"pwd\",\"wc\",\"head\",\"tail\",\"date\",\"df\",\"du\",\"uname\",\"uptime\",\"hostname\",\"python\",\"python3\",\"pip\",\"node\"]` [[\"git\",\"npm\",\"cargo\",\"ls\",\"cat\",\"grep\",\"find\",\"echo\",\"pwd\",\"wc\",\"head\",\"tail\",\"date\",\"df\",\"du\",\"uname\",\"uptime\",\"hostname\",\"python\",\"python3\",\"pip\",\"node\",\"free\"]]"
 
 #: src/reference/config.md
 msgid "`[\"https://graph.microsoft.com/.default\"]`"
