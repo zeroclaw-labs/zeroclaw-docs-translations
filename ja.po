@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ZeroClaw Docs\n"
-"POT-Creation-Date: 2026-08-22T11:36:58-07:00\n"
+"POT-Creation-Date: 2026-08-22T15:22:06-07:00\n"
 "PO-Revision-Date: 2026-04-23 00:00+0000\n"
 "Language-Team: ZeroClaw Labs <contact@shane.gg>\n"
 "Language: ja\n"
@@ -151,7 +151,7 @@ msgid "\"-r -P ${pidfile} -o ${logfile} -u ${zeroclaw_runas} ${launcher}\""
 msgstr "-r -P ${pidfile} -o ${logfile} -u ${zeroclaw_runas} ${launcher}"
 
 #: src/architecture/logging.md src/architecture/rpc-socket.md
-#: src/channels/acp.md src/developing/plugin-protocol.md
+#: src/channels/acp.md
 msgid "\"...\""
 msgstr "\"...\""
 
@@ -216,7 +216,9 @@ msgstr "127.0.0.1:42617:42617"
 msgid ""
 "\"127.0.0.1:42617:42617\"      # gateway, host loopback only\n"
 "    volumes"
-msgstr "\"127.0.0.1:42617:42617\"      # ゲートウェイ、ホストのループバックのみ\n    volumes"
+msgstr ""
+"\"127.0.0.1:42617:42617\"      # ゲートウェイ、ホストのループバックのみ\n"
+"    volumes"
 
 #: src/setup/service.md
 msgid "\"1h ago\""
@@ -750,7 +752,11 @@ msgstr "anthropic/claude-sonnet-4.6"
 msgid "\"api-bridge\""
 msgstr "\"api-bridge\""
 
-#: src/developing/plugin-protocol.md
+#: src/plugins/writing-a-tool-plugin.md
+msgid "\"api_key is unavailable\""
+msgstr "api_key は利用できません"
+
+#: src/plugins/writing-a-tool-plugin.md
 msgid "\"api_key\""
 msgstr "api_key"
 
@@ -2345,7 +2351,11 @@ msgid ""
 "          # governs exposure here. If you mount a localhost-default config,\n"
 "          # override both gateway.host and gateway.allow_public_bind together.\n"
 "      volumes"
-msgstr "# `containerPort` はホストに公開されません。ここでの公開は Service または Ingress\n          # が制御します。localhost をデフォルトとする設定をマウントする場合は、\n          # gateway.host と gateway.allow_public_bind の両方を同時に上書きしてください。\n      volumes"
+msgstr ""
+"# `containerPort` はホストに公開されません。ここでの公開は Service または Ingress\n"
+"          # が制御します。localhost をデフォルトとする設定をマウントする場合は、\n"
+"          # gateway.host と gateway.allow_public_bind の両方を同時に上書きしてください。\n"
+"      volumes"
 
 #: src/hardware/android-setup.md
 msgid "# aarch64 = 64-bit (prebuilt binary available)\n"
@@ -2487,7 +2497,9 @@ msgstr "# 高RAM搭載ボード\n"
 msgid ""
 "# host selects the container interface; allow_public_bind acknowledges\n"
 "      # the non-loopback listener and silences the startup warning.\n"
-msgstr "# host はコンテナインターフェイスを選択します。allow_public_bind は\n      # 非ループバックリスナーを認識し、起動時の警告を抑制します。\n"
+msgstr ""
+"# host はコンテナインターフェイスを選択します。allow_public_bind は\n"
+"      # 非ループバックリスナーを認識し、起動時の警告を抑制します。\n"
 
 #: src/setup/freebsd.md
 msgid "# if the daemon exposes the local gateway (default 127.0.0.1:42617):\n"
@@ -3735,8 +3747,8 @@ msgid "**Config:** Use `zeroclaw config set peripherals.boards.0.board nucleo-f4
 msgstr "**設定:** `zeroclaw config set peripherals.boards.0.board nucleo-f401re`、`transport serial`、`path <your-serial-port>` を使用します。すべてのフィールドについては [設定リファレンス](../reference/config.md) を参照してください。"
 
 #: src/plugins/writing-a-channel-plugin.md
-msgid "**Configuration arrives before anything else.** The host calls your `configure` export exactly once, at load, before any other call. The argument is the typed JSON object materialized and validated against your manifest's `config_schema`, with secrets already decrypted. If the requested `config_read` grant is denied, the host validates `{}` instead; an optional schema receives that object, while required fields make construction fail before guest code runs. Deserialize the object into a typed config struct and store it in your component's state."
-msgstr "**設定情報は、他の何よりも先に渡されます。** ホストはロード時に、他の呼び出しに先立って、`configure` エクスポートを正確に1回呼び出します。引数は、マニフェストの `config_schema` に基づいて実体化され、検証された型付き JSON オブジェクトであり、シークレットはすでに復号済みです。要求された `config_read` 権限が拒否された場合、ホストは代わりに `{}` を検証します。オプションのスキーマはそのオブジェクトを受け取りますが、必須フィールドがあると、ゲストコードの実行前に構築に失敗します。オブジェクトを型付きの設定構造体にデシリアライズし、コンポーネントの状態に保存します。"
+msgid "**Configuration arrives before anything else.** The host calls your `configure` export exactly once, at load, before any other call. The argument is the typed JSON object materialized and validated against your manifest's `config_schema`, with secrets already decrypted. If the requested `config_read` grant is denied, the host validates `{}` instead; an optional schema receives that object, while required fields make construction fail before guest code runs. Deserialize the object into a typed config struct and store it in your component's state. The channel world does not import the scoped secret service yet, so admission rejects channel-capable manifests containing `x-secret` until the host has a coherent warm-store secret lifecycle."
+msgstr "**構成は何よりも先に提供されます。** ホストはロード時に、他のどの呼び出しよりも前に、`configure` エクスポートを正確に1回呼び出します。引数は、シークレットがすでに復号された状態で、マニフェストの `config_schema` に対して検証され、型付きの JSON オブジェクトとして実体化されたものです。要求された `config_read` 権限付与が拒否された場合、ホストは代わりに `{}` を検証します。オプションのスキーマはそのオブジェクトを受け取りますが、必須フィールドがあるとゲストコードが実行される前に構築に失敗します。オブジェクトを型付きの構成構造体にデシリアライズし、コンポーネントの状態に保存します。channel ワールドはまだスコープ付きシークレットサービスをインポートしていないため、ホストが一貫したウォームストアのシークレットライフサイクルを確立するまで、アドミッションでは `x-secret` を含むチャネル対応マニフェストを拒否します。"
 
 #: src/foundations/fnd-006-zero-compromise-in-practice.md
 msgid "**Configuration errors** are malformed or missing configuration discovered at startup. The correct response is to fail fast, but specifically. Not a panic with a stack trace, not a vague \"invalid config\" message. A message that points at the specific field, explains what was expected, and tells the operator what to provide. A user who cannot start ZeroClaw because of a misconfiguration should leave the process with a clear understanding of exactly what to fix."
@@ -3825,6 +3837,10 @@ msgstr "**データシートの作成**: ピンエイリアスとGPIO情報を�
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "**Create** a `Translations` page on the GitHub Wiki with a table of available languages, their completeness, and the contributors maintaining them"
 msgstr "GitHub Wiki に `Translations` ページを作成し、利用可能な言語の一覧、その進捗状況、およびそれらを管理している貢献者を含む表を追加してください。"
+
+#: src/plugins/writing-a-channel-plugin.md
+msgid "**Credential limitation.** Do not add `x-secret` to this channel schema. The current channel world has no `secrets` import, and admission rejects any channel-capable manifest containing that marker. Credentials therefore arrive in the one typed `configure` object and remain in warm guest state. A channel migration that requires scoped reads or rotation must remain built in until a coherent warm-store secret lifecycle lands."
+msgstr "**認証情報の制約。** このチャネルスキーマに `x-secret` を追加しないでください。現在のチャネル環境には `secrets` のインポートがなく、そのマーカーを含むチャネル対応マニフェストはアドミッションで拒否されます。そのため、認証情報は唯一の型付き `configure` オブジェクトで渡され、ウォームゲスト状態に保持されます。スコープ付き読み取りまたはローテーションを必要とするチャネル移行は、整合性のあるウォームストアのシークレットライフサイクルが導入されるまで、組み込みのままにする必要があります。"
 
 #: src/channels/matrix.md
 msgid "**Cron delivery:** `delivery.to` should be a plain room id (`!abc:server`) or alias (`#room:server`). Older configs that wrote `<sender>||<room>` are tolerated: ZeroClaw extracts the last `!`/`#`\\-prefixed segment and warns about the malformed value."
@@ -4921,8 +4937,8 @@ msgid "**Metadata:** Read-only (mandatory; auto-selected)"
 msgstr "**メタデータ:** 読み取り専用 (必須; 自動選択)"
 
 #: src/plugins/index.md
-msgid "**Metered execution.** The engine is built with fuel metering enabled, and every call gets a fresh fuel budget. A plugin that loops forever traps; it cannot hang the agent. Memory, table, and instance ceilings are enforced by a store limiter. All four bounds come from operator config (`plugins.limits.*`) and are validated non-zero, and a store cannot be constructed without them, so no load path can produce an unsandboxed plugin."
-msgstr "**メータリング実行。** エンジンは燃料メータリングを有効にしてビルドされており、すべての呼び出しに新しい燃料バジェットが割り当てられます。無限ループするプラグインはトラップし、エージェントをハングさせることはできません。メモリ、テーブル、インスタンスの上限はストアリミッターによって強制されます。これら4つの境界はすべてオペレーター設定（`plugins.limits.*`）から取得され、非ゼロであることが検証されます。また、これらなしではストアを構築できないため、どのロードパスもサンドボックス化されていないプラグインを生成できません。"
+msgid "**Metered execution.** The engine is built with fuel metering enabled, and every call gets a fresh fuel budget plus a wall-clock deadline that includes awaited host work. A plugin that loops forever or waits forever fails; it cannot hang the agent. Memory, table, and instance ceilings are enforced by a store limiter. All five bounds come from operator config (`plugins.limits.*`) and are validated non-zero, and a store cannot be constructed without them, so no load path can produce an unsandboxed plugin."
+msgstr "**実行のメータリング。** エンジンは燃料メータリングを有効にしてビルドされており、呼び出しごとに新しい燃料予算と、待機中のホスト処理を含む実時間の期限が設定されます。無限ループや無限待機を行うプラグインは失敗し、エージェントをハングさせることはできません。メモリ、テーブル、インスタンスの上限はストアリミッターによって適用されます。5つすべての上限はオペレーター設定（`plugins.limits.*`）から取得され、ゼロ以外であることが検証されます。また、これらの上限なしではストアを構築できないため、どの読み込み経路でもサンドボックス化されていないプラグインが生成されることはありません。"
 
 #: src/foundations/fnd-001-intentional-architecture.md
 msgid "**Microkernel**: An architecture in which the core system contains only the minimum necessary functionality, and all other capabilities are provided by separate components that communicate with the core through well-defined interfaces."
@@ -5494,8 +5510,8 @@ msgid "**Permissions** are what host services the plugin's code may reach at run
 msgstr "**パーミッション**は、プラグインのコードが実行時に到達できるホストサービスです: HTTP エグレス、構成、メモリ。マニフェストで宣言されていないパーミッションは、プラグインが到達できないホスト関数です。"
 
 #: src/plugins/index.md
-msgid "**Permissions**: what host services the plugin's code may _reach_. The `PluginPermission` enum in the same file. Today `config_read` (tool and channel adapters receive their own schema-materialized, validated config) and `http_client` have behavioral effect. The HTTP permission is the necessary grant for adapters that implement outbound `wasi:http`: tool and channel enable that surface, while memory intentionally does not yet. `config_read` must be paired with the manifest's `config_schema`; either one without the other is rejected. The filesystem and memory-access permissions are accepted by the schema but not yet backed by host functions, so declaring them grants nothing."
-msgstr "**権限**: プラグインのコードが _アクセス_ できるホストサービス。 同じファイルにある `PluginPermission` enum。現在、`config_read`（tool および channel アダプターは、それぞれ独自のスキーマから具体化され検証済みの config を受け取る）と `http_client` が動作に影響します。HTTP 権限は、送信 `wasi:http` を実装するアダプターに必要な許可です。tool と channel はその機能を有効にしますが、memory は意図的にまだ有効にしていません。`config_read` はマニフェストの `config_schema` と組み合わせる必要があり、どちらか一方だけの場合は拒否されます。filesystem および memory-access 権限はスキーマでは受け付けられますが、ホスト関数による実装はまだないため、宣言しても何も許可されません。"
+msgid "**Permissions**: what host services the plugin's code may _reach_. The `PluginPermission` enum in the same file. Today `config_read` (tool and channel adapters receive their own schema-materialized, validated config, and tools can resolve schema-designated secrets during `execute`) and `http_client` have behavioral effect. The HTTP permission is the necessary grant for adapters that implement outbound `wasi:http`: tool and channel enable that surface, while memory intentionally does not yet. `config_read` must be paired with the manifest's `config_schema`; either one without the other is rejected. Channel-capable manifests cannot use `x-secret` yet. The filesystem and memory-access permissions are accepted by the schema but not yet backed by host functions, so declaring them grants nothing."
+msgstr "**Permissions**: プラグインのコードが _到達できる_ ホストサービス。`PluginPermission` 列挙型は同じファイル内にあります。現在、`config_read`（ツールおよびチャネルアダプターは、それぞれのスキーマから具体化され検証済みの設定を受け取り、ツールは `execute` 中にスキーマで指定されたシークレットを解決できます）と `http_client` が動作に影響します。HTTP 権限は、外向きの `wasi:http` を実装するアダプターに必要な許可です。ツールとチャネルではその機能を有効にしますが、メモリでは意図的にまだ有効にしていません。`config_read` はマニフェストの `config_schema` と組み合わせる必要があり、どちらか一方だけの場合は拒否されます。チャネル対応マニフェストでは、まだ `x-secret` を使用できません。ファイルシステムおよびメモリアクセスの権限はスキーマでは受け入れられますが、ホスト関数によってはまだ実装されていないため、宣言しても何も付与されません。"
 
 #: src/channels/matrix.md
 msgid "**Persistent sessions:** on first successful login, ZeroClaw writes `~/.zeroclaw/state/matrix/session.json` (user_id + device_id + access_token + optional refresh_token). Subsequent restarts call `restore_session()` from that blob: no re-login. The matrix-rust-sdk SQLite crypto store lives alongside it at `~/.zeroclaw/state/matrix/store/`. **Once `session.json` exists, rotating `access_token` in config has no effect until the file is deleted**: the saved token wins. Delete `session.json` to force a re-login from config values."
@@ -8207,8 +8223,8 @@ msgid "**`llm.generate`** - one bounded model call as a pipeline step (no tools,
 msgstr "**`llm.generate`** - デフォルトエージェントの解決済みモデルプロバイダーを使用し、パイプラインステップとして1回の境界付きモデル呼び出しを行います（ツールなし、エージェントループなし）。`with:` で指定できるフィールド: `instruction`（必須）、`system`、`output_key`（デフォルト `text`）、`echo`（ダウンストリームのパイピング用に出力へコピーされるペイロードフィールド）。パイプされたイベントペイロードは明示的な非信頼コンテンツフレーム内で配信され、設定として読み取られることはありません。"
 
 #: src/developing/plugin-protocol.md
-msgid "**`logging`, typed config injection, and host-fed inbound are wired; tool and channel adapters also implement `http_client`.** Of the permissions a manifest can declare, `config_read` exposes the plugin's own section only after the host materializes and validates it against the manifest-owned `config_schema`. An `http_client` grant is necessary for outbound `wasi:http`, but the adapter must also opt into the host surface. Memory intentionally remains HTTP-free until its network boundary has component-level coverage. Filesystem and memory-access permissions are still accepted by the manifest schema but inert: their host functions are not yet registered in the linker. See Permissions and Host imports below."
-msgstr "**`logging`、型付き構成注入、ホストから供給されるインバウンドが接続され、ツールおよびチャネルアダプターも `http_client` を実装しています。** マニフェストで宣言できる権限のうち、`config_read` は、ホストがそれを実体化し、マニフェスト定義の `config_schema` に照らして検証した後にのみ、プラグイン自身のセクションを公開します。`http_client` の許可は外向きの `wasi:http` に必要ですが、アダプターはホストサーフェスにもオプトインする必要があります。メモリは、ネットワーク境界がコンポーネントレベルでカバーされるまで、意図的に HTTP を使用しない状態に保たれます。ファイルシステムおよびメモリアクセスの権限は、引き続きマニフェストスキーマで受け付けられますが、まだ機能しません。これらのホスト関数は、まだリンカーに登録されていません。以下の「権限とホストインポート」を参照してください。"
+msgid "**`logging`, typed config injection, tool-scoped secrets, and host-fed inbound are wired; tool and channel adapters also implement `http_client`.** Of the permissions a manifest can declare, `config_read` exposes the plugin's own section only after the host materializes and validates it against the manifest-owned `config_schema`. A tool-only schema can designate secrets that are withheld from `__config` and resolved during `execute`; a channel-capable manifest cannot use secret markers yet. An `http_client` grant is necessary for outbound `wasi:http`, but the adapter must also opt into the host surface. Memory intentionally remains HTTP-free until its network boundary has component-level coverage. Filesystem and memory-access permissions are still accepted by the manifest schema but inert: their host functions are not yet registered in the linker. See Permissions and Host imports below."
+msgstr "**`logging`、型付き構成の注入、ツールスコープのシークレット、ホスト供給の inbound が組み込まれています。ツールアダプターとチャネルアダプターは `http_client` も実装しています。** マニフェストで宣言できる権限のうち、`config_read` は、ホストがプラグイン自身のセクションを実体化し、マニフェストが所有する `config_schema` に対して検証した後にのみ、そのセクションを公開します。ツール専用のスキーマでは、`__config` から除外し、`execute` の実行時に解決するシークレットを指定できます。チャネル対応のマニフェストでは、現時点でシークレットマーカーを使用できません。送信 `wasi:http` には `http_client` の許可が必要ですが、アダプターもホストサーフェスへのオプトインが必要です。メモリは、ネットワーク境界がコンポーネントレベルでカバーされるまで、意図的に HTTP-free のままです。ファイルシステムおよびメモリアクセスの権限は、マニフェストスキーマでは引き続き受け付けられますが、無効です。これらのホスト関数はまだリンカーに登録されていません。以下の「Permissions」と「Host imports」を参照してください。"
 
 #: src/ops/cost-tracking.md
 msgid "**`missing_pricing` warns spam the log.** Emitted once per `(provider_type, model)` pair when `resolve_rates` returns `(0.0, 0.0)`. Either the rate isn't configured for that model, or the upstream returned a different model id than what's in the rate sheet (some providers return versioned ids like `claude-3-5-sonnet-20241022` even when you configured `claude-3-5-sonnet`). Add the exact id the warn names, or set the unversioned id and rely on `resolve_rates`'s suffix-match path."
@@ -10526,6 +10542,10 @@ msgstr "`kind: checkpoint` ステップで一時停止した確定的実行は�
 msgid "A dev box where you're iterating fast and approval prompts slow you down"
 msgstr "素早く反復処理を行っている開発環境で、承認プロンプトが作業を遅らせています"
 
+#: src/plugins/writing-a-tool-plugin.md
+msgid "A direct top-level string property marked `x-secret = true` is excluded from `__config`. Read it explicitly with the generated `zeroclaw::plugin::secrets::get` function. Nested markers, false/non-boolean markers, and secret non-string properties fail manifest admission."
+msgstr "`x-secret = true` とマークされたトップレベルの直接の文字列プロパティは、`__config` から除外されます。生成された `zeroclaw::plugin::secrets::get` 関数で明示的に読み取ってください。ネストされたマーカー、false または非ブール値のマーカー、および文字列以外のシークレットプロパティは、マニフェストの受け入れに失敗します。"
+
 #: src/channels/peer-groups.md
 msgid "A discord peer group named e.g. `my_discord_group` sets `channel = \"discord\"`, allows `111111111111111111` in `external_peers`, names peer agents researcher, summariser, and blocks `222222222222222222` via `ignore`. Set it through the gateway dashboard, zerocode, or `zeroclaw config set`."
 msgstr "`my_discord_group` のような名前の discord ピアグループでは、`channel = \"discord\"` を設定し、`external_peers` で `111111111111111111` を許可し、ピアエージェントに researcher、summariser という名前を付け、`ignore` を介して `222222222222222222` をブロックします。これは gateway ダッシュボード、zerocode、または `zeroclaw config set` を使って設定します。"
@@ -10783,8 +10803,8 @@ msgid "A plugin can provide one or more of the capabilities defined in `PluginCa
 msgstr "プラグインは、`PluginCapability`（`crates/zeroclaw-plugins/src/lib.rs`）で定義された機能のうち1つ以上を提供できます。呼び出し可能なツール、メッセージングチャネル、メモリバックエンド、オブザーバビリティバックエンド、またはマークダウンスキルのバンドルです。スキルのケースは特別で、WASMを一切同梱せず、マークダウンの `skills/` ディレクトリのみを提供するため、コンパイル済みコンポーネントを省略する唯一の機能です。"
 
 #: src/developing/plugin-protocol.md
-msgid "A plugin does not read process environment variables. Its manifest must pair `config_read` with a Draft 2020-12 `config_schema`; either one without the other is an invalid manifest. The schema root must be an object with a `properties` map and `additionalProperties = false`. Each top-level property must declare one of `string`, `boolean`, `integer`, `number`, `array`, or `object`, directly or through a package-local JSON Pointer. Unknown keys, malformed encodings, and constraint violations reject the instance before guest code runs."
-msgstr "プラグインはプロセス環境変数を読み取りません。マニフェストでは、`config_read` と Draft 2020-12 の `config_schema` を組み合わせる必要があります。どちらか一方だけの場合、マニフェストは無効です。スキーマのルートは、`properties` マップと `additionalProperties = false` を持つオブジェクトでなければなりません。トップレベルの各プロパティでは、パッケージローカルの JSON Pointer を介する場合も含め、`string`、`boolean`、`integer`、`number`、`array`、`object` のいずれかを直接宣言する必要があります。不明なキー、形式不正なエンコーディング、制約違反がある場合、ゲストコードの実行前にインスタンスが拒否されます。"
+msgid "A plugin does not read process environment variables. Its manifest must pair `config_read` with a Draft 2020-12 `config_schema`; either one without the other is an invalid manifest. The schema root must be an object with a `properties` map and `additionalProperties = false`. Each top-level property must declare one of `string`, `boolean`, `integer`, `number`, `array`, or `object`, directly or through a package-local JSON Pointer. In a manifest that includes `tool` and excludes `channel`, a direct top-level string property may set `x-secret: true`; nested, false, or non-boolean markers and secret non-string properties are rejected. A manifest with the `channel` capability and any `x-secret` marker is also rejected. Unknown keys, malformed encodings, and constraint violations reject the instance before guest code runs."
+msgstr "プラグインはプロセス環境変数を読み取りません。マニフェストでは、`config_read` と Draft 2020-12 の `config_schema` を組み合わせる必要があり、どちらか一方だけを含むマニフェストは無効です。スキーマのルートは、`properties` マップを持ち、`additionalProperties = false` に設定されたオブジェクトでなければなりません。トップレベルの各プロパティでは、`string`、`boolean`、`integer`、`number`、`array`、`object` のいずれかの型を、直接またはパッケージローカルの JSON Pointer を介して宣言する必要があります。`tool` を含み、`channel` を含まないマニフェストでは、直接指定されたトップレベルの文字列プロパティに `x-secret: true` を設定できます。ネストされたマーカー、false のマーカー、またはブール値以外のマーカー、およびシークレットとしてマークされた非文字列プロパティは拒否されます。`channel` 機能と任意の `x-secret` マーカーを含むマニフェストも拒否されます。未知のキー、不正なエンコーディング、または制約違反がある場合、ゲストコードが実行される前にインスタンスが拒否されます。"
 
 #: src/developing/plugin-protocol.md
 msgid "A plugin is a `cdylib` crate that targets the component model. Generate the guest bindings from the same `wit/v0` package the host uses, implement the exported world, and compile to `wasm32-wasip2`. For the full worked walkthroughs from empty crate to installed plugin, see the [plugin guides](../plugins/index.md); the notes below cover the build and install mechanics."
@@ -11111,6 +11131,10 @@ msgstr "広すぎるトレイトは、重要な機能の違いを隠蔽する最
 #: src/architecture/decisions/ADR-002-trait-driven-extensibility.md
 msgid "A trait that is too narrow forces integrations to tunnel behavior through config, logs, or ad hoc helper paths."
 msgstr "狭すぎるトレイトは、インテグレーションに設定、ログ、またはアドホックなヘルパーパスを通じて振る舞いをトンネルすることを強制します。"
+
+#: src/developing/how-plugins-work.md
+msgid "A trusted tool plugin can read a schema-designated secret's plaintext through its scoped `secrets.get` import while the host dispatches `execute`. The host prevents public config injection and cross-instance selection; it does not provide stronger egress-boundary credential injection where guest code never learns the value. Channel manifests cannot use `x-secret` until the host has a coherent warm-store secret lifecycle."
+msgstr "信頼済みのツールプラグインは、ホストが `execute` をディスパッチしている間、スコープ付きの `secrets.get` インポートを通じて、スキーマで指定されたシークレットの平文を読み取れます。ホストはパブリック設定の注入とインスタンス間の選択を防止しますが、ゲストコードが値を知ることのない、より強力なエグレス境界での認証情報注入は提供しません。ホストに一貫したウォームストアのシークレットライフサイクルが整うまで、チャネルマニフェストでは `x-secret` を使用できません。"
 
 #: src/contributing/agent-policy-parity-harness.md
 msgid "A turn's engine inputs (the tool registry, the approval manager, the resolved runtime knobs) are assembled at several distinct sites:"
@@ -13389,8 +13413,8 @@ msgid "Areas that want help"
 msgstr "支援が必要な領域"
 
 #: src/plugins/writing-a-tool-plugin.md
-msgid "Arguably the most common real-world tool shape is not a pure transform like `redact` but a bridge to an external API: declare `http_client` in the manifest, read credentials from `__config`, make an outbound request. The missing piece relative to this guide is an HTTP client that works inside a component: `reqwest` and friends do not, because there is no socket surface, only `wasi:http`. A client known to work against this host is [`waki`](https://crates.io/crates/waki), which is blocking and therefore fits `execute`'s synchronous signature directly. Add it gated to the component target so your pure-logic modules stay natively testable:"
-msgstr "おそらく現実世界で最も一般的なツールの形状は、`redact` のような純粋な変換ではなく、外部 API へのブリッジです: マニフェストで `http_client` を宣言し、`__config` から認証情報を読み取り、アウトバウンドリクエストを行います。このガイドに対して欠けている部分は、コンポーネント内で動作する HTTP クライアントです: `reqwest` とその仲間は動作しません。なぜならソケットサーフェスがなく、`wasi:http` のみだからです。このホストに対して動作することが知られているクライアントは [`waki`](https://crates.io/crates/waki) で、ブロッキングであり、したがって `execute` の同期シグネチャに直接適合します。純粋なロジックモジュールがネイティブでテスト可能なままになるように、コンポーネントターゲットにゲートして追加します:"
+msgid "Arguably the most common real-world tool shape is not a pure transform like `redact` but a bridge to an external API: declare `http_client` in the manifest, read credentials through the scoped secret service, and make an outbound request. Mark the credential in the signed schema:"
+msgstr "現実世界で最も一般的なツール形態は、`redact` のような純粋な変換ではなく、外部 API へのブリッジだと言えるでしょう。マニフェストで `http_client` を宣言し、スコープ付きシークレットサービスを介して認証情報を読み取り、外部リクエストを送信します。署名付きスキーマで認証情報をマークします："
 
 #: src/sop/example.md src/foundations/fnd-001-intentional-architecture.md
 #: src/foundations/fnd-004-engineering-infrastructure.md
@@ -14110,8 +14134,8 @@ msgid "Be assigned issues (can request to be assigned)"
 msgstr "課題を割り当てる（割り当てをリクエストすることも可能）"
 
 #: src/developing/plugin-protocol.md
-msgid "Be aware of the gap between declared and enforced: in the component host today `config_read` and `http_client` have behavioral effect. Requesting `config_read` requires a `config_schema`, and declaring that schema without the permission is also rejected. Before a tool or channel component is instantiated, the host resolves its effective grant, materializes the plugin's operator values to typed JSON, and validates the result. `runtime.rs` strips any caller-supplied `__config` before injecting the validated object into a tool call; a channel receives the same object through `configure`. `http_client` is a necessary grant, not a complete authority decision: the capability adapter must also construct the HTTP context and link `wasi:http`. Tool and channel adapters opt in after grant validation. The memory adapter deliberately does not, so granting `http_client` to a memory scope alone adds no network surface. The remaining variants (`file_read`, `file_write`, `memory_read`, `memory_write`) are accepted by the manifest schema but are not yet wired to a host import: declaring them grants nothing on its own. They reserve the names for the host functions that will gate them (see Host imports below)."
-msgstr "宣言された内容と強制適用される内容の間に隔たりがあることに注意してください。現在のコンポーネントホストでは、`config_read` と `http_client` が動作に影響します。`config_read` を要求するには `config_schema` が必要であり、その権限なしにそのスキーマを宣言しても拒否されます。ツールまたはチャネルコンポーネントがインスタンス化される前に、ホストはその実効的な権限付与を解決し、プラグインのオペレーター値を型付き JSON として具体化して、その結果を検証します。`runtime.rs` は呼び出し元が指定した `__config` をすべて削除してから、検証済みオブジェクトをツール呼び出しに注入します。チャネルは `configure` を通じて同じオブジェクトを受け取ります。`http_client` は必要な権限付与ですが、完全な権限決定ではありません。ケイパビリティアダプターは HTTP コンテキストを構築し、`wasi:http` をリンクする必要もあります。ツールアダプターとチャネルアダプターは、権限付与の検証後にオプトインします。メモリアダプターは意図的にオプトインしないため、メモリスコープにのみ `http_client` を付与しても、ネットワークへのアクセスは追加されません。残りのバリアント（`file_read`、`file_write`、`memory_read`、`memory_write`）はマニフェストスキーマで受け入れられますが、まだホストインポートに接続されていません。これらを宣言しても、それだけでは何も付与されません。これらの名前は、これらを制御するホスト関数のために予約されています（下記の「ホストインポート」を参照してください）。"
+msgid "Be aware of the gap between declared and enforced: in the component host today `config_read` and `http_client` have behavioral effect. Requesting `config_read` requires a `config_schema`, and declaring that schema without the permission is also rejected. Before a tool or channel component is instantiated, the host resolves its effective grant, materializes the plugin's operator values to typed JSON, and validates the complete object. `runtime.rs` strips any caller-supplied `__config` before injecting the validated non-secret values into a tool call; direct top-level string properties marked `x-secret: true` are read through the host-scoped `secrets` import during `execute`. A channel receives its validated object through `configure`, and a channel-capable manifest with any `x-secret` marker is rejected. `http_client` is a necessary grant, not a complete authority decision: the capability adapter must also construct the HTTP context and link `wasi:http`. Tool and channel adapters opt in after grant validation. The memory adapter deliberately does not, so granting `http_client` to a memory scope alone adds no network surface. The remaining variants (`file_read`, `file_write`, `memory_read`, `memory_write`) are accepted by the manifest schema but are not yet wired to a host import: declaring them grants nothing on its own. They reserve the names for the host functions that will gate them (see Host imports below)."
+msgstr "宣言された内容と実際に適用される内容の間には差があることに注意してください。現在のコンポーネントホストでは、`config_read` と `http_client` が実際の動作に影響します。`config_read` を要求するには `config_schema` が必要であり、その権限なしにそのスキーマを宣言した場合も拒否されます。ツールまたはチャネルコンポーネントがインスタンス化される前に、ホストは実効的な権限付与を解決し、プラグインのオペレーター値を型付き JSON として具体化して、完全なオブジェクトを検証します。`runtime.rs` は、検証済みの非シークレット値をツール呼び出しに注入する前に、呼び出し元が指定した `__config` をすべて削除します。`x-secret: true` とマークされたトップレベルに直接ある文字列プロパティは、`execute` の実行中にホストスコープの `secrets` インポートを介して読み取られます。チャネルは `configure` を通じて検証済みオブジェクトを受け取り、`x-secret` マーカーが1つでもあるチャネル対応マニフェストは拒否されます。`http_client` は必要な権限付与ですが、権限を完全に決定するものではありません。ケイパビリティアダプターは、HTTP コンテキストを構築し、`wasi:http` をリンクする必要もあります。ツールアダプターとチャネルアダプターは、権限付与の検証後にオプトインします。メモリアダプターは意図的にオプトインしないため、メモリスコープだけに `http_client` を付与しても、ネットワークへの公開範囲は広がりません。残りのバリアント（`file_read`、`file_write`、`memory_read`、`memory_write`）はマニフェストスキーマでは受け入れられますが、まだホストインポートに接続されていません。つまり、これらを宣言しても、それだけでは何も付与されません。これらは、これらを制御するホスト関数の名前を予約します（下記のホストインポートを参照）。"
 
 #: src/plugins/index.md
 msgid "Be aware of what is registered end to end versus what is host-complete but not yet reachable from a running daemon:"
@@ -14627,8 +14651,8 @@ msgid "Bounded targets run under the target policy with the caller's agentic too
 msgstr "制限付きターゲットは、呼び出し元のエージェンティックツールレジストリを上限としてターゲットポリシーの下で実行され、独立ターゲットはターゲットポリシーとターゲット所有のレジストリの下で実行されます"
 
 #: src/reference/config.md
-msgid "Bounds a single plugin call so a runaway or malicious component traps instead of hanging the host or exhausting memory. `call_fuel` caps instructions per call; the memory, table, and instance ceilings bound a store's growth. Every value is operator-tunable and validated as non-zero."
-msgstr "単一のプラグイン呼び出しを制限し、暴走または悪意のあるコンポーネントがホストをハングさせたりメモリを使い果たしたりする代わりにトラップするようにします。`call_fuel` は呼び出しごとの命令数を上限にし、メモリ、テーブル、インスタンスの上限がストアの成長を制限します。すべての値はオペレーターが調整可能で、非ゼロであることが検証されます。"
+msgid "Bounds a single plugin call so a runaway or malicious component traps instead of hanging the host or exhausting memory. `call_fuel` caps instructions per call; `call_timeout_ms` caps elapsed wall-clock time, including time awaiting async host imports; the memory, table, and instance ceilings bound a store's growth. Every value is operator-tunable and validated as non-zero."
+msgstr "単一のプラグイン呼び出しに上限を設け、暴走したコンポーネントや悪意のあるコンポーネントがホストをハングさせたりメモリを使い果たしたりする代わりに、トラップするようにします。`call_fuel` は呼び出しごとの命令数に上限を設定し、`call_timeout_ms` は非同期ホストインポートの待機時間を含む経過実時間に上限を設定します。メモリ、テーブル、インスタンスの上限によって、ストアの拡張を制限します。すべての値は運用者が調整でき、ゼロ以外であることが検証されます。"
 
 #: src/architecture/localization-catalog-lifecycle.md
 msgid "Branch"
@@ -15221,8 +15245,8 @@ msgid "Calendar source identifier the event originates from."
 msgstr "イベントの発生元となるカレンダーソース識別子。"
 
 #: src/plugins/writing-a-tool-plugin.md
-msgid "Call traps"
-msgstr "コールトラップ"
+msgid "Call fails or traps"
+msgstr "呼び出しに失敗するか、トラップが発生する"
 
 #: src/architecture/logging.md
 msgid "Call-site contract"
@@ -19754,8 +19778,8 @@ msgstr "デメリット"
 #: src/tools/skill-bundles.md src/developing/plugin-protocol.md
 #: src/plugins/writing-a-tool-plugin.md src/plugins/writing-a-channel-plugin.md
 #: src/plugins/writing-a-memory-plugin.md
-msgid "Draft 2020-12 JSON Schema for this plugin's private config; it is included in the canonical manifest bytes and therefore covered when the manifest is signed. The root must be an object with a `properties` map and `additionalProperties = false`. Every top-level property must have one explicit supported type, directly or through a local JSON Pointer: `string`, `boolean`, `integer`, `number`, `array`, or `object`. A schema without `config_read`, or `config_read` without a schema, is rejected."
-msgstr "このプラグインのプライベート設定用の Draft 2020-12 JSON Schemaです。これは canonical manifest のバイト列に含まれるため、manifest の署名時に署名対象となります。ルートは `properties` マップを持つオブジェクトで、`additionalProperties = false` でなければなりません。トップレベルの各プロパティには、直接またはローカル JSON Pointer を介して、サポートされる型のいずれか1つを明示的に指定する必要があります: `string`、`boolean`、`integer`、`number`、`array`、`object`。`config_read` を含まないスキーマ、またはスキーマを持たない `config_read` は拒否されます。"
+msgid "Draft 2020-12 JSON Schema for this plugin's private config; it is included in the canonical manifest bytes and therefore covered when the manifest is signed. The root must be an object with a `properties` map and `additionalProperties = false`. Every top-level property must have one explicit supported type, directly or through a local JSON Pointer: `string`, `boolean`, `integer`, `number`, `array`, or `object`. A manifest that includes `tool` and excludes `channel` may set `x-secret = true` directly on a top-level string property to remove it from public config and expose it through the scoped `secrets.get` host import during `execute`. Nested, false, or non-boolean secret markers and secret non-string properties are rejected. A manifest with the `channel` capability and any `x-secret` property is also rejected until the host has a coherent warm-store secret lifecycle. A schema without `config_read`, or `config_read` without a schema, is rejected."
+msgstr "このプラグインのプライベート設定用に Draft 2020-12 JSON Schema を作成します。これは正規マニフェストのバイト列に含まれるため、マニフェストの署名対象にもなります。ルートは、`properties` マップと `additionalProperties = false` を持つオブジェクトでなければなりません。すべてのトップレベルプロパティには、直接またはローカル JSON Pointer を介して、サポートされる型を1つ明示しなければなりません。型は `string`、`boolean`、`integer`、`number`、`array`、または `object` です。`tool` を含み `channel` を含まないマニフェストでは、トップレベルの文字列プロパティに `x-secret = true` を直接設定して、そのプロパティを公開設定から除外し、`execute` の実行中にスコープ付き `secrets.get` ホストインポートを介して公開できます。ネストされた、false の、またはブール値でないシークレットマーカー、およびシークレットとして指定された非文字列プロパティは拒否されます。`channel` ケイパビリティを持ち、`x-secret` プロパティを1つでも含むマニフェストも、ホストに整合性のあるウォームストア・シークレットのライフサイクルが整うまで拒否されます。`config_read` のないスキーマ、またはスキーマのない `config_read` は拒否されます。"
 
 #: src/channels/telegram.md
 msgid "Draft edits report `Too Many Requests`"
@@ -21127,6 +21151,10 @@ msgstr "ZeroClaw が発行するすべてのイベントは、単一のクレー
 msgid "Every frame must be a JSON object with `\"jsonrpc\": \"2.0\"`. Requests require a string `method`; when present, `params` must be an object or array. Responses require a string, numeric, or null `id` and exactly one response member. Invalid JSON produces `-32700` (parse error). A malformed request-shaped envelope produces `-32600` (invalid request), using its valid request ID when one can be recovered. A malformed response-shaped envelope is logged without frame contents and dropped without a reply, because echoing its ID could complete an unrelated request in the opposite direction. Direction-ambiguous envelopes use `id: null`. Unknown valid response IDs are likewise logged and ignored rather than answered, preventing response loops."
 msgstr "すべてのフレームは、`\"jsonrpc\": \"2.0\"` を含む JSON オブジェクトでなければなりません。リクエストには文字列の `method` が必要です。`params` が存在する場合は、オブジェクトまたは配列でなければなりません。レスポンスには文字列、数値、または null の `id` と、レスポンスメンバーが正確に 1 つ必要です。無効な JSON では `-32700`（解析エラー）が生成されます。不正なリクエスト形式のエンベロープでは `-32600`（無効なリクエスト）が生成され、復元できる場合は有効なリクエスト ID が使用されます。不正なレスポンス形式のエンベロープは、フレームの内容をログに記録せずに破棄され、返信も行われません。これは、その ID をエコーすると、反対方向にある無関係なリクエストを完了させてしまう可能性があるためです。方向を判別できないエンベロープでは `id: null` を使用します。未知の有効なレスポンス ID も同様にログに記録して無視し、応答は返しません。これによりレスポンスループを防ぎます。"
 
+#: src/developing/plugin-protocol.md
+msgid "Every guest export runs under per-call resource limits the host applies to the store. The engine enables fuel metering, and each call is given a fresh fuel budget so a runaway or malicious component traps instead of hanging the host. The host also applies a wall-clock deadline around the complete export future, including time awaiting async host imports such as `wasi:http`; periodic fuel yields ensure uninterrupted guest computation cannot starve that timer, and guest-reachable host imports never block the executor (log records are handed to a bounded queue and written by a dedicated host thread), so the deadline stays observable while host work runs. A `StoreLimits` ceiling bounds linear memory, table elements, and instance count. The tool world gets a fresh store per execute; the warm channel and memory stores are refueled before each call so a long-lived plugin gets a fresh budget rather than draining over its lifetime."
+msgstr "すべてのゲストエクスポートは、ホストがストアに適用する呼び出しごとのリソース制限の下で実行されます。エンジンはフューエルメータリングを有効にし、暴走したコンポーネントや悪意のあるコンポーネントがホストをハングさせるのではなくトラップするよう、各呼び出しに新しいフューエル予算を割り当てます。ホストは、`wasi:http` などの非同期ホストインポートの待機時間も含め、エクスポート全体のフューチャーに対してウォールクロックのデッドラインも適用します。フューエルによる定期的な yield により、中断されないゲスト計算がそのタイマーの処理を妨げることはありません。また、ゲストから到達可能なホストインポートがエグゼキューターをブロックすることもありません（ログレコードは有界キューに渡され、専用のホストスレッドによって書き込まれるため）。そのため、ホスト処理の実行中もデッドラインを監視できます。`StoreLimits` の上限は、線形メモリ、テーブル要素、インスタンス数を制限します。ツールワールドには実行ごとに新しいストアが用意されます。ウォームチャネルおよびメモリーストアには各呼び出しの前にフューエルが再補給されるため、長時間稼働するプラグインは存続期間中に予算を使い果たすのではなく、新しい予算を得られます。"
+
 #: src/maintainers/labels.md
 msgid "Every live cleanup batch needs exact maintainer approval for the labels and issue/PR refs being changed."
 msgstr "すべてのライブクリーンアップバッチでは、変更対象のラベルおよび issue/PR 参照について、メンテナーの明示的な承認が必要です。"
@@ -21194,10 +21222,6 @@ msgstr "すべての送信チャネルは、オプションの `reply_min_interv
 #: src/plugins/migrating-to-typed-config.md
 msgid "Every package published in `zeroclaw-labs/zeroclaw-plugins` requests `config_read`, and none declared `config_schema` when this landed, so all of them need step 1 and step 5. Migration is tracked in that repository rather than here, since the packages version independently of the host. Tool packages can complete the operator-key step now. Channel-only packages must wait for the alias-aware key path above before the tracker marks or publishes them as migrated for this contract."
 msgstr "`zeroclaw-labs/zeroclaw-plugins` で公開されているすべてのパッケージは `config_read` を要求しており、この変更が入った時点では `config_schema` を宣言しているものはなかったため、すべて step 1 と step 5 が必要です。移行はパッケージがホストとは独立してバージョン管理されるため、ここではなくそのリポジトリで追跡されます。ツールパッケージは、今すぐオペレーターキーのステップを完了できます。チャネル専用パッケージは、上記のエイリアス対応キー経路が整うまで待つ必要があり、この契約についてトラッカーがそれらを移行済みとしてマークまたは公開するのはその後になります。"
-
-#: src/developing/plugin-protocol.md
-msgid "Every plugin call runs under per-call resource limits the host applies to the store. The engine enables fuel metering, and each call is given a fresh fuel budget so a runaway or malicious component traps instead of hanging the host. A `StoreLimits` ceiling bounds linear memory, table elements, and instance count. The tool world gets a fresh store per execute; the warm channel and memory stores are refueled before each call so a long-lived plugin gets a fresh budget rather than draining over its lifetime."
-msgstr "すべてのプラグイン呼び出しは、ホストがストアに適用する呼び出しごとのリソース制限の下で実行されます。エンジンは燃料メータリングを有効にし、各呼び出しには新しい燃料バジェットが与えられるため、暴走または悪意のあるコンポーネントはホストをハングさせる代わりにトラップします。`StoreLimits` の上限が線形メモリ、テーブル要素、およびインスタンス数を制限します。ツールワールドは実行ごとに新しいストアを取得します。ウォームチャネルとメモリストアは各呼び出しの前に燃料が補給されるため、長寿命のプラグインは寿命にわたって枯渇するのではなく、新しいバジェットを取得します。"
 
 #: src/developing/how-plugins-work.md
 msgid "Every plugin manifest may carry an Ed25519 signature and the hex-encoded public key of the publisher who signed it. The operator decides how strictly that signature is enforced through `[plugins.security] signature_mode`:"
@@ -23214,8 +23238,8 @@ msgid "Fresh required CI is normally the shared evidence for the Cargo surfaces 
 msgstr "フレッシュな必須 CI は通常、それが実際に実行する Cargo サーフェスの共有エビデンスです。同じ head、ターゲット、feature セットに対する同じ Cargo コマンドのローカル再実行は、重複した確信であり、より強い証明ではありません。追加の Cargo や Clippy を求める前に、変更されたサーフェスを現在のワークフローファイルと PR 上の実際のチェックと比較してください。追加の検証は、必須ゲートがレビュー対象を証明しない箇所に属します:"
 
 #: src/plugins/index.md
-msgid "Fresh store per `execute`; nothing persists between calls"
-msgstr "`execute` ごとに新しいストア。呼び出し間で何も永続化されない"
+msgid "Fresh store per `execute`; imports scoped `secrets`"
+msgstr "`execute` ごとに新しいストアを作成；インポートのスコープは `secrets`"
 
 #: src/setup/windows.md
 msgid "From a PowerShell prompt:"
@@ -23246,8 +23270,8 @@ msgid "Fuel budget per plugin call (wasmtime instruction units)."
 msgstr "プラグイン呼び出しごとの Fuel 予算（wasmtime 命令ユニット）。"
 
 #: src/plugins/writing-a-tool-plugin.md
-msgid "Fuel or memory ceiling hit. Raise `plugins.limits.call_fuel` / `plugins.limits.max_memory_mb`, or do less per call."
-msgstr "燃料またはメモリの上限に達しました。`plugins.limits.call_fuel` / `plugins.limits.max_memory_mb` を引き上げるか、コールあたりの処理を減らしてください。"
+msgid "Fuel, wall-clock, or memory ceiling hit. Raise `plugins.limits.call_fuel`, `plugins.limits.call_timeout_ms`, or `plugins.limits.max_memory_mb` as appropriate, or do less per call."
+msgstr "Fuel、実時間、またはメモリの上限に達しました。適切な `plugins.limits.call_fuel`、`plugins.limits.call_timeout_ms`、または `plugins.limits.max_memory_mb` の値を引き上げるか、1 回の呼び出しで実行する処理を減らしてください。"
 
 #: src/providers/catalog.md
 msgid "Full access"
@@ -24449,8 +24473,8 @@ msgid "Host fallback when unset"
 msgstr "未設定時のホストフォールバック"
 
 #: src/developing/plugin-protocol.md
-msgid "Host functions are imported by the plugin and provided by the runtime. Every world's linker wires `logging` (via the host impl in `component_logging.rs`, linked alongside `add_wasi` in `component.rs`). The `channel-plugin` world also imports `inbound`, the host-fed message queue a channel drains from `poll-message`. Tool and channel adapters link outbound `wasi:http` only after the admitted scope grants `http_client` (`PluginStoreSpec::with_granted_http` and `add_wasi_http` in `component.rs`). Memory withholds both the context and linker surface. The filesystem and memory-access permissions remain inert: the host functions that would gate them are not yet wired into the linker. A plugin's ambient authority is the WASI context (no preopens, no ambient network) plus exactly the host imports its grants and adapter opt-ins jointly enable."
-msgstr "ホスト関数はプラグインによってインポートされ、ランタイムによって提供されます。各ワールドのリンカーは `logging` を接続します（`component.rs` で `add_wasi` とともにリンクされる、`component_logging.rs` のホスト実装を介して）。`channel-plugin` ワールドはさらに `inbound` をインポートします。これは、チャネルが `poll-message` で取り出す、ホストから供給されるメッセージキューです。ツールおよびチャネルのアダプターは、承認されたスコープが `http_client` を付与した後にのみ、アウトバウンドの `wasi:http` をリンクします（`component.rs` の `PluginStoreSpec::with_granted_http` と `add_wasi_http`）。メモリは、コンテキストとリンカーサーフェスの両方を公開しません。ファイルシステムおよびメモリアクセス権限は機能しないままです。それらを制御するはずのホスト関数は、まだリンカーに接続されていません。プラグインのアンビエント権限は、WASI コンテキスト（preopen なし、アンビエントネットワークなし）に、その付与された権限とアダプターのオプトインが合わせて有効にするホストインポートだけを加えたものです。"
+msgid "Host functions are imported by the plugin and provided by the runtime. Every world's linker wires `logging` (via the host impl in `component_logging.rs`, linked alongside `add_wasi` in `component.rs`). Tool links the instance-scoped `secrets` service. Channel imports `inbound`, the host-fed message queue it drains from `poll-message`. Tool and channel adapters link outbound `wasi:http` only after the admitted scope grants `http_client` (`PluginStoreSpec::with_granted_http` and `add_wasi_http` in `component.rs`). Memory withholds both the context and linker surface. The filesystem and memory-access permissions remain inert: the host functions that would gate them are not yet wired into the linker. A plugin's ambient authority is the WASI context (no preopens, no ambient network) plus exactly the host imports its grants and adapter opt-ins jointly enable."
+msgstr "ホスト関数はプラグインによってインポートされ、ランタイムによって提供されます。各ワールドのリンカーは、`component.rs` で `add_wasi` とともにリンクされる `component_logging.rs` のホスト実装を介して、`logging` を組み込みます。Tool はインスタンススコープの `secrets` サービスをリンクします。Channel は `inbound` をインポートします。これは、`poll-message` から排出する、ホストが供給するメッセージキューです。Tool と Channel のアダプターは、承認済みスコープによって `http_client` が付与された後に限り、送信向けの `wasi:http` をリンクします（`component.rs` の `PluginStoreSpec::with_granted_http` と `add_wasi_http`）。Memory にはコンテキストもリンカーの公開面も与えられません。ファイルシステムとメモリアクセスの権限は引き続き機能しません。これらを制御するホスト関数がまだリンカーに組み込まれていないためです。プラグインのアンビエント権限は、WASI コンテキスト（preopen なし、アンビエントなネットワークアクセスなし）に加え、プラグインの権限付与とアダプターのオプトインによって共同で有効化されるホストインポートだけです。"
 
 #: src/developing/plugin-protocol.md
 msgid "Host imports"
@@ -34105,8 +34129,8 @@ msgstr "オペレーター値は現在、汎用の文字列マップストレー
 #: src/tools/skill-bundles.md src/developing/plugin-protocol.md
 #: src/plugins/writing-a-tool-plugin.md src/plugins/writing-a-channel-plugin.md
 #: src/plugins/writing-a-memory-plugin.md
-msgid "Operator values remain strings in `plugins.entries` and are encrypted when persisted, keyed by a versioned `zpi1_…` string derived from the host-owned package, capability, and binding identity (installation prints and seeds the default tool binding's full-instance key): strings are stored as-is, booleans and numbers use JSON scalar text, and arrays and objects use JSON text. Before any guest code runs, the host materializes those strings to the package schema's types and validates the resulting object for tool and channel adapters. If `config_read` was requested but not effectively granted, the plugin receives an empty object; therefore a schema with required properties fails closed instead of starting without its required configuration."
-msgstr "オペレーター値は `plugins.entries` 内では文字列のまま保持され、永続化時に暗号化されます。暗号化のキーには、ホストが所有するパッケージ、ケイパビリティ、バインディングの識別情報から導出されたバージョン付きの `zpi1_…` 文字列が使われます（インストール時に、デフォルトのツールバインディングの完全なインスタンスキーが表示され、シードされます）。文字列はそのまま保存され、ブール値と数値には JSON のスカラー文字列表現が使用され、配列とオブジェクトには JSON テキストが使用されます。ゲストコードが実行される前に、ホストはそれらの文字列をパッケージスキーマの型に変換し、ツールおよびチャネルアダプター用の生成されたオブジェクトを検証します。`config_read` が要求されていても実質的に許可されていない場合、プラグインは空のオブジェクトを受け取ります。そのため、必須プロパティを持つスキーマは、必要な設定なしで起動するのではなく、フェイルクローズします。"
+msgid "Operator values remain strings in `plugins.entries` and are encrypted when persisted, keyed by a versioned `zpi1_…` string derived from the host-owned package, capability, and binding identity (installation prints and seeds the default tool binding's full-instance key): strings are stored as-is, booleans and numbers use JSON scalar text, and arrays and objects use JSON text. Before any guest code runs, the host materializes those strings to the package schema's types and validates the resulting object for tool and channel adapters. For a tool, the non-secret properties form `__config`, while a property marked `x-secret = true` is available only through `secrets.get(\"property\")` during that instance's `execute` frame. A channel receives its validated object through `configure`; channel manifests cannot currently use `x-secret`. If `config_read` was requested but not effectively granted, the plugin receives an empty object; therefore a schema with required properties fails closed instead of starting without its required configuration."
+msgstr "オペレーター値は `plugins.entries` 内では文字列のまま保持され、永続化時に暗号化されます。暗号化のキーには、ホストが所有するパッケージ、ケイパビリティ、バインディングの識別情報から導出されたバージョン付きの `zpi1_…` 文字列が使用されます（インストール時にデフォルトのツールバインディングのフルインスタンスキーが表示され、シードされます）。文字列はそのまま保存され、ブール値と数値には JSON スカラー文字列が使用され、配列とオブジェクトには JSON テキストが使用されます。ゲストコードが実行される前に、ホストはそれらの文字列をパッケージスキーマの型に変換し、ツールおよびチャネルアダプター用の結果オブジェクトを検証します。ツールでは、シークレットではないプロパティが `__config` を構成します。一方、`x-secret = true` とマークされたプロパティは、そのインスタンスの `execute` フレーム中に `secrets.get(\"property\")` を介してのみ利用できます。チャネルは検証済みオブジェクトを `configure` 経由で受け取ります。チャネルマニフェストでは現在 `x-secret` を使用できません。`config_read` が要求されたものの実質的に許可されなかった場合、プラグインは空のオブジェクトを受け取ります。そのため、必須プロパティを持つスキーマは、必要な設定なしで起動するのではなく、フェイルクローズします。"
 
 #: src/reference/config.md
 msgid "Operator-supplied base URL advertised in agent card endpoints."
@@ -35223,8 +35247,8 @@ msgid "Peer-group blocks"
 msgstr "ピアグループブロック"
 
 #: src/plugins/writing-a-tool-plugin.md
-msgid "Per call, `WasmTool::execute` resolves and validates config from canonical state, creates a **fresh store** (new WASI context, new fuel budget, no state from the previous call), instantiates the component, injects the typed object under `__config`, and invokes `execute`."
-msgstr "呼び出しごとに、`WasmTool::execute` は正規状態から設定を解決して検証し、**新しいストア**（新しい WASI コンテキスト、新しい燃料予算、前回の呼び出しの状態なし）を作成し、コンポーネントをインスタンス化して、型付きオブジェクトを `__config` の下に注入し、execute を呼び出します。"
+msgid "Per call, `WasmTool::execute` resolves and validates config from canonical state, creates a **fresh store** (new WASI context, new fuel budget, no state from the previous call), and instantiates the component. That one resolved object serves the whole frame: the host injects only its non-secret values under `__config`, serves the schema-marked secrets through the scoped `secrets` import, and invokes `execute`."
+msgstr "呼び出しごとに、`WasmTool::execute` は正規状態から設定を解決して検証し、**新しいストア**（新しい WASI コンテキスト、新しい燃料予算、前回の呼び出しの状態なし）を作成して、コンポーネントをインスタンス化します。その 1 つの解決済みオブジェクトがフレーム全体で使用されます。ホストは、シークレットではない値だけを `__config` の下に注入し、スキーマでマークされたシークレットをスコープ付きの `secrets` インポート経由で提供して、`execute` を呼び出します。"
 
 #: src/maintainers/docs-and-translations.md
 msgid "Per release, `scripts/release/refresh-translations.sh` publishes changed catalogues to the submodule's `main` branch, tags that commit as `v{version}`, checks out the tag, and stages the main-repository gitlink. `bump-version.sh` deliberately leaves translation pinning to that helper. `messages.pot` and `*.failures.log` are regenerated artifacts and are gitignored in both repos, not tracked."
@@ -35418,8 +35442,8 @@ msgid "Per-instance TTS configs live under `[tts_providers.<type>.<alias>]` (par
 msgstr "インスタンスごとの TTS 設定は `[tts_providers.<type>.<alias>]` の下に配置されます（`providers.models` と同様）。ここに残っているのは、すべての model_provider 呼び出しに適用されるグローバルなランタイム設定です。"
 
 #: src/plugins/index.md
-msgid "Per-instance settings live under `plugins.entries`, keyed by a versioned `zpi1_…` string derived from the host-owned package, capability, and binding identity. Installation prints and seeds the keys for the package's default tool binding; `zeroclaw plugin info <package>` prints that tool key again. Those automatic surfaces are tool-only. Alias-owned channel construction must derive, display, and seed the key from its actual configured alias rather than inventing a package-name binding. That production path is not present in this slice; it is tracked in [\\#8852](https://github.com/zeroclaw-labs/zeroclaw/pull/8852), or its accepted successor. Full-identity keys let different packages and capability worlds safely reuse aliases such as `main` without sharing credentials. The canonical operator values are a secret-marked string map and remain encrypted at rest (`enc2:…`). A plugin that requests `config_read` declares the map's single type contract in `config_schema`: a closed Draft 2020-12 object whose top-level properties explicitly use `string`, `boolean`, `integer`, `number`, `array`, or `object`. Store strings directly, JSON scalar text for booleans and numbers, and JSON text for arrays and objects. The host materializes and validates the resulting typed object before instantiating tool or channel guest code; unknown, malformed, or out-of-range values fail instead of reaching the plugin. Memory plugins do not yet have a config export and must not request `config_read` until that ABI is added."
-msgstr "インスタンスごとの設定は `plugins.entries` 配下にあり、ホストが所有するパッケージ、ケイパビリティ、およびバインディングの識別情報から導出された、バージョン付きの `zpi1_…` 文字列をキーとして管理されます。インストール時には、パッケージのデフォルトのツールバインディング用のキーが表示され、初期設定されます。`zeroclaw plugin info <package>` はそのツールキーを再度表示します。これらの自動的に公開される項目はツール専用です。エイリアスが所有するチャネルの構築では、パッケージ名のバインディングを作り出すのではなく、実際に設定されたエイリアスからキーを導出し、表示し、初期設定する必要があります。その本番用の経路はこの範囲には存在せず、[#8852](https://github.com/zeroclaw-labs/zeroclaw/pull/8852) またはその採用された後継で追跡されています。完全な識別情報を持つキーにより、異なるパッケージやケイパビリティ空間で、認証情報を共有せずに `main` のようなエイリアスを安全に再利用できます。正規のオペレーター値は、シークレットとしてマークされた文字列マップであり、保存時も暗号化されたままです (`enc2:…`)。`config_read` を要求するプラグインは、マップの単一の型コントラクトを `config_schema` で宣言します。これは、トップレベルのプロパティの型として `string`、`boolean`、`integer`、`number`、`array`、または `object` を明示的に指定する、閉じた Draft 2020-12 オブジェクトです。文字列は直接保存し、ブール値と数値は JSON スカラーのテキストとして、配列とオブジェクトは JSON テキストとして保存します。ホストは、ツールまたはチャネルのゲストコードをインスタンス化する前に、結果として得られる型付きオブジェクトを実体化して検証します。未知の値、形式不正の値、または範囲外の値は、プラグインに渡ることなく拒否されます。メモリープラグインにはまだ設定エクスポートがなく、その ABI が追加されるまで `config_read` を要求してはなりません。"
+msgid "Per-instance settings live under `plugins.entries`, keyed by a versioned `zpi1_…` string derived from the host-owned package, capability, and binding identity. Installation prints and seeds the keys for the package's default tool binding; `zeroclaw plugin info <package>` prints that tool key again. Those automatic surfaces are tool-only. Alias-owned channel construction must derive, display, and seed the key from its actual configured alias rather than inventing a package-name binding. That production path is not present in this slice; it is tracked in [\\#8852](https://github.com/zeroclaw-labs/zeroclaw/pull/8852), or its accepted successor. Full-identity keys let different packages and capability worlds safely reuse aliases such as `main` without sharing credentials. The canonical operator values are a secret-marked string map and remain encrypted at rest (`enc2:…`). A plugin that requests `config_read` declares the map's single type contract in `config_schema`: a closed Draft 2020-12 object whose top-level properties explicitly use `string`, `boolean`, `integer`, `number`, `array`, or `object`. A manifest that includes `tool` and excludes `channel` may set `x-secret = true` on a top-level string property; the host validates it with the full object, removes it from `__config`, and makes it available only through the admitted instance's `secrets.get` import during `execute`. A manifest that declares the `channel` capability cannot use `x-secret` until the host has a coherent warm-store secret lifecycle. Store strings directly, JSON scalar text for booleans and numbers, and JSON text for arrays and objects. The host materializes and validates the resulting typed object before instantiating tool or channel guest code; unknown, malformed, or out-of-range values fail instead of reaching the plugin. Memory plugins do not yet have a config export and must not request `config_read` until that ABI is added."
+msgstr "インスタンスごとの設定は `plugins.entries` の下に格納され、ホストが管理するパッケージ、ケイパビリティ、バインディングの識別情報から導出されたバージョン付きの `zpi1_…` 文字列をキーとします。インストール時には、パッケージのデフォルトの tool バインディング用のキーが表示され、初期設定されます。`zeroclaw plugin info <package>` はその tool キーを再度表示します。これらの自動提供経路は tool 専用です。エイリアスが所有する channel の構築では、パッケージ名のバインディングを勝手に作るのではなく、実際に設定されたエイリアスからキーを導出し、表示し、初期設定しなければなりません。その実運用パスはこの範囲には存在せず、[\\#8852](https://github.com/zeroclaw-labs/zeroclaw/pull/8852) またはその採用済みの後継で追跡されています。完全な識別情報を持つキーにより、異なるパッケージやケイパビリティの環境で、認証情報を共有することなく `main` のようなエイリアスを安全に再利用できます。正規のオペレーター値はシークレットとしてマークされた文字列マップであり、保存時も暗号化されたままです（`enc2:…`）。`config_read` を要求するプラグインは、マップの単一の型コントラクトを `config_schema` で宣言します。これは、トップレベルのプロパティで `string`、`boolean`、`integer`、`number`、`array`、または `object` を明示的に使用する、閉じた Draft 2020-12 オブジェクトです。`tool` を含み `channel` を含まないマニフェストは、トップレベルの文字列プロパティに `x-secret = true` を設定できます。ホストはオブジェクト全体を使ってそのプロパティを検証し、`__config` から削除して、`execute` の実行中に承認されたインスタンスの `secrets.get` インポートを通じてのみ利用可能にします。`channel` ケイパビリティを宣言するマニフェストは、ホストに一貫したウォームストアのシークレットライフサイクルが整備されるまで `x-secret` を使用できません。文字列は直接保存し、ブール値と数値は JSON スカラーのテキストとして、配列とオブジェクトは JSON テキストとして保存します。ホストは tool または channel のゲストコードをインスタンス化する前に、結果として得られる型付きオブジェクトを実体化して検証します。未知の値、形式が不正な値、または範囲外の値は、プラグインに到達する前に検証で失敗します。Memory プラグインにはまだ config エクスポートがなく、その ABI が追加されるまで `config_read` を要求してはなりません。"
 
 #: src/reference/config.md
 msgid "Per-link fetch timeout in seconds (default: 10)"
@@ -36152,8 +36176,8 @@ msgid "Practical SOP templates in the runtime-supported `SOP.toml` + `SOP.md` fo
 msgstr "ランタイムでサポートされている`SOP.toml` + `SOP.md`形式の実践的な SOP テンプレート。"
 
 #: src/plugins/index.md
-msgid "Pre-1.0 plugin authors must migrate explicitly: a manifest that requests `config_read` without `config_schema` is no longer discovered. Add a closed schema matching the current values, update tool/channel guests to deserialize typed JSON rather than a string map, rebuild, and re-sign because the schema is signature-covered. Host integrations now inject `PluginConfigResolver` instead of an owned config map and pass only `ResolvedPluginConfig` to low-level guest calls. [Migrating to typed config](./migrating-to-typed-config.md) is the step-by-step recipe, including the release decision to ship this enforcement without a compatibility shim."
-msgstr "1.0 より前のプラグイン作成者は、明示的に移行する必要があります。`config_schema` なしで `config_read` を要求するマニフェストは、今後検出されません。現在の値に一致する閉じたスキーマを追加し、文字列マップではなく型付き JSON をデシリアライズするようツール/チャネルのゲストを更新してから、スキーマが署名対象に含まれるため、再ビルドして再署名してください。ホスト統合では、現在は自身が所有する設定マップの代わりに `PluginConfigResolver` を注入し、低レベルのゲスト呼び出しには `ResolvedPluginConfig` のみを渡します。[型付き設定への移行](./migrating-to-typed-config.md) は、この強制を互換性シムなしでリリースする判断も含む、手順を追ったガイドです。"
+msgid "Pre-1.0 plugin authors must migrate explicitly: a manifest that requests `config_read` without `config_schema` is no longer discovered. Add a closed schema matching the current values, update tool/channel guests to deserialize typed JSON rather than a string map, rebuild, and re-sign because the schema is signature-covered. Host integrations now inject `PluginHostServices`, the bundle that wraps `PluginConfigResolver`, instead of an owned config map, and still pass only `ResolvedPluginConfig` to low-level guest calls. Each tool `execute` frame materializes one scope-bound `ResolvedPluginConfig`, uses that one view for public config and secret reads, and drops it when the frame ends. Channels receive their validated typed object once through `configure`; their manifests cannot currently contain `x-secret`. [Migrating to typed config](./migrating-to-typed-config.md) is the step-by-step recipe, including the release decision to ship this enforcement without a compatibility shim."
+msgstr "1.0 より前のプラグイン作成者は明示的に移行する必要があります。`config_read` を要求しているにもかかわらず `config_schema` を指定していないマニフェストは、検出されなくなりました。現在の値に一致する閉じたスキーマを追加し、ツール/チャネルのゲスト側を文字列マップではなく型付き JSON をデシリアライズするよう更新してから、スキーマが署名対象に含まれるため、再ビルドして再署名してください。ホスト統合では、独自に所有する設定マップの代わりに、`PluginConfigResolver` をラップするバンドルである `PluginHostServices` を注入するようになり、低レベルのゲスト呼び出しには引き続き `ResolvedPluginConfig` だけを渡します。各ツールの `execute` フレームでは、スコープにバインドされた `ResolvedPluginConfig` を 1 つ具体化し、その 1 つのビューを公開設定の取得とシークレットの読み取りに使用し、フレーム終了時に破棄します。チャネルは検証済みの型付きオブジェクトを `configure` を通じて 1 回だけ受け取ります。チャネルのマニフェストには現在 `x-secret` を含めることができません。[型付き設定への移行](./migrating-to-typed-config.md)では、互換性シムなしでこの強制を出荷するというリリース判断を含め、手順を追って説明しています。"
 
 #: src/channels/telegram.md
 msgid "Pre-authorize known users"
@@ -40347,10 +40371,6 @@ msgstr "シークレット"
 msgid "Secret API token for this model_provider. Grab it from the model_provider's dashboard (OpenAI platform, Anthropic console, OpenRouter keys page, etc.). Stored via the OS keyring when possible; never commit it to config.toml directly."
 msgstr "この model_provider のシークレット API トークン。model_provider のダッシュボード（OpenAI platform、Anthropic console、OpenRouter keys ページなど）から取得します。可能な場合は OS キーリング経由で保存され、config.toml に直接コミットしないでください。"
 
-#: src/developing/how-plugins-work.md
-msgid "Secret-value isolation at the egress boundary (the host injecting credentials so the plugin learns only that a secret exists, never its value) is part of that same companion work; this PR does not add it."
-msgstr "egress境界でのシークレット値の分離（ホストが認証情報を注入することで、プラグインはシークレットが存在することのみを認識し、その値は決して知り得ない仕組み）は、同じ関連作業の一部です。このPRではそれを追加しません。"
-
 #: src/channels/overview.md
 msgid "Secrets (bot tokens, API keys, passwords) are stored encrypted; set them through the gateway, zerocode, or `zeroclaw config set` (masked), never in plaintext. The `channels` entry on an agent binds a channel alias to that agent. Field names differ per channel; `zeroclaw config schema` is the authoritative list. Fields that recur across many channels:"
 msgstr "シークレット（ボットトークン、APIキー、パスワード）は暗号化されて保存されます。ゲートウェイ、zerocode、または `zeroclaw config set`（マスク表示）を通じて設定し、決して平文で設定しないでください。エージェント上の `channels` エントリは、チャンネルエイリアスをそのエージェントにバインドします。フィールド名はチャンネルごとに異なります。`zeroclaw config schema` が正式なリストです。多くのチャンネルで共通して使用されるフィールド："
@@ -44194,8 +44214,12 @@ msgid "The bundled Compose example builds the image for the current platform:"
 msgstr "同梱された Compose の例では、現在のプラットフォーム向けのイメージがビルドされます。"
 
 #: src/developing/plugin-protocol.md
-msgid "The call is fire-and-forget: it returns nothing and the host (`component_logging.rs`) absorbs all errors, so a failed log write can never crash plugin execution. `plugin-action` and `plugin-outcome` mirror the closed `Action` / `EventOutcome` taxonomies in `zeroclaw-log`; there is no escape-hatch variant on purpose. Do not call `wasi:logging` directly, plugin events would be formatted inconsistently and would not reach all of the destinations `zeroclaw_log` writes to."
-msgstr "この呼び出しは fire-and-forget であり、何も返さず、ホスト（`component_logging.rs`）がすべてのエラーを吸収するため、ログ書き込みの失敗がプラグインの実行をクラッシュさせることは決してありません。`plugin-action` と `plugin-outcome` は、`zeroclaw-log` の閉じた `Action` / `EventOutcome` の分類を反映しています。エスケープハッチ的なバリアントが存在しないのは意図的なものです。`wasi:logging` を直接呼び出さないでください。プラグインイベントのフォーマットが一貫しなくなり、`zeroclaw_log` が書き込むすべての出力先に届かなくなります。"
+msgid "The call is fire-and-forget: it returns nothing and the host (`component_logging.rs`) absorbs all errors, so a failed log write can never crash plugin execution. Delivery is asynchronous: the import hands the record to a bounded host-side queue drained by a dedicated thread and returns without blocking, so a slow or wedged log consumer can never hold a guest export past `plugins.limits.call_timeout_ms`. Deferral does not change what an event means: each record captures the host span current at the guest call site and is written inside that scope, so agent/channel/tool attribution and the terminal label match inline emission. The bound is a real memory bound, because the event fields are unbounded strings copied to host memory outside the guest's `max_memory_mb` ceiling: a record whose guest-controlled bytes exceed 64 KiB is dropped rather than truncated, and queued records draw on a fixed 8 MiB aggregate byte budget that is released only after a record is written. A full queue, an over-cap record, or an exhausted budget all drop the newest record; the drain thread reports the accumulated drop count after each write and on an idle wake, so the loss stays observable even when no accepted record ever follows the rejected ones. `plugin-action` and `plugin-outcome` mirror the closed `Action` / `EventOutcome` taxonomies in `zeroclaw-log`; there is no escape-hatch variant on purpose. Do not call `wasi:logging` directly, plugin events would be formatted inconsistently and would not reach all of the destinations `zeroclaw_log` writes to."
+msgstr "呼び出しは fire-and-forget 方式です。何も返さず、ホスト（`component_logging.rs`）がすべてのエラーを吸収するため、ログ書き込みの失敗によってプラグインの実行がクラッシュすることはありません。配信は非同期です。import はレコードを容量上限のあるホスト側キューに渡し、専用スレッドがそこから取り出して処理する間もブロックせずに戻ります。そのため、処理の遅い、またはハングしたログコンシューマーによって、ゲストエクスポートが `plugins.limits.call_timeout_ms` を超えてブロックされることはありません。処理を後回しにしてもイベントの意味は変わりません。各レコードはゲストの呼び出し箇所でその時点で有効なホストスパンを捕捉し、そのスコープ内で書き込まれるため、エージェント／チャネル／ツールの帰属情報と終端ラベルは、インラインで出力した場合と一致します。この上限は実際のメモリ上限です。イベントフィールドは長さに上限のない文字列であり、ゲストの `max_memory_mb` 上限の対象外であるホストメモリにコピーされるためです。ゲストが制御するバイト数が 64 KiB を超えるレコードは切り詰めずに破棄され、キューに入ったレコードは合計 8 MiB の固定バイト予算を使用し、その予算はレコードが書き込まれた後にのみ解放されます。キューが満杯である場合、レコードが上限を超える場合、または予算を使い果たした場合は、いずれも最新のレコードが破棄されます。ドレインスレッドは各書き込み後とアイドル状態からの起床時に累積ドロップ数を報告するため、拒否されたレコードの後に受け入れられたレコードが一つも続かない場合でも、損失を観測できます。`plugin-action` と `plugin-outcome` は `zeroclaw-log` にある閉じた `Action` / `EventOutcome` 分類体系を反映します。エスケープハッチとなるバリアントは意図的に用意していません。`wasi:logging` を直接呼び出さないでください。直接呼び出すとプラグインイベントのフォーマットが一貫しなくなり、`zeroclaw_log` のすべての出力先に届かなくなります。"
+
+#: src/plugins/writing-a-tool-plugin.md
+msgid "The call ran outside `execute`, config resolution failed, or the execution exhausted its fixed host-call budget."
+msgstr "`execute` の外部で呼び出しが実行されたか、設定の解決に失敗したか、実行が固定のホスト呼び出し予算を使い果たしました。"
 
 #: src/agents/delegation.md
 msgid "The caller's non-empty `risk_profile.allowed_tools` must list `delegate`; `excluded_tools` must not list it; caller's `delegation_policy mode = \"allow\"`; and the target is in the caller's reachable set (same-profile peer or explicit `delegates` entry)"
@@ -44667,8 +44691,8 @@ msgid "The easiest way to run ZeroClaw on Android is via [Termux](https://termux
 msgstr "AndroidでZeroClawを実行する最も簡単な方法は [Termux](https://termux.dev/) 経由です。"
 
 #: src/plugins/writing-a-tool-plugin.md
-msgid "The effective scope denied `config_read`, the entry does not use the installation-printed full-instance key, or the validated object is empty. A `config_schema`/permission mismatch rejects the plugin instead."
-msgstr "実効スコープで `config_read` が拒否された、エントリがインストール時に出力されたフルインスタンスキーを使用していない、または検証済みオブジェクトが空です。`config_schema`/権限の不一致の場合は、代わりにプラグインが拒否されます。"
+msgid "The effective scope denied `config_read`, the entry does not use the installation-printed full-instance key, the validated object is empty, or every validated property is marked secret. A `config_schema`/permission mismatch rejects the plugin instead."
+msgstr "有効なスコープによって `config_read` が拒否された、エントリがインストール時に出力された完全なインスタンスキーを使用していない、検証済みオブジェクトが空である、または検証済みプロパティがすべて secret としてマークされている場合です。`config_schema`/権限の不一致の場合は、代わりにプラグインが拒否されます。"
 
 #: src/sop/example.md
 msgid "The eight steps, parsed from the SOP's `## Steps` section:"
@@ -44810,6 +44834,10 @@ msgstr "最初のリクエストでは、エージェントの URL のリスト�
 msgid "The first run pulls the runner image (~1.5 GB) and primes the Rust build cache via `Swatinem/rust-cache`; subsequent runs are much faster. The script auto-creates the gitignored `.secrets` file, pre-fetches every pinned action SHA into `~/.cache/act/` (act's shallow clone can't resolve arbitrary commits otherwise), threads `GITHUB_TOKEN` from your `gh` auth into the run via the parent process environment (the token value never lands in argv), and sets `--artifact-server-path` so `actions/upload-artifact` and `actions/download-artifact` work between jobs. All of that is plain `act` underneath; the script just removes the flag soup."
 msgstr "最初の実行ではランナーイメージ（約1.5 GB）を取得し、`Swatinem/rust-cache` を通じてRustのビルドキャッシュを準備します。それ以降の実行は大幅に速くなります。このスクリプトはgitignore対象の `.secrets` ファイルを自動作成し、ピン留めされたすべてのアクションSHAを `~/.cache/act/` に事前取得し（そうしないと、actの浅いクローンでは任意のコミットを解決できません）、親プロセス環境を介して `gh` 認証からの `GITHUB_TOKEN` を実行にスレッド渡しし（トークン値がargvに残ることはありません）、`--artifact-server-path` を設定して `actions/upload-artifact` と `actions/download-artifact` がジョブ間で機能するようにします。これらはすべて、内部的には単なる `act` であり、スクリプトはフラグの煩雑さを取り除いているだけです。"
 
+#: src/developing/plugin-protocol.md
+msgid "The five bounds are operator-tunable and every value is validated as non-zero: `plugins.limits.call_fuel` (default 1,000,000,000 instruction units), `plugins.limits.call_timeout_ms` (default 30,000 milliseconds), `plugins.limits.max_memory_mb` (default 256), `plugins.limits.max_table_elements` (default 100,000), and `plugins.limits.max_instances` (default 64). A store can only be built with explicit limits, so no load path can construct an unsandboxed plugin. Guest `wasi:http` request options may end a call sooner but cannot extend the host deadline. An interrupted warm store is never resumed: channels recreate it from host-owned inputs on the next call, while memory instances remain unavailable until their owner rebuilds them. The canonical fields and defaults live in the [Config reference](../reference/index.md)."
+msgstr "5 つの上限はオペレーターが調整可能で、すべての値がゼロ以外であることを検証されます。`plugins.limits.call_fuel`（デフォルトは 1,000,000,000 命令単位）、`plugins.limits.call_timeout_ms`（デフォルトは 30,000 ミリ秒）、`plugins.limits.max_memory_mb`（デフォルトは 256）、`plugins.limits.max_table_elements`（デフォルトは 100,000）、`plugins.limits.max_instances`（デフォルトは 64）です。ストアは明示的な制限を指定した場合にのみ構築できるため、どのロード経路でもサンドボックス化されていないプラグインを構築することはできません。ゲストの `wasi:http` リクエストオプションによって呼び出しを早く終了させることはできますが、ホストのデッドラインを延長することはできません。中断されたウォームストアが再開されることはありません。チャネルは次回の呼び出し時に、ホストが所有する入力からストアを再作成します。一方、メモリインスタンスは、その所有者が再構築するまで利用できません。正式なフィールドとデフォルト値は [Config リファレンス](../reference/index.md)に記載されています。"
+
 #: src/contributing/testing.md
 msgid "The five levels"
 msgstr "5つのレベル"
@@ -44833,10 +44861,6 @@ msgstr "以下の重複したドメインおよびプロダクトサーフェス
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "The following foundational decisions and roadmap targets have durable ADRs. ADR-001 through ADR-005 are retroactive records of architecture that already exists. ADR-006 and ADR-007 describe implementation-gated targets from FND-001 and should remain proposed until their corresponding boundaries ship."
 msgstr "以下の基盤的な決定およびロードマップ上のターゲットには、長期的なADRが存在します。ADR-001からADR-005は、既存のアーキテクチャの遡及的な記録です。ADR-006およびADR-007は、FND-001に基づく実装ゲート付きターゲットを記述しており、対応する境界がリリースされるまでproposedのままにしておく必要があります。"
-
-#: src/developing/plugin-protocol.md
-msgid "The four bounds are operator-tunable and every value is validated as non-zero: `plugins.limits.call_fuel` (default 1,000,000,000 instruction units), `plugins.limits.max_memory_mb` (default 256), `plugins.limits.max_table_elements` (default 100,000), and `plugins.limits.max_instances` (default 64). A store can only be built with explicit limits, so no load path can construct an unsandboxed plugin. The canonical fields and defaults live in the [Config reference](../reference/index.md)."
-msgstr "4 つの制限値はオペレーターが調整可能で、すべての値は非ゼロであることが検証されます: `plugins.limits.call_fuel`（デフォルト 1,000,000,000 命令ユニット）、`plugins.limits.max_memory_mb`（デフォルト 256）、`plugins.limits.max_table_elements`（デフォルト 100,000）、`plugins.limits.max_instances`（デフォルト 64）。ストアは明示的な制限値を指定した場合にのみ構築できるため、サンドボックス化されていないプラグインを構築できるロードパスは存在しません。正規のフィールドとデフォルト値は [Config reference](../reference/index.md) に記載されています。"
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid "The fresh-store-per-call model is the design constraint that matters most: a tool plugin is stateless by construction. Anything you want to persist between calls has to live outside the plugin (in the text you return, or in operator config)."
@@ -45019,8 +45043,8 @@ msgid "The graph tool is disabled by default. Enable it in config before expecti
 msgstr "graph ツールはデフォルトで無効になっています。エージェントが `knowledge` を呼び出すことを期待する前に、config で有効にしてください:"
 
 #: src/plugins/writing-a-tool-plugin.md
-msgid "The guest receives the schema-materialized JSON object, so deserialize it once instead of repeating string parsing. This example's schema makes every field optional, and `Default` owns their behavior when the host supplies `{}`. An empty object is normal when the operator has not configured the plugin or when the host denies the requested `config_read` grant. If a plugin cannot operate without a value, mark it required in `config_schema`; the host will then reject an empty object before guest code starts."
-msgstr "ゲストはスキーマに従って具体化された JSON オブジェクトを受け取るため、文字列のパースを繰り返すのではなく、一度だけデシリアライズします。この例のスキーマではすべてのフィールドが省略可能であり、ホストが `{}` を渡した場合の挙動は `Default` が担います。オペレーターがプラグインを構成していない場合や、ホストが要求された `config_read` 権限を拒否した場合、空のオブジェクトは通常の状態です。値がなければ動作できないプラグインでは、`config_schema` でそのフィールドを必須にしてください。そうすれば、ゲストコードの実行開始前にホストが空のオブジェクトを拒否します。"
+msgid "The guest receives the schema-materialized public JSON object, so deserialize it once instead of repeating string parsing. This example's schema makes every field optional, and `Default` owns their behavior when the host supplies `{}`. An empty object is normal when the operator has not configured the plugin or when the host denies the requested `config_read` grant. If a plugin cannot operate without a value, mark it required in `config_schema`; the host will then reject an empty object before guest code starts."
+msgstr "ゲストはスキーマに基づいて具体化された公開 JSON オブジェクトを受け取るため、文字列の解析を繰り返すのではなく、一度だけデシリアライズします。この例のスキーマではすべてのフィールドが省略可能であり、ホストが `{}` を提供した場合の動作は `Default` が担います。空のオブジェクトは、オペレーターがプラグインを設定していない場合や、ホストが要求された `config_read` の許可を拒否した場合には正常です。プラグインが値なしでは動作できない場合は、`config_schema` で必須として指定してください。そうすれば、ゲストコードの実行開始前にホストが空のオブジェクトを拒否します。"
 
 #: src/architecture/decisions/ADR-004-tool-shared-state-ownership.md
 msgid "The handle pattern is not enough by itself; ownership and canonical state still have to be named in review."
@@ -45066,21 +45090,29 @@ msgstr "ホスト（`crates/zeroclaw-plugins/src/component.rs`）は、プロセ
 msgid "The host adapter and config resolver tests are the executable specification: they cover typed materialization and schema validation, the denied-grant empty object, the inbound queue handoff, capability-gated dispatch, and poll-health accounting."
 msgstr "ホストアダプターと設定リゾルバーのテストが実行可能な仕様であり、型付きマテリアライゼーションとスキーマ検証、権限付与が拒否された場合の空オブジェクト、受信キューの引き渡し、ケイパビリティによって制御されるディスパッチ、ポーリングのヘルス計測を網羅しています。"
 
+#: src/developing/plugin-protocol.md
+msgid "The host derives package, capability, binding, and effective grants from the admitted `PluginInstanceScope`; none are guest inputs. Only direct top-level string properties marked `x-secret: true` in the manifest schema are readable, and only while the host is dispatching that tool's `execute` export. Calls from component initialization or metadata exports return `unavailable` without resolving config. `access-denied`, `not-found`, and `unavailable` deliberately reveal no resolver or schema detail. Successful reads return plaintext to the trusted guest. The service prevents public injection and cross-instance selection; it is not an egress proxy that keeps the value hidden from plugin code. Channel manifests cannot use `x-secret` until the host has a coherent warm-store secret lifecycle."
+msgstr "ホストは、承認された `PluginInstanceScope` からパッケージ、ケイパビリティ、バインディング、実効的な許可を導出します。これらはいずれもゲストからの入力ではありません。マニフェストスキーマで `x-secret: true` とマークされた、直接のトップレベル文字列プロパティだけが読み取り可能であり、しかもホストがそのツールの `execute` エクスポートをディスパッチしている間に限られます。コンポーネントの初期化やメタデータエクスポートからの呼び出しは、設定を解決せずに `unavailable` を返します。`access-denied`、`not-found`、`unavailable` は、リゾルバーやスキーマの詳細を意図的に一切明らかにしません。読み取りに成功すると、信頼されたゲストに平文が返されます。このサービスは、公開インジェクションとインスタンス間の選択を防止しますが、値をプラグインコードから隠し続けるエグレスプロキシではありません。ホストが一貫性のあるウォームストアのシークレットライフサイクルを備えるまで、チャネルマニフェストでは `x-secret` を使用できません。"
+
 #: src/architecture/decisions/ADR-009-wit-wasmtime-plugin-execution.md
 msgid "The host does not expose a raw environment-variable read function."
 msgstr "ホストは生の環境変数読み取り関数を公開していません。"
+
+#: src/plugins/writing-a-tool-plugin.md
+msgid "The host enables secret reads only while dispatching `execute`. Calls from component initialization or metadata exports return `unavailable` without resolving config. Public `__config` and secret reads during one execution use the same resolved config view."
+msgstr "ホストは `execute` のディスパッチ中にのみシークレットの読み取りを有効にします。コンポーネントの初期化またはメタデータのエクスポートからの呼び出しは、設定を解決せずに `unavailable` を返します。1 回の実行中、公開された `__config` とシークレットの読み取りでは、同じ解決済みの設定ビューが使用されます。"
 
 #: src/plugins/migrating-to-typed-config.md
 msgid "The host enforces these limits on the schema itself: 64 KiB serialized, at most 32 levels of nesting, no `$id`, and `$ref` targets must be local JSON Pointers. Remote references are rejected, so a schema never causes a network fetch."
 msgstr "ホストはスキーマ自体に次の制限を適用します。シリアライズ後のサイズは64 KiB、ネストは最大32レベル、`$id`は使用できず、`$ref`の対象はローカルJSON Pointerである必要があります。リモート参照は拒否されるため、スキーマによってネットワークフェッチが発生することはありません。"
 
 #: src/developing/how-plugins-work.md
-msgid "The host grants permissions narrowly: a permission the manifest does not declare is a host function the plugin cannot reach. The HTTP-egress and per-plugin configuration boundaries (SSRF-guarded egress that cannot reach loopback, private, link-local, or cloud-metadata addresses or redirect into one; config injected per-alias so a plugin reads only its own resolved values and never the raw process environment or another plugin's secrets) are delivered by the companion plugin-hardening work and are documented alongside those changes. This page covers the signature-policy boundary."
-msgstr "ホストは権限を厳密に付与します。マニフェストで宣言されていない権限は、プラグインが到達できないホスト関数です。HTTP エグレスおよびプラグインごとの設定境界（ループバック、プライベート、リンクローカル、またはクラウドメタデータのアドレスへの到達やそれらへのリダイレクトを防ぐ SSRF ガード付きエグレス、エイリアスごとに注入される設定によりプラグインは自身の解決済み値のみを読み取り、生のプロセス環境や他のプラグインのシークレットには決してアクセスしない）は、付随するプラグイン堅牢化作業によって提供され、それらの変更とともに文書化されています。このページでは署名ポリシーの境界について説明します。"
+msgid "The host grants permissions narrowly: a permission the manifest does not declare is a host function the plugin cannot reach. Config is resolved from a host-issued instance identity, so a plugin cannot select another package or binding and never reads the raw process environment. `http_client` gates the outbound `wasi:http` surface; the shared SSRF-guarded egress policy remains companion plugin-hardening work. This page covers the signature-policy boundary."
+msgstr "ホストは権限を限定的に付与します。マニフェストで宣言されていない権限に対応するホスト関数には、プラグインはアクセスできません。設定はホストが発行したインスタンス ID から解決されるため、プラグインが別のパッケージやバインディングを選択することはできず、生のプロセス環境を読み取ることもありません。`http_client` は外向きの `wasi:http` サーフェスへのアクセスを制御します。共有の SSRF 対策付きエグレスポリシーは、引き続き別途行うプラグイン強化作業です。このページでは署名ポリシーの境界を扱います。"
 
 #: src/developing/plugin-protocol.md
-msgid "The host lives in `crates/zeroclaw-plugins/src/component.rs`. It holds one async-enabled `wasmtime::Engine`, generates the world bindings with `wasmtime::component::bindgen!` from `wit/v0`, and wires a sandboxed WASI p2 surface into each world's linker. Per-call host state (`PluginState`) carries a `WasiCtx` built with no preopens and no network, plus the `ResourceTable` WASI requires. The only host import wired into the linker is `logging`; a plugin's ambient authority is therefore the sandboxed WASI context and nothing else (see Host imports)."
-msgstr "ホストは `crates/zeroclaw-plugins/src/component.rs` に配置されています。これは非同期対応の `wasmtime::Engine` を1つ保持し、`wit/v0` から `wasmtime::component::bindgen!` を使ってワールドバインディングを生成し、サンドボックス化された WASI p2 サーフェスを各ワールドのリンカーに接続します。呼び出しごとのホスト状態（`PluginState`）は、preopen なし・ネットワークなしで構築された `WasiCtx` と、WASI が必要とする `ResourceTable` を保持します。リンカーに接続される唯一のホストインポートは `logging` です。したがって、プラグインのアンビエント権限は、サンドボックス化された WASI コンテキストのみであり、それ以外は一切ありません（Host imports を参照）。"
+msgid "The host lives in `crates/zeroclaw-plugins/src/component.rs`. It holds one async-enabled `wasmtime::Engine`, generates the world bindings with `wasmtime::component::bindgen!` from `wit/v0`, and wires a sandboxed WASI p2 surface into each world's linker. Per-store host state (`PluginState`) carries a `WasiCtx` built with no preopens and no network, plus the `ResourceTable` WASI requires, its host-issued scope, and typed live service handles. Every world imports `logging`; tool imports `secrets`, while channel imports `inbound`. A granted `http_client` permission additionally attaches and links `wasi:http`. The world declarations and the admitted scope remain the canonical contracts for that surface (see Host imports)."
+msgstr "ホストは `crates/zeroclaw-plugins/src/component.rs` にあります。非同期対応の `wasmtime::Engine` を1つ保持し、`wit/v0` から `wasmtime::component::bindgen!` を使ってワールドバインディングを生成し、サンドボックス化された WASI p2 インターフェースを各ワールドのリンカーに組み込みます。ストアごとのホスト状態（`PluginState`）は、preopen もネットワークもない状態で構築された `WasiCtx`、WASI が必要とする `ResourceTable`、ホストが発行したスコープ、および型付きの稼働中サービスハンドルを保持します。すべてのワールドは `logging` をインポートし、tool は `secrets` を、channel は `inbound` をインポートします。`http_client` 権限が付与されている場合は、さらに `wasi:http` をアタッチしてリンクします。ワールド宣言と許可されたスコープは、そのインターフェースに対する正規の契約であり続けます（「ホストインポート」を参照）。"
 
 #: src/architecture/decisions/ADR-006-runtime-channel-plugins.md
 msgid "The host must supervise long-lived listeners and preserve channel health, interaction, media, and configuration behavior across the component boundary."
@@ -45095,8 +45127,8 @@ msgid "The host resolves config by recompiling and revalidating your schema on e
 msgstr "ホストは呼び出しごとにスキーマを再コンパイルして再検証することで設定を解決し、その処理はコンポーネントの燃料予算内ではなくホスト上で実行されます。そのため、`pattern` には、ホストがコストを予測できる正規表現のみを指定できます:"
 
 #: src/plugins/writing-a-tool-plugin.md
-msgid "The host resolves the section stored under the versioned config-entry key derived from this instance's package, `tool` capability, and binding, materializes it according to the package schema, validates the typed object, and only then merges it into `execute` under the reserved `__config` key:"
-msgstr "ホストは、このインスタンスのパッケージ、`tool` capability、およびバインディングから導出されたバージョン付きの config-entry キーの下に格納されたセクションを解決し、パッケージスキーマに従って実体化し、型付きオブジェクトを検証してから、予約済みの `__config` キーの下で `execute` にマージします:"
+msgid "The host resolves the section stored under the versioned config-entry key derived from this instance's package, `tool` capability, and binding, materializes it according to the package schema, validates the complete typed object, and only then partitions it. Only the non-secret properties are merged into `execute` under the reserved `__config` key:"
+msgstr "ホストは、このインスタンスのパッケージ、`tool` capability、およびバインディングから導出されたバージョン付き設定エントリキーの下に格納されたセクションを解決し、パッケージスキーマに従って実体化し、完全な型付きオブジェクトを検証してから分割します。シークレットではないプロパティのみが、予約済みの `__config` キーの下で `execute` にマージされます:"
 
 #: src/developing/plugin-protocol.md
 msgid "The host side owns an `InboundQueue` per channel; `WasmChannel::inbound` hands a clone to the listener task so enqueued traffic is visible to the plugin's drain."
@@ -45328,6 +45360,10 @@ msgstr "移行により、パターンが大規模に展開されました。"
 msgid "The minimum viable governance setup. Gets the team coordinating immediately."
 msgstr "最小限のガバナンス設定。チームの調整をすぐに開始します。"
 
+#: src/plugins/writing-a-tool-plugin.md
+msgid "The missing piece relative to this guide is an HTTP client that works inside a component: `reqwest` and friends do not, because there is no socket surface, only `wasi:http`. A client known to work against this host is [`waki`](https://crates.io/crates/waki), which is blocking and therefore fits `execute`'s synchronous signature directly. Add it gated to the component target so your pure-logic modules stay natively testable:"
+msgstr "このガイドに対して不足しているのは、コンポーネント内で動作する HTTP クライアントです。`reqwest` などは、ソケットインターフェースがなく、`wasi:http` しか利用できないため動作しません。このホストに対して動作することが確認されているクライアントは [`waki`](https://crates.io/crates/waki) です。これはブロッキング方式なので、`execute` の同期シグネチャにそのまま適合します。純粋なロジックのモジュールをネイティブ環境で引き続きテスト可能にするため、コンポーネントターゲット向けに条件付きで追加します:"
+
 #: src/architecture/tool-execution-lifecycle.md
 msgid "The model can only call tools that are effective for the current turn:"
 msgstr "モデルは現在のターンで有効なツールのみを呼び出せます。"
@@ -45436,6 +45472,10 @@ msgstr "Matrix を実行する公式かつ最も手間のかからない方法�
 msgid "The offset is not a durable event identity or cross-file checkpoint. It becomes stale whenever the active file's bytes are replaced or its path changes:"
 msgstr "オフセットは、永続的なイベント識別子でも、ファイル間で使用できるチェックポイントでもありません。アクティブなファイルのバイト列が置き換えられるか、パスが変更されると、古くなります:"
 
+#: src/developing/plugin-protocol.md
+msgid "The omitted `api_key` is read explicitly with `secrets.get(\"api_key\")` if its schema marks it secret. `runtime.rs` strips any caller-supplied `__config` before injecting the resolved public section, so the section cannot be spoofed. Tool public injection and secret reads within one `execute` frame share one resolved live-config revision; the frame is dropped on success, error, trap, panic, or cancellation. A channel receives its complete validated object as the JSON argument to `configure`; secret markers are not admitted for that capability. When the manifest requests `config_read` but the host does not effectively grant it, resolution substitutes an empty object and validates that object too. Optional schemas therefore see `{}` (and tools omit an empty `__config`), while a schema with required fields fails closed before the guest starts. A plugin only ever sees its own section. Tool and channel are the current config consumers. The memory world has no config export yet, so memory plugins must not request `config_read` until that ABI and runtime wiring land."
+msgstr "省略された `api_key` は、そのスキーマでシークレットとしてマークされている場合、`secrets.get(\"api_key\")` によって明示的に読み取られます。`runtime.rs` は、解決済みの公開セクションを注入する前に呼び出し元から提供された `__config` を取り除くため、セクションを偽装できません。1つの `execute` フレーム内でのツールの公開情報の注入とシークレットの読み取りは、1つの解決済みライブ構成リビジョンを共有します。このフレームは、成功、エラー、トラップ、パニック、またはキャンセル時に破棄されます。チャネルは、完全に検証されたオブジェクトを `configure` の JSON 引数として受け取ります。そのケイパビリティではシークレットマーカーは許可されません。マニフェストが `config_read` を要求していても、ホストがそれを実効的に付与していない場合、解決処理では空のオブジェクトに置き換え、そのオブジェクトも検証します。そのため、オプションのスキーマには `{}` が渡され（ツールでは空の `__config` が省略されます）、必須フィールドを持つスキーマはゲストの起動前にフェイルクローズします。プラグインが参照できるのは常に自身のセクションだけです。現在の構成コンシューマーはツールとチャネルです。memory world にはまだ構成のエクスポートがないため、その ABI とランタイムの配線が導入されるまで、memory プラグインは `config_read` を要求してはなりません。"
+
 #: src/architecture/logging.md
 msgid "The on-disk JSON shape (`LogEvent` in `event.rs`):"
 msgstr "ディスク上の JSON 形式（`event.rs` 内の `LogEvent`）:"
@@ -45473,8 +45513,8 @@ msgid "The operator still stores `timeout_secs` as the encrypted string `\"10\"`
 msgstr "オペレーターは引き続き `timeout_secs` を暗号化された文字列 `\"10\"` として保存します。ホストは `configure` の実行前にこれを JSON の整数 `10` に変換し、範囲制約を適用します。配列とオブジェクトはオペレーターのストレージでは JSON テキストを使用し、実際の配列とオブジェクトとして渡されます。`api_token` は必須であるため、`config_read` を付与しない場合はフェイルクローズし、認証情報なしでチャネルを起動することはありません。各チャネルインスタンスは、この単一のパッケージ所有スキーマを再利用しながら、完全なパッケージ識別子、`channel` ケイパビリティ、バインディング識別情報から導出された `plugins.entries` キーを選択します。したがって、異なるパッケージ内の同一エイリアスは分離されたままです。install コマンドと info コマンドは、設定済みチャネルエイリアスを所有していないため、このキーを作成できません。自動的な表示およびシードの動作はツール専用です。エイリアス対応のチャネルキーの表示とシードは [\\#8852](https://github.com/zeroclaw-labs/zeroclaw/pull/8852)、またはその承認済みの後継で追跡されています。今すぐマニフェストとゲストを準備してください。ただし、その本番経路が存在するまでは、チャネル専用パッケージを型付き設定への移行済みとして公開しないでください。"
 
 #: src/developing/plugin-protocol.md
-msgid "The operator's canonical `plugins.entries.<instance-key>.config` values remain a secret-marked string map in memory and are encrypted when persisted. The host derives the versioned `zpi1_…` entry key from the full package, capability, and binding identity; this lets different packages and capability worlds safely reuse aliases such as `main`. The admitted package manifest selects the schema. A `string` value is stored directly; `boolean`, `integer`, and `number` values use JSON scalar text such as `\"true\"`, `\"4\"`, or `\"0.5\"`; `array` and `object` values use JSON text such as `'[\"urgent\",\"ops\"]'` or `'{\"region\":\"us-east\"}'`. The host materializes and validates that data into typed JSON for each use. For a tool, it injects the result under the reserved `__config` key:"
-msgstr "オペレーターの正規の `plugins.entries.<instance-key>.config` 値は、メモリ内ではシークレットとしてマークされた文字列マップのまま保持され、永続化時に暗号化されます。ホストは、パッケージ、ケイパビリティ、バインディングの完全な識別情報からバージョン付きの `zpi1_…` エントリーキーを導出します。これにより、異なるパッケージやケイパビリティの世界で、`main` などのエイリアスを安全に再利用できます。許可されたパッケージマニフェストによってスキーマが選択されます。`string` 値は直接保存され、`boolean`、`integer`、`number` 値には `\"true\"`、`\"4\"`、`\"0.5\"` のような JSON スカラーのテキストが使用されます。`array` と `object` の値には `'[\"urgent\",\"ops\"]'` や `'{\"region\":\"us-east\"}'` のような JSON テキストが使用されます。ホストは使用するたびに、そのデータを型付き JSON に変換して検証します。ツールの場合、結果を予約済みの `__config` キーの下に注入します："
+msgid "The operator's canonical `plugins.entries.<instance-key>.config` values remain a secret-marked string map in memory and are encrypted when persisted. The host derives the versioned `zpi1_…` entry key from the full package, capability, and binding identity; this lets different packages and capability worlds safely reuse aliases such as `main`. The admitted package manifest selects the schema. A `string` value is stored directly; `boolean`, `integer`, and `number` values use JSON scalar text such as `\"true\"`, `\"4\"`, or `\"0.5\"`; `array` and `object` values use JSON text such as `'[\"urgent\",\"ops\"]'` or `'{\"region\":\"us-east\"}'`. The host materializes and validates that data into typed JSON for each use, then partitions every property exactly once. For a tool, it injects only the non-secret values under the reserved `__config` key:"
+msgstr "オペレーターの正規の `plugins.entries.<instance-key>.config` 値は、メモリ内では秘密としてマークされた文字列マップのまま維持され、永続化時に暗号化されます。ホストは、パッケージ、ケイパビリティ、バインディングの完全な識別情報から、バージョン付きの `zpi1_…` エントリーキーを導出します。これにより、異なるパッケージやケイパビリティワールドで、`main` のようなエイリアスを安全に再利用できます。許可されたパッケージマニフェストがスキーマを選択します。`string` 値は直接格納され、`boolean`、`integer`、`number` 値には `\"true\"`、`\"4\"`、`\"0.5\"` のような JSON スカラーのテキストが使用されます。`array`、`object` 値には `'[\"urgent\",\"ops\"]'` や `'{\"region\":\"us-east\"}'` のような JSON テキストが使用されます。ホストは使用するたびにそのデータを型付き JSON として具体化して検証し、その後、すべてのプロパティを正確に一度だけ振り分けます。ツールの場合、予約済みの `__config` キーの下に秘密ではない値だけを注入します。"
 
 #: src/architecture/provider-routing-lifecycle.md
 msgid "The operator-facing schema and examples live in [Provider configuration](../providers/configuration.md) and [Routing](../providers/routing.md). Keep field syntax there instead of duplicating it in architecture documents."
@@ -45703,6 +45743,10 @@ msgstr "プロジェクトのビジョンはランタイムの観点で表現さ
 #: src/maintainers/ci-and-actions.md
 msgid "The project-owned package is currently [`zeroclawlabs`](https://aur.archlinux.org/packages/zeroclawlabs), maintained by `zeroclaw-bot`. The canonical-name [`zeroclaw`](https://aur.archlinux.org/packages/zeroclaw) package is a third-party package and cannot be taken over by rotating `AUR_SSH_KEY`. If that maintainer remains inactive, follow the [AUR orphan-request process](https://wiki.archlinux.org/title/AUR_submission_guidelines#Requests) before changing `pkgname` or the workflow clone target. After ownership transfers, coordinate the package rename or merge in one reviewed change."
 msgstr "プロジェクトが所有するパッケージは現在 [`zeroclawlabs`](https://aur.archlinux.org/packages/zeroclawlabs) で、`zeroclaw-bot` によってメンテナンスされています。正規名 [`zeroclaw`](https://aur.archlinux.org/packages/zeroclaw) パッケージはサードパーティのパッケージであり、`AUR_SSH_KEY` のローテーションによって引き継ぐことはできません。そのメンテナが引き続き非アクティブである場合は、`pkgname` またはワークフローのクローン対象を変更する前に [AUR orphan-request プロセス](https://wiki.archlinux.org/title/AUR_submission_guidelines#Requests) に従ってください。所有権の移転後は、パッケージ名の変更またはマージをレビュー済みの 1 つの変更としてまとめて調整してください。"
+
+#: src/plugins/writing-a-tool-plugin.md
+msgid "The property is missing or is not a direct top-level string marked `x-secret = true` in the admitted schema."
+msgstr "プロパティが存在しないか、許可されたスキーマ内で `x-secret = true` とマークされた直接のトップレベル文字列ではありません。"
 
 #: src/architecture/memory-payload-lifecycle.md
 msgid "The provider request can therefore contain recalled memory without making the current turn a new memory. Review prompt-assembly changes by asking:"
@@ -46177,8 +46221,8 @@ msgid "The shape is enforced by the `Event` struct: unknown fields are a compile
 msgstr "この形状は `Event` 構造体によって強制されます。未知のフィールドはコンパイルエラーになります。"
 
 #: src/plugins/writing-a-tool-plugin.md
-msgid "The shape of a call, inside `execute` after parsing `__config`:"
-msgstr "`__config` を解析した後の `execute` 内での呼び出しの形式:"
+msgid "The shape of a call, inside `execute` after parsing public `__config`:"
+msgstr "公開の `__config` を解析した後、`execute` 内での呼び出しの形式："
 
 #: src/ops/overview.md
 msgid "The shape of a deployment"
@@ -46418,8 +46462,8 @@ msgid "The test suite is not absent. The existing test investment is real. The w
 msgstr "テストスイートが存在しないわけではありません。既存のテストへの投資は確かなものです。この RFC が述べる作業は、その投資の品質と配分に関するものです。つまり、何が、どのようにテストされ、そしてそのテストが見かけ通りのことを実際に証明しているかどうかについてです。"
 
 #: src/plugins/writing-a-channel-plugin.md
-msgid "The test then loads your built component through `WasmChannel::from_wasm` with a `PluginConfigResolver` backed by the manifest and test operator values, enqueues onto the `InboundQueue` handle it exposes, and asserts your `poll-message` drains and translates the message. That is the same code path a production daemon will run; passing it is the strongest pre-distribution signal you can get without a live host."
-msgstr "テストは次に、マニフェストとテスト用のオペレーター値を基にした `PluginConfigResolver` とともに、ビルドしたコンポーネントを `WasmChannel::from_wasm` 経由で読み込み、それが公開する `InboundQueue` ハンドルにキューイングし、`poll-message` がメッセージを取り出して変換することを検証します。これは本番デーモンが実行するのと同じコードパスであり、このテストに合格することは、稼働中のホストなしで配布前に得られる最も強力なシグナルです。"
+msgid "The test then loads your built component through `WasmChannel::from_wasm` with a `PluginHostServices` bundle wrapping a `PluginConfigResolver` backed by the manifest and test operator values, enqueues onto the `InboundQueue` handle it exposes, and asserts your `poll-message` drains and translates the message. That is the same code path a production daemon will run; passing it is the strongest pre-distribution signal you can get without a live host."
+msgstr "このテストでは、manifest とテスト用オペレーター値を基盤とする `PluginConfigResolver` をラップした `PluginHostServices` バンドルを使い、`WasmChannel::from_wasm` 経由でビルド済みコンポーネントを読み込みます。次に、コンポーネントが公開する `InboundQueue` ハンドルにメッセージをキューイングし、`poll-message` がそのメッセージを取り出して変換することを検証します。これは本番デーモンが実行するのと同じコードパスです。このテストに合格することは、稼働中のホストなしで得られる配布前の最も強力なシグナルです。"
 
 #: src/contributing/communication.md
 msgid "The thread produces a concrete bug, feature scope, architecture proposal, policy decision, docs gap, owner, blocker, or validation evidence"
@@ -47916,8 +47960,8 @@ msgid "Tool call parsing, streaming, history, cost tracking, model routing, memo
 msgstr "ツール呼び出しの解析、ストリーミング、履歴、コスト追跡、モデルルーティング、メモリ、資格情報のスクラビング、コンテキスト構築"
 
 #: src/plugins/index.md
-msgid "Tool calls are stateless by construction: `WasmTool::execute` builds a fresh store, runs the call, and drops it. Channels and memory backends are stateful by nature, so they hold one warm store for the plugin's lifetime; the host refuels it before every call so a long-lived plugin gets a full budget per call rather than draining over time."
-msgstr "ツール呼び出しは構造上ステートレスです。`WasmTool::execute` は新しいストアを構築し、呼び出しを実行して破棄します。チャネルとメモリバックエンドは本質的にステートフルであるため、プラグインのライフタイム中は1つのウォームストアを保持します。ホストは呼び出しのたびにこれを補給するため、長命なプラグインは時間とともに枯渇するのではなく、呼び出しごとに完全なバジェットを得られます。"
+msgid "Tool calls are stateless by construction: `WasmTool::execute` builds a fresh store, runs the call, and drops it. Channels and memory backends are stateful by nature, so they hold one warm store for the plugin's lifetime; the host refuels it before every call so a long-lived plugin gets a full budget per call rather than draining over time. A deadline interruption discards the warm store instead of resuming partially unwound guest state. Channels recreate the instance on the next call; memory stays unavailable until its owner rebuilds it."
+msgstr "ツール呼び出しは設計上ステートレスです。`WasmTool::execute` は新しいストアを構築して呼び出しを実行し、そのストアを破棄します。チャネルとメモリバックエンドは本質的にステートフルであるため、プラグインの存続期間中は1つのウォームストアを保持します。ホストは呼び出しのたびに燃料を補給するため、長時間稼働するプラグインは時間の経過とともに燃料を使い果たすのではなく、呼び出しごとに完全な予算を得られます。デッドラインによる割り込みが発生すると、部分的に巻き戻されたゲスト状態を再開する代わりに、ウォームストアを破棄します。チャネルは次の呼び出しでインスタンスを再作成します。メモリは、その所有者が再構築するまで利用できません。"
 
 #: src/ops/overview.md
 msgid "Tool calls at whatever rate the provider and sandbox allow"
@@ -47926,6 +47970,10 @@ msgstr "プロバイダーとサンドボックスが許容する速度でツー
 #: src/providers/streaming.md
 msgid "Tool calls mid-stream"
 msgstr "ストリーム中のツール呼び出し"
+
+#: src/plugins/distributing-plugins.md
+msgid "Tool config exposure markers such as `config_schema.properties.api_token.x-secret` are therefore signature-covered policy. Changing a tool property between public injection and scoped `secrets.get` access requires rebuilding and re-signing. Channel manifests containing that marker are currently rejected."
+msgstr "`config_schema.properties.api_token.x-secret` のようなツール設定の公開範囲マーカーは、したがって署名対象のポリシーです。ツールプロパティを公開注入とスコープ限定の `secrets.get` アクセスの間で変更するには、再ビルドと再署名が必要です。そのマーカーを含むチャネルマニフェストは、現在拒否されます。"
 
 #: src/architecture/tool-execution-lifecycle.md
 msgid "Tool definition"
@@ -50234,6 +50282,10 @@ msgstr "`[agents.<alias>.workspace.access]` を確認:"
 msgid "Walk the stale queue. Apply `status:no-stale` only under the rules in the [Project board contract](./pr-workflow.md#issue-routing-evidence): when accepted or otherwise long-lived work has a recorded reason to stay open, contributor-visible routing evidence, and no other stale exclusion already applies. Active release trackers and active RFC or design trackers may keep stale protection by default when the issue itself clearly identifies the active coordination or decision surface; revisit them when the milestone closes, the tracker drifts from live state, the RFC reaches a decision, is superseded, or closes, or the issue stops representing an active project decision surface. Until the stale-exemption audit lands, treat existing `status:no-stale` issues missing those facts as audit findings rather than automatic stale candidates."
 msgstr "stale キューを巡回します。`status:no-stale` の適用は、[Project board contract](./pr-workflow.md#issue-routing-evidence) のルールに従う場合に限ります。すなわち、accepted な作業やその他の長期にわたる作業に、オープンのまま維持すべき記録された理由があり、コントリビューターが確認できるルーティングの根拠があり、他の stale 除外がまだ適用されていない場合です。アクティブなリリーストラッカーや、アクティブな RFC・設計トラッカーは、issue 自体がアクティブな調整・決定の対象を明確に示している場合、デフォルトで stale 保護を維持できます。これらは、マイルストーンがクローズされたとき、トラッカーがライブ状態から乖離したとき、RFC が決定に達したとき・置き換えられたとき・クローズされたとき、または issue がアクティブなプロジェクトの決定対象を表さなくなったときに、再検討してください。stale 除外監査が導入されるまでは、これらの事実が欠けている既存の `status:no-stale` issue は、自動的な stale 候補ではなく、監査での指摘事項として扱ってください。"
 
+#: src/reference/config.md
+msgid "Wall-clock deadline for one plugin export call, in milliseconds."
+msgstr "1 回のプラグインエクスポート呼び出しに対する実時間の期限（ミリ秒）。"
+
 #: src/agents/delegation.md
 msgid "Want a different configured specialist (different model, different alias) to own the task under bounded or independent delegation"
 msgstr "境界付きまたは独立した委任のもとで、別の構成済みスペシャリスト（別のモデル、別のエイリアス）にタスクを担当させたい"
@@ -50247,8 +50299,8 @@ msgid "Warm store behind an async mutex, refueled per call"
 msgstr "非同期ミューテックスの背後にあるウォームストア。呼び出しごとに補充されます"
 
 #: src/plugins/index.md
-msgid "Warm store behind an async mutex, refueled per call; also imports `inbound`"
-msgstr "非同期ミューテックスの背後にあるウォームストアで、呼び出しごとに補充されます。`inbound` もインポートします"
+msgid "Warm store behind an async mutex, refueled per call; imports `inbound`"
+msgstr "非同期ミューテックスで保護されたウォームストア。呼び出しごとに補充され、`inbound` をインポートする"
 
 #: src/foundations/fnd-003-governance.md
 msgid "Warn (not block) if a PR is merged without a linked issue that has a milestone assigned. This is a gentle nudge, not a hard gate: the goal is to prevent work from happening without being tracked to a release."
@@ -52750,8 +52802,8 @@ msgid "ZeroClaw originally centered configuration and runtime behavior on one im
 msgstr "ZeroClaw は元々、1つの暗黙的なエージェントを中心に設定とランタイムの動作を構築していました。マルチエージェント操作では、ワークスペース、メモリ、パーミッション、またはチャネルの到達可能性を誤って共有することなく共存できるアイデンティティが必要です。"
 
 #: src/developing/plugin-protocol.md
-msgid "ZeroClaw plugins are WebAssembly components defined by WIT interfaces under `wit/v0/` and hosted through direct `wasmtime` (`crates/zeroclaw-plugins`). A plugin is compiled to a WASI Preview 2 component (`wasm32-wasip2`) that exports one of the plugin worlds (`tool-plugin`, `channel-plugin`, `memory-plugin`) and imports the host `logging` interface."
-msgstr "ZeroClaw プラグインは、`wit/v0/` 配下の WIT インターフェースで定義され、`wasmtime`（`crates/zeroclaw-plugins`）を通じて直接ホストされる WebAssembly コンポーネントです。プラグインは、プラグインワールド（`tool-plugin`、`channel-plugin`、`memory-plugin`）のいずれかをエクスポートし、ホストの `logging` インターフェースをインポートする WASI Preview 2 コンポーネント（`wasm32-wasip2`）にコンパイルされます。"
+msgid "ZeroClaw plugins are WebAssembly components defined by WIT interfaces under `wit/v0/` and hosted through direct `wasmtime` (`crates/zeroclaw-plugins`). A plugin is compiled to a WASI Preview 2 component (`wasm32-wasip2`) that exports one of the plugin worlds (`tool-plugin`, `channel-plugin`, `memory-plugin`) and imports the host interfaces declared by that world in `wit/v0/`."
+msgstr "ZeroClaw プラグインは、`wit/v0/` 配下の WIT インターフェースによって定義され、`wasmtime` を直接使用して（`crates/zeroclaw-plugins`）ホストされる WebAssembly コンポーネントです。プラグインは WASI Preview 2 コンポーネント（`wasm32-wasip2`）にコンパイルされ、そのコンポーネントはプラグインワールド（`tool-plugin`、`channel-plugin`、`memory-plugin`）のいずれかをエクスポートし、`wit/v0/` でそのワールドによって宣言されたホストインターフェースをインポートします。"
 
 #: src/ops/network-deployment.md
 msgid "ZeroClaw polls `api.telegram.org`, works behind NAT"
@@ -52936,6 +52988,10 @@ msgstr "ZeroClawのセキュリティモデルは、エージェントが実行�
 #: src/reference/feature-matrix.md
 msgid "ZeroClaw, OpenClaw, and Hermes"
 msgstr "ZeroClaw、OpenClaw、および Hermes"
+
+#: src/developing/plugin-protocol.md
+msgid "ZeroClaw-owned imports share a fixed safety budget per host-dispatched service frame. The canonical ceiling is `MAX_HOST_CALLS_PER_FRAME` in `crates/zeroclaw-plugins/src/component.rs`. On exhaustion, logging becomes a no-op, inbound polling reports empty, and tool secret reads return `unavailable`. A new frame resets the budget. This ceiling is fixed host policy, not duplicated operator configuration."
+msgstr "ZeroClaw が所有するインポートは、ホストがディスパッチするサービスフレームごとに固定の安全性予算を共有します。正式な上限は `crates/zeroclaw-plugins/src/component.rs` にある `MAX_HOST_CALLS_PER_FRAME` です。予算を使い切ると、ロギングは no-op になり、インバウンドポーリングは空を返し、ツールのシークレット読み取りは `unavailable` を返します。新しいフレームが開始されると、予算はリセットされます。この上限は固定されたホストポリシーであり、オペレーター設定を重複して設けるものではありません。"
 
 #: src/reference/config.md
 msgid "ZeroCode live task tracker configuration (`[todotracker]` section)."
@@ -57666,6 +57722,10 @@ msgid "`30.0`"
 msgstr "`30.0`"
 
 #: src/reference/config.md
+msgid "`30000`"
+msgstr "`30000`"
+
+#: src/reference/config.md
 msgid "`300`"
 msgstr "`300`"
 
@@ -58203,8 +58263,8 @@ msgid "`Config::validate()` fails loud at startup if `model_provider` does not r
 msgstr "`Config::validate()` は、`model_provider` が設定済みのプロバイダーエントリに解決されない場合、または `risk_profile` が設定済みのリスクプロファイルに解決されない場合、起動時に明示的なエラーで失敗します。不正な参照は、エージェントの実行前に検出され、暗黙的に無視されることはありません。"
 
 #: src/architecture/decisions/ADR-009-wit-wasmtime-plugin-execution.md
-msgid "`ConfigRead` is required before the host injects a plugin's resolved config section under `__config`."
-msgstr "`ConfigRead` は、ホストがプラグインの解決済み設定セクションを `__config` の下に注入する前に必要です。"
+msgid "`ConfigRead` is required before the host injects resolved values under tool `__config` or channel `configure`. A manifest that includes `tool` and excludes `channel` may mark top-level string properties `x-secret = true`; those values are read through the instance-scoped `secrets` import during `execute` and never enter `__config`. Channel-capable manifests with `x-secret` are rejected until the host has a coherent warm-store secret lifecycle."
+msgstr "`ConfigRead` は、ホストがツール `__config` またはチャネル `configure` の下に解決済みの値を注入する前に必要です。`tool` を含み `channel` を含まないマニフェストでは、トップレベルの文字列プロパティに `x-secret = true` を付けることができます。これらの値は `execute` 中にインスタンススコープの `secrets` インポートを介して読み取られ、`__config` に入ることはありません。`x-secret` を含むチャネル対応マニフェストは、ホストに整合性のあるウォームストアのシークレットライフサイクルが備わるまで拒否されます。"
 
 #: src/ops/cost-tracking.md
 msgid "`CostConfig::enforcement.mode` decides what happens when a projected cost would push `daily_total` or `monthly_total` past the configured limit:"
@@ -59309,7 +59369,11 @@ msgid ""
 "{\"jsonrpc\":\"2.0\",\"method\":\"initialize\",\"params\":{\"protocolVersion\":1},\"id\":1}\\n\n"
 "{\"jsonrpc\":\"2.0\",\"result\":{\"protocolVersion\":1,\"serverVersion\":\"0.8.5\"},\"id\":1}\\n\n"
 "```"
-msgstr "```\n{\"jsonrpc\":\"2.0\",\"method\":\"initialize\",\"params\":{\"protocolVersion\":1},\"id\":1}\\n\n{\"jsonrpc\":\"2.0\",\"result\":{\"protocolVersion\":1,\"serverVersion\":\"0.8.5\"},\"id\":1}\\n\n```"
+msgstr ""
+"```\n"
+"{\"jsonrpc\":\"2.0\",\"method\":\"initialize\",\"params\":{\"protocolVersion\":1},\"id\":1}\\n\n"
+"{\"jsonrpc\":\"2.0\",\"result\":{\"protocolVersion\":1,\"serverVersion\":\"0.8.5\"},\"id\":1}\\n\n"
+"```"
 
 #: src/channels/webhook.md
 msgid ""
@@ -59449,7 +59513,39 @@ msgid ""
 "    PR --> LLM\n"
 "    TL --> FS\n"
 "```"
-msgstr "```mermaid\nflowchart TB\n    subgraph External[\"外部世界\"]\n        UI[\"CLI / チャットプラットフォーム / ゲートウェイクライアント / ACP IDE\"]\n        LLM[\"LLMプロバイダー<br/>Anthropic · OpenAI · Ollama · ...\"]\n        FS[\"ファイルシステム · シェル · ネットワーク\"]\n    end\n\n    subgraph Edges[\"エッジクレート: 外部との通信\"]\n        CH[\"zeroclaw-channels<br/>30以上のメッセージング統合\"]\n        GW[\"zeroclaw-gateway<br/>REST · WebSocket · ダッシュボード\"]\n        PR[\"zeroclaw-providers<br/>LLMクライアント · リトライ · ルーティング\"]\n        TL[\"zeroclaw-tools<br/>ブラウザー · HTTP · ハードウェア\"]\n    end\n\n    subgraph Core[\"コア\"]\n        RT[\"zeroclaw-runtime<br/>エージェントループ · セキュリティ · SOP · cron · サブエージェント\"]\n        MEM[\"zeroclaw-memory<br/>SQLite · 埋め込み · 統合\"]\n        CFG[\"zeroclaw-config<br/>スキーマ · 自律性 · シークレット\"]\n    end\n\n    UI --> CH\n    UI --> GW\n    CH --> RT\n    GW --> RT\n    RT --> PR\n    RT --> TL\n    RT --> MEM\n    RT --> CFG\n    PR --> LLM\n    TL --> FS\n```"
+msgstr ""
+"```mermaid\n"
+"flowchart TB\n"
+"    subgraph External[\"外部世界\"]\n"
+"        UI[\"CLI / チャットプラットフォーム / ゲートウェイクライアント / ACP IDE\"]\n"
+"        LLM[\"LLMプロバイダー<br/>Anthropic · OpenAI · Ollama · ...\"]\n"
+"        FS[\"ファイルシステム · シェル · ネットワーク\"]\n"
+"    end\n"
+"\n"
+"    subgraph Edges[\"エッジクレート: 外部との通信\"]\n"
+"        CH[\"zeroclaw-channels<br/>30以上のメッセージング統合\"]\n"
+"        GW[\"zeroclaw-gateway<br/>REST · WebSocket · ダッシュボード\"]\n"
+"        PR[\"zeroclaw-providers<br/>LLMクライアント · リトライ · ルーティング\"]\n"
+"        TL[\"zeroclaw-tools<br/>ブラウザー · HTTP · ハードウェア\"]\n"
+"    end\n"
+"\n"
+"    subgraph Core[\"コア\"]\n"
+"        RT[\"zeroclaw-runtime<br/>エージェントループ · セキュリティ · SOP · cron · サブエージェント\"]\n"
+"        MEM[\"zeroclaw-memory<br/>SQLite · 埋め込み · 統合\"]\n"
+"        CFG[\"zeroclaw-config<br/>スキーマ · 自律性 · シークレット\"]\n"
+"    end\n"
+"\n"
+"    UI --> CH\n"
+"    UI --> GW\n"
+"    CH --> RT\n"
+"    GW --> RT\n"
+"    RT --> PR\n"
+"    RT --> TL\n"
+"    RT --> MEM\n"
+"    RT --> CFG\n"
+"    PR --> LLM\n"
+"    TL --> FS\n"
+"```"
 
 #: src/channels/telegram.md
 msgid ""
@@ -59591,7 +59687,37 @@ msgid ""
 "\n"
 "& $exe quickstart\n"
 "```"
-msgstr "```powershell\n# インストールと PATH の設定はべき等です。zeroclaw がすでに\n# 最新リリースでユーザーの PATH に含まれている場合、これらの手順はスキップされます。Quickstart は\n# 最後に実行されます。\n$ver = (Invoke-RestMethod 'https://api.github.com/repos/zeroclaw-labs/zeroclaw/releases/latest').tag_name.TrimStart('v')\n$dst = \"$env:USERPROFILE\\.zeroclaw\\bin\"\n$exe = \"$dst\\zeroclaw.exe\"\n\n$current = if (Test-Path $exe) {\n    ((& $exe --version 2>$null) | Select-String -Pattern '\\d+\\.\\d+\\.\\d+').Matches.Value\n} else { '' }\n\nif ($current -ne $ver) {\n    $url = \"https://github.com/zeroclaw-labs/zeroclaw/releases/download/v$ver/zeroclaw-x86_64-pc-windows-msvc.zip\"\n    New-Item -ItemType Directory -Force -Path $dst | Out-Null\n    Invoke-WebRequest -Uri $url -OutFile \"$env:TEMP\\zeroclaw.zip\" -UseBasicParsing\n    Expand-Archive -Force -Path \"$env:TEMP\\zeroclaw.zip\" -DestinationPath $dst\n}\n\n$environment = [Environment]\n$userPath = $environment::GetEnvironmentVariable('Path', 'User')\nif (($userPath -split ';') -notcontains $dst) {\n    $environment::SetEnvironmentVariable('Path', \"$dst;$userPath\", 'User')\n}\nif (($env:Path -split ';') -notcontains $dst) {\n    $env:Path = \"$dst;$env:Path\"\n}\n\n& $exe quickstart\n```"
+msgstr ""
+"```powershell\n"
+"# インストールと PATH の設定はべき等です。zeroclaw がすでに\n"
+"# 最新リリースでユーザーの PATH に含まれている場合、これらの手順はスキップされます。Quickstart は\n"
+"# 最後に実行されます。\n"
+"$ver = (Invoke-RestMethod 'https://api.github.com/repos/zeroclaw-labs/zeroclaw/releases/latest').tag_name.TrimStart('v')\n"
+"$dst = \"$env:USERPROFILE\\.zeroclaw\\bin\"\n"
+"$exe = \"$dst\\zeroclaw.exe\"\n"
+"\n"
+"$current = if (Test-Path $exe) {\n"
+"    ((& $exe --version 2>$null) | Select-String -Pattern '\\d+\\.\\d+\\.\\d+').Matches.Value\n"
+"} else { '' }\n"
+"\n"
+"if ($current -ne $ver) {\n"
+"    $url = \"https://github.com/zeroclaw-labs/zeroclaw/releases/download/v$ver/zeroclaw-x86_64-pc-windows-msvc.zip\"\n"
+"    New-Item -ItemType Directory -Force -Path $dst | Out-Null\n"
+"    Invoke-WebRequest -Uri $url -OutFile \"$env:TEMP\\zeroclaw.zip\" -UseBasicParsing\n"
+"    Expand-Archive -Force -Path \"$env:TEMP\\zeroclaw.zip\" -DestinationPath $dst\n"
+"}\n"
+"\n"
+"$environment = [Environment]\n"
+"$userPath = $environment::GetEnvironmentVariable('Path', 'User')\n"
+"if (($userPath -split ';') -notcontains $dst) {\n"
+"    $environment::SetEnvironmentVariable('Path', \"$dst;$userPath\", 'User')\n"
+"}\n"
+"if (($env:Path -split ';') -notcontains $dst) {\n"
+"    $env:Path = \"$dst;$env:Path\"\n"
+"}\n"
+"\n"
+"& $exe quickstart\n"
+"```"
 
 #: src/setup/windows.md
 msgid ""
@@ -59725,7 +59851,14 @@ msgid ""
 "# Optional kernel deny paths (needs bubblewrap on Linux when non-empty):\n"
 "# deny = [\"**/.env\", \"**/*.pem\"]\n"
 "```"
-msgstr "```toml\n# <agent-workspace>/.grok/sandbox.toml\n[profiles.channel-bot]\nextends = \"strict\"\n# オプションのカーネル拒否パス（空でない場合、Linux では bubblewrap が必要）:\n# deny = [\"**/.env\", \"**/*.pem\"]\n```"
+msgstr ""
+"```toml\n"
+"# <agent-workspace>/.grok/sandbox.toml\n"
+"[profiles.channel-bot]\n"
+"extends = \"strict\"\n"
+"# オプションのカーネル拒否パス（空でない場合、Linux では bubblewrap が必要）:\n"
+"# deny = [\"**/.env\", \"**/*.pem\"]\n"
+"```"
 
 #: src/providers/catalog.md
 msgid ""
@@ -59771,7 +59904,49 @@ msgid ""
 "[agents.dependabot]\n"
 "model_provider = \"grok_cli.ops\"\n"
 "```"
-msgstr "```toml\n# 完全な回答: ACP、厳格なサンドボックス、組み込みツールなし、レビュー済みの Grok 設定\n[providers.models.grok_cli.default]\nmodel = \"grok-4.5\"\nbinary_path = \"/home/you/.grok/bin/grok\"\nworking_directory = \"/path/to/agents/default/workspace\"\n\n# REPLY / NO_REPLY の事前チェック - API（形式安定）。既存の xAI\n# HTTP エイリアスがある場合はそれを再利用してください。これを grok_cli に向けないでください。\n[providers.models.xai.default]\nmodel = \"grok-4.5\"\n# 通常の xAI プロバイダーと同じ uri / auth（OAuth セッションまたは api_key）\n\n# Ops / コーディングエージェント: 明示的なポリシーとツールのオプトイン\n[providers.models.grok_cli.ops]\nmodel = \"grok-4.5\"\nbinary_path = \"/home/you/.grok/bin/grok\"\nworking_directory = \"/path/to/agents/ops/workspace\"\nenv_passthrough = [\"AWS_ACCESS_KEY_ID\", \"AWS_SECRET_ACCESS_KEY\"]\n# 読み取り専用ツール: 対応する --allow により、ACP の承認なしで事前承認できます。\nextra_args = [\"--tools=Read,Grep\", \"--allow=Read\", \"--allow=Grep\"]\n\n# シェル対応の ops エイリアス: ACP の承認をバイパスするか、allow と\n# Grok が事前承認するサンドボックスプロファイルを組み合わせます（workspace が一般的な選択です）。\n[providers.models.grok_cli.ops_shell]\nmodel = \"grok-4.5\"\nbinary_path = \"/home/you/.grok/bin/grok\"\nworking_directory = \"/path/to/agents/ops/workspace\"\nextra_args = [\n  \"--tools=run_terminal_cmd\",\n  \"--allow=Bash(printf *)\",\n  \"--sandbox=workspace\",\n]\n\n[agents.default]\nmodel_provider = \"grok_cli.default\"\nclassifier_provider = \"xai.default\"\nchannels = [\"slack.default\"]   # 例\n\n[agents.dependabot]\nmodel_provider = \"grok_cli.ops\"\n```"
+msgstr ""
+"```toml\n"
+"# 完全な回答: ACP、厳格なサンドボックス、組み込みツールなし、レビュー済みの Grok 設定\n"
+"[providers.models.grok_cli.default]\n"
+"model = \"grok-4.5\"\n"
+"binary_path = \"/home/you/.grok/bin/grok\"\n"
+"working_directory = \"/path/to/agents/default/workspace\"\n"
+"\n"
+"# REPLY / NO_REPLY の事前チェック - API（形式安定）。既存の xAI\n"
+"# HTTP エイリアスがある場合はそれを再利用してください。これを grok_cli に向けないでください。\n"
+"[providers.models.xai.default]\n"
+"model = \"grok-4.5\"\n"
+"# 通常の xAI プロバイダーと同じ uri / auth（OAuth セッションまたは api_key）\n"
+"\n"
+"# Ops / コーディングエージェント: 明示的なポリシーとツールのオプトイン\n"
+"[providers.models.grok_cli.ops]\n"
+"model = \"grok-4.5\"\n"
+"binary_path = \"/home/you/.grok/bin/grok\"\n"
+"working_directory = \"/path/to/agents/ops/workspace\"\n"
+"env_passthrough = [\"AWS_ACCESS_KEY_ID\", \"AWS_SECRET_ACCESS_KEY\"]\n"
+"# 読み取り専用ツール: 対応する --allow により、ACP の承認なしで事前承認できます。\n"
+"extra_args = [\"--tools=Read,Grep\", \"--allow=Read\", \"--allow=Grep\"]\n"
+"\n"
+"# シェル対応の ops エイリアス: ACP の承認をバイパスするか、allow と\n"
+"# Grok が事前承認するサンドボックスプロファイルを組み合わせます（workspace が一般的な選択です）。\n"
+"[providers.models.grok_cli.ops_shell]\n"
+"model = \"grok-4.5\"\n"
+"binary_path = \"/home/you/.grok/bin/grok\"\n"
+"working_directory = \"/path/to/agents/ops/workspace\"\n"
+"extra_args = [\n"
+"  \"--tools=run_terminal_cmd\",\n"
+"  \"--allow=Bash(printf *)\",\n"
+"  \"--sandbox=workspace\",\n"
+"]\n"
+"\n"
+"[agents.default]\n"
+"model_provider = \"grok_cli.default\"\n"
+"classifier_provider = \"xai.default\"\n"
+"channels = [\"slack.default\"]   # 例\n"
+"\n"
+"[agents.dependabot]\n"
+"model_provider = \"grok_cli.ops\"\n"
+"```"
 
 #: src/providers/catalog.md
 msgid ""
@@ -59781,7 +59956,13 @@ msgid ""
 "working_directory = \"/path/to/agents/default/workspace\"\n"
 "extra_args = [\"--sandbox=channel-bot\"]\n"
 "```"
-msgstr "```toml\n# ZeroClaw config.toml\n[providers.models.grok_cli.default]\nworking_directory = \"/path/to/agents/default/workspace\"\nextra_args = [\"--sandbox=channel-bot\"]\n```"
+msgstr ""
+"```toml\n"
+"# ZeroClaw config.toml\n"
+"[providers.models.grok_cli.default]\n"
+"working_directory = \"/path/to/agents/default/workspace\"\n"
+"extra_args = [\"--sandbox=channel-bot\"]\n"
+"```"
 
 #: src/tools/mcp.md
 msgid ""
@@ -59847,6 +60028,19 @@ msgstr ""
 "allowed_groups = [\"120363012345678901@g.us\", \"120363098765432109\"]\n"
 "```"
 
+#: src/plugins/writing-a-tool-plugin.md
+msgid ""
+"```toml\n"
+"[config_schema]\n"
+"required = [\"api_key\"]\n"
+"\n"
+"[config_schema.properties.api_key]\n"
+"type = \"string\"\n"
+"minLength = 1\n"
+"x-secret = true\n"
+"```"
+msgstr "```toml\n[config_schema]\nrequired = [\"api_key\"]\n\n[config_schema.properties.api_key]\ntype = \"string\"\nminLength = 1\nx-secret = true\n```"
+
 #: src/ops/observability.md
 msgid ""
 "```toml\n"
@@ -59896,7 +60090,12 @@ msgid ""
 "channel = \"whatsapp.personal\"   # this alias only; bare \"whatsapp\" covers every alias\n"
 "external_peers = [\"+15550100\"]\n"
 "```"
-msgstr "```toml\n[peer_groups.whatsapp_default]\nchannel = \"whatsapp.personal\"   # このエイリアスのみ。裸の \"whatsapp\" はすべてのエイリアスを対象とします\nexternal_peers = [\"+15550100\"]\n```"
+msgstr ""
+"```toml\n"
+"[peer_groups.whatsapp_default]\n"
+"channel = \"whatsapp.personal\"   # このエイリアスのみ。裸の \"whatsapp\" はすべてのエイリアスを対象とします\n"
+"external_peers = [\"+15550100\"]\n"
+"```"
 
 #: src/providers/catalog.md
 msgid ""
@@ -59905,7 +60104,12 @@ msgid ""
 "model = \"...\"\n"
 "api_key = \"...\"\n"
 "```"
-msgstr "```toml\n[providers.models.atlascloud.home]\nmodel = \"...\"\napi_key = \"...\"\n```"
+msgstr ""
+"```toml\n"
+"[providers.models.atlascloud.home]\n"
+"model = \"...\"\n"
+"api_key = \"...\"\n"
+"```"
 
 #: src/providers/configuration.md
 msgid ""
@@ -59949,7 +60153,15 @@ msgid ""
 "# Does not make Grok Build 0.2.118 reliably see or describe the image.\n"
 "# vision = true\n"
 "```"
-msgstr "```toml\n[providers.models.grok_cli.default]\nmodel = \"grok-4.5\"\nworking_directory = \"/srv/zeroclaw/grok-workspace\"\n# オプションの実験のみ: image=false を告知している場合でも ACP 画像ブロックを送信します。\n# Grok Build 0.2.118 が画像を確実に認識または説明できるようになるわけではありません。\n# vision = true\n```"
+msgstr ""
+"```toml\n"
+"[providers.models.grok_cli.default]\n"
+"model = \"grok-4.5\"\n"
+"working_directory = \"/srv/zeroclaw/grok-workspace\"\n"
+"# オプションの実験のみ: image=false を告知している場合でも ACP 画像ブロックを送信します。\n"
+"# Grok Build 0.2.118 が画像を確実に認識または説明できるようになるわけではありません。\n"
+"# vision = true\n"
+"```"
 
 #: src/providers/catalog.md
 msgid ""
@@ -59961,7 +60173,15 @@ msgid ""
 "# Optional: 4 MiB by default; accepted range is 1-64 MiB.\n"
 "max_acp_stdout_bytes = 8388608\n"
 "```"
-msgstr "```toml\n[providers.models.grok_cli.default]\nmodel = \"grok-4.5\"\nworking_directory = \"/srv/zeroclaw/grok-workspace\"\nenv_passthrough = [\"XAI_API_KEY\"]\n# オプション: デフォルトは 4 MiB、許容範囲は 1-64 MiB。\nmax_acp_stdout_bytes = 8388608\n```"
+msgstr ""
+"```toml\n"
+"[providers.models.grok_cli.default]\n"
+"model = \"grok-4.5\"\n"
+"working_directory = \"/srv/zeroclaw/grok-workspace\"\n"
+"env_passthrough = [\"XAI_API_KEY\"]\n"
+"# オプション: デフォルトは 4 MiB、許容範囲は 1-64 MiB。\n"
+"max_acp_stdout_bytes = 8388608\n"
+"```"
 
 #: src/providers/catalog.md
 msgid ""
@@ -59973,7 +60193,15 @@ msgid ""
 "  \"--permission-mode=bypassPermissions\",\n"
 "]\n"
 "```"
-msgstr "```toml\n[providers.models.grok_cli.ops]\nworking_directory = \"/path/to/agents/ops/workspace\"\nextra_args = [\n  \"--tools=run_terminal_cmd\",\n  \"--permission-mode=bypassPermissions\",\n]\n```"
+msgstr ""
+"```toml\n"
+"[providers.models.grok_cli.ops]\n"
+"working_directory = \"/path/to/agents/ops/workspace\"\n"
+"extra_args = [\n"
+"  \"--tools=run_terminal_cmd\",\n"
+"  \"--permission-mode=bypassPermissions\",\n"
+"]\n"
+"```"
 
 #: src/providers/catalog.md
 msgid ""
@@ -60254,7 +60482,13 @@ msgid ""
 "# shell = \"powershell\"  # Windows PowerShell 5.x\n"
 "# shell = \"cmd\"         # or leave unset -> cmd.exe /C \"<cmd>\"   (default)\n"
 "```"
-msgstr "```toml\n[runtime]\nshell = \"pwsh\"        # PowerShell 7+   -> pwsh -NoProfile -NonInteractive -Command <cmd>\n# shell = \"powershell\"  # Windows PowerShell 5.x\n# shell = \"cmd\"         # または未設定のまま -> cmd.exe /C \"<cmd>\"   (デフォルト)\n```"
+msgstr ""
+"```toml\n"
+"[runtime]\n"
+"shell = \"pwsh\"        # PowerShell 7+   -> pwsh -NoProfile -NonInteractive -Command <cmd>\n"
+"# shell = \"powershell\"  # Windows PowerShell 5.x\n"
+"# shell = \"cmd\"         # または未設定のまま -> cmd.exe /C \"<cmd>\"   (デフォルト)\n"
+"```"
 
 #: src/tools/skills.md
 msgid ""
@@ -60407,7 +60641,32 @@ msgid ""
 "minimum = 1\n"
 "maximum = 120\n"
 "```"
-msgstr "```toml\nname = \"my-platform\"\nversion = \"0.1.0\"\nwasm_path = \"my_platform.wasm\"\ncapabilities = [\"channel\"]\npermissions = [\"config_read\", \"http_client\"]\n\n[config_schema]\n\"$schema\" = \"https://json-schema.org/draft/2020-12/schema\"\ntype = \"object\"\nadditionalProperties = false\nrequired = [\"api_token\"]\n\n[config_schema.properties.api_token]\ntype = \"string\"\nminLength = 1\n\n[config_schema.properties.default_recipient]\ntype = \"string\"\n\n[config_schema.properties.timeout_secs]\ntype = \"integer\"\nminimum = 1\nmaximum = 120\n```"
+msgstr ""
+"```toml\n"
+"name = \"my-platform\"\n"
+"version = \"0.1.0\"\n"
+"wasm_path = \"my_platform.wasm\"\n"
+"capabilities = [\"channel\"]\n"
+"permissions = [\"config_read\", \"http_client\"]\n"
+"\n"
+"[config_schema]\n"
+"\"$schema\" = \"https://json-schema.org/draft/2020-12/schema\"\n"
+"type = \"object\"\n"
+"additionalProperties = false\n"
+"required = [\"api_token\"]\n"
+"\n"
+"[config_schema.properties.api_token]\n"
+"type = \"string\"\n"
+"minLength = 1\n"
+"\n"
+"[config_schema.properties.default_recipient]\n"
+"type = \"string\"\n"
+"\n"
+"[config_schema.properties.timeout_secs]\n"
+"type = \"integer\"\n"
+"minimum = 1\n"
+"maximum = 120\n"
+"```"
 
 #: src/plugins/distributing-plugins.md
 msgid ""
@@ -60422,7 +60681,18 @@ msgid ""
 "properties = {}\n"
 "additionalProperties = false\n"
 "```"
-msgstr "```toml\nname = \"my-plugin\"\nversion = \"0.1.0\"\nsignature = \"<base64url-signature>\"\npublisher_key = \"<hex-public-key>\"\n\n[config_schema]\ntype = \"object\"\nproperties = {}\nadditionalProperties = false\n```"
+msgstr ""
+"```toml\n"
+"name = \"my-plugin\"\n"
+"version = \"0.1.0\"\n"
+"signature = \"<base64url-signature>\"\n"
+"publisher_key = \"<hex-public-key>\"\n"
+"\n"
+"[config_schema]\n"
+"type = \"object\"\n"
+"properties = {}\n"
+"additionalProperties = false\n"
+"```"
 
 #: src/plugins/migrating-to-typed-config.md
 msgid ""
@@ -60450,7 +60720,31 @@ msgid ""
 "[config_schema.properties.allowed_chats]\n"
 "type = \"array\"\n"
 "```"
-msgstr "```toml\nname = \"my-plugin\"\nversion = \"0.2.0\"\nwasm_path = \"my_plugin.wasm\"\ncapabilities = [\"channel\"]\npermissions = [\"config_read\"]\n\n[config_schema]\n\"$schema\" = \"https://json-schema.org/draft/2020-12/schema\"\ntype = \"object\"\nrequired = [\"bot_token\"]\nadditionalProperties = false\n\n[config_schema.properties.bot_token]\ntype = \"string\"\nminLength = 1\n\n[config_schema.properties.poll_interval_secs]\ntype = \"integer\"\nminimum = 1\n\n[config_schema.properties.allowed_chats]\ntype = \"array\"\n```"
+msgstr ""
+"```toml\n"
+"name = \"my-plugin\"\n"
+"version = \"0.2.0\"\n"
+"wasm_path = \"my_plugin.wasm\"\n"
+"capabilities = [\"channel\"]\n"
+"permissions = [\"config_read\"]\n"
+"\n"
+"[config_schema]\n"
+"\"$schema\" = \"https://json-schema.org/draft/2020-12/schema\"\n"
+"type = \"object\"\n"
+"required = [\"bot_token\"]\n"
+"additionalProperties = false\n"
+"\n"
+"[config_schema.properties.bot_token]\n"
+"type = \"string\"\n"
+"minLength = 1\n"
+"\n"
+"[config_schema.properties.poll_interval_secs]\n"
+"type = \"integer\"\n"
+"minimum = 1\n"
+"\n"
+"[config_schema.properties.allowed_chats]\n"
+"type = \"array\"\n"
+"```"
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid ""
@@ -60477,7 +60771,30 @@ msgid ""
 "type = \"array\"\n"
 "items = { type = \"string\" }\n"
 "```"
-msgstr "```toml\nname = \"my-redact-plugin\"\nversion = \"0.1.0\"\nwasm_path = \"my_redact_plugin.wasm\"\ncapabilities = [\"tool\"]\npermissions = [\"config_read\"]\n\n[config_schema]\n\"$schema\" = \"https://json-schema.org/draft/2020-12/schema\"\ntype = \"object\"\nadditionalProperties = false\n\n[config_schema.properties.replacement]\ntype = \"string\"\nminLength = 1\n\n[config_schema.properties.redact_emails]\ntype = \"boolean\"\n\n[config_schema.properties.patterns]\ntype = \"array\"\nitems = { type = \"string\" }\n```"
+msgstr ""
+"```toml\n"
+"name = \"my-redact-plugin\"\n"
+"version = \"0.1.0\"\n"
+"wasm_path = \"my_redact_plugin.wasm\"\n"
+"capabilities = [\"tool\"]\n"
+"permissions = [\"config_read\"]\n"
+"\n"
+"[config_schema]\n"
+"\"$schema\" = \"https://json-schema.org/draft/2020-12/schema\"\n"
+"type = \"object\"\n"
+"additionalProperties = false\n"
+"\n"
+"[config_schema.properties.replacement]\n"
+"type = \"string\"\n"
+"minLength = 1\n"
+"\n"
+"[config_schema.properties.redact_emails]\n"
+"type = \"boolean\"\n"
+"\n"
+"[config_schema.properties.patterns]\n"
+"type = \"array\"\n"
+"items = { type = \"string\" }\n"
+"```"
 
 #: src/channels/matrix.md
 msgid ""
@@ -60488,7 +60805,14 @@ msgid ""
 "    { tool = \"mock_tool\", base = \"all\", exclude = [\"token\"] },\n"
 "]\n"
 "```"
-msgstr "```toml\nstream_tool_arguments = [\n    { default_base = \"safe\", argument_chars = 60 },\n    { tool = \"delegate\", base = \"none\", include = [\"agent\", \"background\", \"prompt\"], argument_chars = 0 },\n    { tool = \"mock_tool\", base = \"all\", exclude = [\"token\"] },\n]\n```"
+msgstr ""
+"```toml\n"
+"stream_tool_arguments = [\n"
+"    { default_base = \"safe\", argument_chars = 60 },\n"
+"    { tool = \"delegate\", base = \"none\", include = [\"agent\", \"background\", \"prompt\"], argument_chars = 0 },\n"
+"    { tool = \"mock_tool\", base = \"all\", exclude = [\"token\"] },\n"
+"]\n"
+"```"
 
 #: src/integrations/zega-ai.md
 msgid ""
@@ -60497,7 +60821,12 @@ msgid ""
 "  gatewayUrl: \"http://127.0.0.1:42617\",\n"
 "});\n"
 "```"
-msgstr "```ts\nconst client = new ZeroClawGatewayClient({\n  gatewayUrl: \"http://127.0.0.1:42617\",\n});\n```"
+msgstr ""
+"```ts\n"
+"const client = new ZeroClawGatewayClient({\n"
+"  gatewayUrl: \"http://127.0.0.1:42617\",\n"
+"});\n"
+"```"
 
 #: src/reference/config.md
 msgid "`a2a.server`"
@@ -61535,6 +61864,10 @@ msgstr "`calendar`"
 #: src/reference/config.md
 msgid "`call_fuel`"
 msgstr "`call_fuel`"
+
+#: src/reference/config.md
+msgid "`call_timeout_ms`"
+msgstr "`call_timeout_ms`"
 
 #: src/contributing/agent-policy-parity-harness.md
 msgid "`caller_allowed` - a per-run allowlist (the `run()` path); intersects with, never overrides, the policy filter and the MCP tool-access policy."
@@ -67413,10 +67746,6 @@ msgid "`runtime.docker`"
 msgstr "`runtime.docker`"
 
 #: src/developing/plugin-protocol.md
-msgid "`runtime.rs` strips any caller-supplied `__config` before injecting the resolved section, so the section cannot be spoofed. A channel receives the same typed object as the JSON argument to `configure`. When the manifest requests `config_read` but the host does not effectively grant it, resolution substitutes an empty object and validates that object too. Optional schemas therefore see `{}` (and tools omit an empty `__config`), while a schema with required fields fails closed before the guest starts. A plugin only ever sees its own section. Tool and channel are the current config consumers. The memory world has no config export yet, so memory plugins must not request `config_read` until that ABI and runtime wiring land."
-msgstr "`runtime.rs` は、解決済みセクションを注入する前に呼び出し元が指定した `__config` をすべて削除するため、セクションを偽装できません。チャネルは、`configure` の JSON 引数と同じ型付きオブジェクトを受け取ります。マニフェストが `config_read` を要求しているものの、ホストが実質的にそれを許可していない場合、解決処理では空のオブジェクトに置き換え、そのオブジェクトも検証します。そのため、オプションのスキーマには `{}` が渡され（ツールでは空の `__config` が省略されます）、必須フィールドを持つスキーマはゲストの起動前に安全側に失敗します。プラグインに見えるのは常に自身のセクションだけです。現在の設定の消費者はツールとチャネルです。メモリーワールドにはまだ設定のエクスポートがないため、その ABI とランタイム接続が導入されるまで、メモリープラグインは `config_read` を要求してはなりません。"
-
-#: src/developing/plugin-protocol.md
 msgid "`runtime.rs`, `wasm_tool.rs`"
 msgstr "`runtime.rs`, `wasm_tool.rs`"
 
@@ -67584,7 +67913,15 @@ msgstr "`secret-value`"
 msgid "`secret_test_forbidden`"
 msgstr "`secret_test_forbidden`"
 
-#: src/reference/config.md
+#: src/plugins/writing-a-tool-plugin.md
+msgid "`secrets.get` returns `not-found`"
+msgstr "`secrets.get` は `not-found` を返します"
+
+#: src/plugins/writing-a-tool-plugin.md
+msgid "`secrets.get` returns `unavailable`"
+msgstr "`secrets.get` は `unavailable` を返します"
+
+#: src/reference/config.md src/developing/plugin-protocol.md
 msgid "`secrets`"
 msgstr "`secrets`"
 
@@ -69778,8 +70115,8 @@ msgid "`wit/v0/` defines one world per WASM capability. Every world imports the 
 msgstr "`wit/v0/` は WASM 機能ごとに 1 つの world を定義します。すべての world はホストの `logging` インターフェイスをインポートし、その `log-record` イベントはホスト呼び出し元の[スパン属性](../ops/observability.md#zeroclaw-attribution)を保持しながら構造化ログに記録されます。また、`plugin-info`（自己申告の名前とバージョン）とそのプライマリインターフェイスをエクスポートします。"
 
 #: src/developing/plugin-protocol.md
-msgid "`wit/v0/` defines three worlds, bound by `bindgen!` in `component.rs`. Each imports `logging` (host) and exports `plugin-info` plus its primary interface: `tool-plugin` exports `tool`, `channel-plugin` exports `channel`, `memory-plugin` exports `memory`. The required (no-default) exports for each world are listed in the world's doc comment in its `.wit` file."
-msgstr "`wit/v0/` は3つのワールドを定義しており、これらは `component.rs` 内の `bindgen!` によってバインドされます。各ワールドは `logging`（ホスト）をインポートし、`plugin-info` とその主要なインターフェースをエクスポートします。`tool-plugin` は `tool` を、`channel-plugin` は `channel` を、`memory-plugin` は `memory` をエクスポートします。各ワールドで必須（デフォルトなし）のエクスポートは、`.wit` ファイル内のワールドのドキュメントコメントに記載されています。"
+msgid "`wit/v0/` defines three worlds, bound by `bindgen!` in `component.rs`. Each imports `logging` (host) and exports `plugin-info` plus its primary interface: `tool-plugin` exports `tool`, `channel-plugin` exports `channel`, and `memory-plugin` exports `memory`. Tool also imports `secrets`; channel imports `inbound`. The required (no-default) exports for each world are listed in the world's doc comment in its `.wit` file."
+msgstr "`wit/v0/` は3つのワールドを定義し、`component.rs` 内の `bindgen!` によってバインドされます。各ワールドは `logging`（ホスト）をインポートし、`plugin-info` と主要インターフェイスをエクスポートします。`tool-plugin` は `tool` を、`channel-plugin` は `channel` を、`memory-plugin` は `memory` をエクスポートします。Tool はさらに `secrets` をインポートし、channel は `inbound` をインポートします。各ワールドで必須（デフォルトなし）のエクスポートは、そのワールドの `.wit` ファイルにあるドキュメントコメントに記載されています。"
 
 #: src/architecture/decisions/ADR-006-runtime-channel-plugins.md
 msgid "`wit/v0/channel.wit`"
@@ -69796,6 +70133,10 @@ msgstr "`wit/v0/inbound.wit` は `channel-plugin` ワールドによってイン
 #: src/developing/plugin-protocol.md
 msgid "`wit/v0/logging.wit` is imported by all three worlds. Plugins call `log-record` to emit structured events back to the host:"
 msgstr "`wit/v0/logging.wit` は3つのワールドすべてにインポートされます。プラグインは `log-record` を呼び出して、構造化されたイベントをホストに返します:"
+
+#: src/developing/plugin-protocol.md
+msgid "`wit/v0/secrets.wit` is imported only by the tool world. The guest supplies only a top-level property name:"
+msgstr "`wit/v0/secrets.wit` はツールワールドによってのみインポートされます。ゲストが提供するのはトップレベルのプロパティ名だけです："
 
 #: src/developing/plugin-protocol.md
 msgid "`wit/v0/tool.wit` defines the single-tool surface. The host calls `name`, `description`, and `parameters-schema` once at load time, then dispatches `execute` per invocation:"
@@ -71107,8 +71448,8 @@ msgid "`⌥→ / ⌥f`"
 msgstr "`⌥→ / ⌥f`"
 
 #: src/plugins/index.md
-msgid "a `Linker` with exactly the imports its world, grants, and adapter support call for: `logging` always, `inbound` for channels, and `wasi:http` for tool and channel adapters only when the manifest grants `http_client`. Memory creates neither an HTTP context nor an HTTP linker. Each adapter cross-checks its context and linker at instantiation (`ensure_http_coherent`)."
-msgstr "その world、grant、アダプターサポートが必要とするインポートだけを正確に備えた `Linker`：`logging` は常に、チャネル用の `inbound`、そしてツールおよびチャネルのアダプター用の `wasi:http` はマニフェストが `http_client` を許可している場合に限ります。Memory は HTTP コンテキストも HTTP リンカーも作成しません。各アダプターはインスタンス化時にコンテキストとリンカーを相互チェックします（`ensure_http_coherent`）。"
+msgid "a `Linker` with exactly the imports its world, grants, and adapter support call for: `logging` always, `secrets` for tools, `inbound` for channels, and `wasi:http` for tool and channel adapters only when the manifest grants `http_client`. Memory creates neither an HTTP context nor an HTTP linker. Each adapter cross-checks its context and linker at instantiation (`ensure_http_coherent`)."
+msgstr "その world、権限、およびアダプターのサポートに必要な import だけを持つ `Linker`：`logging` は常に、ツールには `secrets`、チャネルには `inbound`、そしてツールおよびチャネルのアダプターには、マニフェストが `http_client` を許可している場合のみ `wasi:http`。Memory は HTTP コンテキストも HTTP リンカーも作成しない。各アダプターはインスタンス化時にコンテキストとリンカーを相互確認する（`ensure_http_coherent`）。"
 
 #: src/plugins/index.md
 msgid "a `Store` carrying the sandboxed WASI context, the resource table, the optional HTTP context, and the fuel budget;"

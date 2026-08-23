@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ZeroClaw Docs\n"
-"POT-Creation-Date: 2026-08-22T11:36:58-07:00\n"
+"POT-Creation-Date: 2026-08-22T15:22:06-07:00\n"
 "PO-Revision-Date: 2026-04-25T21:58:41-04:00\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -152,7 +152,7 @@ msgid "\"-r -P ${pidfile} -o ${logfile} -u ${zeroclaw_runas} ${launcher}\""
 msgstr "-r -P ${pidfile} -o ${logfile} -u ${zeroclaw_runas} ${launcher}"
 
 #: src/architecture/logging.md src/architecture/rpc-socket.md
-#: src/channels/acp.md src/developing/plugin-protocol.md
+#: src/channels/acp.md
 msgid "\"...\""
 msgstr "\"...\""
 
@@ -217,7 +217,9 @@ msgstr "\"127.0.0.1:42617:42617\""
 msgid ""
 "\"127.0.0.1:42617:42617\"      # gateway, host loopback only\n"
 "    volumes"
-msgstr "\"127.0.0.1:42617:42617\"      # 网关，仅限主机回环\n    volumes"
+msgstr ""
+"\"127.0.0.1:42617:42617\"      # 网关，仅限主机回环\n"
+"    volumes"
 
 #: src/setup/service.md
 msgid "\"1h ago\""
@@ -748,7 +750,11 @@ msgstr "anthropic/claude-sonnet-4.6"
 msgid "\"api-bridge\""
 msgstr "\"api-bridge\""
 
-#: src/developing/plugin-protocol.md
+#: src/plugins/writing-a-tool-plugin.md
+msgid "\"api_key is unavailable\""
+msgstr "\"api_key 不可用\""
+
+#: src/plugins/writing-a-tool-plugin.md
 msgid "\"api_key\""
 msgstr "\"api_key\""
 
@@ -2343,7 +2349,10 @@ msgid ""
 "          # governs exposure here. If you mount a localhost-default config,\n"
 "          # override both gateway.host and gateway.allow_public_bind together.\n"
 "      volumes"
-msgstr "# `containerPort` 不会向主机发布；此处由 Service 或 Ingress 控制暴露。\n          # 如果挂载了默认使用 localhost 的配置，请同时覆盖 gateway.host 和 gateway.allow_public_bind。\n      volumes"
+msgstr ""
+"# `containerPort` 不会向主机发布；此处由 Service 或 Ingress 控制暴露。\n"
+"          # 如果挂载了默认使用 localhost 的配置，请同时覆盖 gateway.host 和 gateway.allow_public_bind。\n"
+"      volumes"
 
 #: src/hardware/android-setup.md
 msgid "# aarch64 = 64-bit (prebuilt binary available)\n"
@@ -3736,8 +3745,8 @@ msgid "**Config:** Use `zeroclaw config set peripherals.boards.0.board nucleo-f4
 msgstr "**配置：** 使用 `zeroclaw config set peripherals.boards.0.board nucleo-f401re`、`transport serial` 和 `path <your-serial-port>`。所有字段请参阅[配置参考](../reference/config.md)。"
 
 #: src/plugins/writing-a-channel-plugin.md
-msgid "**Configuration arrives before anything else.** The host calls your `configure` export exactly once, at load, before any other call. The argument is the typed JSON object materialized and validated against your manifest's `config_schema`, with secrets already decrypted. If the requested `config_read` grant is denied, the host validates `{}` instead; an optional schema receives that object, while required fields make construction fail before guest code runs. Deserialize the object into a typed config struct and store it in your component's state."
-msgstr "**配置会先于其他任何内容到达。**宿主在加载时调用你的 `configure` 导出函数且仅调用一次，并且早于任何其他调用。该参数是根据你的清单中的 `config_schema` 具体化并验证过的类型化 JSON 对象，其中的机密内容已解密。如果请求的 `config_read` 授权被拒绝，宿主会改为验证 `{}`；可选模式会接收该对象，而必填字段会导致构造在来宾代码运行前失败。将该对象反序列化为类型化配置结构体，并将其存储在组件状态中。"
+msgid "**Configuration arrives before anything else.** The host calls your `configure` export exactly once, at load, before any other call. The argument is the typed JSON object materialized and validated against your manifest's `config_schema`, with secrets already decrypted. If the requested `config_read` grant is denied, the host validates `{}` instead; an optional schema receives that object, while required fields make construction fail before guest code runs. Deserialize the object into a typed config struct and store it in your component's state. The channel world does not import the scoped secret service yet, so admission rejects channel-capable manifests containing `x-secret` until the host has a coherent warm-store secret lifecycle."
+msgstr "**配置会最先到达。** 宿主在加载时、任何其他调用之前，恰好调用一次你的 `configure` 导出项。该参数是根据清单的 `config_schema` 实例化并完成验证的类型化 JSON 对象，其中的机密已解密。如果请求的 `config_read` 授权被拒绝，宿主会改为验证 `{}`；可选的 schema 会接收该对象，而必填字段会导致构造在来宾代码运行前失败。将该对象反序列化为类型化的配置结构体，并将其存储在组件状态中。channel world 目前尚未导入受作用域限制的机密服务，因此，在宿主拥有一致的 warm-store 机密生命周期之前，准入会拒绝包含 x-secret 的支持 channel 的清单。"
 
 #: src/foundations/fnd-006-zero-compromise-in-practice.md
 msgid "**Configuration errors** are malformed or missing configuration discovered at startup. The correct response is to fail fast, but specifically. Not a panic with a stack trace, not a vague \"invalid config\" message. A message that points at the specific field, explains what was expected, and tells the operator what to provide. A user who cannot start ZeroClaw because of a misconfiguration should leave the process with a clear understanding of exactly what to fix."
@@ -3826,6 +3835,10 @@ msgstr "**创建数据表**：`docs/datasheets/my-board.md`，包含引脚别名
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "**Create** a `Translations` page on the GitHub Wiki with a table of available languages, their completeness, and the contributors maintaining them"
 msgstr "在 GitHub Wiki 上**创建**一个 `Translations` 页面，其中包含可用语言列表、它们的完成度以及负责维护的贡献者"
+
+#: src/plugins/writing-a-channel-plugin.md
+msgid "**Credential limitation.** Do not add `x-secret` to this channel schema. The current channel world has no `secrets` import, and admission rejects any channel-capable manifest containing that marker. Credentials therefore arrive in the one typed `configure` object and remain in warm guest state. A channel migration that requires scoped reads or rotation must remain built in until a coherent warm-store secret lifecycle lands."
+msgstr "**凭据限制。**不要将 `x-secret` 添加到此通道架构中。当前通道环境没有 `secrets` 导入，准入会拒绝任何包含该标记的支持通道的清单。因此，凭据会进入唯一的类型化 `configure` 对象，并保留在热来宾状态中。在一致的热存储密钥生命周期落地之前，需要作用域限定读取或轮换的通道迁移必须继续内置。"
 
 #: src/channels/matrix.md
 msgid "**Cron delivery:** `delivery.to` should be a plain room id (`!abc:server`) or alias (`#room:server`). Older configs that wrote `<sender>||<room>` are tolerated: ZeroClaw extracts the last `!`/`#`\\-prefixed segment and warns about the malformed value."
@@ -4922,8 +4935,8 @@ msgid "**Metadata:** Read-only (mandatory; auto-selected)"
 msgstr "**元数据：** 只读（必需；自动选择）"
 
 #: src/plugins/index.md
-msgid "**Metered execution.** The engine is built with fuel metering enabled, and every call gets a fresh fuel budget. A plugin that loops forever traps; it cannot hang the agent. Memory, table, and instance ceilings are enforced by a store limiter. All four bounds come from operator config (`plugins.limits.*`) and are validated non-zero, and a store cannot be constructed without them, so no load path can produce an unsandboxed plugin."
-msgstr "**计量执行。** 该引擎在构建时启用了燃料计量，每次调用都会获得全新的燃料预算。无限循环的插件会陷入 trap；它不能挂起 agent。内存、表和实例上限由 store limiter 强制执行。所有四项边界都来自运维配置（`plugins.limits.*`），并且已验证为非零；没有它们就无法构造 store，因此任何加载路径都不可能产生未沙箱化的插件。"
+msgid "**Metered execution.** The engine is built with fuel metering enabled, and every call gets a fresh fuel budget plus a wall-clock deadline that includes awaited host work. A plugin that loops forever or waits forever fails; it cannot hang the agent. Memory, table, and instance ceilings are enforced by a store limiter. All five bounds come from operator config (`plugins.limits.*`) and are validated non-zero, and a store cannot be constructed without them, so no load path can produce an unsandboxed plugin."
+msgstr "**计量执行。** 引擎启用了燃料计量，每次调用都会获得全新的燃料预算和一个包含等待宿主工作时间在内的墙上时钟截止时间。无限循环或无限等待的插件会失败，无法挂起代理。存储的内存、表和实例上限由存储限制器强制执行。所有五个限制都来自操作员配置（`plugins.limits.*`），并经过非零校验；如果没有这些限制，就无法构造存储，因此任何加载路径都不会产生未受沙箱保护的插件。"
 
 #: src/foundations/fnd-001-intentional-architecture.md
 msgid "**Microkernel**: An architecture in which the core system contains only the minimum necessary functionality, and all other capabilities are provided by separate components that communicate with the core through well-defined interfaces."
@@ -5495,8 +5508,8 @@ msgid "**Permissions** are what host services the plugin's code may reach at run
 msgstr "**权限**是插件代码在运行时可访问的宿主服务：HTTP 外联、配置、内存。清单未声明的权限，就是插件无法访问的宿主功能。"
 
 #: src/plugins/index.md
-msgid "**Permissions**: what host services the plugin's code may _reach_. The `PluginPermission` enum in the same file. Today `config_read` (tool and channel adapters receive their own schema-materialized, validated config) and `http_client` have behavioral effect. The HTTP permission is the necessary grant for adapters that implement outbound `wasi:http`: tool and channel enable that surface, while memory intentionally does not yet. `config_read` must be paired with the manifest's `config_schema`; either one without the other is rejected. The filesystem and memory-access permissions are accepted by the schema but not yet backed by host functions, so declaring them grants nothing."
-msgstr "**权限**：插件代码可以_访问_的主机服务。同一文件中的 `PluginPermission` 枚举。如今，`config_read`（工具和通道适配器会接收各自根据模式生成并经过验证的配置）和 `http_client` 会产生实际行为影响。HTTP 权限是实现出站 `wasi:http` 的适配器所必需的授权：工具和通道会启用该接口，而内存则有意暂不启用。`config_read` 必须与清单中的 `config_schema` 配对；缺少其中任意一个都会被拒绝。文件系统和内存访问权限虽然会被模式接受，但目前尚无主机函数提供支持，因此声明它们不会授予任何能力。"
+msgid "**Permissions**: what host services the plugin's code may _reach_. The `PluginPermission` enum in the same file. Today `config_read` (tool and channel adapters receive their own schema-materialized, validated config, and tools can resolve schema-designated secrets during `execute`) and `http_client` have behavioral effect. The HTTP permission is the necessary grant for adapters that implement outbound `wasi:http`: tool and channel enable that surface, while memory intentionally does not yet. `config_read` must be paired with the manifest's `config_schema`; either one without the other is rejected. Channel-capable manifests cannot use `x-secret` yet. The filesystem and memory-access permissions are accepted by the schema but not yet backed by host functions, so declaring them grants nothing."
+msgstr "**权限**：插件代码可以_访问_哪些宿主服务。同一文件中的 `PluginPermission` 枚举。目前，`config_read`（工具和通道适配器会接收各自根据架构生成并经过验证的配置，工具还可以在 `execute` 期间解析由架构指定的机密）和 `http_client` 会产生实际行为效果。对于实现出站 `wasi:http` 的适配器，HTTP 权限是必要的授权：工具和通道会启用该接口，而内存目前有意不启用。`config_read` 必须与清单中的 `config_schema` 配对；缺少其中任意一项都会被拒绝。支持通道的清单目前不能使用 `x-secret`。文件系统和内存访问权限可被架构接受，但目前尚无宿主函数提供支持，因此声明它们不会授予任何能力。"
 
 #: src/channels/matrix.md
 msgid "**Persistent sessions:** on first successful login, ZeroClaw writes `~/.zeroclaw/state/matrix/session.json` (user_id + device_id + access_token + optional refresh_token). Subsequent restarts call `restore_session()` from that blob: no re-login. The matrix-rust-sdk SQLite crypto store lives alongside it at `~/.zeroclaw/state/matrix/store/`. **Once `session.json` exists, rotating `access_token` in config has no effect until the file is deleted**: the saved token wins. Delete `session.json` to force a re-login from config values."
@@ -8208,8 +8221,8 @@ msgid "**`llm.generate`** - one bounded model call as a pipeline step (no tools,
 msgstr "**`llm.generate`** - 作为流水线步骤执行一次有界模型调用（无工具、无智能体循环），使用默认智能体解析得到的模型提供商。`with:` 中声明的字段包括 - `instruction`（必填）、`system`、`output_key`（默认为 `text`）、`echo`（复制到输出中以供下游管道传递的负载字段）。通过管道传入的事件负载会置于显式的不受信任内容框架内，并且绝不会被作为配置读取。"
 
 #: src/developing/plugin-protocol.md
-msgid "**`logging`, typed config injection, and host-fed inbound are wired; tool and channel adapters also implement `http_client`.** Of the permissions a manifest can declare, `config_read` exposes the plugin's own section only after the host materializes and validates it against the manifest-owned `config_schema`. An `http_client` grant is necessary for outbound `wasi:http`, but the adapter must also opt into the host surface. Memory intentionally remains HTTP-free until its network boundary has component-level coverage. Filesystem and memory-access permissions are still accepted by the manifest schema but inert: their host functions are not yet registered in the linker. See Permissions and Host imports below."
-msgstr "**`logging`、类型化配置注入和主机注入的入站功能已接入；工具和通道适配器也实现了 `http_client`。** 在清单可以声明的权限中，`config_read` 仅在主机根据清单所有者的 `config_schema` 生成并验证配置后，才会公开插件自己的配置段。对于出站 `wasi:http`，必须授予 `http_client` 权限，但适配器还必须选择接入主机接口。内存功能在其网络边界获得组件级覆盖之前，仍会有意保持不涉及 HTTP。文件系统和内存访问权限仍会被清单架构接受，但目前不起作用：它们的主机函数尚未在链接器中注册。请参阅下文的权限和主机导入。"
+msgid "**`logging`, typed config injection, tool-scoped secrets, and host-fed inbound are wired; tool and channel adapters also implement `http_client`.** Of the permissions a manifest can declare, `config_read` exposes the plugin's own section only after the host materializes and validates it against the manifest-owned `config_schema`. A tool-only schema can designate secrets that are withheld from `__config` and resolved during `execute`; a channel-capable manifest cannot use secret markers yet. An `http_client` grant is necessary for outbound `wasi:http`, but the adapter must also opt into the host surface. Memory intentionally remains HTTP-free until its network boundary has component-level coverage. Filesystem and memory-access permissions are still accepted by the manifest schema but inert: their host functions are not yet registered in the linker. See Permissions and Host imports below."
+msgstr "**`logging`、类型化配置注入、工具作用域机密和主机提供的入站数据已接入；工具和通道适配器也实现了 `http_client`。** 在清单可声明的权限中，`config_read` 只有在主机根据清单拥有的 `config_schema` 生成并验证配置后，才会公开插件自身的配置区段。仅限工具的架构可以指定从 `__config` 中隐去并在 `execute` 期间解析的机密；支持通道的清单目前无法使用机密标记。出站 `wasi:http` 必须获得 `http_client` 授权，但适配器还必须选择启用主机接口。Memory 有意保持不使用 HTTP，直到其网络边界具备组件级覆盖。文件系统和内存访问权限仍会被清单架构接受，但目前不起作用：其主机函数尚未在链接器中注册。请参阅下文的“Permissions”和“Host imports”。"
 
 #: src/ops/cost-tracking.md
 msgid "**`missing_pricing` warns spam the log.** Emitted once per `(provider_type, model)` pair when `resolve_rates` returns `(0.0, 0.0)`. Either the rate isn't configured for that model, or the upstream returned a different model id than what's in the rate sheet (some providers return versioned ids like `claude-3-5-sonnet-20241022` even when you configured `claude-3-5-sonnet`). Add the exact id the warn names, or set the unversioned id and rely on `resolve_rates`'s suffix-match path."
@@ -10527,6 +10540,10 @@ msgstr "暂停在 `kind: checkpoint` 步骤上的确定性运行，可通过与�
 msgid "A dev box where you're iterating fast and approval prompts slow you down"
 msgstr "一个开发环境，你在其中快速迭代，而审批提示会拖慢你的进度"
 
+#: src/plugins/writing-a-tool-plugin.md
+msgid "A direct top-level string property marked `x-secret = true` is excluded from `__config`. Read it explicitly with the generated `zeroclaw::plugin::secrets::get` function. Nested markers, false/non-boolean markers, and secret non-string properties fail manifest admission."
+msgstr "标记为 `x-secret = true` 的直接顶层字符串属性不会包含在 `__config` 中。使用生成的 `zeroclaw::plugin::secrets::get` 函数显式读取它。嵌套标记、值为 false 或非布尔值的标记，以及机密非字符串属性都会导致清单准入失败。"
+
 #: src/channels/peer-groups.md
 msgid "A discord peer group named e.g. `my_discord_group` sets `channel = \"discord\"`, allows `111111111111111111` in `external_peers`, names peer agents researcher, summariser, and blocks `222222222222222222` via `ignore`. Set it through the gateway dashboard, zerocode, or `zeroclaw config set`."
 msgstr "一个名为例如 `my_discord_group` 的 discord 对等组设置 `channel = \"discord\"`，在 `external_peers` 中允许 `111111111111111111`，将对等代理命名为 researcher、summariser，并通过 `ignore` 屏蔽 `222222222222222222`。可通过网关仪表板、zerocode 或 `zeroclaw config set` 进行设置。"
@@ -10784,8 +10801,8 @@ msgid "A plugin can provide one or more of the capabilities defined in `PluginCa
 msgstr "插件可以提供 `PluginCapability`（`crates/zeroclaw-plugins/src/lib.rs`）中定义的一项或多项能力：可调用工具、消息通道、内存后端、可观测性后端，或一组 markdown 技能。技能这一情况比较特殊：它完全不包含 WASM，只提供一个包含 markdown 的 `skills/` 目录，这也是它唯一省略编译组件的能力。"
 
 #: src/developing/plugin-protocol.md
-msgid "A plugin does not read process environment variables. Its manifest must pair `config_read` with a Draft 2020-12 `config_schema`; either one without the other is an invalid manifest. The schema root must be an object with a `properties` map and `additionalProperties = false`. Each top-level property must declare one of `string`, `boolean`, `integer`, `number`, `array`, or `object`, directly or through a package-local JSON Pointer. Unknown keys, malformed encodings, and constraint violations reject the instance before guest code runs."
-msgstr "插件不会读取进程环境变量。其清单必须将 `config_read` 与 Draft 2020-12 `config_schema` 配对；缺少其中任意一项都会导致清单无效。架构根必须是一个对象，包含 `properties` 映射和 `additionalProperties = false`。每个顶层属性都必须直接声明 `string`、`boolean`、`integer`、`number`、`array` 或 `object` 中的一种，或通过包内 JSON Pointer 声明。未知键、格式错误的编码以及约束违规都会在来宾代码运行前拒绝该实例。"
+msgid "A plugin does not read process environment variables. Its manifest must pair `config_read` with a Draft 2020-12 `config_schema`; either one without the other is an invalid manifest. The schema root must be an object with a `properties` map and `additionalProperties = false`. Each top-level property must declare one of `string`, `boolean`, `integer`, `number`, `array`, or `object`, directly or through a package-local JSON Pointer. In a manifest that includes `tool` and excludes `channel`, a direct top-level string property may set `x-secret: true`; nested, false, or non-boolean markers and secret non-string properties are rejected. A manifest with the `channel` capability and any `x-secret` marker is also rejected. Unknown keys, malformed encodings, and constraint violations reject the instance before guest code runs."
+msgstr "插件不会读取进程环境变量。其清单必须将 `config_read` 与 Draft 2020-12 的 `config_schema` 配对；两者缺一不可，否则清单无效。模式根必须是一个包含 `properties` 映射且 `additionalProperties = false` 的对象。每个顶层属性都必须直接或通过包本地 JSON Pointer 声明为 `string`、`boolean`、`integer`、`number`、`array` 或 `object` 之一。在包含 `tool` 且不包含 `channel` 的清单中，直接的顶层字符串属性可以设置 `x-secret: true`；嵌套标记、值为 false 的标记或非布尔标记，以及标记为机密的非字符串属性都会被拒绝。包含 `channel` 能力和任意 `x-secret` 标记的清单也会被拒绝。未知键、格式错误的编码和约束违规将在来宾代码运行前导致实例被拒绝。"
 
 #: src/developing/plugin-protocol.md
 msgid "A plugin is a `cdylib` crate that targets the component model. Generate the guest bindings from the same `wit/v0` package the host uses, implement the exported world, and compile to `wasm32-wasip2`. For the full worked walkthroughs from empty crate to installed plugin, see the [plugin guides](../plugins/index.md); the notes below cover the build and install mechanics."
@@ -11112,6 +11129,10 @@ msgstr "过于宽泛的 trait 可能会变成一个最低公分母 API，从而�
 #: src/architecture/decisions/ADR-002-trait-driven-extensibility.md
 msgid "A trait that is too narrow forces integrations to tunnel behavior through config, logs, or ad hoc helper paths."
 msgstr "过于狭窄的 trait 会迫使集成通过配置、日志或临时的辅助路径来传递行为。"
+
+#: src/developing/how-plugins-work.md
+msgid "A trusted tool plugin can read a schema-designated secret's plaintext through its scoped `secrets.get` import while the host dispatches `execute`. The host prevents public config injection and cross-instance selection; it does not provide stronger egress-boundary credential injection where guest code never learns the value. Channel manifests cannot use `x-secret` until the host has a coherent warm-store secret lifecycle."
+msgstr "受信任的工具插件可以在主机分派 `execute` 时，通过作用域限定的 `secrets.get` 导入读取由模式指定的机密明文。主机会阻止公共配置注入和跨实例选择；但它不提供更强的出口边界凭据注入机制，使来宾代码永远无法获知该值。通道清单必须等到主机具备完整一致的温存储机密生命周期后才能使用 `x-secret`。"
 
 #: src/contributing/agent-policy-parity-harness.md
 msgid "A turn's engine inputs (the tool registry, the approval manager, the resolved runtime knobs) are assembled at several distinct sites:"
@@ -13389,8 +13410,8 @@ msgid "Areas that want help"
 msgstr "需要帮助的区域"
 
 #: src/plugins/writing-a-tool-plugin.md
-msgid "Arguably the most common real-world tool shape is not a pure transform like `redact` but a bridge to an external API: declare `http_client` in the manifest, read credentials from `__config`, make an outbound request. The missing piece relative to this guide is an HTTP client that works inside a component: `reqwest` and friends do not, because there is no socket surface, only `wasi:http`. A client known to work against this host is [`waki`](https://crates.io/crates/waki), which is blocking and therefore fits `execute`'s synchronous signature directly. Add it gated to the component target so your pure-logic modules stay natively testable:"
-msgstr "从实际情况看，最常见的工具形态并不是像 `redact` 那样的纯转换，而是连接外部 API 的桥梁：在清单中声明 `http_client`，从 `__config` 读取凭据，然后发起出站请求。相对于本指南，缺少的是一个能在组件内部工作的 HTTP 客户端：`reqwest` 及其同类库都不行，因为这里没有套接字接口，只有 `wasi:http`。已知可在此宿主上工作的客户端是 [`waki`](https://crates.io/crates/waki)，它是阻塞式的，因此可以直接适配 `execute` 的同步签名。将其按组件目标进行条件启用，这样你的纯逻辑模块就仍然可以在本地原生测试："
+msgid "Arguably the most common real-world tool shape is not a pure transform like `redact` but a bridge to an external API: declare `http_client` in the manifest, read credentials through the scoped secret service, and make an outbound request. Mark the credential in the signed schema:"
+msgstr "可以说，现实世界中最常见的工具形态并不是像 `redact` 这样的纯转换，而是连接外部 API 的桥接器：在清单中声明 `http_client`，通过限定作用域的机密服务读取凭据，并发起出站请求。在已签名的架构中标记该凭据："
 
 #: src/sop/example.md src/foundations/fnd-001-intentional-architecture.md
 #: src/foundations/fnd-004-engineering-infrastructure.md
@@ -14110,8 +14131,8 @@ msgid "Be assigned issues (can request to be assigned)"
 msgstr "被分配问题（可以请求被分配）"
 
 #: src/developing/plugin-protocol.md
-msgid "Be aware of the gap between declared and enforced: in the component host today `config_read` and `http_client` have behavioral effect. Requesting `config_read` requires a `config_schema`, and declaring that schema without the permission is also rejected. Before a tool or channel component is instantiated, the host resolves its effective grant, materializes the plugin's operator values to typed JSON, and validates the result. `runtime.rs` strips any caller-supplied `__config` before injecting the validated object into a tool call; a channel receives the same object through `configure`. `http_client` is a necessary grant, not a complete authority decision: the capability adapter must also construct the HTTP context and link `wasi:http`. Tool and channel adapters opt in after grant validation. The memory adapter deliberately does not, so granting `http_client` to a memory scope alone adds no network surface. The remaining variants (`file_read`, `file_write`, `memory_read`, `memory_write`) are accepted by the manifest schema but are not yet wired to a host import: declaring them grants nothing on its own. They reserve the names for the host functions that will gate them (see Host imports below)."
-msgstr "请注意声明内容与强制执行之间的差距：在当前的组件宿主中，`config_read` 和 `http_client` 已会实际影响行为。请求 `config_read` 需要 `config_schema`，而在没有该权限的情况下声明该模式也会被拒绝。在实例化工具或通道组件之前，宿主会解析其有效授权，将插件的操作员配置值具体化为类型化 JSON，并验证结果。`runtime.rs` 会在将经过验证的对象注入工具调用之前，移除调用方提供的任何 `__config`；通道则通过 `configure` 接收同一对象。`http_client` 是必要的授权，而不是完整的权限判定：能力适配器还必须构造 HTTP 上下文并链接 `wasi:http`。工具和通道适配器仅在授权验证通过后才会启用。内存适配器则有意不这样做，因此仅向内存作用域授予 `http_client` 不会增加任何网络暴露面。其余变体（`file_read`、`file_write`、`memory_read`、`memory_write`）会被清单模式接受，但目前尚未接入宿主导入：单独声明它们不会获得任何授权。它们为将来用于控制这些权限的宿主函数预留名称（见下文的宿主导入）。"
+msgid "Be aware of the gap between declared and enforced: in the component host today `config_read` and `http_client` have behavioral effect. Requesting `config_read` requires a `config_schema`, and declaring that schema without the permission is also rejected. Before a tool or channel component is instantiated, the host resolves its effective grant, materializes the plugin's operator values to typed JSON, and validates the complete object. `runtime.rs` strips any caller-supplied `__config` before injecting the validated non-secret values into a tool call; direct top-level string properties marked `x-secret: true` are read through the host-scoped `secrets` import during `execute`. A channel receives its validated object through `configure`, and a channel-capable manifest with any `x-secret` marker is rejected. `http_client` is a necessary grant, not a complete authority decision: the capability adapter must also construct the HTTP context and link `wasi:http`. Tool and channel adapters opt in after grant validation. The memory adapter deliberately does not, so granting `http_client` to a memory scope alone adds no network surface. The remaining variants (`file_read`, `file_write`, `memory_read`, `memory_write`) are accepted by the manifest schema but are not yet wired to a host import: declaring them grants nothing on its own. They reserve the names for the host functions that will gate them (see Host imports below)."
+msgstr "请注意声明与强制执行之间的差异：目前在组件宿主中，`config_read` 和 `http_client` 已会产生实际行为影响。请求 `config_read` 必须提供 `config_schema`，而在没有该权限的情况下声明此模式也会被拒绝。在实例化工具或通道组件之前，宿主会解析其有效授权，将插件的操作员值具体化为带类型的 JSON，并验证完整对象。`runtime.rs` 会在将经过验证的非机密值注入工具调用之前，移除调用方提供的任何 `__config`；在 `execute` 期间，带有 `x-secret: true` 标记的顶层直接字符串属性会通过宿主作用域的 `secrets` 导入读取。通道会通过 `configure` 接收其经过验证的对象，而包含任何 `x-secret` 标记的支持通道清单会被拒绝。`http_client` 是必要的授权，而不是完整的权限判定：能力适配器还必须构造 HTTP 上下文并链接 `wasi:http`。工具和通道适配器会在授权验证后选择启用。内存适配器则有意不这样做，因此仅向内存作用域授予 `http_client` 不会增加任何网络暴露面。其余变体（`file_read`、`file_write`、`memory_read`、`memory_write`）会被清单模式接受，但目前尚未连接到宿主导入：仅声明它们本身不会授予任何权限。它们为未来用于限制这些权限的宿主函数预留了名称（见下文的宿主导入）。"
 
 #: src/plugins/index.md
 msgid "Be aware of what is registered end to end versus what is host-complete but not yet reachable from a running daemon:"
@@ -14627,8 +14648,8 @@ msgid "Bounded targets run under the target policy with the caller's agentic too
 msgstr "有界目标在目标策略下运行，并以调用方的 agentic 工具注册表为上限；独立目标在目标策略和目标自有注册表下运行"
 
 #: src/reference/config.md
-msgid "Bounds a single plugin call so a runaway or malicious component traps instead of hanging the host or exhausting memory. `call_fuel` caps instructions per call; the memory, table, and instance ceilings bound a store's growth. Every value is operator-tunable and validated as non-zero."
-msgstr "将单个插件调用限制在一个范围内，使失控或恶意组件在出错时被捕获，而不是让宿主挂起或耗尽内存。`call_fuel` 为每次调用设定指令上限；内存、表和实例上限则约束 store 的增长。每个值都可由运维调优，并且会验证为非零。"
+msgid "Bounds a single plugin call so a runaway or malicious component traps instead of hanging the host or exhausting memory. `call_fuel` caps instructions per call; `call_timeout_ms` caps elapsed wall-clock time, including time awaiting async host imports; the memory, table, and instance ceilings bound a store's growth. Every value is operator-tunable and validated as non-zero."
+msgstr "限制单次插件调用，使失控或恶意组件触发陷阱，而不是导致宿主挂起或耗尽内存。`call_fuel` 限制每次调用的指令数；`call_timeout_ms` 限制经过的挂钟时间，包括等待异步宿主导入的时间；内存、表和实例上限限制存储的增长。每个值均可由操作员调整，并经过非零验证。"
 
 #: src/architecture/localization-catalog-lifecycle.md
 msgid "Branch"
@@ -15221,8 +15242,8 @@ msgid "Calendar source identifier the event originates from."
 msgstr "事件来源的日历源标识符。"
 
 #: src/plugins/writing-a-tool-plugin.md
-msgid "Call traps"
-msgstr "调用陷阱"
+msgid "Call fails or traps"
+msgstr "调用失败或触发陷阱"
 
 #: src/architecture/logging.md
 msgid "Call-site contract"
@@ -19754,8 +19775,8 @@ msgstr "缺点"
 #: src/tools/skill-bundles.md src/developing/plugin-protocol.md
 #: src/plugins/writing-a-tool-plugin.md src/plugins/writing-a-channel-plugin.md
 #: src/plugins/writing-a-memory-plugin.md
-msgid "Draft 2020-12 JSON Schema for this plugin's private config; it is included in the canonical manifest bytes and therefore covered when the manifest is signed. The root must be an object with a `properties` map and `additionalProperties = false`. Every top-level property must have one explicit supported type, directly or through a local JSON Pointer: `string`, `boolean`, `integer`, `number`, `array`, or `object`. A schema without `config_read`, or `config_read` without a schema, is rejected."
-msgstr "为此插件的私有配置起草 Draft 2020-12 JSON Schema；它包含在规范清单字节中，因此在清单签名时也会受到覆盖。根必须是一个包含 `properties` 映射且 `additionalProperties = false` 的对象。每个顶层属性都必须直接或通过本地 JSON Pointer 指定一个明确的受支持类型：`string`、`boolean`、`integer`、`number`、`array` 或 `object`。不包含 `config_read` 的架构，或没有架构的 `config_read`，都会被拒绝。"
+msgid "Draft 2020-12 JSON Schema for this plugin's private config; it is included in the canonical manifest bytes and therefore covered when the manifest is signed. The root must be an object with a `properties` map and `additionalProperties = false`. Every top-level property must have one explicit supported type, directly or through a local JSON Pointer: `string`, `boolean`, `integer`, `number`, `array`, or `object`. A manifest that includes `tool` and excludes `channel` may set `x-secret = true` directly on a top-level string property to remove it from public config and expose it through the scoped `secrets.get` host import during `execute`. Nested, false, or non-boolean secret markers and secret non-string properties are rejected. A manifest with the `channel` capability and any `x-secret` property is also rejected until the host has a coherent warm-store secret lifecycle. A schema without `config_read`, or `config_read` without a schema, is rejected."
+msgstr "为此插件的私有配置编写 Draft 2020-12 JSON Schema；它包含在规范清单字节中，因此清单签名时也会受到签名保护。根节点必须是一个对象，其中包含 `properties` 映射和 `additionalProperties = false`。每个顶级属性都必须具有一个明确的受支持类型，可以直接指定，也可以通过本地 JSON Pointer 指定：`string`、`boolean`、`integer`、`number`、`array` 或 `object`。包含 `tool` 且不包含 `channel` 的清单可以直接在顶级字符串属性上设置 `x-secret = true`，将其从公共配置中移除，并在 `execute` 期间通过作用域限定的 `secrets.get` 主机导入将其暴露出来。嵌套的、值为 false 的或非布尔值的机密标记，以及标记为机密的非字符串属性，都会被拒绝。在主机具备一致的 warm-store 机密生命周期之前，包含 `channel` 能力且具有任何 `x-secret` 属性的清单也会被拒绝。不包含 `config_read` 的架构，或不包含架构的 `config_read`，都会被拒绝。"
 
 #: src/channels/telegram.md
 msgid "Draft edits report `Too Many Requests`"
@@ -21127,6 +21148,10 @@ msgstr "ZeroClaw 发出的每个事件都经过同一个 crate：`zeroclaw-log`�
 msgid "Every frame must be a JSON object with `\"jsonrpc\": \"2.0\"`. Requests require a string `method`; when present, `params` must be an object or array. Responses require a string, numeric, or null `id` and exactly one response member. Invalid JSON produces `-32700` (parse error). A malformed request-shaped envelope produces `-32600` (invalid request), using its valid request ID when one can be recovered. A malformed response-shaped envelope is logged without frame contents and dropped without a reply, because echoing its ID could complete an unrelated request in the opposite direction. Direction-ambiguous envelopes use `id: null`. Unknown valid response IDs are likewise logged and ignored rather than answered, preventing response loops."
 msgstr "每个帧都必须是带有 `\"jsonrpc\": \"2.0\"` 的 JSON 对象。请求必须包含字符串类型的 `method`；如果存在，`params` 必须是对象或数组。响应必须包含字符串、数字或 null 类型的 `id`，并且必须恰好包含一个响应成员。无效 JSON 会产生 `-32700`（解析错误）。格式错误的请求形信封会产生 `-32600`（无效请求）；如果能够恢复出有效的请求 ID，则使用该 ID。格式错误的响应形信封会在不记录帧内容的情况下记录日志，并在不回复的情况下丢弃，因为回显其 ID 可能会在相反方向完成一个无关请求。无法判定方向的信封使用 `id: null`。同样会记录日志并忽略未知的有效响应 ID，而不是回复它们，从而防止响应循环。"
 
+#: src/developing/plugin-protocol.md
+msgid "Every guest export runs under per-call resource limits the host applies to the store. The engine enables fuel metering, and each call is given a fresh fuel budget so a runaway or malicious component traps instead of hanging the host. The host also applies a wall-clock deadline around the complete export future, including time awaiting async host imports such as `wasi:http`; periodic fuel yields ensure uninterrupted guest computation cannot starve that timer, and guest-reachable host imports never block the executor (log records are handed to a bounded queue and written by a dedicated host thread), so the deadline stays observable while host work runs. A `StoreLimits` ceiling bounds linear memory, table elements, and instance count. The tool world gets a fresh store per execute; the warm channel and memory stores are refueled before each call so a long-lived plugin gets a fresh budget rather than draining over its lifetime."
+msgstr "每个 guest 导出都在主机为 store 应用的按调用资源限制下运行。引擎启用燃料计量，并为每次调用分配全新的燃料预算，因此失控或恶意组件会触发陷阱，而不会让主机挂起。主机还会为完整的导出 future 设置挂钟截止时间，其中包括等待 `wasi:http` 等异步主机导入的时间；定期的燃料让出可确保不间断的 guest 计算不会使该计时器得不到调度，而 guest 可访问的主机导入绝不会阻塞执行器（日志记录会交给有界队列，并由专用主机线程写入），因此在主机工作运行期间仍可观察到该截止时间。`StoreLimits` 上限限制线性内存、表元素和实例数量。工具 world 每次 execute 都会获得一个全新的 store；warm channel 和 memory store 会在每次调用前重新补充燃料，因此长生命周期插件获得的是全新的预算，而不是在其生命周期内逐渐耗尽预算。"
+
 #: src/maintainers/labels.md
 msgid "Every live cleanup batch needs exact maintainer approval for the labels and issue/PR refs being changed."
 msgstr "每个实时清理批次都需要维护者对正在更改的标签和 issue/PR 引用进行明确批准。"
@@ -21194,10 +21219,6 @@ msgstr "每个出站通道都接受一个可选的 `reply_min_interval_secs = N`
 #: src/plugins/migrating-to-typed-config.md
 msgid "Every package published in `zeroclaw-labs/zeroclaw-plugins` requests `config_read`, and none declared `config_schema` when this landed, so all of them need step 1 and step 5. Migration is tracked in that repository rather than here, since the packages version independently of the host. Tool packages can complete the operator-key step now. Channel-only packages must wait for the alias-aware key path above before the tracker marks or publishes them as migrated for this contract."
 msgstr "`zeroclaw-labs/zeroclaw-plugins` 中发布的每个包都会请求 `config_read`，而在此变更落地时没有任何包声明 `config_schema`，因此它们全部需要执行第 1 步和第 5 步。迁移在该仓库中而不是此处跟踪，因为这些包的版本独立于宿主。工具包现在可以完成操作员密钥步骤。仅频道包必须等待上文支持别名的密钥路径，之后跟踪器才会根据此契约将其标记为已迁移或发布为已迁移。"
-
-#: src/developing/plugin-protocol.md
-msgid "Every plugin call runs under per-call resource limits the host applies to the store. The engine enables fuel metering, and each call is given a fresh fuel budget so a runaway or malicious component traps instead of hanging the host. A `StoreLimits` ceiling bounds linear memory, table elements, and instance count. The tool world gets a fresh store per execute; the warm channel and memory stores are refueled before each call so a long-lived plugin gets a fresh budget rather than draining over its lifetime."
-msgstr "每次插件调用都在主机对存储施加的每次调用资源限制下运行。引擎启用燃料计量，并为每次调用分配新的燃料预算，因此失控或恶意的组件会被捕获，而不会使主机挂起。`StoreLimits` 上限限制线性内存、表元素和实例数量。工具世界在每次执行时都会获得一个新的 store；warm channel 和 memory stores 会在每次调用前重新加满燃料，因此长期运行的插件获得的是新的预算，而不是在其生命周期内不断消耗。"
 
 #: src/developing/how-plugins-work.md
 msgid "Every plugin manifest may carry an Ed25519 signature and the hex-encoded public key of the publisher who signed it. The operator decides how strictly that signature is enforced through `[plugins.security] signature_mode`:"
@@ -23214,8 +23235,8 @@ msgid "Fresh required CI is normally the shared evidence for the Cargo surfaces 
 msgstr "Fresh 所需的 CI 通常是 Cargo 实际运行的那些 surface 所共享的证据。对同一 head、target 和 feature set 重新在本地运行相同的 Cargo 命令，只是重复确认，而不是更强的证明。在请求额外的 Cargo 或 Clippy 之前，请将变更的 surface 与当前工作流文件以及 PR 上实际执行的检查进行比较。额外验证应放在所需 gate 不能证明审查对象的地方："
 
 #: src/plugins/index.md
-msgid "Fresh store per `execute`; nothing persists between calls"
-msgstr "每次 `execute` 都是全新存储；调用之间不会保留任何内容"
+msgid "Fresh store per `execute`; imports scoped `secrets`"
+msgstr "每次 `execute` 使用全新的存储；导入限定在 `secrets` 作用域内"
 
 #: src/setup/windows.md
 msgid "From a PowerShell prompt:"
@@ -23246,8 +23267,8 @@ msgid "Fuel budget per plugin call (wasmtime instruction units)."
 msgstr "每次插件调用的燃料预算（wasmtime 指令单位）。"
 
 #: src/plugins/writing-a-tool-plugin.md
-msgid "Fuel or memory ceiling hit. Raise `plugins.limits.call_fuel` / `plugins.limits.max_memory_mb`, or do less per call."
-msgstr "已达到燃料或内存上限。提高 `plugins.limits.call_fuel` / `plugins.limits.max_memory_mb`，或者减少每次调用的工作量。"
+msgid "Fuel, wall-clock, or memory ceiling hit. Raise `plugins.limits.call_fuel`, `plugins.limits.call_timeout_ms`, or `plugins.limits.max_memory_mb` as appropriate, or do less per call."
+msgstr "已达到燃料、挂钟时间或内存上限。请酌情提高 `plugins.limits.call_fuel`、`plugins.limits.call_timeout_ms` 或 `plugins.limits.max_memory_mb`，或减少每次调用的工作量。"
 
 #: src/providers/catalog.md
 msgid "Full access"
@@ -24449,8 +24470,8 @@ msgid "Host fallback when unset"
 msgstr "未设置时使用主机回退"
 
 #: src/developing/plugin-protocol.md
-msgid "Host functions are imported by the plugin and provided by the runtime. Every world's linker wires `logging` (via the host impl in `component_logging.rs`, linked alongside `add_wasi` in `component.rs`). The `channel-plugin` world also imports `inbound`, the host-fed message queue a channel drains from `poll-message`. Tool and channel adapters link outbound `wasi:http` only after the admitted scope grants `http_client` (`PluginStoreSpec::with_granted_http` and `add_wasi_http` in `component.rs`). Memory withholds both the context and linker surface. The filesystem and memory-access permissions remain inert: the host functions that would gate them are not yet wired into the linker. A plugin's ambient authority is the WASI context (no preopens, no ambient network) plus exactly the host imports its grants and adapter opt-ins jointly enable."
-msgstr "宿主函数由插件导入，并由运行时提供。每个 world 的 linker 都会连接 `logging`（通过 `component_logging.rs` 中的宿主实现，与 `component.rs` 中的 `add_wasi` 一起链接）。`channel-plugin` world 还会导入 `inbound`，即通道从 `poll-message` 中提取的、由宿主填充的消息队列。工具适配器和通道适配器仅在准入作用域授予 `http_client` 后才链接出站 `wasi:http`（`component.rs` 中的 `PluginStoreSpec::with_granted_http` 和 `add_wasi_http`）。Memory 同时保留了上下文和 linker 接口。文件系统和内存访问权限仍处于未激活状态：本应对其进行门控的宿主函数尚未连接到 linker。插件的环境权限即为 WASI 上下文（无 preopen，无环境网络）加上其授权与适配器选择性启用共同支持的那些宿主导入。"
+msgid "Host functions are imported by the plugin and provided by the runtime. Every world's linker wires `logging` (via the host impl in `component_logging.rs`, linked alongside `add_wasi` in `component.rs`). Tool links the instance-scoped `secrets` service. Channel imports `inbound`, the host-fed message queue it drains from `poll-message`. Tool and channel adapters link outbound `wasi:http` only after the admitted scope grants `http_client` (`PluginStoreSpec::with_granted_http` and `add_wasi_http` in `component.rs`). Memory withholds both the context and linker surface. The filesystem and memory-access permissions remain inert: the host functions that would gate them are not yet wired into the linker. A plugin's ambient authority is the WASI context (no preopens, no ambient network) plus exactly the host imports its grants and adapter opt-ins jointly enable."
+msgstr "主机函数由插件导入，并由运行时提供。每个 world 的链接器都会接入 `logging`（通过 `component_logging.rs` 中的主机实现，该实现与 `component.rs` 中的 `add_wasi` 一同链接）。Tool 链接实例作用域的 `secrets` 服务。Channel 导入 `inbound`，即由主机馈送、并通过 `poll-message` 排空的消息队列。Tool 和 Channel 适配器仅在获准作用域授予 `http_client` 后才会链接出站 `wasi:http`（`PluginStoreSpec::with_granted_http` 和 `component.rs` 中的 `add_wasi_http`）。Memory 同时不提供上下文和链接器接口。文件系统和内存访问权限仍不起作用：本应用于控制这些权限的主机函数尚未接入链接器。插件的环境权限是 WASI 上下文（没有预开放目录，也没有环境网络），再加上其授权与适配器选择加入共同启用的、恰好那些主机导入项。"
 
 #: src/developing/plugin-protocol.md
 msgid "Host imports"
@@ -34101,8 +34122,8 @@ msgstr "操作员值目前通过通用字符串映射存储录入：在 TOML 中
 #: src/tools/skill-bundles.md src/developing/plugin-protocol.md
 #: src/plugins/writing-a-tool-plugin.md src/plugins/writing-a-channel-plugin.md
 #: src/plugins/writing-a-memory-plugin.md
-msgid "Operator values remain strings in `plugins.entries` and are encrypted when persisted, keyed by a versioned `zpi1_…` string derived from the host-owned package, capability, and binding identity (installation prints and seeds the default tool binding's full-instance key): strings are stored as-is, booleans and numbers use JSON scalar text, and arrays and objects use JSON text. Before any guest code runs, the host materializes those strings to the package schema's types and validates the resulting object for tool and channel adapters. If `config_read` was requested but not effectively granted, the plugin receives an empty object; therefore a schema with required properties fails closed instead of starting without its required configuration."
-msgstr "操作员提供的值在 `plugins.entries` 中仍为字符串，并在持久化时加密，使用一个由主机侧的包、能力和绑定身份派生的带版本 `zpi1_…` 字符串作为密钥（安装时会打印并预置默认工具绑定的完整实例密钥）：字符串按原样存储，布尔值和数字使用 JSON 标量文本，数组和对象使用 JSON 文本。在任何来宾代码运行之前，主机会将这些字符串转换为包架构定义的类型，并针对工具和通道适配器验证生成的对象。如果请求了 `config_read` 但实际上未获授予，插件会收到一个空对象；因此，包含必需属性的架构会安全失败，而不会在缺少其所需配置的情况下启动。"
+msgid "Operator values remain strings in `plugins.entries` and are encrypted when persisted, keyed by a versioned `zpi1_…` string derived from the host-owned package, capability, and binding identity (installation prints and seeds the default tool binding's full-instance key): strings are stored as-is, booleans and numbers use JSON scalar text, and arrays and objects use JSON text. Before any guest code runs, the host materializes those strings to the package schema's types and validates the resulting object for tool and channel adapters. For a tool, the non-secret properties form `__config`, while a property marked `x-secret = true` is available only through `secrets.get(\"property\")` during that instance's `execute` frame. A channel receives its validated object through `configure`; channel manifests cannot currently use `x-secret`. If `config_read` was requested but not effectively granted, the plugin receives an empty object; therefore a schema with required properties fails closed instead of starting without its required configuration."
+msgstr "操作员提供的值在 `plugins.entries` 中仍保持为字符串，并在持久化时加密，使用一个由宿主拥有的包、能力和绑定标识派生的版本化 `zpi1_…` 字符串作为密钥（安装时会打印并预置默认工具绑定的完整实例密钥）：字符串按原样存储，布尔值和数字使用 JSON 标量文本，数组和对象使用 JSON 文本。在任何来宾代码运行之前，宿主会将这些字符串具体化为包架构规定的类型，并针对工具和频道适配器验证生成的对象。对于工具，非机密属性构成 `__config`，而标记为 `x-secret = true` 的属性只能在该实例的 `execute` 帧期间通过 `secrets.get(\"property\")` 访问。频道通过 `configure` 接收经过验证的对象；频道清单目前不能使用 `x-secret`。如果请求了 `config_read` 但实际上未获授予，插件会收到空对象；因此，包含必填属性的架构会安全失败，而不会在缺少必需配置的情况下启动。"
 
 #: src/reference/config.md
 msgid "Operator-supplied base URL advertised in agent card endpoints."
@@ -35219,8 +35240,8 @@ msgid "Peer-group blocks"
 msgstr "对等组块"
 
 #: src/plugins/writing-a-tool-plugin.md
-msgid "Per call, `WasmTool::execute` resolves and validates config from canonical state, creates a **fresh store** (new WASI context, new fuel budget, no state from the previous call), instantiates the component, injects the typed object under `__config`, and invokes `execute`."
-msgstr "每次调用时，`WasmTool::execute` 会从规范状态解析并验证配置，创建一个**全新的存储**（新的 WASI 上下文、新的燃料预算，不包含上一次调用的任何状态），实例化组件，将类型化对象注入到 `__config` 下，并调用 `execute`。"
+msgid "Per call, `WasmTool::execute` resolves and validates config from canonical state, creates a **fresh store** (new WASI context, new fuel budget, no state from the previous call), and instantiates the component. That one resolved object serves the whole frame: the host injects only its non-secret values under `__config`, serves the schema-marked secrets through the scoped `secrets` import, and invokes `execute`."
+msgstr "每次调用时，`WasmTool::execute` 都会从规范状态解析并验证配置，创建一个**全新的存储**（新的 WASI 上下文、新的 fuel 预算，不包含上一次调用的状态），并实例化组件。这个解析后的对象将服务于整个帧：主机仅会将其非机密值注入 `__config`，通过作用域限定的 `secrets` 导入提供架构标记的机密值，然后调用 `execute`。"
 
 #: src/maintainers/docs-and-translations.md
 msgid "Per release, `scripts/release/refresh-translations.sh` publishes changed catalogues to the submodule's `main` branch, tags that commit as `v{version}`, checks out the tag, and stages the main-repository gitlink. `bump-version.sh` deliberately leaves translation pinning to that helper. `messages.pot` and `*.failures.log` are regenerated artifacts and are gitignored in both repos, not tracked."
@@ -35414,8 +35435,8 @@ msgid "Per-instance TTS configs live under `[tts_providers.<type>.<alias>]` (par
 msgstr "每个实例的 TTS 配置位于 `[tts_providers.<type>.<alias>]` 下（与 `providers.models` 平行）。这里剩下的是适用于每次 model_provider 调用的全局运行时选项。"
 
 #: src/plugins/index.md
-msgid "Per-instance settings live under `plugins.entries`, keyed by a versioned `zpi1_…` string derived from the host-owned package, capability, and binding identity. Installation prints and seeds the keys for the package's default tool binding; `zeroclaw plugin info <package>` prints that tool key again. Those automatic surfaces are tool-only. Alias-owned channel construction must derive, display, and seed the key from its actual configured alias rather than inventing a package-name binding. That production path is not present in this slice; it is tracked in [\\#8852](https://github.com/zeroclaw-labs/zeroclaw/pull/8852), or its accepted successor. Full-identity keys let different packages and capability worlds safely reuse aliases such as `main` without sharing credentials. The canonical operator values are a secret-marked string map and remain encrypted at rest (`enc2:…`). A plugin that requests `config_read` declares the map's single type contract in `config_schema`: a closed Draft 2020-12 object whose top-level properties explicitly use `string`, `boolean`, `integer`, `number`, `array`, or `object`. Store strings directly, JSON scalar text for booleans and numbers, and JSON text for arrays and objects. The host materializes and validates the resulting typed object before instantiating tool or channel guest code; unknown, malformed, or out-of-range values fail instead of reaching the plugin. Memory plugins do not yet have a config export and must not request `config_read` until that ABI is added."
-msgstr "每个实例的设置位于 `plugins.entries` 下，并以一个带版本的 `zpi1_…` 字符串作为键；该字符串由主机拥有的包、能力和绑定标识派生而来。安装时会为该包的默认工具绑定打印并预置这些键；`zeroclaw plugin info <package>` 会再次打印该工具键。这些自动提供的入口仅限工具使用。由别名拥有的通道构造必须根据其实际配置的别名来派生、显示并预置该键，而不是凭空创建一个包名绑定。这条生产路径在当前代码切片中尚不存在；相关工作已在 [\\#8852](https://github.com/zeroclaw-labs/zeroclaw/pull/8852) 中跟踪，或由其获接受的后续方案承接。完整身份键使不同的包和能力世界能够安全地复用 `main` 等别名，而不会共享凭据。规范的操作员值是一个带机密标记的字符串映射，并在静态存储时保持加密状态（`enc2:…`）。请求 `config_read` 的插件会在 `config_schema` 中声明该映射的单一类型契约：一个封闭的 Draft 2020-12 对象，其顶层属性明确使用 `string`、`boolean`、`integer`、`number`、`array` 或 `object`。字符串直接存储，布尔值和数字存储为 JSON 标量文本，数组和对象存储为 JSON 文本。主机在实例化工具或通道来宾代码之前，会将结果具体化为类型化对象并进行验证；未知、格式错误或超出范围的值会被拒绝，而不会传递给插件。Memory 插件尚未提供配置导出，因此在添加该 ABI 之前不得请求 `config_read`。"
+msgid "Per-instance settings live under `plugins.entries`, keyed by a versioned `zpi1_…` string derived from the host-owned package, capability, and binding identity. Installation prints and seeds the keys for the package's default tool binding; `zeroclaw plugin info <package>` prints that tool key again. Those automatic surfaces are tool-only. Alias-owned channel construction must derive, display, and seed the key from its actual configured alias rather than inventing a package-name binding. That production path is not present in this slice; it is tracked in [\\#8852](https://github.com/zeroclaw-labs/zeroclaw/pull/8852), or its accepted successor. Full-identity keys let different packages and capability worlds safely reuse aliases such as `main` without sharing credentials. The canonical operator values are a secret-marked string map and remain encrypted at rest (`enc2:…`). A plugin that requests `config_read` declares the map's single type contract in `config_schema`: a closed Draft 2020-12 object whose top-level properties explicitly use `string`, `boolean`, `integer`, `number`, `array`, or `object`. A manifest that includes `tool` and excludes `channel` may set `x-secret = true` on a top-level string property; the host validates it with the full object, removes it from `__config`, and makes it available only through the admitted instance's `secrets.get` import during `execute`. A manifest that declares the `channel` capability cannot use `x-secret` until the host has a coherent warm-store secret lifecycle. Store strings directly, JSON scalar text for booleans and numbers, and JSON text for arrays and objects. The host materializes and validates the resulting typed object before instantiating tool or channel guest code; unknown, malformed, or out-of-range values fail instead of reaching the plugin. Memory plugins do not yet have a config export and must not request `config_read` until that ABI is added."
+msgstr "每个实例的设置位于 `plugins.entries` 下，键是从主机拥有的软件包、能力和绑定标识派生出的带版本 `zpi1_…` 字符串。安装会打印并写入软件包默认工具绑定的键；`zeroclaw plugin info <package>` 会再次打印该工具键。这些自动提供的入口仅限于工具。基于别名的通道构造必须根据实际配置的别名派生、显示并写入该键，而不能臆造基于软件包名称的绑定。该生产路径在此切片中尚未实现；相关跟踪项见 [\\#8852](https://github.com/zeroclaw-labs/zeroclaw/pull/8852)，或其获接受的后续项。完整身份键使不同软件包和能力域能够安全地复用 `main` 等别名，而不会共享凭据。规范的操作员配置值是一个带有 secret 标记的字符串映射，并在静态存储时保持加密状态（`enc2:…`）。请求 `config_read` 的插件会在 `config_schema` 中声明该映射的单一类型契约：一个封闭的 Draft 2020-12 对象，其顶层属性必须明确使用 `string`、`boolean`、`integer`、`number`、`array` 或 `object`。包含 `tool` 且不包含 `channel` 的清单可以在顶层字符串属性上设置 `x-secret = true`；主机会使用完整对象对其进行验证，将其从 `__config` 中移除，并仅在 `execute` 期间通过获准实例导入的 `secrets.get` 使其可用。声明 `channel` 能力的清单在主机具备一致的热存储机密生命周期之前不得使用 `x-secret`。字符串直接存储，布尔值和数字存储为 JSON 标量文本，数组和对象存储为 JSON 文本。主机会在实例化工具或通道来宾代码之前，将结果生成并验证为有类型的对象；未知、格式错误或超出范围的值会导致失败，而不会传递到插件。Memory 插件目前尚无配置导出，在添加该 ABI 之前不得请求 `config_read`。"
 
 #: src/reference/config.md
 msgid "Per-link fetch timeout in seconds (default: 10)"
@@ -36148,8 +36169,8 @@ msgid "Practical SOP templates in the runtime-supported `SOP.toml` + `SOP.md` fo
 msgstr "在运行时支持的 `SOP.toml` + `SOP.md` 格式中的实用 SOP 模板。"
 
 #: src/plugins/index.md
-msgid "Pre-1.0 plugin authors must migrate explicitly: a manifest that requests `config_read` without `config_schema` is no longer discovered. Add a closed schema matching the current values, update tool/channel guests to deserialize typed JSON rather than a string map, rebuild, and re-sign because the schema is signature-covered. Host integrations now inject `PluginConfigResolver` instead of an owned config map and pass only `ResolvedPluginConfig` to low-level guest calls. [Migrating to typed config](./migrating-to-typed-config.md) is the step-by-step recipe, including the release decision to ship this enforcement without a compatibility shim."
-msgstr "1.0 之前的插件作者必须显式迁移：请求 `config_read` 但未请求 `config_schema` 的清单将不再被发现。添加与当前值匹配的封闭式 schema，更新工具/通道来宾端以反序列化类型化 JSON，而不是字符串映射，重新构建并重新签名，因为 schema 包含在签名覆盖范围内。宿主集成现在注入 `PluginConfigResolver`，而不是使用自有配置映射，并且仅将 `ResolvedPluginConfig` 传递给底层来宾调用。[迁移到类型化配置](./migrating-to-typed-config.md)是分步操作指南，其中包括在不提供兼容性垫片的情况下发布此强制机制的决定。"
+msgid "Pre-1.0 plugin authors must migrate explicitly: a manifest that requests `config_read` without `config_schema` is no longer discovered. Add a closed schema matching the current values, update tool/channel guests to deserialize typed JSON rather than a string map, rebuild, and re-sign because the schema is signature-covered. Host integrations now inject `PluginHostServices`, the bundle that wraps `PluginConfigResolver`, instead of an owned config map, and still pass only `ResolvedPluginConfig` to low-level guest calls. Each tool `execute` frame materializes one scope-bound `ResolvedPluginConfig`, uses that one view for public config and secret reads, and drops it when the frame ends. Channels receive their validated typed object once through `configure`; their manifests cannot currently contain `x-secret`. [Migrating to typed config](./migrating-to-typed-config.md) is the step-by-step recipe, including the release decision to ship this enforcement without a compatibility shim."
+msgstr "1.0 之前的插件作者必须显式迁移：请求 `config_read` 但未包含 `config_schema` 的清单将不再被发现。添加与当前值匹配的封闭模式，更新工具/通道 guest 端，使其反序列化类型化 JSON，而不是字符串映射；重新构建并重新签名，因为该模式属于签名覆盖范围。主机集成现在注入 `PluginHostServices`（封装 `PluginConfigResolver` 的服务包），而不是自有的配置映射，并仍然只将 `ResolvedPluginConfig` 传递给底层 guest 调用。每个工具 `execute` 帧都会实例化一个与作用域绑定的 `ResolvedPluginConfig`，使用这一个视图读取公开配置和机密值，并在帧结束时将其丢弃。通道通过 `configure` 一次性接收经过验证的类型化对象；其清单目前不能包含 `x-secret`。[迁移到类型化配置](./migrating-to-typed-config.md) 是分步操作指南，其中还包括在不提供兼容性垫片的情况下发布这项强制要求的决定。"
 
 #: src/channels/telegram.md
 msgid "Pre-authorize known users"
@@ -40343,10 +40364,6 @@ msgstr "秘密"
 msgid "Secret API token for this model_provider. Grab it from the model_provider's dashboard (OpenAI platform, Anthropic console, OpenRouter keys page, etc.). Stored via the OS keyring when possible; never commit it to config.toml directly."
 msgstr "此 model_provider 的密钥 API 令牌。请从 model_provider 的控制台获取（OpenAI platform、Anthropic console、OpenRouter keys 页面等）。尽可能通过操作系统密钥环存储；切勿直接将其提交到 config.toml 中。"
 
-#: src/developing/how-plugins-work.md
-msgid "Secret-value isolation at the egress boundary (the host injecting credentials so the plugin learns only that a secret exists, never its value) is part of that same companion work; this PR does not add it."
-msgstr "出口边界处的 secret-value 隔离（由主机注入凭据，因此插件只能知道存在某个 secret，而永远不知道其值）是同一配套工作的一部分；此 PR 未添加该功能。"
-
 #: src/channels/overview.md
 msgid "Secrets (bot tokens, API keys, passwords) are stored encrypted; set them through the gateway, zerocode, or `zeroclaw config set` (masked), never in plaintext. The `channels` entry on an agent binds a channel alias to that agent. Field names differ per channel; `zeroclaw config schema` is the authoritative list. Fields that recur across many channels:"
 msgstr "密钥（bot 令牌、API 密钥、密码）以加密形式存储；请通过网关、zerocode 或 `zeroclaw config set`（已掩码）进行设置，切勿使用明文。agent 上的 `channels` 条目将某个频道别名绑定到该 agent。各频道的字段名称各不相同；`zeroclaw config schema` 是权威的字段列表。在多个频道中反复出现的字段："
@@ -44189,8 +44206,12 @@ msgid "The bundled Compose example builds the image for the current platform:"
 msgstr "内置的 Compose 示例会为当前平台构建镜像："
 
 #: src/developing/plugin-protocol.md
-msgid "The call is fire-and-forget: it returns nothing and the host (`component_logging.rs`) absorbs all errors, so a failed log write can never crash plugin execution. `plugin-action` and `plugin-outcome` mirror the closed `Action` / `EventOutcome` taxonomies in `zeroclaw-log`; there is no escape-hatch variant on purpose. Do not call `wasi:logging` directly, plugin events would be formatted inconsistently and would not reach all of the destinations `zeroclaw_log` writes to."
-msgstr "该调用是 fire-and-forget：它不返回任何内容，并且宿主（`component_logging.rs`）会吸收所有错误，因此写日志失败绝不会导致插件执行崩溃。`plugin-action` 和 `plugin-outcome` 反映了 `zeroclaw-log` 中封闭的 `Action` / `EventOutcome` 分类；刻意不提供逃生舱变体。不要直接调用 `wasi:logging`，否则插件事件的格式会不一致，并且不会到达 `zeroclaw_log` 写入的所有目标。"
+msgid "The call is fire-and-forget: it returns nothing and the host (`component_logging.rs`) absorbs all errors, so a failed log write can never crash plugin execution. Delivery is asynchronous: the import hands the record to a bounded host-side queue drained by a dedicated thread and returns without blocking, so a slow or wedged log consumer can never hold a guest export past `plugins.limits.call_timeout_ms`. Deferral does not change what an event means: each record captures the host span current at the guest call site and is written inside that scope, so agent/channel/tool attribution and the terminal label match inline emission. The bound is a real memory bound, because the event fields are unbounded strings copied to host memory outside the guest's `max_memory_mb` ceiling: a record whose guest-controlled bytes exceed 64 KiB is dropped rather than truncated, and queued records draw on a fixed 8 MiB aggregate byte budget that is released only after a record is written. A full queue, an over-cap record, or an exhausted budget all drop the newest record; the drain thread reports the accumulated drop count after each write and on an idle wake, so the loss stays observable even when no accepted record ever follows the rejected ones. `plugin-action` and `plugin-outcome` mirror the closed `Action` / `EventOutcome` taxonomies in `zeroclaw-log`; there is no escape-hatch variant on purpose. Do not call `wasi:logging` directly, plugin events would be formatted inconsistently and would not reach all of the destinations `zeroclaw_log` writes to."
+msgstr "调用是即发即忘的：它不返回任何内容，宿主（`component_logging.rs`）会吸收所有错误，因此日志写入失败绝不会导致插件执行崩溃。传递是异步的：该导入将记录交给有界的宿主端队列，由专用线程负责排空，并在不阻塞的情况下返回，因此缓慢或卡死的日志消费者绝不可能让 guest 导出调用持续超过 `plugins.limits.call_timeout_ms`。延迟处理不会改变事件的含义：每条记录都会捕获 guest 调用点当前的宿主 span，并在该作用域内写入，因此 agent/channel/tool 归因和终止标签与内联发出时一致。该上限是真正的内存上限，因为事件字段是无界字符串，会被复制到 guest 的 `max_memory_mb` 上限之外的宿主内存中：guest 控制的字节数超过 64 KiB 的记录会被丢弃，而不是截断；排队记录使用固定的 8 MiB 总字节预算，该预算仅在记录写入后释放。队列已满、记录超出上限或预算耗尽时，都会丢弃最新记录；排空线程会在每次写入后以及空闲唤醒时报告累计丢弃数，因此即使被拒绝的记录之后始终没有任何被接受的记录，丢失情况仍然可被观察到。`plugin-action` 和 `plugin-outcome` 对应 `zeroclaw-log` 中封闭的 `Action` / `EventOutcome` 分类体系；不存在用于规避限制的变体，这是有意为之。不要直接调用 `wasi:logging`，否则插件事件的格式会不一致，也无法到达 `zeroclaw_log` 写入的所有目标。"
+
+#: src/plugins/writing-a-tool-plugin.md
+msgid "The call ran outside `execute`, config resolution failed, or the execution exhausted its fixed host-call budget."
+msgstr "该调用在 `execute` 之外运行、配置解析失败，或执行耗尽了其固定的主机调用预算。"
 
 #: src/agents/delegation.md
 msgid "The caller's non-empty `risk_profile.allowed_tools` must list `delegate`; `excluded_tools` must not list it; caller's `delegation_policy mode = \"allow\"`; and the target is in the caller's reachable set (same-profile peer or explicit `delegates` entry)"
@@ -44662,8 +44683,8 @@ msgid "The easiest way to run ZeroClaw on Android is via [Termux](https://termux
 msgstr "在 Android 上运行 ZeroClaw 的最简单方法是通过 [Termux](https://termux.dev/)。"
 
 #: src/plugins/writing-a-tool-plugin.md
-msgid "The effective scope denied `config_read`, the entry does not use the installation-printed full-instance key, or the validated object is empty. A `config_schema`/permission mismatch rejects the plugin instead."
-msgstr "有效作用域拒绝了 `config_read`、条目未使用安装时打印的完整实例密钥，或验证后的对象为空。相反，`config_schema`/权限不匹配会拒绝该插件。"
+msgid "The effective scope denied `config_read`, the entry does not use the installation-printed full-instance key, the validated object is empty, or every validated property is marked secret. A `config_schema`/permission mismatch rejects the plugin instead."
+msgstr "有效作用域拒绝了 config_read、条目未使用安装时打印的完整实例密钥、经过验证的对象为空，或所有经过验证的属性都标记为机密。相反，config_schema/权限不匹配会拒绝该插件。"
 
 #: src/sop/example.md
 msgid "The eight steps, parsed from the SOP's `## Steps` section:"
@@ -44805,6 +44826,10 @@ msgstr "第一次请求会给你一组 agent URL。第二次请求会给你某�
 msgid "The first run pulls the runner image (~1.5 GB) and primes the Rust build cache via `Swatinem/rust-cache`; subsequent runs are much faster. The script auto-creates the gitignored `.secrets` file, pre-fetches every pinned action SHA into `~/.cache/act/` (act's shallow clone can't resolve arbitrary commits otherwise), threads `GITHUB_TOKEN` from your `gh` auth into the run via the parent process environment (the token value never lands in argv), and sets `--artifact-server-path` so `actions/upload-artifact` and `actions/download-artifact` work between jobs. All of that is plain `act` underneath; the script just removes the flag soup."
 msgstr "首次运行会拉取 runner 镜像（约 1.5 GB），并通过 `Swatinem/rust-cache` 预热 Rust 构建缓存；后续运行会快得多。该脚本会自动创建被 gitignore 忽略的 `.secrets` 文件，将每个固定的 action SHA 预取到 `~/.cache/act/`（否则 act 的浅克隆无法解析任意提交），通过父进程环境将来自 `gh` 认证的 `GITHUB_TOKEN` 传入运行过程（令牌值绝不会出现在 argv 中），并设置 `--artifact-server-path`，使 `actions/upload-artifact` 和 `actions/download-artifact` 能够在多个作业之间正常工作。这一切底层都只是普通的 `act`；该脚本只是省去了繁杂的标志参数。"
 
+#: src/developing/plugin-protocol.md
+msgid "The five bounds are operator-tunable and every value is validated as non-zero: `plugins.limits.call_fuel` (default 1,000,000,000 instruction units), `plugins.limits.call_timeout_ms` (default 30,000 milliseconds), `plugins.limits.max_memory_mb` (default 256), `plugins.limits.max_table_elements` (default 100,000), and `plugins.limits.max_instances` (default 64). A store can only be built with explicit limits, so no load path can construct an unsandboxed plugin. Guest `wasi:http` request options may end a call sooner but cannot extend the host deadline. An interrupted warm store is never resumed: channels recreate it from host-owned inputs on the next call, while memory instances remain unavailable until their owner rebuilds them. The canonical fields and defaults live in the [Config reference](../reference/index.md)."
+msgstr "这五项限制可由操作员调节，且每个值都会验证为非零：`plugins.limits.call_fuel`（默认值为 1,000,000,000 个指令单位）、`plugins.limits.call_timeout_ms`（默认值为 30,000 毫秒）、`plugins.limits.max_memory_mb`（默认值为 256）、`plugins.limits.max_table_elements`（默认值为 100,000）和 `plugins.limits.max_instances`（默认值为 64）。存储只能使用显式限制构建，因此任何加载路径都无法构造未受沙箱隔离的插件。来宾端 `wasi:http` 请求选项可以更早结束调用，但无法延长主机截止时间。中断的预热存储永远不会恢复：通道会在下一次调用时根据主机拥有的输入重新创建它，而内存实例在其所有者重建它们之前仍不可用。规范字段及默认值位于[配置参考](../reference/index.md)。"
+
 #: src/contributing/testing.md
 msgid "The five levels"
 msgstr "五个级别"
@@ -44828,10 +44853,6 @@ msgstr "以下重复的域和产品界面标签已待弃用。请勿将其用于
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "The following foundational decisions and roadmap targets have durable ADRs. ADR-001 through ADR-005 are retroactive records of architecture that already exists. ADR-006 and ADR-007 describe implementation-gated targets from FND-001 and should remain proposed until their corresponding boundaries ship."
 msgstr "以下基础性决策和路线图目标都有长期有效的 ADR。ADR-001 至 ADR-005 是对现有架构的追溯性记录。ADR-006 和 ADR-007 描述了 FND-001 中受实现门控的目标，在相应边界完成交付之前应保持为 proposed 状态。"
-
-#: src/developing/plugin-protocol.md
-msgid "The four bounds are operator-tunable and every value is validated as non-zero: `plugins.limits.call_fuel` (default 1,000,000,000 instruction units), `plugins.limits.max_memory_mb` (default 256), `plugins.limits.max_table_elements` (default 100,000), and `plugins.limits.max_instances` (default 64). A store can only be built with explicit limits, so no load path can construct an unsandboxed plugin. The canonical fields and defaults live in the [Config reference](../reference/index.md)."
-msgstr "这四个边界都可由操作员调整，并且每个值都经过非零校验：`plugins.limits.call_fuel`（默认 1,000,000,000 条指令单元）、`plugins.limits.max_memory_mb`（默认 256）、`plugins.limits.max_table_elements`（默认 100,000）以及 `plugins.limits.max_instances`（默认 64）。存储只能在显式限制下构建，因此任何加载路径都无法构造未受沙箱限制的插件。规范字段和默认值位于 [Config reference](../reference/index.md)。"
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid "The fresh-store-per-call model is the design constraint that matters most: a tool plugin is stateless by construction. Anything you want to persist between calls has to live outside the plugin (in the text you return, or in operator config)."
@@ -45014,8 +45035,8 @@ msgid "The graph tool is disabled by default. Enable it in config before expecti
 msgstr "图形工具默认处于禁用状态。在期望 agent 调用 `knowledge` 之前，请先在配置中启用它："
 
 #: src/plugins/writing-a-tool-plugin.md
-msgid "The guest receives the schema-materialized JSON object, so deserialize it once instead of repeating string parsing. This example's schema makes every field optional, and `Default` owns their behavior when the host supplies `{}`. An empty object is normal when the operator has not configured the plugin or when the host denies the requested `config_read` grant. If a plugin cannot operate without a value, mark it required in `config_schema`; the host will then reject an empty object before guest code starts."
-msgstr "来宾会收到根据架构生成的 JSON 对象，因此应将其反序列化一次，而不是重复进行字符串解析。此示例的架构使每个字段都可选，而在主机提供 `{}` 时，它们的行为由 `Default` 决定。操作员尚未配置插件，或主机拒绝所请求的 `config_read` 授权时，空对象都是正常情况。如果插件没有某个值就无法运行，请在 `config_schema` 中将其标记为必填；这样，主机会在来宾代码启动前拒绝空对象。"
+msgid "The guest receives the schema-materialized public JSON object, so deserialize it once instead of repeating string parsing. This example's schema makes every field optional, and `Default` owns their behavior when the host supplies `{}`. An empty object is normal when the operator has not configured the plugin or when the host denies the requested `config_read` grant. If a plugin cannot operate without a value, mark it required in `config_schema`; the host will then reject an empty object before guest code starts."
+msgstr "guest 会接收由 schema 生成的公开 JSON 对象，因此只需将其反序列化一次，而不是重复进行字符串解析。此示例的 schema 将每个字段都设为可选，当主机提供 `{}` 时，其行为由 `Default` 负责。操作员尚未配置插件，或主机拒绝所请求的 `config_read` 授权时，空对象都是正常情况。如果插件没有某个值就无法运行，请在 `config_schema` 中将其标记为必需；这样，主机就会在 guest 代码启动前拒绝空对象。"
 
 #: src/architecture/decisions/ADR-004-tool-shared-state-ownership.md
 msgid "The handle pattern is not enough by itself; ownership and canonical state still have to be named in review."
@@ -45061,21 +45082,29 @@ msgstr "主机（`crates/zeroclaw-plugins/src/component.rs`）为该进程持有
 msgid "The host adapter and config resolver tests are the executable specification: they cover typed materialization and schema validation, the denied-grant empty object, the inbound queue handoff, capability-gated dispatch, and poll-health accounting."
 msgstr "主机适配器和配置解析器测试就是可执行规范：它们涵盖类型化实例化和模式验证、授权被拒时的空对象、入站队列交接、能力门控的分派，以及轮询健康度统计。"
 
+#: src/developing/plugin-protocol.md
+msgid "The host derives package, capability, binding, and effective grants from the admitted `PluginInstanceScope`; none are guest inputs. Only direct top-level string properties marked `x-secret: true` in the manifest schema are readable, and only while the host is dispatching that tool's `execute` export. Calls from component initialization or metadata exports return `unavailable` without resolving config. `access-denied`, `not-found`, and `unavailable` deliberately reveal no resolver or schema detail. Successful reads return plaintext to the trusted guest. The service prevents public injection and cross-instance selection; it is not an egress proxy that keeps the value hidden from plugin code. Channel manifests cannot use `x-secret` until the host has a coherent warm-store secret lifecycle."
+msgstr "宿主根据已准入的 `PluginInstanceScope` 推导出软件包、能力、绑定和有效授权；这些都不是 guest 输入。清单架构中只有标记为 `x-secret: true` 的直接顶层字符串属性可读，而且仅限宿主正在分派该工具的 `execute` 导出时。组件初始化或元数据导出的调用会返回 `unavailable`，不会解析配置。`access-denied`、`not-found` 和 `unavailable` 会有意不泄露任何解析器或架构细节。读取成功后会以明文形式返回给受信任的 guest。该服务可防止公共注入和跨实例选择；它不是一种让值对插件代码保持隐藏的出口代理。Channel 清单在宿主具备连贯的 warm-store secret 生命周期之前不能使用 `x-secret`。"
+
 #: src/architecture/decisions/ADR-009-wit-wasmtime-plugin-execution.md
 msgid "The host does not expose a raw environment-variable read function."
 msgstr "主机不提供原始环境变量读取函数。"
+
+#: src/plugins/writing-a-tool-plugin.md
+msgid "The host enables secret reads only while dispatching `execute`. Calls from component initialization or metadata exports return `unavailable` without resolving config. Public `__config` and secret reads during one execution use the same resolved config view."
+msgstr "主机仅在分派 `execute` 期间启用机密读取。来自组件初始化或元数据导出的调用会返回 `unavailable`，而不会解析配置。一次执行期间，公开的 `__config` 和机密读取使用相同的已解析配置视图。"
 
 #: src/plugins/migrating-to-typed-config.md
 msgid "The host enforces these limits on the schema itself: 64 KiB serialized, at most 32 levels of nesting, no `$id`, and `$ref` targets must be local JSON Pointers. Remote references are rejected, so a schema never causes a network fetch."
 msgstr "宿主会对架构本身强制实施以下限制：序列化后大小不得超过 64 KiB，嵌套层级最多 32 层，不得包含 `$id`，且 `$ref` 目标必须是本地 JSON 指针。远程引用会被拒绝，因此架构永远不会触发网络获取。"
 
 #: src/developing/how-plugins-work.md
-msgid "The host grants permissions narrowly: a permission the manifest does not declare is a host function the plugin cannot reach. The HTTP-egress and per-plugin configuration boundaries (SSRF-guarded egress that cannot reach loopback, private, link-local, or cloud-metadata addresses or redirect into one; config injected per-alias so a plugin reads only its own resolved values and never the raw process environment or another plugin's secrets) are delivered by the companion plugin-hardening work and are documented alongside those changes. This page covers the signature-policy boundary."
-msgstr "宿主以严格限定的方式授予权限：清单未声明的权限，属于插件无法访问的宿主函数。HTTP-egress 和按插件划分的配置边界（受 SSRF 防护的 egress，无法访问 loopback、私有、link-local 或云元数据地址，也不会重定向到这些地址之一；按别名注入配置，使插件只读取自身解析后的值，绝不读取原始进程环境或其他插件的密钥）由配套的插件加固工作提供，并在这些更改旁边记录。此页面涵盖签名策略边界。"
+msgid "The host grants permissions narrowly: a permission the manifest does not declare is a host function the plugin cannot reach. Config is resolved from a host-issued instance identity, so a plugin cannot select another package or binding and never reads the raw process environment. `http_client` gates the outbound `wasi:http` surface; the shared SSRF-guarded egress policy remains companion plugin-hardening work. This page covers the signature-policy boundary."
+msgstr "主机以严格范围授予权限：清单未声明的权限对应的主机函数，插件无法调用。配置根据主机签发的实例身份解析，因此插件无法选择其他包或绑定，也绝不会读取原始进程环境。`http_client` 控制出站 `wasi:http` 接口；共享的 SSRF 防护出站策略仍属于配套的插件强化工作。本页介绍签名策略边界。"
 
 #: src/developing/plugin-protocol.md
-msgid "The host lives in `crates/zeroclaw-plugins/src/component.rs`. It holds one async-enabled `wasmtime::Engine`, generates the world bindings with `wasmtime::component::bindgen!` from `wit/v0`, and wires a sandboxed WASI p2 surface into each world's linker. Per-call host state (`PluginState`) carries a `WasiCtx` built with no preopens and no network, plus the `ResourceTable` WASI requires. The only host import wired into the linker is `logging`; a plugin's ambient authority is therefore the sandboxed WASI context and nothing else (see Host imports)."
-msgstr "主机位于 `crates/zeroclaw-plugins/src/component.rs`。它持有一个启用了异步的 `wasmtime::Engine`，通过 `wasmtime::component::bindgen!` 从 `wit/v0` 生成 world 绑定，并将一个受沙箱限制的 WASI p2 接口接入每个 world 的链接器。每次调用的主机状态（`PluginState`）携带一个使用无预打开目录且无网络构建的 `WasiCtx`，以及 WASI 所需的 `ResourceTable`。接入链接器的唯一主机导入是 `logging`；因此，插件的环境权限仅限于受沙箱限制的 WASI 上下文，别无其他（见 Host imports）。"
+msgid "The host lives in `crates/zeroclaw-plugins/src/component.rs`. It holds one async-enabled `wasmtime::Engine`, generates the world bindings with `wasmtime::component::bindgen!` from `wit/v0`, and wires a sandboxed WASI p2 surface into each world's linker. Per-store host state (`PluginState`) carries a `WasiCtx` built with no preopens and no network, plus the `ResourceTable` WASI requires, its host-issued scope, and typed live service handles. Every world imports `logging`; tool imports `secrets`, while channel imports `inbound`. A granted `http_client` permission additionally attaches and links `wasi:http`. The world declarations and the admitted scope remain the canonical contracts for that surface (see Host imports)."
+msgstr "主机位于 `crates/zeroclaw-plugins/src/component.rs`。它持有一个启用异步的 `wasmtime::Engine`，使用 `wasmtime::component::bindgen!` 从 `wit/v0` 生成 world 绑定，并将沙箱化的 WASI p2 接口接入每个 world 的链接器。每个存储实例的主机状态（`PluginState`）包含一个未配置预打开目录且不允许网络的 `WasiCtx`，以及 WASI 所需的 `ResourceTable`、主机签发的作用域和带类型的活动服务句柄。每个 world 都导入 `logging`；tool 导入 `secrets`，而 channel 导入 `inbound`。获得 `http_client` 权限后，还会附加并链接 `wasi:http`。world 声明和获准作用域仍是该接口的规范契约（参见“主机导入项”）。"
 
 #: src/architecture/decisions/ADR-006-runtime-channel-plugins.md
 msgid "The host must supervise long-lived listeners and preserve channel health, interaction, media, and configuration behavior across the component boundary."
@@ -45090,8 +45119,8 @@ msgid "The host resolves config by recompiling and revalidating your schema on e
 msgstr "宿主会在每次调用时通过重新编译并重新验证你的架构来解析配置，而这项工作在宿主上执行，不计入组件的燃料预算。因此，`pattern` 仅限于开销可由宿主预测的正则表达式："
 
 #: src/plugins/writing-a-tool-plugin.md
-msgid "The host resolves the section stored under the versioned config-entry key derived from this instance's package, `tool` capability, and binding, materializes it according to the package schema, validates the typed object, and only then merges it into `execute` under the reserved `__config` key:"
-msgstr "宿主会解析存储在根据此实例的软件包、`tool` 能力和绑定派生的带版本配置条目键下的区段，按照软件包架构将其具体化，验证类型化对象，然后才将其合并到 `execute` 中预留的 `__config` 键下："
+msgid "The host resolves the section stored under the versioned config-entry key derived from this instance's package, `tool` capability, and binding, materializes it according to the package schema, validates the complete typed object, and only then partitions it. Only the non-secret properties are merged into `execute` under the reserved `__config` key:"
+msgstr "宿主会解析存储在根据此实例的包、`tool` 能力和绑定派生出的版本化配置条目键下的部分，根据包模式将其实例化，验证完整的类型化对象，然后才对其进行分区。只有非机密属性会在保留的 `__config` 键下合并到 `execute` 中："
 
 #: src/developing/plugin-protocol.md
 msgid "The host side owns an `InboundQueue` per channel; `WasmChannel::inbound` hands a clone to the listener task so enqueued traffic is visible to the plugin's drain."
@@ -45323,6 +45352,10 @@ msgstr "该迁移将模式大规模地延续下去。"
 msgid "The minimum viable governance setup. Gets the team coordinating immediately."
 msgstr "最小可行的治理设置。让团队立即协调起来。"
 
+#: src/plugins/writing-a-tool-plugin.md
+msgid "The missing piece relative to this guide is an HTTP client that works inside a component: `reqwest` and friends do not, because there is no socket surface, only `wasi:http`. A client known to work against this host is [`waki`](https://crates.io/crates/waki), which is blocking and therefore fits `execute`'s synchronous signature directly. Add it gated to the component target so your pure-logic modules stay natively testable:"
+msgstr "相较于本指南，缺少的是一个可在组件内部工作的 HTTP 客户端：`reqwest` 及其同类库无法做到这一点，因为这里没有套接字接口，只有 `wasi:http`。已知可与此宿主配合工作的客户端是 [`waki`](https://crates.io/crates/waki)，它是阻塞式的，因此可以直接适配 `execute` 的同步签名。将其添加并设置为仅在组件目标下启用，这样你的纯逻辑模块仍可在原生环境中测试："
+
 #: src/architecture/tool-execution-lifecycle.md
 msgid "The model can only call tools that are effective for the current turn:"
 msgstr "模型只能调用对当前轮次有效的工具："
@@ -45431,6 +45464,10 @@ msgstr "运行 Matrix 的官方、最省事方式是让 ZeroClaw 重新登录并
 msgid "The offset is not a durable event identity or cross-file checkpoint. It becomes stale whenever the active file's bytes are replaced or its path changes:"
 msgstr "偏移量不是持久的事件标识，也不是跨文件检查点。每当活动文件的字节内容被替换或其路径发生变化时，它就会失效："
 
+#: src/developing/plugin-protocol.md
+msgid "The omitted `api_key` is read explicitly with `secrets.get(\"api_key\")` if its schema marks it secret. `runtime.rs` strips any caller-supplied `__config` before injecting the resolved public section, so the section cannot be spoofed. Tool public injection and secret reads within one `execute` frame share one resolved live-config revision; the frame is dropped on success, error, trap, panic, or cancellation. A channel receives its complete validated object as the JSON argument to `configure`; secret markers are not admitted for that capability. When the manifest requests `config_read` but the host does not effectively grant it, resolution substitutes an empty object and validates that object too. Optional schemas therefore see `{}` (and tools omit an empty `__config`), while a schema with required fields fails closed before the guest starts. A plugin only ever sees its own section. Tool and channel are the current config consumers. The memory world has no config export yet, so memory plugins must not request `config_read` until that ABI and runtime wiring land."
+msgstr "如果其模式将被省略的 `api_key` 标记为秘密，则会通过 `secrets.get(\"api_key\")` 显式读取它。`runtime.rs` 会在注入解析后的公开区段前移除调用方提供的任何 `__config`，因此无法伪造该区段。同一 `execute` 帧内的工具公开配置注入和秘密读取共享同一个已解析的实时配置修订版本；该帧会在成功、错误、陷阱、panic 或取消时丢弃。通道会在调用 `configure` 时接收其完整且已验证的对象作为 JSON 参数；该能力不允许使用秘密标记。当清单请求 `config_read`，但主机实际上未授予该能力时，解析会替换为空对象，并同样验证该对象。因此，可选模式会看到 `{}`（工具会省略空的 `__config`），而包含必填字段的模式则会在 guest 启动前以安全失败方式终止。插件始终只能看到自己的区段。工具和通道是当前的配置使用方。memory world 目前尚未提供配置导出，因此在该 ABI 和运行时接线完成之前，memory 插件不得请求 `config_read`。"
+
 #: src/architecture/logging.md
 msgid "The on-disk JSON shape (`LogEvent` in `event.rs`):"
 msgstr "磁盘上的 JSON 结构（`event.rs` 中的 `LogEvent`）："
@@ -45468,8 +45505,8 @@ msgid "The operator still stores `timeout_secs` as the encrypted string `\"10\"`
 msgstr "操作端仍将 `timeout_secs` 存储为加密字符串 `\"10\"`；宿主端会将其转换为 JSON 整数 `10`，并在 `configure` 运行前强制执行范围限制。数组和对象在操作端存储时使用 JSON 文本，传入时则是真实的数组和对象。由于 `api_token` 是必需项，不提供 `config_read` 会默认拒绝，而不是在没有凭据的情况下启动通道。每个通道实例都会选择一个由其完整包名、`channel` 能力和绑定标识派生出的 `plugins.entries` 键，同时复用同一份包自有的配置模式。因此，不同包中的相同别名仍彼此隔离。install 和 info 命令无法创建此键，因为它们并不拥有已配置的通道别名；它们自动打印和初始化的行为仅供工具使用。支持别名的通道键显示和初始化工作记录在 [\\#8852](https://github.com/zeroclaw-labs/zeroclaw/pull/8852) 中，或记录在其获接受的后续项中。现在准备清单和来宾端，但在该生产路径存在之前，不要将仅通道包以已迁移至类型化配置的状态发布。"
 
 #: src/developing/plugin-protocol.md
-msgid "The operator's canonical `plugins.entries.<instance-key>.config` values remain a secret-marked string map in memory and are encrypted when persisted. The host derives the versioned `zpi1_…` entry key from the full package, capability, and binding identity; this lets different packages and capability worlds safely reuse aliases such as `main`. The admitted package manifest selects the schema. A `string` value is stored directly; `boolean`, `integer`, and `number` values use JSON scalar text such as `\"true\"`, `\"4\"`, or `\"0.5\"`; `array` and `object` values use JSON text such as `'[\"urgent\",\"ops\"]'` or `'{\"region\":\"us-east\"}'`. The host materializes and validates that data into typed JSON for each use. For a tool, it injects the result under the reserved `__config` key:"
-msgstr "运算方的规范 `plugins.entries.<instance-key>.config` 值在内存中仍是带 `secret` 标记的字符串映射，并且在持久化时会加密。主机根据完整的软件包、能力和绑定标识派生版本化的 `zpi1_…` 条目键；这样，不同的软件包和能力域就可以安全地重复使用 `main` 之类的别名。获准的软件包清单会选择架构。`string` 值直接存储；`boolean`、`integer` 和 `number` 值使用 JSON 标量文本，例如 `\"true\"`、`\"4\"` 或 `\"0.5\"`；`array` 和 `object` 值使用 JSON 文本，例如 `'[\"urgent\",\"ops\"]'` 或 `'{\"region\":\"us-east\"}'`。主机会在每次使用时将这些数据具体化并验证为类型化 JSON。对于工具，它会将结果注入保留的 `__config` 键下："
+msgid "The operator's canonical `plugins.entries.<instance-key>.config` values remain a secret-marked string map in memory and are encrypted when persisted. The host derives the versioned `zpi1_…` entry key from the full package, capability, and binding identity; this lets different packages and capability worlds safely reuse aliases such as `main`. The admitted package manifest selects the schema. A `string` value is stored directly; `boolean`, `integer`, and `number` values use JSON scalar text such as `\"true\"`, `\"4\"`, or `\"0.5\"`; `array` and `object` values use JSON text such as `'[\"urgent\",\"ops\"]'` or `'{\"region\":\"us-east\"}'`. The host materializes and validates that data into typed JSON for each use, then partitions every property exactly once. For a tool, it injects only the non-secret values under the reserved `__config` key:"
+msgstr "操作员的规范 `plugins.entries.<instance-key>.config` 值在内存中仍是带有 secret 标记的字符串映射，并在持久化时加密。主机根据完整的软件包、能力和绑定身份派生带版本的 `zpi1_…` 条目键；这样，不同的软件包和能力世界就可以安全地复用 `main` 等别名。获准的软件包清单选择模式。`string` 值直接存储；`boolean`、`integer` 和 `number` 值使用 JSON 标量文本，例如 `\"true\"`、`\"4\"` 或 `\"0.5\"`；`array` 和 `object` 值使用 JSON 文本，例如 `'[\"urgent\",\"ops\"]'` 或 `'{\"region\":\"us-east\"}'`。主机会在每次使用时将这些数据实例化并验证为类型化 JSON，然后对每个属性恰好进行一次分区。对于工具，它仅在保留的 `__config` 键下注入非机密值："
 
 #: src/architecture/provider-routing-lifecycle.md
 msgid "The operator-facing schema and examples live in [Provider configuration](../providers/configuration.md) and [Routing](../providers/routing.md). Keep field syntax there instead of duplicating it in architecture documents."
@@ -45698,6 +45735,10 @@ msgstr "项目的愿景以运行时指标表达：在 $10 硬件上实现 **\\<5
 #: src/maintainers/ci-and-actions.md
 msgid "The project-owned package is currently [`zeroclawlabs`](https://aur.archlinux.org/packages/zeroclawlabs), maintained by `zeroclaw-bot`. The canonical-name [`zeroclaw`](https://aur.archlinux.org/packages/zeroclaw) package is a third-party package and cannot be taken over by rotating `AUR_SSH_KEY`. If that maintainer remains inactive, follow the [AUR orphan-request process](https://wiki.archlinux.org/title/AUR_submission_guidelines#Requests) before changing `pkgname` or the workflow clone target. After ownership transfers, coordinate the package rename or merge in one reviewed change."
 msgstr "项目所拥有的软件包目前是 [`zeroclawlabs`](https://aur.archlinux.org/packages/zeroclawlabs)，由 `zeroclaw-bot` 维护。规范名称为 [`zeroclaw`](https://aur.archlinux.org/packages/zeroclaw) 的软件包是第三方软件包，无法通过轮换 `AUR_SSH_KEY` 来接管。如果该维护者仍处于不活跃状态，请先遵循 [AUR 孤儿请求流程](https://wiki.archlinux.org/title/AUR_submission_guidelines#Requests)，再更改 `pkgname` 或工作流的克隆目标。所有权转移后，请在一项经过审查的变更中协调软件包重命名或合并。"
+
+#: src/plugins/writing-a-tool-plugin.md
+msgid "The property is missing or is not a direct top-level string marked `x-secret = true` in the admitted schema."
+msgstr "该属性缺失，或者在已获准的架构中不是标记为 `x-secret = true` 的直接顶层字符串。"
 
 #: src/architecture/memory-payload-lifecycle.md
 msgid "The provider request can therefore contain recalled memory without making the current turn a new memory. Review prompt-assembly changes by asking:"
@@ -46172,8 +46213,8 @@ msgid "The shape is enforced by the `Event` struct: unknown fields are a compile
 msgstr "形状由 `Event` 结构体强制约束：未知字段会导致编译错误。"
 
 #: src/plugins/writing-a-tool-plugin.md
-msgid "The shape of a call, inside `execute` after parsing `__config`:"
-msgstr "在 `execute` 中，在解析 `__config` 之后的调用形状："
+msgid "The shape of a call, inside `execute` after parsing public `__config`:"
+msgstr "在解析公开的 `__config` 后，`execute` 内部调用的形式："
 
 #: src/ops/overview.md
 msgid "The shape of a deployment"
@@ -46408,8 +46449,8 @@ msgid "The test suite is not absent. The existing test investment is real. The w
 msgstr "测试套件并非不存在。现有的测试投入是真实的。本 RFC 所描述的工作关乎这些投入的质量与分布：哪些内容被测试、如何测试，以及这些测试是否真正证明了它们看似证明的东西。"
 
 #: src/plugins/writing-a-channel-plugin.md
-msgid "The test then loads your built component through `WasmChannel::from_wasm` with a `PluginConfigResolver` backed by the manifest and test operator values, enqueues onto the `InboundQueue` handle it exposes, and asserts your `poll-message` drains and translates the message. That is the same code path a production daemon will run; passing it is the strongest pre-distribution signal you can get without a live host."
-msgstr "然后，测试会通过 `WasmChannel::from_wasm` 加载你构建的组件，并使用由清单和测试操作员值提供支持的 `PluginConfigResolver`，将消息加入它公开的 `InboundQueue` 句柄，然后断言你的 `poll-message` 会取出并转换消息。这与生产守护进程将运行的代码路径相同；在没有实际主机的情况下，通过该测试是你在分发前能够获得的最强信号。"
+msgid "The test then loads your built component through `WasmChannel::from_wasm` with a `PluginHostServices` bundle wrapping a `PluginConfigResolver` backed by the manifest and test operator values, enqueues onto the `InboundQueue` handle it exposes, and asserts your `poll-message` drains and translates the message. That is the same code path a production daemon will run; passing it is the strongest pre-distribution signal you can get without a live host."
+msgstr "测试随后通过 `WasmChannel::from_wasm` 加载你构建的组件，并使用一个封装了由清单和测试操作员值提供支持的 `PluginConfigResolver` 的 `PluginHostServices` 捆绑包，将消息加入它公开的 `InboundQueue` 句柄，然后断言你的 `poll-message` 会取出并转换该消息。这与生产守护进程将运行的代码路径相同；在没有运行中的主机的情况下通过该测试，是你在分发前能够获得的最强信号。"
 
 #: src/contributing/communication.md
 msgid "The thread produces a concrete bug, feature scope, architecture proposal, policy decision, docs gap, owner, blocker, or validation evidence"
@@ -47906,8 +47947,8 @@ msgid "Tool call parsing, streaming, history, cost tracking, model routing, memo
 msgstr "工具调用解析、流式处理、历史记录、成本跟踪、模型路由、记忆、凭证清理、上下文构建"
 
 #: src/plugins/index.md
-msgid "Tool calls are stateless by construction: `WasmTool::execute` builds a fresh store, runs the call, and drops it. Channels and memory backends are stateful by nature, so they hold one warm store for the plugin's lifetime; the host refuels it before every call so a long-lived plugin gets a full budget per call rather than draining over time."
-msgstr "工具调用在结构上是无状态的：`WasmTool::execute` 会构建一个新的 store，运行调用，然后将其丢弃。通道和内存后端本质上是有状态的，因此它们会在插件的整个生命周期内持有一个热 store；宿主会在每次调用前为其重新加注，因此一个长生命周期的插件在每次调用时都能获得完整预算，而不是随着时间推移被逐步耗尽。"
+msgid "Tool calls are stateless by construction: `WasmTool::execute` builds a fresh store, runs the call, and drops it. Channels and memory backends are stateful by nature, so they hold one warm store for the plugin's lifetime; the host refuels it before every call so a long-lived plugin gets a full budget per call rather than draining over time. A deadline interruption discards the warm store instead of resuming partially unwound guest state. Channels recreate the instance on the next call; memory stays unavailable until its owner rebuilds it."
+msgstr "工具调用从设计上就是无状态的：`WasmTool::execute` 会创建一个全新的存储实例，执行调用，然后将其丢弃。通道和内存后端本质上是有状态的，因此会在插件的整个生命周期内持有一个预热的存储实例；宿主在每次调用前为其重新注入燃料，这样长生命周期插件每次调用都能获得完整的燃料配额，而不会随着时间推移逐渐耗尽。截止时间中断会丢弃预热的存储实例，而不是恢复已部分展开的来宾状态。通道会在下一次调用时重新创建实例；在其所有者重建之前，内存会一直不可用。"
 
 #: src/ops/overview.md
 msgid "Tool calls at whatever rate the provider and sandbox allow"
@@ -47916,6 +47957,10 @@ msgstr "以提供商和沙箱允许的任意速率进行工具调用"
 #: src/providers/streaming.md
 msgid "Tool calls mid-stream"
 msgstr "中途工具调用"
+
+#: src/plugins/distributing-plugins.md
+msgid "Tool config exposure markers such as `config_schema.properties.api_token.x-secret` are therefore signature-covered policy. Changing a tool property between public injection and scoped `secrets.get` access requires rebuilding and re-signing. Channel manifests containing that marker are currently rejected."
+msgstr "因此，工具配置暴露标记（例如 `config_schema.properties.api_token.x-secret`）属于受签名保护的策略。将工具属性在公开注入与按作用域限定的 `secrets.get` 访问之间切换，需要重新构建并重新签名。目前，包含该标记的渠道清单会被拒绝。"
 
 #: src/architecture/tool-execution-lifecycle.md
 msgid "Tool definition"
@@ -50224,6 +50269,10 @@ msgstr "遍历 `[agents.<alias>.workspace.access]`："
 msgid "Walk the stale queue. Apply `status:no-stale` only under the rules in the [Project board contract](./pr-workflow.md#issue-routing-evidence): when accepted or otherwise long-lived work has a recorded reason to stay open, contributor-visible routing evidence, and no other stale exclusion already applies. Active release trackers and active RFC or design trackers may keep stale protection by default when the issue itself clearly identifies the active coordination or decision surface; revisit them when the milestone closes, the tracker drifts from live state, the RFC reaches a decision, is superseded, or closes, or the issue stops representing an active project decision surface. Until the stale-exemption audit lands, treat existing `status:no-stale` issues missing those facts as audit findings rather than automatic stale candidates."
 msgstr "遍历过期队列。仅在符合[项目看板约定](./pr-workflow.md#issue-routing-evidence)规则的情况下应用 `status:no-stale`：当已接受或其他长期存续的工作有保持开放状态的明确记录原因、对贡献者可见的路由证据，且没有其他过期排除规则已经适用时。当 issue 本身明确指明了活跃的协调或决策范围时，活跃的发布跟踪器以及活跃的 RFC 或设计跟踪器默认可以保留过期保护；当里程碑关闭、跟踪器偏离实时状态、RFC 做出决策、被取代或关闭，或 issue 不再代表活跃的项目决策范围时，需重新审视它们。在过期豁免审计落地之前，将缺少这些事实的现有 `status:no-stale` issue 视为审计发现，而非自动过期候选项。"
 
+#: src/reference/config.md
+msgid "Wall-clock deadline for one plugin export call, in milliseconds."
+msgstr "单次插件导出调用的挂钟截止时间，以毫秒为单位。"
+
 #: src/agents/delegation.md
 msgid "Want a different configured specialist (different model, different alias) to own the task under bounded or independent delegation"
 msgstr "希望由另一个已配置的专员（不同模型、不同别名）在有界或独立委派下负责该任务"
@@ -50237,8 +50286,8 @@ msgid "Warm store behind an async mutex, refueled per call"
 msgstr "由异步互斥锁保护的热存储，每次调用都会重新填充"
 
 #: src/plugins/index.md
-msgid "Warm store behind an async mutex, refueled per call; also imports `inbound`"
-msgstr "异步 mutex 后面的 warm store，每次调用都会重新补充；还导入了 `inbound`"
+msgid "Warm store behind an async mutex, refueled per call; imports `inbound`"
+msgstr "由异步互斥锁保护的热存储，每次调用时补充；导入 `inbound`"
 
 #: src/foundations/fnd-003-governance.md
 msgid "Warn (not block) if a PR is merged without a linked issue that has a milestone assigned. This is a gentle nudge, not a hard gate: the goal is to prevent work from happening without being tracked to a release."
@@ -52739,8 +52788,8 @@ msgid "ZeroClaw originally centered configuration and runtime behavior on one im
 msgstr "ZeroClaw 最初将配置和运行时行为集中于一个隐式代理。多代理操作需要能够共存的身份标识，且不会意外共享工作区、内存、权限或通道可达性。"
 
 #: src/developing/plugin-protocol.md
-msgid "ZeroClaw plugins are WebAssembly components defined by WIT interfaces under `wit/v0/` and hosted through direct `wasmtime` (`crates/zeroclaw-plugins`). A plugin is compiled to a WASI Preview 2 component (`wasm32-wasip2`) that exports one of the plugin worlds (`tool-plugin`, `channel-plugin`, `memory-plugin`) and imports the host `logging` interface."
-msgstr "ZeroClaw 插件是由 `wit/v0/` 下的 WIT 接口定义的 WebAssembly 组件，并通过直接 `wasmtime`（`crates/zeroclaw-plugins`）托管。插件会编译为一个 WASI Preview 2 组件（`wasm32-wasip2`），该组件导出其中一个插件 world（`tool-plugin`、`channel-plugin`、`memory-plugin`），并导入宿主的 `logging` 接口。"
+msgid "ZeroClaw plugins are WebAssembly components defined by WIT interfaces under `wit/v0/` and hosted through direct `wasmtime` (`crates/zeroclaw-plugins`). A plugin is compiled to a WASI Preview 2 component (`wasm32-wasip2`) that exports one of the plugin worlds (`tool-plugin`, `channel-plugin`, `memory-plugin`) and imports the host interfaces declared by that world in `wit/v0/`."
+msgstr "ZeroClaw 插件是由 `wit/v0/` 下的 WIT 接口定义的 WebAssembly 组件，并通过直接使用 `wasmtime`（`crates/zeroclaw-plugins`）托管。插件会编译为 WASI Preview 2 组件（`wasm32-wasip2`），导出插件 world 中的一个（`tool-plugin`、`channel-plugin`、`memory-plugin`），并导入该 world 在 `wit/v0/` 中声明的宿主接口。"
 
 #: src/ops/network-deployment.md
 msgid "ZeroClaw polls `api.telegram.org`, works behind NAT"
@@ -52925,6 +52974,10 @@ msgstr "ZeroClaw 的安全模型在运行时控制代理被允许执行的操作
 #: src/reference/feature-matrix.md
 msgid "ZeroClaw, OpenClaw, and Hermes"
 msgstr "ZeroClaw、OpenClaw 和 Hermes"
+
+#: src/developing/plugin-protocol.md
+msgid "ZeroClaw-owned imports share a fixed safety budget per host-dispatched service frame. The canonical ceiling is `MAX_HOST_CALLS_PER_FRAME` in `crates/zeroclaw-plugins/src/component.rs`. On exhaustion, logging becomes a no-op, inbound polling reports empty, and tool secret reads return `unavailable`. A new frame resets the budget. This ceiling is fixed host policy, not duplicated operator configuration."
+msgstr "ZeroClaw 所有的导入在每个由主机分派的服务帧中共享固定的安全预算。规范上限位于 `crates/zeroclaw-plugins/src/component.rs` 中的 `MAX_HOST_CALLS_PER_FRAME`。预算耗尽后，日志记录变为空操作，入站轮询报告为空，工具机密读取返回 `unavailable`。新帧会重置预算。此上限是固定的主机策略，而不是重复的操作员配置。"
 
 #: src/reference/config.md
 msgid "ZeroCode live task tracker configuration (`[todotracker]` section)."
@@ -57655,6 +57708,10 @@ msgid "`30.0`"
 msgstr "`30.0`"
 
 #: src/reference/config.md
+msgid "`30000`"
+msgstr "`30000`"
+
+#: src/reference/config.md
 msgid "`300`"
 msgstr "`300`"
 
@@ -58192,8 +58249,8 @@ msgid "`Config::validate()` fails loud at startup if `model_provider` does not r
 msgstr "如果 `model_provider` 无法解析为已配置的 provider 条目，或者 `risk_profile` 无法解析为已配置的风险配置，`Config::validate()` 会在启动时直接报错失败。错误的引用会在 agent 运行前被捕获，而不是被静默忽略。"
 
 #: src/architecture/decisions/ADR-009-wit-wasmtime-plugin-execution.md
-msgid "`ConfigRead` is required before the host injects a plugin's resolved config section under `__config`."
-msgstr "在宿主将插件已解析的配置段注入到 `__config` 下之前，需要 `ConfigRead`。"
+msgid "`ConfigRead` is required before the host injects resolved values under tool `__config` or channel `configure`. A manifest that includes `tool` and excludes `channel` may mark top-level string properties `x-secret = true`; those values are read through the instance-scoped `secrets` import during `execute` and never enter `__config`. Channel-capable manifests with `x-secret` are rejected until the host has a coherent warm-store secret lifecycle."
+msgstr "在主机通过工具 `__config` 或通道 `configure` 注入解析后的值之前，必须先执行 `ConfigRead`。包含 `tool` 且不包含 `channel` 的清单可以将顶层字符串属性标记为 `x-secret = true`；这些值会在 `execute` 期间通过实例作用域的 `secrets` 导入读取，并且永远不会进入 `__config`。带有 `x-secret` 且支持通道的清单在主机具备一致的 warm-store 密钥生命周期之前会被拒绝。"
 
 #: src/ops/cost-tracking.md
 msgid "`CostConfig::enforcement.mode` decides what happens when a projected cost would push `daily_total` or `monthly_total` past the configured limit:"
@@ -59298,7 +59355,11 @@ msgid ""
 "{\"jsonrpc\":\"2.0\",\"method\":\"initialize\",\"params\":{\"protocolVersion\":1},\"id\":1}\\n\n"
 "{\"jsonrpc\":\"2.0\",\"result\":{\"protocolVersion\":1,\"serverVersion\":\"0.8.5\"},\"id\":1}\\n\n"
 "```"
-msgstr "```\n{\"jsonrpc\":\"2.0\",\"method\":\"initialize\",\"params\":{\"protocolVersion\":1},\"id\":1}\\n\n{\"jsonrpc\":\"2.0\",\"result\":{\"protocolVersion\":1,\"serverVersion\":\"0.8.5\"},\"id\":1}\\n\n```"
+msgstr ""
+"```\n"
+"{\"jsonrpc\":\"2.0\",\"method\":\"initialize\",\"params\":{\"protocolVersion\":1},\"id\":1}\\n\n"
+"{\"jsonrpc\":\"2.0\",\"result\":{\"protocolVersion\":1,\"serverVersion\":\"0.8.5\"},\"id\":1}\\n\n"
+"```"
 
 #: src/channels/webhook.md
 msgid ""
@@ -59438,7 +59499,39 @@ msgid ""
 "    PR --> LLM\n"
 "    TL --> FS\n"
 "```"
-msgstr "```mermaid\nflowchart TB\n    subgraph External[\"外部世界\"]\n        UI[\"CLI / 聊天平台 / 网关客户端 / ACP IDE\"]\n        LLM[\"LLM 提供商<br/>Anthropic · OpenAI · Ollama · ...\"]\n        FS[\"文件系统 · shell · 网络\"]\n    end\n\n    subgraph Edges[\"边缘 crate：与外部交互\"]\n        CH[\"zeroclaw-channels<br/>30+ 个消息集成\"]\n        GW[\"zeroclaw-gateway<br/>REST · WebSocket · 控制面板\"]\n        PR[\"zeroclaw-providers<br/>LLM 客户端 · 重试 · 路由\"]\n        TL[\"zeroclaw-tools<br/>浏览器 · HTTP · 硬件\"]\n    end\n\n    subgraph Core[\"核心\"]\n        RT[\"zeroclaw-runtime<br/>智能体循环 · 安全 · SOP · cron · 子代理\"]\n        MEM[\"zeroclaw-memory<br/>SQLite · 嵌入 · 整合\"]\n        CFG[\"zeroclaw-config<br/>模式 · 自主性 · 机密\"]\n    end\n\n    UI --> CH\n    UI --> GW\n    CH --> RT\n    GW --> RT\n    RT --> PR\n    RT --> TL\n    RT --> MEM\n    RT --> CFG\n    PR --> LLM\n    TL --> FS\n```"
+msgstr ""
+"```mermaid\n"
+"flowchart TB\n"
+"    subgraph External[\"外部世界\"]\n"
+"        UI[\"CLI / 聊天平台 / 网关客户端 / ACP IDE\"]\n"
+"        LLM[\"LLM 提供商<br/>Anthropic · OpenAI · Ollama · ...\"]\n"
+"        FS[\"文件系统 · shell · 网络\"]\n"
+"    end\n"
+"\n"
+"    subgraph Edges[\"边缘 crate：与外部交互\"]\n"
+"        CH[\"zeroclaw-channels<br/>30+ 个消息集成\"]\n"
+"        GW[\"zeroclaw-gateway<br/>REST · WebSocket · 控制面板\"]\n"
+"        PR[\"zeroclaw-providers<br/>LLM 客户端 · 重试 · 路由\"]\n"
+"        TL[\"zeroclaw-tools<br/>浏览器 · HTTP · 硬件\"]\n"
+"    end\n"
+"\n"
+"    subgraph Core[\"核心\"]\n"
+"        RT[\"zeroclaw-runtime<br/>智能体循环 · 安全 · SOP · cron · 子代理\"]\n"
+"        MEM[\"zeroclaw-memory<br/>SQLite · 嵌入 · 整合\"]\n"
+"        CFG[\"zeroclaw-config<br/>模式 · 自主性 · 机密\"]\n"
+"    end\n"
+"\n"
+"    UI --> CH\n"
+"    UI --> GW\n"
+"    CH --> RT\n"
+"    GW --> RT\n"
+"    RT --> PR\n"
+"    RT --> TL\n"
+"    RT --> MEM\n"
+"    RT --> CFG\n"
+"    PR --> LLM\n"
+"    TL --> FS\n"
+"```"
 
 #: src/channels/telegram.md
 msgid ""
@@ -59580,7 +59673,36 @@ msgid ""
 "\n"
 "& $exe quickstart\n"
 "```"
-msgstr "```powershell\n# 安装和 PATH 设置具有幂等性。如果 zeroclaw 已经是最新版本且位于用户 PATH 中，\n# 则会跳过这些步骤；Quickstart 仍会在最后运行。\n$ver = (Invoke-RestMethod 'https://api.github.com/repos/zeroclaw-labs/zeroclaw/releases/latest').tag_name.TrimStart('v')\n$dst = \"$env:USERPROFILE\\.zeroclaw\\bin\"\n$exe = \"$dst\\zeroclaw.exe\"\n\n$current = if (Test-Path $exe) {\n    ((& $exe --version 2>$null) | Select-String -Pattern '\\d+\\.\\d+\\.\\d+').Matches.Value\n} else { '' }\n\nif ($current -ne $ver) {\n    $url = \"https://github.com/zeroclaw-labs/zeroclaw/releases/download/v$ver/zeroclaw-x86_64-pc-windows-msvc.zip\"\n    New-Item -ItemType Directory -Force -Path $dst | Out-Null\n    Invoke-WebRequest -Uri $url -OutFile \"$env:TEMP\\zeroclaw.zip\" -UseBasicParsing\n    Expand-Archive -Force -Path \"$env:TEMP\\zeroclaw.zip\" -DestinationPath $dst\n}\n\n$environment = [Environment]\n$userPath = $environment::GetEnvironmentVariable('Path', 'User')\nif (($userPath -split ';') -notcontains $dst) {\n    $environment::SetEnvironmentVariable('Path', \"$dst;$userPath\", 'User')\n}\nif (($env:Path -split ';') -notcontains $dst) {\n    $env:Path = \"$dst;$env:Path\"\n}\n\n& $exe quickstart\n```"
+msgstr ""
+"```powershell\n"
+"# 安装和 PATH 设置具有幂等性。如果 zeroclaw 已经是最新版本且位于用户 PATH 中，\n"
+"# 则会跳过这些步骤；Quickstart 仍会在最后运行。\n"
+"$ver = (Invoke-RestMethod 'https://api.github.com/repos/zeroclaw-labs/zeroclaw/releases/latest').tag_name.TrimStart('v')\n"
+"$dst = \"$env:USERPROFILE\\.zeroclaw\\bin\"\n"
+"$exe = \"$dst\\zeroclaw.exe\"\n"
+"\n"
+"$current = if (Test-Path $exe) {\n"
+"    ((& $exe --version 2>$null) | Select-String -Pattern '\\d+\\.\\d+\\.\\d+').Matches.Value\n"
+"} else { '' }\n"
+"\n"
+"if ($current -ne $ver) {\n"
+"    $url = \"https://github.com/zeroclaw-labs/zeroclaw/releases/download/v$ver/zeroclaw-x86_64-pc-windows-msvc.zip\"\n"
+"    New-Item -ItemType Directory -Force -Path $dst | Out-Null\n"
+"    Invoke-WebRequest -Uri $url -OutFile \"$env:TEMP\\zeroclaw.zip\" -UseBasicParsing\n"
+"    Expand-Archive -Force -Path \"$env:TEMP\\zeroclaw.zip\" -DestinationPath $dst\n"
+"}\n"
+"\n"
+"$environment = [Environment]\n"
+"$userPath = $environment::GetEnvironmentVariable('Path', 'User')\n"
+"if (($userPath -split ';') -notcontains $dst) {\n"
+"    $environment::SetEnvironmentVariable('Path', \"$dst;$userPath\", 'User')\n"
+"}\n"
+"if (($env:Path -split ';') -notcontains $dst) {\n"
+"    $env:Path = \"$dst;$env:Path\"\n"
+"}\n"
+"\n"
+"& $exe quickstart\n"
+"```"
 
 #: src/setup/windows.md
 msgid ""
@@ -59712,7 +59834,14 @@ msgid ""
 "# Optional kernel deny paths (needs bubblewrap on Linux when non-empty):\n"
 "# deny = [\"**/.env\", \"**/*.pem\"]\n"
 "```"
-msgstr "```toml\n# <agent-workspace>/.grok/sandbox.toml\n[profiles.channel-bot]\nextends = \"strict\"\n# 可选的内核拒绝路径（非空时在 Linux 上需要 bubblewrap）：\n# deny = [\"**/.env\", \"**/*.pem\"]\n```"
+msgstr ""
+"```toml\n"
+"# <agent-workspace>/.grok/sandbox.toml\n"
+"[profiles.channel-bot]\n"
+"extends = \"strict\"\n"
+"# 可选的内核拒绝路径（非空时在 Linux 上需要 bubblewrap）：\n"
+"# deny = [\"**/.env\", \"**/*.pem\"]\n"
+"```"
 
 #: src/providers/catalog.md
 msgid ""
@@ -59758,7 +59887,49 @@ msgid ""
 "[agents.dependabot]\n"
 "model_provider = \"grok_cli.ops\"\n"
 "```"
-msgstr "```toml\n# 完整回答：ACP、严格沙箱、无内置工具、经过审核的 Grok 配置\n[providers.models.grok_cli.default]\nmodel = \"grok-4.5\"\nbinary_path = \"/home/you/.grok/bin/grok\"\nworking_directory = \"/path/to/agents/default/workspace\"\n\n# REPLY / NO_REPLY 预检查 - API（格式稳定）。如果已有现成的 xAI\n# HTTP 别名，请复用；不要将其指向 grok_cli。\n[providers.models.xai.default]\nmodel = \"grok-4.5\"\n# uri / auth 按照常规 xAI 提供商设置（OAuth 会话或 api_key）\n\n# 运维/编码代理：明确的策略和工具选择启用\n[providers.models.grok_cli.ops]\nmodel = \"grok-4.5\"\nbinary_path = \"/home/you/.grok/bin/grok\"\nworking_directory = \"/path/to/agents/ops/workspace\"\nenv_passthrough = [\"AWS_ACCESS_KEY_ID\", \"AWS_SECRET_ACCESS_KEY\"]\n# 只读工具：匹配的 --allow 可在无需 ACP 审批的情况下预先授权。\nextra_args = [\"--tools=Read,Grep\", \"--allow=Read\", \"--allow=Grep\"]\n\n# 支持 Shell 的运维别名：可以绕过 ACP 审批，或者将 allow 与\n# Grok 预授权的沙箱配置搭配使用（workspace 是常见选择）。\n[providers.models.grok_cli.ops_shell]\nmodel = \"grok-4.5\"\nbinary_path = \"/home/you/.grok/bin/grok\"\nworking_directory = \"/path/to/agents/ops/workspace\"\nextra_args = [\n  \"--tools=run_terminal_cmd\",\n  \"--allow=Bash(printf *)\",\n  \"--sandbox=workspace\",\n]\n\n[agents.default]\nmodel_provider = \"grok_cli.default\"\nclassifier_provider = \"xai.default\"\nchannels = [\"slack.default\"]   # 示例\n\n[agents.dependabot]\nmodel_provider = \"grok_cli.ops\"\n```"
+msgstr ""
+"```toml\n"
+"# 完整回答：ACP、严格沙箱、无内置工具、经过审核的 Grok 配置\n"
+"[providers.models.grok_cli.default]\n"
+"model = \"grok-4.5\"\n"
+"binary_path = \"/home/you/.grok/bin/grok\"\n"
+"working_directory = \"/path/to/agents/default/workspace\"\n"
+"\n"
+"# REPLY / NO_REPLY 预检查 - API（格式稳定）。如果已有现成的 xAI\n"
+"# HTTP 别名，请复用；不要将其指向 grok_cli。\n"
+"[providers.models.xai.default]\n"
+"model = \"grok-4.5\"\n"
+"# uri / auth 按照常规 xAI 提供商设置（OAuth 会话或 api_key）\n"
+"\n"
+"# 运维/编码代理：明确的策略和工具选择启用\n"
+"[providers.models.grok_cli.ops]\n"
+"model = \"grok-4.5\"\n"
+"binary_path = \"/home/you/.grok/bin/grok\"\n"
+"working_directory = \"/path/to/agents/ops/workspace\"\n"
+"env_passthrough = [\"AWS_ACCESS_KEY_ID\", \"AWS_SECRET_ACCESS_KEY\"]\n"
+"# 只读工具：匹配的 --allow 可在无需 ACP 审批的情况下预先授权。\n"
+"extra_args = [\"--tools=Read,Grep\", \"--allow=Read\", \"--allow=Grep\"]\n"
+"\n"
+"# 支持 Shell 的运维别名：可以绕过 ACP 审批，或者将 allow 与\n"
+"# Grok 预授权的沙箱配置搭配使用（workspace 是常见选择）。\n"
+"[providers.models.grok_cli.ops_shell]\n"
+"model = \"grok-4.5\"\n"
+"binary_path = \"/home/you/.grok/bin/grok\"\n"
+"working_directory = \"/path/to/agents/ops/workspace\"\n"
+"extra_args = [\n"
+"  \"--tools=run_terminal_cmd\",\n"
+"  \"--allow=Bash(printf *)\",\n"
+"  \"--sandbox=workspace\",\n"
+"]\n"
+"\n"
+"[agents.default]\n"
+"model_provider = \"grok_cli.default\"\n"
+"classifier_provider = \"xai.default\"\n"
+"channels = [\"slack.default\"]   # 示例\n"
+"\n"
+"[agents.dependabot]\n"
+"model_provider = \"grok_cli.ops\"\n"
+"```"
 
 #: src/providers/catalog.md
 msgid ""
@@ -59768,7 +59939,13 @@ msgid ""
 "working_directory = \"/path/to/agents/default/workspace\"\n"
 "extra_args = [\"--sandbox=channel-bot\"]\n"
 "```"
-msgstr "```toml\n# ZeroClaw config.toml\n[providers.models.grok_cli.default]\nworking_directory = \"/path/to/agents/default/workspace\"\nextra_args = [\"--sandbox=channel-bot\"]\n```"
+msgstr ""
+"```toml\n"
+"# ZeroClaw config.toml\n"
+"[providers.models.grok_cli.default]\n"
+"working_directory = \"/path/to/agents/default/workspace\"\n"
+"extra_args = [\"--sandbox=channel-bot\"]\n"
+"```"
 
 #: src/tools/mcp.md
 msgid ""
@@ -59834,6 +60011,19 @@ msgstr ""
 "allowed_groups = [\"120363012345678901@g.us\", \"120363098765432109\"]\n"
 "```"
 
+#: src/plugins/writing-a-tool-plugin.md
+msgid ""
+"```toml\n"
+"[config_schema]\n"
+"required = [\"api_key\"]\n"
+"\n"
+"[config_schema.properties.api_key]\n"
+"type = \"string\"\n"
+"minLength = 1\n"
+"x-secret = true\n"
+"```"
+msgstr "```toml\n[config_schema]\nrequired = [\"api_key\"]\n\n[config_schema.properties.api_key]\ntype = \"string\"\nminLength = 1\nx-secret = true\n```"
+
 #: src/ops/observability.md
 msgid ""
 "```toml\n"
@@ -59883,7 +60073,12 @@ msgid ""
 "channel = \"whatsapp.personal\"   # this alias only; bare \"whatsapp\" covers every alias\n"
 "external_peers = [\"+15550100\"]\n"
 "```"
-msgstr "```toml\n[peer_groups.whatsapp_default]\nchannel = \"whatsapp.personal\"   # this alias only; bare \"whatsapp\" covers every alias\nexternal_peers = [\"+15550100\"]\n```"
+msgstr ""
+"```toml\n"
+"[peer_groups.whatsapp_default]\n"
+"channel = \"whatsapp.personal\"   # this alias only; bare \"whatsapp\" covers every alias\n"
+"external_peers = [\"+15550100\"]\n"
+"```"
 
 #: src/providers/catalog.md
 msgid ""
@@ -59892,7 +60087,12 @@ msgid ""
 "model = \"...\"\n"
 "api_key = \"...\"\n"
 "```"
-msgstr "```toml\n[providers.models.atlascloud.home]\nmodel = \"...\"\napi_key = \"...\"\n```"
+msgstr ""
+"```toml\n"
+"[providers.models.atlascloud.home]\n"
+"model = \"...\"\n"
+"api_key = \"...\"\n"
+"```"
 
 #: src/providers/configuration.md
 msgid ""
@@ -59936,7 +60136,15 @@ msgid ""
 "# Does not make Grok Build 0.2.118 reliably see or describe the image.\n"
 "# vision = true\n"
 "```"
-msgstr "```toml\n[providers.models.grok_cli.default]\nmodel = \"grok-4.5\"\nworking_directory = \"/srv/zeroclaw/grok-workspace\"\n# 仅供可选实验：即使声明 image=false，也发送 ACP 图像块。\n# 并不能让 Grok Build 0.2.118 稳定地看到或描述图像。\n# vision = true\n```"
+msgstr ""
+"```toml\n"
+"[providers.models.grok_cli.default]\n"
+"model = \"grok-4.5\"\n"
+"working_directory = \"/srv/zeroclaw/grok-workspace\"\n"
+"# 仅供可选实验：即使声明 image=false，也发送 ACP 图像块。\n"
+"# 并不能让 Grok Build 0.2.118 稳定地看到或描述图像。\n"
+"# vision = true\n"
+"```"
 
 #: src/providers/catalog.md
 msgid ""
@@ -59948,7 +60156,15 @@ msgid ""
 "# Optional: 4 MiB by default; accepted range is 1-64 MiB.\n"
 "max_acp_stdout_bytes = 8388608\n"
 "```"
-msgstr "```toml\n[providers.models.grok_cli.default]\nmodel = \"grok-4.5\"\nworking_directory = \"/srv/zeroclaw/grok-workspace\"\nenv_passthrough = [\"XAI_API_KEY\"]\n# 可选：默认为 4 MiB；可接受范围为 1-64 MiB。\nmax_acp_stdout_bytes = 8388608\n```"
+msgstr ""
+"```toml\n"
+"[providers.models.grok_cli.default]\n"
+"model = \"grok-4.5\"\n"
+"working_directory = \"/srv/zeroclaw/grok-workspace\"\n"
+"env_passthrough = [\"XAI_API_KEY\"]\n"
+"# 可选：默认为 4 MiB；可接受范围为 1-64 MiB。\n"
+"max_acp_stdout_bytes = 8388608\n"
+"```"
 
 #: src/providers/catalog.md
 msgid ""
@@ -59960,7 +60176,15 @@ msgid ""
 "  \"--permission-mode=bypassPermissions\",\n"
 "]\n"
 "```"
-msgstr "```toml\n[providers.models.grok_cli.ops]\nworking_directory = \"/path/to/agents/ops/workspace\"\nextra_args = [\n  \"--tools=run_terminal_cmd\",\n  \"--permission-mode=bypassPermissions\",\n]\n```"
+msgstr ""
+"```toml\n"
+"[providers.models.grok_cli.ops]\n"
+"working_directory = \"/path/to/agents/ops/workspace\"\n"
+"extra_args = [\n"
+"  \"--tools=run_terminal_cmd\",\n"
+"  \"--permission-mode=bypassPermissions\",\n"
+"]\n"
+"```"
 
 #: src/providers/catalog.md
 msgid ""
@@ -60241,7 +60465,13 @@ msgid ""
 "# shell = \"powershell\"  # Windows PowerShell 5.x\n"
 "# shell = \"cmd\"         # or leave unset -> cmd.exe /C \"<cmd>\"   (default)\n"
 "```"
-msgstr "```toml\n[runtime]\nshell = \"pwsh\"        # PowerShell 7+   -> pwsh -NoProfile -NonInteractive -Command <cmd>\n# shell = \"powershell\"  # Windows PowerShell 5.x\n# shell = \"cmd\"         # 或留空 -> cmd.exe /C \"<cmd>\"   (默认)\n```"
+msgstr ""
+"```toml\n"
+"[runtime]\n"
+"shell = \"pwsh\"        # PowerShell 7+   -> pwsh -NoProfile -NonInteractive -Command <cmd>\n"
+"# shell = \"powershell\"  # Windows PowerShell 5.x\n"
+"# shell = \"cmd\"         # 或留空 -> cmd.exe /C \"<cmd>\"   (默认)\n"
+"```"
 
 #: src/tools/skills.md
 msgid ""
@@ -60394,7 +60624,32 @@ msgid ""
 "minimum = 1\n"
 "maximum = 120\n"
 "```"
-msgstr "```toml\nname = \"my-platform\"\nversion = \"0.1.0\"\nwasm_path = \"my_platform.wasm\"\ncapabilities = [\"channel\"]\npermissions = [\"config_read\", \"http_client\"]\n\n[config_schema]\n\"$schema\" = \"https://json-schema.org/draft/2020-12/schema\"\ntype = \"object\"\nadditionalProperties = false\nrequired = [\"api_token\"]\n\n[config_schema.properties.api_token]\ntype = \"string\"\nminLength = 1\n\n[config_schema.properties.default_recipient]\ntype = \"string\"\n\n[config_schema.properties.timeout_secs]\ntype = \"integer\"\nminimum = 1\nmaximum = 120\n```"
+msgstr ""
+"```toml\n"
+"name = \"my-platform\"\n"
+"version = \"0.1.0\"\n"
+"wasm_path = \"my_platform.wasm\"\n"
+"capabilities = [\"channel\"]\n"
+"permissions = [\"config_read\", \"http_client\"]\n"
+"\n"
+"[config_schema]\n"
+"\"$schema\" = \"https://json-schema.org/draft/2020-12/schema\"\n"
+"type = \"object\"\n"
+"additionalProperties = false\n"
+"required = [\"api_token\"]\n"
+"\n"
+"[config_schema.properties.api_token]\n"
+"type = \"string\"\n"
+"minLength = 1\n"
+"\n"
+"[config_schema.properties.default_recipient]\n"
+"type = \"string\"\n"
+"\n"
+"[config_schema.properties.timeout_secs]\n"
+"type = \"integer\"\n"
+"minimum = 1\n"
+"maximum = 120\n"
+"```"
 
 #: src/plugins/distributing-plugins.md
 msgid ""
@@ -60409,7 +60664,18 @@ msgid ""
 "properties = {}\n"
 "additionalProperties = false\n"
 "```"
-msgstr "```toml\nname = \"my-plugin\"\nversion = \"0.1.0\"\nsignature = \"<base64url-signature>\"\npublisher_key = \"<hex-public-key>\"\n\n[config_schema]\ntype = \"object\"\nproperties = {}\nadditionalProperties = false\n```"
+msgstr ""
+"```toml\n"
+"name = \"my-plugin\"\n"
+"version = \"0.1.0\"\n"
+"signature = \"<base64url-signature>\"\n"
+"publisher_key = \"<hex-public-key>\"\n"
+"\n"
+"[config_schema]\n"
+"type = \"object\"\n"
+"properties = {}\n"
+"additionalProperties = false\n"
+"```"
 
 #: src/plugins/migrating-to-typed-config.md
 msgid ""
@@ -60437,7 +60703,31 @@ msgid ""
 "[config_schema.properties.allowed_chats]\n"
 "type = \"array\"\n"
 "```"
-msgstr "```toml\nname = \"my-plugin\"\nversion = \"0.2.0\"\nwasm_path = \"my_plugin.wasm\"\ncapabilities = [\"channel\"]\npermissions = [\"config_read\"]\n\n[config_schema]\n\"$schema\" = \"https://json-schema.org/draft/2020-12/schema\"\ntype = \"object\"\nrequired = [\"bot_token\"]\nadditionalProperties = false\n\n[config_schema.properties.bot_token]\ntype = \"string\"\nminLength = 1\n\n[config_schema.properties.poll_interval_secs]\ntype = \"integer\"\nminimum = 1\n\n[config_schema.properties.allowed_chats]\ntype = \"array\"\n```"
+msgstr ""
+"```toml\n"
+"name = \"my-plugin\"\n"
+"version = \"0.2.0\"\n"
+"wasm_path = \"my_plugin.wasm\"\n"
+"capabilities = [\"channel\"]\n"
+"permissions = [\"config_read\"]\n"
+"\n"
+"[config_schema]\n"
+"\"$schema\" = \"https://json-schema.org/draft/2020-12/schema\"\n"
+"type = \"object\"\n"
+"required = [\"bot_token\"]\n"
+"additionalProperties = false\n"
+"\n"
+"[config_schema.properties.bot_token]\n"
+"type = \"string\"\n"
+"minLength = 1\n"
+"\n"
+"[config_schema.properties.poll_interval_secs]\n"
+"type = \"integer\"\n"
+"minimum = 1\n"
+"\n"
+"[config_schema.properties.allowed_chats]\n"
+"type = \"array\"\n"
+"```"
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid ""
@@ -60464,7 +60754,30 @@ msgid ""
 "type = \"array\"\n"
 "items = { type = \"string\" }\n"
 "```"
-msgstr "```toml\nname = \"my-redact-plugin\"\nversion = \"0.1.0\"\nwasm_path = \"my_redact_plugin.wasm\"\ncapabilities = [\"tool\"]\npermissions = [\"config_read\"]\n\n[config_schema]\n\"$schema\" = \"https://json-schema.org/draft/2020-12/schema\"\ntype = \"object\"\nadditionalProperties = false\n\n[config_schema.properties.replacement]\ntype = \"string\"\nminLength = 1\n\n[config_schema.properties.redact_emails]\ntype = \"boolean\"\n\n[config_schema.properties.patterns]\ntype = \"array\"\nitems = { type = \"string\" }\n```"
+msgstr ""
+"```toml\n"
+"name = \"my-redact-plugin\"\n"
+"version = \"0.1.0\"\n"
+"wasm_path = \"my_redact_plugin.wasm\"\n"
+"capabilities = [\"tool\"]\n"
+"permissions = [\"config_read\"]\n"
+"\n"
+"[config_schema]\n"
+"\"$schema\" = \"https://json-schema.org/draft/2020-12/schema\"\n"
+"type = \"object\"\n"
+"additionalProperties = false\n"
+"\n"
+"[config_schema.properties.replacement]\n"
+"type = \"string\"\n"
+"minLength = 1\n"
+"\n"
+"[config_schema.properties.redact_emails]\n"
+"type = \"boolean\"\n"
+"\n"
+"[config_schema.properties.patterns]\n"
+"type = \"array\"\n"
+"items = { type = \"string\" }\n"
+"```"
 
 #: src/channels/matrix.md
 msgid ""
@@ -60475,7 +60788,14 @@ msgid ""
 "    { tool = \"mock_tool\", base = \"all\", exclude = [\"token\"] },\n"
 "]\n"
 "```"
-msgstr "```toml\nstream_tool_arguments = [\n    { default_base = \"safe\", argument_chars = 60 },\n    { tool = \"delegate\", base = \"none\", include = [\"agent\", \"background\", \"prompt\"], argument_chars = 0 },\n    { tool = \"mock_tool\", base = \"all\", exclude = [\"token\"] },\n]\n```"
+msgstr ""
+"```toml\n"
+"stream_tool_arguments = [\n"
+"    { default_base = \"safe\", argument_chars = 60 },\n"
+"    { tool = \"delegate\", base = \"none\", include = [\"agent\", \"background\", \"prompt\"], argument_chars = 0 },\n"
+"    { tool = \"mock_tool\", base = \"all\", exclude = [\"token\"] },\n"
+"]\n"
+"```"
 
 #: src/integrations/zega-ai.md
 msgid ""
@@ -60484,7 +60804,12 @@ msgid ""
 "  gatewayUrl: \"http://127.0.0.1:42617\",\n"
 "});\n"
 "```"
-msgstr "```ts\nconst client = new ZeroClawGatewayClient({\n  gatewayUrl: \"http://127.0.0.1:42617\",\n});\n```"
+msgstr ""
+"```ts\n"
+"const client = new ZeroClawGatewayClient({\n"
+"  gatewayUrl: \"http://127.0.0.1:42617\",\n"
+"});\n"
+"```"
 
 #: src/reference/config.md
 msgid "`a2a.server`"
@@ -61522,6 +61847,10 @@ msgstr "`calendar`"
 #: src/reference/config.md
 msgid "`call_fuel`"
 msgstr "`call_fuel`"
+
+#: src/reference/config.md
+msgid "`call_timeout_ms`"
+msgstr "`call_timeout_ms`"
 
 #: src/contributing/agent-policy-parity-harness.md
 msgid "`caller_allowed` - a per-run allowlist (the `run()` path); intersects with, never overrides, the policy filter and the MCP tool-access policy."
@@ -67400,10 +67729,6 @@ msgid "`runtime.docker`"
 msgstr "`runtime.docker`"
 
 #: src/developing/plugin-protocol.md
-msgid "`runtime.rs` strips any caller-supplied `__config` before injecting the resolved section, so the section cannot be spoofed. A channel receives the same typed object as the JSON argument to `configure`. When the manifest requests `config_read` but the host does not effectively grant it, resolution substitutes an empty object and validates that object too. Optional schemas therefore see `{}` (and tools omit an empty `__config`), while a schema with required fields fails closed before the guest starts. A plugin only ever sees its own section. Tool and channel are the current config consumers. The memory world has no config export yet, so memory plugins must not request `config_read` until that ABI and runtime wiring land."
-msgstr "`runtime.rs` 会在注入解析后的区段之前移除调用方提供的 `__config`，因此无法伪造该区段。通道接收的类型化对象与传递给 `configure` 的 JSON 参数相同。当清单请求 `config_read` 但宿主实际上未授予该权限时，解析会替换为空对象，并同样对该对象进行验证。因此，可选 schema 会看到 `{}`（工具会省略空的 `__config`），而包含必填字段的 schema 会在 guest 启动前安全失败。插件始终只能看到自己的区段。工具和通道是当前的配置使用者。memory world 目前还没有配置导出，因此在该 ABI 和运行时接线完成之前，memory 插件不得请求 `config_read`。"
-
-#: src/developing/plugin-protocol.md
 msgid "`runtime.rs`, `wasm_tool.rs`"
 msgstr "`runtime.rs`, `wasm_tool.rs`"
 
@@ -67571,7 +67896,15 @@ msgstr "`secret-value`"
 msgid "`secret_test_forbidden`"
 msgstr "`secret_test_forbidden`"
 
-#: src/reference/config.md
+#: src/plugins/writing-a-tool-plugin.md
+msgid "`secrets.get` returns `not-found`"
+msgstr "`secrets.get` 返回 `not-found`"
+
+#: src/plugins/writing-a-tool-plugin.md
+msgid "`secrets.get` returns `unavailable`"
+msgstr "`secrets.get` 返回 `unavailable`"
+
+#: src/reference/config.md src/developing/plugin-protocol.md
 msgid "`secrets`"
 msgstr "`secrets`"
 
@@ -69765,8 +70098,8 @@ msgid "`wit/v0/` defines one world per WASM capability. Every world imports the 
 msgstr "`wit/v0/` 为每个 WASM 能力定义一个 world。每个 world 都导入宿主 `logging` 接口，其 `log-record` 事件会落入结构化日志，并携带宿主调用点的 [span attribution](../ops/observability.md#zeroclaw-attribution)，同时导出 `plugin-info`（自报名称和版本）以及其主接口："
 
 #: src/developing/plugin-protocol.md
-msgid "`wit/v0/` defines three worlds, bound by `bindgen!` in `component.rs`. Each imports `logging` (host) and exports `plugin-info` plus its primary interface: `tool-plugin` exports `tool`, `channel-plugin` exports `channel`, `memory-plugin` exports `memory`. The required (no-default) exports for each world are listed in the world's doc comment in its `.wit` file."
-msgstr "`wit/v0/` 定义了三个 world，由 `component.rs` 中的 `bindgen!` 进行绑定。每个 world 都导入 `logging`（host），并导出 `plugin-info` 以及其主要接口：`tool-plugin` 导出 `tool`，`channel-plugin` 导出 `channel`，`memory-plugin` 导出 `memory`。每个 world 所需的（no-default）导出列在其 `.wit` 文件中的 world 文档注释里。"
+msgid "`wit/v0/` defines three worlds, bound by `bindgen!` in `component.rs`. Each imports `logging` (host) and exports `plugin-info` plus its primary interface: `tool-plugin` exports `tool`, `channel-plugin` exports `channel`, and `memory-plugin` exports `memory`. Tool also imports `secrets`; channel imports `inbound`. The required (no-default) exports for each world are listed in the world's doc comment in its `.wit` file."
+msgstr "`wit/v0/` 定义了三个 world，并在 `component.rs` 中通过 `bindgen!` 进行绑定。每个 world 都导入 `logging`（主机）并导出 `plugin-info` 及其主要接口：`tool-plugin` 导出 `tool`，`channel-plugin` 导出 `channel`，`memory-plugin` 导出 `memory`。此外，Tool 还导入 `secrets`；channel 导入 `inbound`。每个 world 所需的（无默认）导出项都列在其 `.wit` 文件中的 world 文档注释中。"
 
 #: src/architecture/decisions/ADR-006-runtime-channel-plugins.md
 msgid "`wit/v0/channel.wit`"
@@ -69783,6 +70116,10 @@ msgstr "`wit/v0/inbound.wit` 被 `channel-plugin` world 导入。channel 插件�
 #: src/developing/plugin-protocol.md
 msgid "`wit/v0/logging.wit` is imported by all three worlds. Plugins call `log-record` to emit structured events back to the host:"
 msgstr "`wit/v0/logging.wit` 被这三个 world 都导入。插件调用 `log-record` 将结构化事件发回宿主："
+
+#: src/developing/plugin-protocol.md
+msgid "`wit/v0/secrets.wit` is imported only by the tool world. The guest supplies only a top-level property name:"
+msgstr "`wit/v0/secrets.wit` 仅由工具 world 导入。guest 只提供顶级属性名称："
 
 #: src/developing/plugin-protocol.md
 msgid "`wit/v0/tool.wit` defines the single-tool surface. The host calls `name`, `description`, and `parameters-schema` once at load time, then dispatches `execute` per invocation:"
@@ -71094,8 +71431,8 @@ msgid "`⌥→ / ⌥f`"
 msgstr "`⌥→ / ⌥f`"
 
 #: src/plugins/index.md
-msgid "a `Linker` with exactly the imports its world, grants, and adapter support call for: `logging` always, `inbound` for channels, and `wasi:http` for tool and channel adapters only when the manifest grants `http_client`. Memory creates neither an HTTP context nor an HTTP linker. Each adapter cross-checks its context and linker at instantiation (`ensure_http_coherent`)."
-msgstr "一个 `Linker`，其导入项恰好满足其 world、grants 和适配器支持所需：始终包含 `logging`，通道包含 `inbound`，仅当 manifest 授予 `http_client` 时才为工具和通道适配器包含 `wasi:http`。Memory 既不创建 HTTP 上下文，也不创建 HTTP linker。每个适配器在实例化时交叉检查其上下文和 linker（`ensure_http_coherent`）。"
+msgid "a `Linker` with exactly the imports its world, grants, and adapter support call for: `logging` always, `secrets` for tools, `inbound` for channels, and `wasi:http` for tool and channel adapters only when the manifest grants `http_client`. Memory creates neither an HTTP context nor an HTTP linker. Each adapter cross-checks its context and linker at instantiation (`ensure_http_coherent`)."
+msgstr "一个 `Linker`，仅包含其 world、授权和适配器支持所需的导入项：始终包含 logging，工具需要 secrets，通道需要 inbound，而工具和通道适配器仅在清单授予 http_client 时需要 wasi:http。Memory 既不会创建 HTTP 上下文，也不会创建 HTTP linker。每个适配器都会在实例化时交叉检查其上下文和 linker（`ensure_http_coherent`）。"
 
 #: src/plugins/index.md
 msgid "a `Store` carrying the sandboxed WASI context, the resource table, the optional HTTP context, and the fuel budget;"
