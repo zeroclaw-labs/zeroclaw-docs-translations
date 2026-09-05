@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ZeroClaw Docs\n"
-"POT-Creation-Date: 2026-09-03T13:08:57-07:00\n"
+"POT-Creation-Date: 2026-09-04T17:48:16-07:00\n"
 "PO-Revision-Date: 2026-04-25T21:58:41-04:00\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -3424,6 +3424,10 @@ msgstr "**鉴权：** 仅支持 Twitter API v2 OAuth 2.0 Bearer Token。"
 msgid "**Auth:** raw private key (`nsec` bech32 or hex)."
 msgstr "**身份验证：** 原始私钥（`nsec` bech32 或十六进制格式）。"
 
+#: src/channels/social.md
+msgid "**Auth:** use a Twitch user access token for the bot account with [`chat:read` and `chat:edit`](https://dev.twitch.tv/docs/chat/irc/#authenticating-with-the-twitch-irc-server). After configuring the [Twitch CLI](https://dev.twitch.tv/docs/cli/token-command/), generate it while signed in as that account with `twitch token -u -s 'chat:read chat:edit'`, then store it through a protected config surface. ZeroClaw trims the value and adds the required `oauth:` prefix when it is omitted."
+msgstr "**身份验证：**使用机器人账户的 Twitch 用户访问令牌，并授予 [`chat:read` 和 `chat:edit`](https://dev.twitch.tv/docs/chat/irc/#authenticating-with-the-twitch-irc-server) 权限。配置 [Twitch CLI](https://dev.twitch.tv/docs/cli/token-command/) 后，以该账户登录并运行 `twitch token -u -s 'chat:read chat:edit'` 生成令牌，然后通过受保护的配置入口存储该令牌。如果省略所需的 `oauth:` 前缀，ZeroClaw 会去除该值的首尾空白并添加此前缀。"
+
 #: src/foundations/fnd-005-contribution-culture.md
 msgid "**Authors should not interpret a blocking comment as rejection.** It is a specific, resolvable problem. Address it and move forward."
 msgstr "**作者不应将阻塞性评论视为拒绝。** 这是一个具体且可解决的问题。解决它并继续前进。"
@@ -3723,6 +3727,10 @@ msgstr "**通道**"
 #: src/agents/anatomy.md
 msgid "**Channels** ([Channels](../channels/overview.md)): the messaging surfaces the agent answers on. When two agents share a channel, a [peer group](../channels/peer-groups.md) decides whether they can address each other."
 msgstr "**通道**（[通道](../channels/overview.md)）：智能体进行响应的消息传递界面。当两个智能体共享同一个通道时，由[对等组](../channels/peer-groups.md)决定它们能否相互通信。"
+
+#: src/channels/social.md
+msgid "**Channels:** entries in `channels` may include the leading `#`; ZeroClaw adds it when missing and normalizes channel names to lowercase."
+msgstr "**频道：**`channels` 中的条目可以包含开头的 `#`；如果缺少，ZeroClaw 会添加它，并将频道名称规范化为小写。"
 
 #: src/hardware/raspberry-pi-setup.md
 msgid "**Check `clk_ignore_unused`** isn't on the kernel cmdline if you use a custom image; it inhibits clock gating and raises idle power. Stock Raspberry Pi OS doesn't set it."
@@ -4408,6 +4416,10 @@ msgstr "**禁止路径**：来自 `[risk_profiles.<alias>].forbidden_paths` 的�
 msgid "**Formal reviews**"
 msgstr "**正式评审**"
 
+#: src/channels/social.md
+msgid "**Formatting:** Twitch replies use plain text and are split to fit IRC frames. Markdown formatting is not preserved."
+msgstr "**格式：**Twitch 回复使用纯文本，并会拆分以适应 IRC 帧。Markdown 格式不会保留。"
+
 #: src/foundations/fnd-001-intentional-architecture.md
 msgid "**Foundation layer**: API traits, config, providers, memory backends, infra, tool-call parser. The irreducible core: builds with `--no-default-features`. Can exchange messages with an LLM and store memory. Nothing more."
 msgstr "**基础层**：API trait、配置、provider、内存后端、基础设施、工具调用解析器。不可再简化的核心：可通过 `--no-default-features` 构建。能够与 LLM 交换消息并存储内存。仅此而已。"
@@ -4668,6 +4680,10 @@ msgstr "**重要：** `cwd` 参数会更改 agent 在 **ZeroClaw 主机**上被�
 #: src/channels/mattermost.md
 msgid "**In-flight work is scoped per thread.** A new message in one thread does not cancel an in-flight response in another; each thread's task stands alone."
 msgstr "**进行中的工作以线程为单位进行隔离。** 在某个线程中发送新消息不会取消另一个线程中进行中的响应；每个线程的任务都是独立的。"
+
+#: src/channels/social.md
+msgid "**Inbound and outbound:** channel messages are answered in the same channel. `mention_only = true` ignores channel messages that do not mention `bot_username`. If Twitch delivers a non-channel IRC `PRIVMSG` to the bot login, ZeroClaw replies to that sender; the adapter does not configure a separate whisper transport."
+msgstr "**入站和出站：**频道消息会在同一频道中回复。`mention_only = true` 会忽略未提及 `bot_username` 的频道消息。如果 Twitch 将非频道 IRC `PRIVMSG` 发送到机器人登录名，ZeroClaw 会回复该发送者；适配器不会配置单独的私信传输。"
 
 #: src/channels/nextcloud-talk.md
 msgid "**Inbound**: signature verification is **mandatory**. With no resolved secret the webhook endpoint returns `401` and never reaches the agent. There is no \"public\" mode that accepts unverified webhooks."
@@ -5822,6 +5838,10 @@ msgstr "**速率限制 (429)**：将提供商配置文件置于临时的内存�
 msgid "**Rate limiting**: `rate_limit_per_sec` in the webhook channel config"
 msgstr "**速率限制**：webhook 通道配置中的 `rate_limit_per_sec`"
 
+#: src/channels/social.md
+msgid "**Rate limits:** the adapter writes IRC `PRIVMSG` frames directly and has no Twitch-specific rate limiter or HTTP `429` backoff. Keep the agent's posting cadence within Twitch Chat limits and throttle bursty workflows at their source."
+msgstr "**速率限制：**该适配器会直接写入 IRC `PRIVMSG` 帧，并且没有 Twitch 专用的速率限制器或 HTTP `429` 退避机制。请将代理的发帖频率控制在 Twitch Chat 的限制范围内，并在源头对突发式工作流进行限流。"
+
 #: src/foundations/fnd-004-engineering-infrastructure.md
 msgid "**Rationale:** A mutable tag is a promise from a third party that the action's behaviour will not change. That promise has been broken repeatedly across the GitHub Actions ecosystem. A SHA pin means the workflow runs exactly what was reviewed, regardless of what the action author does after the fact. This is especially important for actions that have write permissions or access to secrets."
 msgstr "**理由：** 可变标签（mutable tag）是第三方对操作行为不会变更的承诺。然而，在 GitHub Actions 生态系统中，这一承诺已被多次打破。使用 SHA 固定版本意味着工作流将严格运行经审核的代码，无论操作作者后续做出何种更改。这对于具有写入权限或访问密钥的操作尤为重要。"
@@ -6708,6 +6728,10 @@ msgstr "**对用户的影响：** 既定目标是为价值 10 美元的硬件打
 #: src/foundations/fnd-005-contribution-culture.md
 msgid "**The cost of being stuck and not asking is almost always higher than the cost of asking.** Three hours of spinning on a problem that a five-minute conversation would resolve is three hours of your time and your team's time that is gone. Knowing when to ask is a skill, not a weakness."
 msgstr "**陷入困境而不求助的代价，几乎总是高于求助的代价。** 花三个小时在一个只需五分钟对话就能解决的问题上打转，意味着你和团队的时间白白浪费了。知道何时求助是一种技能，而不是弱点。"
+
+#: src/maintainers/release-runbook.md
+msgid "**The crates.io publisher stopped after uploading some crates:** Do not bump the version or start a second release. crates.io versions cannot be replaced or deleted. Fix the failing crate at the same release commit, then re-run `Pub crates.io` for the same tag with `dry_run: false`; the publisher queries every `<crate>@<version>` first and skips versions that already landed. Read the Publish step for the last successful crate. If preflight failed, no upload was attempted and the problem is still reversible."
+msgstr "**crates.io 发布器在上传了一些 crate 后停止：** 不要递增版本号或开始第二次发布。crates.io 版本无法替换或删除。在同一个发布提交中修复失败的 crate，然后针对同一标签以 `dry_run: false` 重新运行 `Pub crates.io`；发布器会先查询每个 `<crate>@<version>`，并跳过已经发布的版本。查看最后一个成功 crate 的 Publish 步骤。如果预检失败，则未尝试上传，问题仍然可以恢复。"
 
 #: src/foundations/fnd-003-governance.md
 msgid "**The failure modes of automating architectural judgment are both bad.**"
@@ -8710,7 +8734,10 @@ msgid ""
 "// Outbound platform delivery via wasi:http\n"
 "            // (requires the http_client permission in the manifest). Build the\n"
 "            // request from this call's values; never retain a second copy.\n"
-msgstr "// 通过 wasi:http 进行平台出站传送\n            // （需要在清单中声明 http_client 权限）。使用此调用的值构建\n            // 请求；绝不要保留第二份副本。\n"
+msgstr ""
+"// 通过 wasi:http 进行平台出站传送\n"
+"            // （需要在清单中声明 http_client 权限）。使用此调用的值构建\n"
+"            // 请求；绝不要保留第二份副本。\n"
 
 #: src/architecture/logging.md
 msgid "// Shell, HttpRequest, FetchUrl, ...\n"
@@ -11290,6 +11317,10 @@ msgstr "一个小错误修复，一个次要功能添加，一个文档更新"
 msgid "A source must distinguish these states:"
 msgstr "源必须区分以下状态："
 
+#: src/architecture/provider-routing-lifecycle.md
+msgid "A stream that completes with no final text or tool calls is a semantic-empty response, not a successful answer. When runtime marks that result replay-safe and `provider_retries` is nonzero, Reliable allows one non-streaming recovery call to the exact provider/model that produced the empty stream. That allowance is consumed once; a failed recovery advances to the remaining configured candidates with their normal retry budgets. With zero retries, the failed stream entry remains skipped. Reasoning already shown stays visible once, but does not count as a final answer. This exception does not authorize replay after cancellation, interrupted visible output, or provider-executed tool work."
+msgstr "流在没有最终文本或工具调用的情况下完成，属于语义空响应，而不是成功的回答。当运行时将该结果标记为可安全重放，且 `provider_retries` 非零时，Reliable 允许向产生该空流的完全相同的提供商/模型发起一次非流式恢复调用。该额度仅使用一次；恢复失败后，会转到其余已配置的候选项，并使用它们正常的重试预算。重试次数为零时，失败的流条目仍会被跳过。已显示的推理内容仍会保留并只显示一次，但不计作最终答案。此例外不允许在取消、可见输出中断或提供商已执行工具操作后进行重放。"
+
 #: src/getting-started/multi-model-setup.md
 msgid "A streaming call selects the first eligible, non-cooling entry that supports the required stream capabilities. It does not advance to another entry after that stream starts. If the stream fails before visible output reaches an immutable consumer, the runtime retries the whole call through the non-streaming path, which can walk the fallback graph. Once visible output exists, the runtime preserves the partial response and does not replay the request or switch providers. See [Provider routing lifecycle](../architecture/provider-routing-lifecycle.md#streaming-and-replay-boundary) for the complete contract."
 msgstr "流式调用会选择第一个符合条件、未处于冷却状态且支持所需流式能力的条目。流开始后，它不会转到另一个条目。如果流在可见输出到达不可变消费者之前失败，运行时会通过非流式路径重试整个调用，此路径可能遍历回退图。一旦存在可见输出，运行时会保留部分响应，不会重放请求或切换提供商。有关完整契约，请参阅 [提供商路由生命周期](../architecture/provider-routing-lifecycle.md#streaming-and-replay-boundary)。"
@@ -12843,10 +12874,6 @@ msgstr "所有设置都位于 `plugins.*` 配置路径下，并可通过任何�
 msgid "All slots"
 msgstr "所有插槽"
 
-#: src/channels/social.md
-msgid "All social channels are subject to aggressive rate limits. ZeroClaw's outbound queue uses exponential backoff on 429 responses. If you hit persistent rate-limiting, throttle the agent's posting cadence at the source rather than relying on per-channel streaming knobs (none of these channels expose draft-update intervals; their schema is intentionally minimal)."
-msgstr "所有社交渠道都受到严格的速率限制。ZeroClaw 的出站队列在收到 429 响应时采用指数退避策略。如果你持续遇到速率限制，请从源头限制 agent 的发布频率，而不要依赖各渠道的流式传输参数（这些渠道均未提供草稿更新间隔；其 schema 是有意设计为最简化的）。"
-
 #: src/zerocode/themes.md
 msgid "All theme settings live in zerocode's own config, independent of which daemon zerocode connects to."
 msgstr "所有主题设置都保存在 zerocode 自己的配置中，与 zerocode 连接到哪个守护进程无关。"
@@ -12944,8 +12971,8 @@ msgid "Allowed examples:"
 msgstr "允许的示例："
 
 #: src/channels/whatsapp.md
-msgid "Allowed group chats by JID (Web mode). An empty list (the default) permits all groups; a non-empty list drops every group message whose chat JID matches no entry. Each entry matches either the full group JID (`123456789012345@g.us`) or the JID user part - the segment before `@` (`123456789012345`) - compared exactly, not as a string prefix. Direct messages bypass this filter regardless of list contents. Modeled on the Matrix channel's `allowed_rooms`; it gates group identity, which `dm_policy`/`group_policy` (chat type) and the sender allowlist (sender) do not."
-msgstr "按 JID 允许的群聊（Web 模式）。空列表（默认）允许所有群组；非空列表会丢弃每条其聊天 JID 不匹配任何条目的群组消息。每个条目要么匹配完整的群组 JID (`123456789012345@g.us`)，要么匹配 JID 的用户部分——`@` 前的片段（`123456789012345`）——按精确比较，而不是按字符串前缀比较。私信无论列表内容如何都会绕过此过滤器。参考 Matrix channel 的 `allowed_rooms`；它限制的是群组身份，而 `dm_policy`/`group_policy`（聊天类型）和发送者 allowlist（发送者）并不限制这一点。"
+msgid "Allowed group chats by JID (Web mode). An empty list (the default) admits NO group unless `group_policy = \"all\"`, which admits every group; a non-empty list drops every group message whose chat JID matches no entry. Each entry matches either the full group JID (`123456789012345@g.us`) or the JID user part - the segment before `@` (`123456789012345`) - compared exactly, not as a string prefix. Direct messages bypass this filter regardless of list contents. Modeled on the Matrix channel's `allowed_rooms`; it gates group identity, which `dm_policy`/`group_policy` (chat type) and the sender allowlist (sender) do not."
+msgstr "按 JID 允许的群聊（Web 模式）。空列表（默认值）不会允许任何群组，除非 `group_policy = \"all\"`，此时会允许所有群组；非空列表会丢弃聊天 JID 与任何条目都不匹配的所有群消息。每个条目可以匹配完整的群组 JID（`123456789012345@g.us`），也可以匹配 JID 用户部分——`@` 之前的片段（`123456789012345`）——要求完全匹配，而不是字符串前缀匹配。直接消息无论列表内容如何，都会绕过此过滤器。参照 Matrix 通道的 `allowed_rooms`；它控制群组身份，而 `dm_policy`/`group_policy`（聊天类型）和发送者允许列表（发送者）并不控制群组身份。"
 
 #: src/reference/config.md
 msgid "Allowlist of executable names for shell execution."
@@ -13505,14 +13532,14 @@ msgstr "批准高风险路径的 PR"
 msgid "Approve a SOP run waiting for out-of-band approval (talks to the running daemon)"
 msgstr "批准一个等待带外审批的 SOP 运行（与正在运行的守护进程通信）"
 
+#: src/maintainers/release-runbook.md
+msgid "Approve all three when they appear. Approve `crates-io` only after its tokenless package preflight is green:"
+msgstr "出现这三个时全部批准。只有在其无令牌软件包预检通过后，才批准 `crates-io`："
+
 #: src/sop/fan-in/mqtt.md src/sop/fan-in/filesystem.md src/sop/fan-in/amqp.md
 #: src/sop/fan-in/channel.md src/sop/fan-in/git.md src/sop/fan-in/manual.md
 msgid "Approve and observe"
 msgstr "批准并观察"
-
-#: src/maintainers/release-runbook.md
-msgid "Approve both when they appear:"
-msgstr "两者出现时都予以批准："
 
 #: src/ops/troubleshooting.md
 msgid "Approve inline when prompted"
@@ -17234,6 +17261,10 @@ msgstr "在 App Lab 中配置 Uno Q（WiFi、SSH）"
 msgid "Configure WiFi (SSID, password)"
 msgstr "配置 WiFi（SSID、密码）"
 
+#: src/channels/social.md
+msgid "Configure `enabled`, `bot_username`, `oauth_token`, and the channels to join under a Twitch alias. `mention_only` is optional and defaults to `false`. A minimal instance looks like this:"
+msgstr "在 Twitch 别名下配置 `enabled`、`bot_username`、`oauth_token` 以及要加入的频道。`mention_only` 为可选项，默认为 `false`。最小实例如下："
+
 #: src/foundations/fnd-004-engineering-infrastructure.md
 msgid "Configure `release-plz` for the workspace. Workspace application crates use `version.workspace = true`. The independently versioned `zeroclaw-api` crate uses its own release settings. The `version-sync.yml` workflow is retired."
 msgstr "为工作区配置 `release-plz`。工作区应用 crate 使用 `version.workspace = true`。独立版本控制的 `zeroclaw-api` crate 使用其自身的发布设置。`version-sync.yml` 工作流已停用。"
@@ -19940,8 +19971,8 @@ msgid "Docker daemon not reachable from the ZeroClaw user, check `docker info`"
 msgstr "无法从 ZeroClaw 用户访问 Docker 守护进程，请检查 `docker info`"
 
 #: src/maintainers/ci-and-actions.md
-msgid "Docker images push to GHCR using the automatic `GITHUB_TOKEN`; there is no separate registry token. The release pipeline does not publish to crates.io, so no `CARGO_REGISTRY_TOKEN` is required."
-msgstr "Docker 镜像使用自动生成的 `GITHUB_TOKEN` 推送到 GHCR；不存在单独的 registry token。发布流水线不会发布到 crates.io，因此无需 `CARGO_REGISTRY_TOKEN`。"
+msgid "Docker images push to GHCR using the automatic `GITHUB_TOKEN`; there is no separate registry token. Store `CARGO_REGISTRY_TOKEN` as a repository secret and map only that named secret into the reusable publisher. The called workflow references it only in the irreversible publish step, whose job requires approval through the `crates-io` environment; the tokenless preflight neither references nor exports it. The preflight packages the same immutable release commit before an approver can start the publish job."
+msgstr "Docker 镜像使用自动生成的 `GITHUB_TOKEN` 推送到 GHCR；不存在单独的注册表令牌。将 `CARGO_REGISTRY_TOKEN` 存储为仓库机密，并仅将这个指定的机密映射到可复用的发布器中。被调用的工作流仅在不可逆的发布步骤中引用它；该步骤所属的作业需要通过 `crates-io` 环境审批；无令牌的预检既不引用也不导出它。审批者启动发布作业之前，预检会对同一个不可变的发布提交进行打包。"
 
 #: src/reference/config.md
 msgid "Docker network mode (`none`, `bridge`, etc.)."
@@ -21523,8 +21554,8 @@ msgid "Environment variables take precedence over empty config fields."
 msgstr "环境变量优先于空的配置字段。"
 
 #: src/maintainers/release-runbook.md
-msgid "Environment-gated jobs (`publish`, `docker`): the approval UI doesn't exist locally."
-msgstr "环境门控作业（`publish`、`docker`）：审批 UI 在本地不存在。"
+msgid "Environment-gated jobs (`publish`, `docker`, and the crates publisher): the approval UI doesn't exist locally."
+msgstr "环境门控的作业（`publish`、`docker` 和 crates 发布器）：本地不存在审批界面。"
 
 #: src/tools/python-skills.md
 msgid "Environment-variable prefixes such as `PYTHONPATH=... python3 script.py` are also policy-sensitive. Prefer a wrapper script, a project-local virtual environment, or explicit configuration inside the script when you need stable runtime environment setup."
@@ -23724,8 +23755,8 @@ msgid "For the local platform:"
 msgstr "对于本地平台："
 
 #: src/maintainers/release-runbook.md
-msgid "For the normal `workflow_dispatch` path, Docker Publish runs synchronously inside the stable release workflow. You do not need a separate Docker check if all release jobs are green. If a maintainer instead starts the release by pushing a `vX.Y.Z` tag, Docker Publish starts as a separate tag-triggered run; confirm that sibling run is green before treating container publication as complete. Scoop and AUR need separate attention only when their jobs show red. Homebrew Core is external to this workflow; its [autobump service](https://docs.brew.sh/Autobump) checks eligible formulae on its own schedule."
-msgstr "对于正常的 `workflow_dispatch` 流程，Docker Publish 会在稳定版发布工作流中同步运行。如果所有发布作业均成功，则无需单独检查 Docker。如果维护者改为通过推送 `vX.Y.Z` 标签来启动发布，Docker Publish 会作为单独的标签触发运行启动；在将容器发布视为完成之前，请确认该对应运行成功。只有在 Scoop 和 AUR 的作业显示失败时，才需要单独关注它们。Homebrew Core 不属于此工作流；其[自动更新服务](https://docs.brew.sh/Autobump)会按自身计划检查符合条件的 formula。"
+msgid "For the normal `workflow_dispatch` path, Docker Publish runs synchronously inside the stable release workflow. You do not need a separate Docker check if all release jobs are green. If a maintainer instead starts the release by pushing a `vX.Y.Z` tag, Docker Publish starts as a separate tag-triggered run; confirm that sibling run is green before treating container publication as complete. crates.io, Scoop, and AUR need separate attention only when their jobs show red. Homebrew Core is external to this workflow; its [autobump service](https://docs.brew.sh/Autobump) checks eligible formulae on its own schedule."
+msgstr "对于正常的 `workflow_dispatch` 流程，Docker Publish 会在稳定版发布工作流中同步运行。如果所有发布作业均为绿色，则无需单独检查 Docker。如果维护者改为通过推送 `vX.Y.Z` 标签来启动发布，Docker Publish 会作为单独的标签触发运行启动；在将容器发布视为完成之前，请确认该同级运行状态为绿色。只有当 crates.io、Scoop 和 AUR 的作业显示为红色时，才需要单独关注它们。Homebrew Core 不属于此工作流；其 [autobump 服务](https://docs.brew.sh/Autobump) 会按照自己的计划检查符合条件的 formula。"
 
 #: src/plugins/index.md
 msgid "For the operator's view of discovery, signature policy, and configuration, see [How plugins work](../developing/how-plugins-work.md). For the normative contract reference, see [Plugin protocol](../developing/plugin-protocol.md)."
@@ -29010,6 +29041,14 @@ msgstr "关键属性："
 msgid "Key-source selection is not live-applied by this decision. A saved source change takes effect only after migration validation and a full daemon reload or process restart. Any future live handoff must define generation fencing in a separate implementation decision."
 msgstr "密钥源选择不会通过本决策实时生效。已保存的源更改只有在迁移验证完成并完整重载守护进程或重启进程后才会生效。任何未来的实时移交都必须在单独的实现决策中定义代际隔离机制。"
 
+#: src/zerocode/config.md
+msgid "Keybinding modifiers"
+msgstr "键绑定修饰键"
+
+#: src/zerocode/config.md
+msgid "Keybindings use canonical modifier names: `control` is literal Control, `primary` is Command on macOS and Control elsewhere, and `super` is literal Super/Command. For example, `control+c`, `primary+r`, and `alt+shift+up` are portable persisted values. Older `ctrl+...` values are migrated once when the config loads and rewritten to the corresponding canonical spelling."
+msgstr "键绑定使用规范的修饰键名称：`control` 表示字面意义上的 Control，`primary` 在 macOS 上表示 Command，在其他平台上表示 Control，而 `super` 表示字面意义上的 Super/Command。例如，`control+c`、`primary+r` 和 `alt+shift+up` 是可移植的持久化值。较旧的 `ctrl+...` 值会在配置加载时迁移一次，并重写为对应的规范拼写。"
+
 #: src/getting-started/quickstart.md
 msgid "Keys"
 msgstr "密钥"
@@ -31465,6 +31504,10 @@ msgstr "`ci.yml` 中大多数 Rust 工作负载较重的作业都通过本地 `.
 msgid "Most contributing guides tell you how to open a PR. They tell you what labels to use, how to run the test suite, and what goes in the commit message. Those things matter, and we have documents that cover them."
 msgstr "大多数贡献指南会告诉你如何提交 PR。它们会说明使用哪些标签、如何运行测试套件，以及提交信息中应包含的内容。这些都很重要，我们也有相关的文档来涵盖这些内容。"
 
+#: src/maintainers/ci-and-actions.md
+msgid "Most crates in the coordinated release set already exist and are eligible for crates.io trusted publishing. The v0.8.5 release additionally creates `zerorelay`, `zeroclaw-relay-proto`, and `zeroclaw-tls`, so its bootstrap token must include `publish-new`. The environment token remains the bootstrap path until every crate has a trusted-publisher entry for this workflow. After those entries are configured, migrate the job so GitHub exchanges OIDC identity for a short-lived token instead of retaining `CARGO_REGISTRY_TOKEN`."
+msgstr "协调发布集中的大多数 crate 已经存在，并且可以使用 crates.io 的可信发布功能。v0.8.5 版本还会创建 `zerorelay`、`zeroclaw-relay-proto` 和 `zeroclaw-tls`，因此其引导令牌必须包含 `publish-new`。在每个 crate 都为此工作流配置可信发布者条目之前，环境令牌仍是引导路径。配置这些条目后，迁移该作业，使 GitHub 将 OIDC 身份交换为短期令牌，而不是继续保留 `CARGO_REGISTRY_TOKEN`。"
+
 #: src/setup/linux.md
 msgid "Most deployments don't need any of these."
 msgstr "大多数部署不需要这些。"
@@ -32151,10 +32194,6 @@ msgstr "没有编译器错误或警告（其余的通过 `#[allow]` 抑制）"
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "No dead links in `docs/`"
 msgstr "`docs/` 中无死链"
-
-#: src/channels/overview.md
-msgid "No dedicated guide"
-msgstr "没有专门的指南"
 
 #: src/foundations/fnd-003-governance.md
 msgid "No direct pushes to master, ever"
@@ -35848,6 +35887,10 @@ msgstr "包标识必须与现有的注册表方向建立映射，而不是另造
 msgid "Package-coordinate reconciliation must happen early enough to avoid another registry identity system."
 msgstr "包坐标协调必须足够早地进行，以避免再引入一套注册表身份系统。"
 
+#: src/maintainers/ci-and-actions.md
+msgid "Packages and verifies the coordinated workspace release, then publishes it to crates.io in dependency order behind the `crates-io` environment gate"
+msgstr "打包并验证协调的工作区发布版本，然后在 `crates-io` 环境门禁下按依赖顺序将其发布到 crates.io"
+
 #: src/plugins/distributing-plugins.md
 msgid "Packages signed by the former prefix-based canonicalizer need re-signing only if they relied on one of those edge cases or on TOML decoration attached to a removed field. Ordinary manifests keep the same signed content."
 msgstr "由之前的基于前缀的规范化器签名的软件包，仅当它们依赖于其中某个边界情况，或依赖于附加在已移除字段上的 TOML 装饰时，才需要重新签名。普通清单的签名内容保持不变。"
@@ -37846,6 +37889,10 @@ msgstr "发布到"
 msgid "Published to the plugin registry (not GitHub Releases); installable via `zeroclaw plugin install`"
 msgstr "已发布到插件注册表（非 GitHub Releases）；可通过 `zeroclaw plugin install` 安装"
 
+#: src/maintainers/release-runbook.md
+msgid "Publishes the verified 23-crate workspace in dependency order"
+msgstr "按依赖顺序发布经过验证的 23-crate 工作区"
+
 #: src/contributing/how-to.md
 msgid "Publishing blog or website metadata"
 msgstr "发布博客或网站元数据"
@@ -38269,12 +38316,16 @@ msgid "Rate and volume limits"
 msgstr "速率和体积限制"
 
 #: src/channels/social.md
-msgid "Rate limits and backoff"
-msgstr "速率限制与退避"
+msgid "Rate limits"
+msgstr "速率限制"
 
 #: src/channels/nextcloud-talk.md
 msgid "Rate limits are Nextcloud-server dependent; the default bot doesn't run into them in normal conversation cadences"
 msgstr "速率限制取决于 Nextcloud-server；默认机器人不会在正常的对话频率中遇到这些限制。"
+
+#: src/channels/social.md
+msgid "Rate-limit handling differs by channel. Twitch writes IRC `PRIVMSG` frames directly and has no adapter-specific limiter. If you hit persistent rate-limiting, throttle the agent's posting cadence at the source rather than relying on per-channel streaming knobs (none of these channels expose draft-update intervals; their schema is intentionally minimal)."
+msgstr "不同频道的速率限制处理方式有所不同。Twitch 直接写入 IRC `PRIVMSG` 帧，且没有适配器专用的限流器。如果持续触发速率限制，请从源头降低代理的发布频率，而不要依赖按频道配置的流式传输参数（这些频道都不提供草稿更新间隔，其架构有意保持最小化）。"
 
 #: src/contributing/rfcs.md
 msgid "Ratification"
@@ -39317,6 +39368,10 @@ msgstr "仓库自动化和 ZeroClaw-Bot"
 #: src/maintainers/ci-and-actions.md
 msgid "Repository checkout"
 msgstr "检出仓库"
+
+#: src/maintainers/ci-and-actions.md
+msgid "Repository secret explicitly passed to `pub-crates.yml` and referenced only by its protected publish job; v0.8.5 needs `publish-new` for `zerorelay`, `zeroclaw-relay-proto`, and `zeroclaw-tls`, while later coordinated updates need `publish-update`"
+msgstr "仓库机密被显式传递给 `pub-crates.yml`，且仅由其受保护的发布作业引用；v0.8.5 需要使用 `publish-new` 发布 `zerorelay`、`zeroclaw-relay-proto` 和 `zeroclaw-tls`，而后续的协调更新需要使用 `publish-update`"
 
 #: src/architecture/generated-documentation-pipeline.md
 msgid "Repository state"
@@ -44299,8 +44354,8 @@ msgid "That is everything. Channel, agent_alias, provider, tool, session_key, cr
 msgstr "以上就是全部内容。Channel、agent_alias、provider、tool、session_key、cron_job_id、model：这些都不是调用点参数。它们都从 span 中流入（参见 [Attribution: it all comes from spans](#attribution-it-all-comes-from-spans)）。"
 
 #: src/maintainers/release-runbook.md
-msgid "That is the entire process. Everything else (Docker, website redeploy, Scoop, AUR, Discord, tweet) runs automatically as downstream jobs. Homebrew Core detects the stable GitHub release through its own autobump service. You do not need to do anything for those unless a job explicitly fails or Homebrew's external bump remains stale."
-msgstr "这就是全部流程。其他所有内容（Docker、网站重新部署、Scoop、AUR、Discord、tweet）均作为下游任务自动运行。Homebrew Core 通过其自带的 autobump 服务检测稳定的 GitHub 发布版本。除非某个任务明确失败或 Homebrew 的外部 bump 长时间未更新，否则无需对这些内容进行任何操作。"
+msgid "That is the entire process. Everything else (crates.io, Docker, website redeploy, Scoop, AUR, Discord, tweet) runs automatically as downstream jobs. Homebrew Core detects the stable GitHub release through its own autobump service. You do not need to do anything for those unless a job explicitly fails or Homebrew's external bump remains stale."
+msgstr "这就是完整流程。其他所有操作（crates.io、Docker、网站重新部署、Scoop、AUR、Discord、推文）都会作为下游作业自动运行。Homebrew Core 会通过其自身的自动更新服务检测稳定版 GitHub 发布。除非某个作业明确失败，或者 Homebrew 的外部更新仍然滞后，否则你无需对这些操作做任何处理。"
 
 #: src/foundations/index.md
 msgid "That is the investment this series is making in you. Welcome to the team."
@@ -47024,8 +47079,8 @@ msgid "The record is only a family/model recovery hint. Production entries use t
 msgstr "该记录仅是一个系列/模型恢复提示。生产条目使用提供商系列作为 `display_name`，因此该记录可能会丢失带点号的配置别名。因此，别名之间同系列、同模型的回退可能无法与请求的路由区分开来。记录不一致时，运行时响应会追加模型/提供商回退通知。渠道投递仅在发生跨系列变更时添加页脚；[issue #7883](https://github.com/zeroclaw-labs/zeroclaw/issues/7883) 跟踪系列内通知。"
 
 #: src/foundations/fnd-001-intentional-architecture.md
-msgid "The registry is a JSON index file served from a known URL (e.g., `https://plugins.zeroclawlabs.ai/index.json`). Each entry includes name, version, download URL, SHA-256 checksum, and the publisher's Ed25519 public key. The `PluginHost` signature verification already handles the security model."
-msgstr "注册表是一个 JSON 索引文件，通过已知 URL（例如 `https://plugins.zeroclawlabs.ai/index.json`）提供。每个条目包含名称、版本、下载 URL、SHA-256 校验和以及发布者的 Ed25519 公钥。`PluginHost` 的签名验证已经处理了安全模型。"
+msgid "The registry is a JSON index file served from a known URL (e.g., `https://plugins.zeroclaw.com/index.json`). Each entry includes name, version, download URL, SHA-256 checksum, and the publisher's Ed25519 public key. The `PluginHost` signature verification already handles the security model."
+msgstr "注册表是一个由已知 URL 提供服务的 JSON 索引文件（例如 `https://plugins.zeroclaw.com/index.json`）。每个条目包含名称、版本、下载 URL、SHA-256 校验和以及发布者的 Ed25519 公钥。`PluginHost` 的签名验证已经处理了安全模型。"
 
 #: src/agents/filesystem.md
 msgid "The relational half of an agent points at config; the on-disk half lives under the install root. The layout is organized by **scope**, not one flat tree: instance-wide state, cross-agent shared resources, and per-agent private data each get their own top-level directory."
@@ -48965,6 +49020,10 @@ msgstr "线程"
 msgid "Threads and context"
 msgstr "线程与上下文"
 
+#: src/maintainers/release-runbook.md
+msgid "Three jobs are gated by GitHub environment protection rules. When each becomes pending you will see a **\"Waiting for review\"** banner in the workflow run."
+msgstr "三个作业受 GitHub 环境保护规则限制。当每个作业进入待处理状态时，您会在工作流运行中看到 **\"Waiting for review\"** 横幅。"
+
 #: src/reference/env-vars.md
 msgid "Three mechanical steps to derive an env-var name from any TOML key:"
 msgstr "从任意 TOML 键派生环境变量名的三个机械步骤："
@@ -49957,12 +50016,17 @@ msgid "Twilio / Telnyx / Plivo"
 msgstr "Twilio / Telnyx / Plivo"
 
 #: src/reference/feature-matrix.md src/channels/overview.md
+#: src/channels/social.md
 msgid "Twitch"
 msgstr "Twitch"
 
 #: src/reference/config.md
 msgid "Twitch chat channel instances (`[channels.twitch.<alias>]`)."
 msgstr "Twitch 聊天频道实例（`[channels.twitch.<alias>]`）。"
+
+#: src/channels/social.md
+msgid "Twitch chat is a thin adapter over IRC. Build it with `--features channel-twitch` or include it through `--features channels-full`; the lean default build does not include it."
+msgstr "Twitch 聊天是基于 IRC 的轻量适配器。使用 `--features channel-twitch` 构建，或通过 `--features channels-full` 将其包含在内；精简的默认构建不包含它。"
 
 #: src/channels/overview.md src/channels/social.md
 msgid "Twitter / X"
@@ -50027,10 +50091,6 @@ msgstr "以下两种检查点决议方式让审查者能够塑造草稿，而不
 #: src/architecture/logging.md
 msgid "Two independent axes: the **recording floor** (what reaches `LogCaptureLayer`, resolved as flag → `RUST_LOG` → default) and **terminal display** (the stderr fmt layer, muted entirely unless `verbose` is true). That single call sets up the agent-alias-prefixed terminal formatter + the `LogCaptureLayer` over a `tracing-subscriber::Registry`. `src/main.rs` is the only place that calls it. Tests use `zeroclaw_log::try_install_capture_subscriber()` + `zeroclaw_log::subscribe_or_install()` to drain emitted events through the broadcast hook without any tracing types named in the test crate."
 msgstr "两个独立的轴：**录制底线**（到达 `LogCaptureLayer` 的内容，按 flag → `RUST_LOG` → 默认值的顺序解析）与**终端显示**（stderr fmt 层，除非 `verbose` 为 true，否则完全静默）。这一次调用即可在 `tracing-subscriber::Registry` 之上设置带 agent 别名前缀的终端格式化器以及 `LogCaptureLayer`。`src/main.rs` 是唯一调用它的地方。测试使用 `zeroclaw_log::try_install_capture_subscriber()` + `zeroclaw_log::subscribe_or_install()`，通过广播钩子抽取已发出的事件，而无需在测试 crate 中命名任何 tracing 类型。"
-
-#: src/maintainers/release-runbook.md
-msgid "Two jobs are gated by GitHub environment protection rules. When each becomes pending you will see a **\"Waiting for review\"** banner in the workflow run."
-msgstr "两个作业受 GitHub 环境保护规则的限制。当每个作业进入待处理状态时，您会在工作流运行中看到 **\"Waiting for review\"** 横幅。"
 
 #: src/architecture/localization-catalog-lifecycle.md
 msgid "Two localization branches"
@@ -56105,6 +56165,10 @@ msgstr "[故障排除](./troubleshooting.md)"
 msgid "[Troubleshooting](./troubleshooting.md): when things break"
 msgstr "[故障排查](./troubleshooting.md)：当出现问题时"
 
+#: src/channels/overview.md
+msgid "[Twitch](./social.md#twitch)"
+msgstr "[Twitch](./social.md#twitch)"
+
 #: src/contributing/architecture-map.md
 msgid "[User-boundary proof](./user-boundary-proof.md), [Testing](./testing.md), and the architecture or feature document for the changed surface"
 msgstr "[用户边界证明](./user-boundary-proof.md)、[测试](./testing.md)以及所修改范围的架构或功能文档"
@@ -59780,6 +59844,10 @@ msgstr "`AppliedLive` 表示目标在无需重新加载守护进程的情况下�
 msgid "`Arc<dyn Memory>` wrapped in agent-scoping adapters"
 msgstr "`Arc<dyn Memory>` 包裹在 agent 作用域适配器中"
 
+#: src/maintainers/ci-and-actions.md
+msgid "`CARGO_REGISTRY_TOKEN`"
+msgstr "`CARGO_REGISTRY_TOKEN`"
+
 #: src/maintainers/release-runbook.md
 msgid "`CHANGELOG-next.md` is intentionally left on `master` after the release: the publish job only reads it as the release body, it does not delete it. The next release cycle overwrites it, so no manual cleanup is required."
 msgstr "发布后，`CHANGELOG-next.md` 会被有意保留在 `master` 上：发布作业仅将其读取为发布说明正文，并不会删除它。下一个发布周期会覆盖该文件，因此无需手动清理。"
@@ -61693,7 +61761,43 @@ msgid ""
 "connect_burst_per_node = 60\n"
 "connect_rate_per_node  = 20.0\n"
 "```"
-msgstr "```toml\n# relay.toml\nbind = \"0.0.0.0:8443\"\n\n[tls]\n# 首次运行时省略 cert/key 可将外层 TLS 证书自动配置到 dir（无需\n# openssl）。将 sans 设置为 relay 的公共主机名/IP 地址。\ndir  = \"/data/tls\"\nsans = [\"relay.example.com\"]\n# 或者使用你自己的证书（例如公共 CA 证书）：\n# cert = \"/etc/zerorelay/fullchain.pem\"\n# key  = \"/etc/zerorelay/privkey.pem\"\n\n[admission]\n# \"open\" 允许任何已签名的守护进程接入（受 deny 列表约束）；\"allowlist\" 仅允许\n# 列出的守护进程公钥指纹接入。deny 始终优先。\nmode = \"open\"\nallow = []\ndeny  = []\n# 公共（非回环）relay 必须限制注册：在此设置共享密钥\n# （每个守护进程通过 [relay] relay_token 提供该密钥），或使用 mode = \"allowlist\"。\n# 否则，使用公共 bind 的 OPEN、无令牌 relay 将拒绝启动，因为\n# 互联网上的任何守护进程都可能注册并抢占无人认领的 node-ids。（本地开发时使用的\n# 回环 bind 不受此限制；有意运行的开放公共 relay 可通过 allow_public_open = true\n# 覆盖此限制。）\nrelay_token = \"change-me-to-a-long-random-secret\"\n\n[limits]\nmax_conns_per_node     = 256\nidle_timeout_secs      = 300\nlease_ttl_secs         = 300\naccept_burst_per_ip    = 30\naccept_rate_per_ip     = 10.0\nconnect_burst_per_node = 60\nconnect_rate_per_node  = 20.0\n```"
+msgstr ""
+"```toml\n"
+"# relay.toml\n"
+"bind = \"0.0.0.0:8443\"\n"
+"\n"
+"[tls]\n"
+"# 首次运行时省略 cert/key 可将外层 TLS 证书自动配置到 dir（无需\n"
+"# openssl）。将 sans 设置为 relay 的公共主机名/IP 地址。\n"
+"dir  = \"/data/tls\"\n"
+"sans = [\"relay.example.com\"]\n"
+"# 或者使用你自己的证书（例如公共 CA 证书）：\n"
+"# cert = \"/etc/zerorelay/fullchain.pem\"\n"
+"# key  = \"/etc/zerorelay/privkey.pem\"\n"
+"\n"
+"[admission]\n"
+"# \"open\" 允许任何已签名的守护进程接入（受 deny 列表约束）；\"allowlist\" 仅允许\n"
+"# 列出的守护进程公钥指纹接入。deny 始终优先。\n"
+"mode = \"open\"\n"
+"allow = []\n"
+"deny  = []\n"
+"# 公共（非回环）relay 必须限制注册：在此设置共享密钥\n"
+"# （每个守护进程通过 [relay] relay_token 提供该密钥），或使用 mode = \"allowlist\"。\n"
+"# 否则，使用公共 bind 的 OPEN、无令牌 relay 将拒绝启动，因为\n"
+"# 互联网上的任何守护进程都可能注册并抢占无人认领的 node-ids。（本地开发时使用的\n"
+"# 回环 bind 不受此限制；有意运行的开放公共 relay 可通过 allow_public_open = true\n"
+"# 覆盖此限制。）\n"
+"relay_token = \"change-me-to-a-long-random-secret\"\n"
+"\n"
+"[limits]\n"
+"max_conns_per_node     = 256\n"
+"idle_timeout_secs      = 300\n"
+"lease_ttl_secs         = 300\n"
+"accept_burst_per_ip    = 30\n"
+"accept_rate_per_ip     = 10.0\n"
+"connect_burst_per_node = 60\n"
+"connect_rate_per_node  = 20.0\n"
+"```"
 
 #: src/tools/mcp.md
 msgid ""
@@ -61728,7 +61832,12 @@ msgid ""
 "type = \"webhook\"\n"
 "path = \"/sop/deploy\"\n"
 "```"
-msgstr "```toml\n[[triggers]]\ntype = \"webhook\"\npath = \"/sop/deploy\"\n```"
+msgstr ""
+"```toml\n"
+"[[triggers]]\n"
+"type = \"webhook\"\n"
+"path = \"/sop/deploy\"\n"
+"```"
 
 #: src/providers/configuration.md
 msgid ""
@@ -61737,7 +61846,12 @@ msgid ""
 "native_thinking = true\n"
 "display = \"updates\"\n"
 "```"
-msgstr "```toml\n[agent.thinking]\nnative_thinking = true\ndisplay = \"updates\"\n```"
+msgstr ""
+"```toml\n"
+"[agent.thinking]\n"
+"native_thinking = true\n"
+"display = \"updates\"\n"
+"```"
 
 #: src/channels/telegram.md
 msgid ""
@@ -61757,6 +61871,34 @@ msgstr ""
 "\n"
 "[agents.primary]\n"
 "channels = [\"telegram.home\"]\n"
+"```"
+
+#: src/channels/social.md
+msgid ""
+"```toml\n"
+"[channels.twitch.default]\n"
+"enabled = true\n"
+"bot_username = \"zeroclaw_bot\"\n"
+"oauth_token = \"replace-with-twitch-token\"\n"
+"channels = [\"zeroclaw_channel\"]\n"
+"mention_only = true\n"
+"\n"
+"[peer_groups.twitch_default]\n"
+"channel = \"twitch.default\"\n"
+"external_peers = [\"zeroclaw_user\"]\n"
+"```"
+msgstr ""
+"```toml\n"
+"[channels.twitch.default]\n"
+"enabled = true\n"
+"bot_username = \"zeroclaw_bot\"\n"
+"oauth_token = \"replace-with-twitch-token\"\n"
+"channels = [\"zeroclaw_channel\"]\n"
+"mention_only = true\n"
+"\n"
+"[peer_groups.twitch_default]\n"
+"channel = \"twitch.default\"\n"
+"external_peers = [\"zeroclaw_user\"]\n"
 "```"
 
 #: src/channels/whatsapp.md
@@ -61806,7 +61948,12 @@ msgid ""
 "relay_url  = \"relay.example.com:8443\"\n"
 "relay_node = \"<node-id>\"\n"
 "```"
-msgstr "```toml\n[connection.wss]\nrelay_url  = \"relay.example.com:8443\"\nrelay_node = \"<node-id>\"\n```"
+msgstr ""
+"```toml\n"
+"[connection.wss]\n"
+"relay_url  = \"relay.example.com:8443\"\n"
+"relay_node = \"<node-id>\"\n"
+"```"
 
 #: src/zerocode/secure-transport.md
 msgid ""
@@ -61819,7 +61966,16 @@ msgid ""
 "client_cert_path = \"/abs/path/client.crt\"\n"
 "client_key_path  = \"/abs/path/client.key\"\n"
 "```"
-msgstr "```toml\n[connection.wss]\nuri = \"wss://<remote-host>:9781\"\n\n[connection.wss.tls]\nca_cert_path     = \"/abs/path/ca.crt\"\nclient_cert_path = \"/abs/path/client.crt\"\nclient_key_path  = \"/abs/path/client.key\"\n```"
+msgstr ""
+"```toml\n"
+"[connection.wss]\n"
+"uri = \"wss://<remote-host>:9781\"\n"
+"\n"
+"[connection.wss.tls]\n"
+"ca_cert_path     = \"/abs/path/ca.crt\"\n"
+"client_cert_path = \"/abs/path/client.crt\"\n"
+"client_key_path  = \"/abs/path/client.key\"\n"
+"```"
 
 #: src/zerocode/secure-transport.md
 msgid ""
@@ -61832,7 +61988,15 @@ msgid ""
 "# If the CA key is absent the endpoint fails closed and certs must be provisioned\n"
 "# out of band.\n"
 "```"
-msgstr "```toml\n[enroll]\nenabled = true\n# bind = \"0.0.0.0\"   # 默认\n# port = 9782        # 默认\n# 需要启用 [wss]，并提供守护进程 CA 密钥（使用上方自动生成的密钥，或 BYO+key）。\n# 如果缺少 CA 密钥，端点将默认拒绝连接，并且必须通过带外方式配置证书。\n```"
+msgstr ""
+"```toml\n"
+"[enroll]\n"
+"enabled = true\n"
+"# bind = \"0.0.0.0\"   # 默认\n"
+"# port = 9782        # 默认\n"
+"# 需要启用 [wss]，并提供守护进程 CA 密钥（使用上方自动生成的密钥，或 BYO+key）。\n"
+"# 如果缺少 CA 密钥，端点将默认拒绝连接，并且必须通过带外方式配置证书。\n"
+"```"
 
 #: src/ops/network-deployment.md src/sop/fan-in/webhook.md
 msgid ""
@@ -61840,7 +62004,11 @@ msgid ""
 "[gateway]\n"
 "webhook_secret = \"replace-with-a-random-secret\"\n"
 "```"
-msgstr "```toml\n[gateway]\nwebhook_secret = \"replace-with-a-random-secret\"\n```"
+msgstr ""
+"```toml\n"
+"[gateway]\n"
+"webhook_secret = \"replace-with-a-random-secret\"\n"
+"```"
 
 #: src/ops/observability.md
 msgid ""
@@ -61911,7 +62079,18 @@ msgid ""
 "[agents.support]\n"
 "channels = [\"plugin.operations\"]\n"
 "```"
-msgstr "```toml\n[plugins]\nenabled = true\n\n[channels.plugin.operations]\npackage = \"acme.chat\"\nenabled = true\n\n[agents.support]\nchannels = [\"plugin.operations\"]\n```"
+msgstr ""
+"```toml\n"
+"[plugins]\n"
+"enabled = true\n"
+"\n"
+"[channels.plugin.operations]\n"
+"package = \"acme.chat\"\n"
+"enabled = true\n"
+"\n"
+"[agents.support]\n"
+"channels = [\"plugin.operations\"]\n"
+"```"
 
 #: src/providers/catalog.md
 msgid ""
@@ -61967,7 +62146,13 @@ msgid ""
 "model = \"my-model\"\n"
 "tool_result_image_policy = \"omit\"\n"
 "```"
-msgstr "```toml\n[providers.models.custom.gateway]\nuri = \"https://gateway.example.com/v1\"\nmodel = \"my-model\"\ntool_result_image_policy = \"omit\"\n```"
+msgstr ""
+"```toml\n"
+"[providers.models.custom.gateway]\n"
+"uri = \"https://gateway.example.com/v1\"\n"
+"model = \"my-model\"\n"
+"tool_result_image_policy = \"omit\"\n"
+"```"
 
 #: src/providers/catalog.md
 msgid ""
@@ -62247,7 +62432,13 @@ msgid ""
 "api_key = \"...\"   # a ZeroRouter key (prefix `zcr_`); or inject from the env\n"
 "# uri = \"http://localhost:8080/v1\"  # a self-hosted or local router; omit for the hosted default\n"
 "```"
-msgstr "```toml\n[providers.models.zerorouter.gateway]\nmodel   = \"anthropic/claude-sonnet-5\"\napi_key = \"...\"   # ZeroRouter 密钥（前缀为 `zcr_`）；或从环境变量注入\n# uri = \"http://localhost:8080/v1\"  # 自托管或本地路由器；托管默认值可省略\n```"
+msgstr ""
+"```toml\n"
+"[providers.models.zerorouter.gateway]\n"
+"model   = \"anthropic/claude-sonnet-5\"\n"
+"api_key = \"...\"   # ZeroRouter 密钥（前缀为 `zcr_`）；或从环境变量注入\n"
+"# uri = \"http://localhost:8080/v1\"  # 自托管或本地路由器；托管默认值可省略\n"
+"```"
 
 #: src/tools/mcp.md
 msgid ""
@@ -62416,7 +62607,15 @@ msgid ""
 "[[triggers]]\n"
 "type = \"manual\"\n"
 "```"
-msgstr "```toml\n[sop]\nname = \"alert-triage\"\ndescription = \"对传入的警报进行分类，修复严重警报，并通知操作员。\"\n\n[[triggers]]\ntype = \"manual\"\n```"
+msgstr ""
+"```toml\n"
+"[sop]\n"
+"name = \"alert-triage\"\n"
+"description = \"对传入的警报进行分类，修复严重警报，并通知操作员。\"\n"
+"\n"
+"[[triggers]]\n"
+"type = \"manual\"\n"
+"```"
 
 #: src/sop/syntax.md
 msgid ""
@@ -62456,7 +62655,15 @@ msgid ""
 "width = 32               # side-panel target column width (left/right)\n"
 "max_height = 5           # bottom-strip maximum height in rows\n"
 "```"
-msgstr "```toml\n[todotracker]\nenabled = true           # 主开关；为 false 时跟踪器永不渲染\nenabled_at_start = false # 启动时可见，在第一个计划到达之前\nlocation = \"right\"       # \"bottom\"、\"left\" 或 \"right\"\nwidth = 32               # 侧面板目标列宽（左/右）\nmax_height = 5           # 底部条最大高度（行数）\n```"
+msgstr ""
+"```toml\n"
+"[todotracker]\n"
+"enabled = true           # 主开关；为 false 时跟踪器永不渲染\n"
+"enabled_at_start = false # 启动时可见，在第一个计划到达之前\n"
+"location = \"right\"       # \"bottom\"、\"left\" 或 \"right\"\n"
+"width = 32               # 侧面板目标列宽（左/右）\n"
+"max_height = 5           # 底部条最大高度（行数）\n"
+"```"
 
 #: src/zerocode/secure-transport.md
 msgid ""
@@ -62468,7 +62675,15 @@ msgid ""
 "# Leave cert_path/key_path empty to auto-generate a server cert under\n"
 "# <data_dir>/tls/ on first boot. Set them only to bring your own server cert.\n"
 "```"
-msgstr "```toml\n[wss]\nenabled = true\n# bind = \"0.0.0.0\"   # 默认值\n# port = 9781        # 默认值\n# 将 cert_path/key_path 留空，以便在首次启动时自动在\n# <data_dir>/tls/ 下生成服务器证书。仅在需要使用自己的服务器证书时设置它们。\n```"
+msgstr ""
+"```toml\n"
+"[wss]\n"
+"enabled = true\n"
+"# bind = \"0.0.0.0\"   # 默认值\n"
+"# port = 9781        # 默认值\n"
+"# 将 cert_path/key_path 留空，以便在首次启动时自动在\n"
+"# <data_dir>/tls/ 下生成服务器证书。仅在需要使用自己的服务器证书时设置它们。\n"
+"```"
 
 #: src/zerocode/secure-transport.md
 msgid ""
@@ -62489,7 +62704,24 @@ msgid ""
 "# relay_insecure = true                    # OR skip outer verification (dev only)\n"
 "# (leave all three unset to use built-in public roots, for a public-CA relay)\n"
 "```"
-msgstr "```toml\n[wss]\nenabled = true          # 必需：中继转发到本地 WSS 监听器\n\n[relay]\nenabled = true\nurl = \"relay.example.com:8443\"\n# node_id：留空（推荐），以自动生成并持久化一个随机的 128 位\n# 能力凭证，存储于 <data_dir>/relay/node_id。仅在需要固定特定 ID 时设置。\n# token = \"change-me\"   # 如果已设置，则必须与中继的 [admission].relay_token 匹配\n\n# 对中继外部证书的信任——选择一个：\nrelay_ca_path = \"/path/to/relay/ca.crt\"   # 信任中继的（自签名）CA\n# tofu = true                              # 或在首次使用时固定中继叶证书\n# relay_insecure = true                    # 或跳过外部验证（仅限开发环境）\n# （对于使用公共 CA 的中继，将这三个选项全部留空，以使用内置公共根证书）\n```"
+msgstr ""
+"```toml\n"
+"[wss]\n"
+"enabled = true          # 必需：中继转发到本地 WSS 监听器\n"
+"\n"
+"[relay]\n"
+"enabled = true\n"
+"url = \"relay.example.com:8443\"\n"
+"# node_id：留空（推荐），以自动生成并持久化一个随机的 128 位\n"
+"# 能力凭证，存储于 <data_dir>/relay/node_id。仅在需要固定特定 ID 时设置。\n"
+"# token = \"change-me\"   # 如果已设置，则必须与中继的 [admission].relay_token 匹配\n"
+"\n"
+"# 对中继外部证书的信任——选择一个：\n"
+"relay_ca_path = \"/path/to/relay/ca.crt\"   # 信任中继的（自签名）CA\n"
+"# tofu = true                              # 或在首次使用时固定中继叶证书\n"
+"# relay_insecure = true                    # 或跳过外部验证（仅限开发环境）\n"
+"# （对于使用公共 CA 的中继，将这三个选项全部留空，以使用内置公共根证书）\n"
+"```"
 
 #: src/agents/delegation.md
 msgid ""
@@ -62531,7 +62763,29 @@ msgid ""
 "minLength = 1\n"
 "x-secret = true\n"
 "```"
-msgstr "```toml\nname = \"my-platform\"\nversion = \"0.1.0\"\nwasm_path = \"my_platform.wasm\"\ncapabilities = [\"channel\"]\npermissions = [\"config_read\", \"http_client\"]\n\n[config_schema]\n\"$schema\" = \"https://json-schema.org/draft/2020-12/schema\"\ntype = \"object\"\nadditionalProperties = false\nrequired = [\"api_base\", \"api_token\"]\n\n[config_schema.properties.api_base]\ntype = \"string\"\nminLength = 1\n\n[config_schema.properties.api_token]\ntype = \"string\"\nminLength = 1\nx-secret = true\n```"
+msgstr ""
+"```toml\n"
+"name = \"my-platform\"\n"
+"version = \"0.1.0\"\n"
+"wasm_path = \"my_platform.wasm\"\n"
+"capabilities = [\"channel\"]\n"
+"permissions = [\"config_read\", \"http_client\"]\n"
+"\n"
+"[config_schema]\n"
+"\"$schema\" = \"https://json-schema.org/draft/2020-12/schema\"\n"
+"type = \"object\"\n"
+"additionalProperties = false\n"
+"required = [\"api_base\", \"api_token\"]\n"
+"\n"
+"[config_schema.properties.api_base]\n"
+"type = \"string\"\n"
+"minLength = 1\n"
+"\n"
+"[config_schema.properties.api_token]\n"
+"type = \"string\"\n"
+"minLength = 1\n"
+"x-secret = true\n"
+"```"
 
 #: src/plugins/distributing-plugins.md
 msgid ""
@@ -63086,8 +63340,8 @@ msgid "`allowed_domains`"
 msgstr "`allowed_domains`"
 
 #: src/channels/whatsapp.md
-msgid "`allowed_groups` (Web mode) scopes the bot to a named set of group chats by JID. It is independent of `mode` - it applies in both business and personal mode, and runs before the chat-type policy. An empty list (the default) permits every group, so existing configs are unchanged. A non-empty list drops every group message whose chat JID matches no entry. **Direct messages always bypass this filter.**"
-msgstr "`allowed_groups`（Web 模式）通过 JID 将机器人限定到一组命名的群聊。它独立于 `mode` - 它适用于商务和个人模式，并在聊天类型策略之前运行。空列表（默认值）允许所有群组，因此现有配置不会改变。非空列表会丢弃其聊天 JID 与任何条目都不匹配的群消息。**直接消息始终绕过此过滤器。**"
+msgid "`allowed_groups` (Web mode) scopes the bot to a named set of group chats by JID. It is independent of `mode` - it applies in both business and personal mode, and runs before the chat-type policy. An empty list is **not** permission: what it means is decided by `group_policy`. Under `allowlist` (the default) or `ignore` an empty list admits no group, and under `all` it admits every group. A list that admits everything cannot be told apart from a list nobody configured, so open group access has to be asked for by name. A non-empty list drops every group message whose chat JID matches no entry, and keeps doing so under every policy including `all`, so `all` widens the empty-list default rather than overriding an explicit list. **Direct messages always bypass this filter.**"
+msgstr "`allowed_groups`（Web 模式）根据 JID 将机器人限定在一组指定的群聊中。它独立于 `mode`——无论是业务模式还是个人模式都适用，并且在聊天类型策略之前运行。空列表**不**表示授权：其含义由 `group_policy` 决定。在 `allowlist`（默认值）或 `ignore` 下，空列表不允许任何群组；在 `all` 下，空列表允许所有群组。允许所有群组的列表无法与未配置任何列表区分，因此必须明确请求开放群组访问。非空列表会丢弃聊天 JID 与任何条目都不匹配的所有群消息，并且在包括 `all` 在内的所有策略下都如此，因此 `all` 是放宽空列表的默认行为，而不是覆盖显式列表。**直接消息始终绕过此过滤器。**"
 
 #: src/reference/config.md
 msgid "`allowed_operations`"
@@ -64350,20 +64604,20 @@ msgid "`ci-run.yml`, branded as \"CI\""
 msgstr "`ci-run.yml`，品牌名称为 \"CI\""
 
 #: src/maintainers/ci-and-actions.md
-msgid "`ci-sbom.yml`, `ci.yml`, `cross-platform-build-manual.yml`, `daily-npm-audit.yml`, `release-stable-manual.yml`"
-msgstr "`ci-sbom.yml`, `ci.yml`, `cross-platform-build-manual.yml`, `daily-npm-audit.yml`, `release-stable-manual.yml`"
+msgid "`ci-sbom.yml`, `ci.yml`, `cross-platform-build-manual.yml`, `daily-npm-audit.yml`, `pub-crates.yml`, `release-stable-manual.yml`"
+msgstr "`ci-sbom.yml`, `ci.yml`, `cross-platform-build-manual.yml`, `daily-npm-audit.yml`, `pub-crates.yml`, `release-stable-manual.yml`"
 
 #: src/maintainers/ci-and-actions.md
 msgid "`ci.yml` (Blacksmith path of `./.github/actions/rust-cache`)"
 msgstr "`ci.yml`（Blacksmith 的路径 `./.github/actions/rust-cache`）"
 
 #: src/maintainers/ci-and-actions.md
-msgid "`ci.yml` (GitHub-hosted path of `./.github/actions/rust-cache`), `platform-tests.yml`, `release-stable-manual.yml`, `cross-platform-build-manual.yml`, `cross-platform-clippy.yml`, `docs-deploy.yml`"
-msgstr "`ci.yml`（`./.github/actions/rust-cache` 的 GitHub 托管路径）、`platform-tests.yml`、`release-stable-manual.yml`、`cross-platform-build-manual.yml`、`cross-platform-clippy.yml`、`docs-deploy.yml`"
+msgid "`ci.yml` (GitHub-hosted path of `./.github/actions/rust-cache`), `platform-tests.yml`, `pub-crates.yml`, `release-stable-manual.yml`, `cross-platform-build-manual.yml`, `cross-platform-clippy.yml`, `docs-deploy.yml`"
+msgstr "`ci.yml`（`./.github/actions/rust-cache` 的 GitHub 托管路径）、`platform-tests.yml`、`pub-crates.yml`、`release-stable-manual.yml`、`cross-platform-build-manual.yml`、`cross-platform-clippy.yml`、`docs-deploy.yml`"
 
 #: src/maintainers/ci-and-actions.md
-msgid "`ci.yml`, `platform-tests.yml`, `release-stable-manual.yml`, `cross-platform-build-manual.yml`, `cross-platform-clippy.yml`, `daily-audit.yml`, `docs-deploy.yml`, `codeql.yml`"
-msgstr "`ci.yml`, `platform-tests.yml`, `release-stable-manual.yml`, `cross-platform-build-manual.yml`, `cross-platform-clippy.yml`, `daily-audit.yml`, `docs-deploy.yml`, `codeql.yml`"
+msgid "`ci.yml`, `platform-tests.yml`, `pub-crates.yml`, `release-stable-manual.yml`, `cross-platform-build-manual.yml`, `cross-platform-clippy.yml`, `daily-audit.yml`, `docs-deploy.yml`, `codeql.yml`"
+msgstr "`ci.yml`, `platform-tests.yml`, `pub-crates.yml`, `release-stable-manual.yml`, `cross-platform-build-manual.yml`, `cross-platform-clippy.yml`, `daily-audit.yml`, `docs-deploy.yml`, `codeql.yml`"
 
 #: src/maintainers/labels.md
 msgid "`ci`"
@@ -64792,6 +65046,14 @@ msgstr "`cp2102n`"
 #: src/reference/config.md
 msgid "`cpu_limit`"
 msgstr "`cpu_limit`"
+
+#: src/maintainers/release-runbook.md
+msgid "`crates / Publish to crates.io`"
+msgstr "`crates / 发布到 crates.io`"
+
+#: src/maintainers/release-runbook.md
+msgid "`crates-io`"
+msgstr "`crates-io`"
 
 #: src/architecture/decisions/ADR-002-trait-driven-extensibility.md
 msgid "`crates/zeroclaw-api/src/channel.rs`"
@@ -69115,6 +69377,10 @@ msgstr "执行 `ps aux | grep zeroclaw` 并确认只有一个守护进程在运�
 #: src/maintainers/ci-and-actions.md
 msgid "`pub-aur.yml`"
 msgstr "`pub-aur.yml`"
+
+#: src/maintainers/ci-and-actions.md
+msgid "`pub-crates.yml`"
+msgstr "`pub-crates.yml`"
 
 #: src/maintainers/ci-and-actions.md
 msgid "`pub-scoop.yml`"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ZeroClaw Docs\n"
-"POT-Creation-Date: 2026-09-03T13:08:57-07:00\n"
+"POT-Creation-Date: 2026-09-04T17:48:16-07:00\n"
 "PO-Revision-Date: 2026-04-24T20:47:42+10:00\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -3425,6 +3425,10 @@ msgstr "**Autenticación:** Solo Twitter API v2 OAuth 2.0 Bearer Token."
 msgid "**Auth:** raw private key (`nsec` bech32 or hex)."
 msgstr "**Autenticación:** clave privada sin procesar (`nsec` bech32 o hexadecimal)."
 
+#: src/channels/social.md
+msgid "**Auth:** use a Twitch user access token for the bot account with [`chat:read` and `chat:edit`](https://dev.twitch.tv/docs/chat/irc/#authenticating-with-the-twitch-irc-server). After configuring the [Twitch CLI](https://dev.twitch.tv/docs/cli/token-command/), generate it while signed in as that account with `twitch token -u -s 'chat:read chat:edit'`, then store it through a protected config surface. ZeroClaw trims the value and adds the required `oauth:` prefix when it is omitted."
+msgstr "**Autenticación:** usa un token de acceso de usuario de Twitch para la cuenta del bot con [`chat:read` y `chat:edit`](https://dev.twitch.tv/docs/chat/irc/#authenticating-with-the-twitch-irc-server). Después de configurar la [Twitch CLI](https://dev.twitch.tv/docs/cli/token-command/), genéralo con la sesión iniciada en esa cuenta mediante `twitch token -u -s 'chat:read chat:edit'` y guárdalo mediante una interfaz de configuración protegida. ZeroClaw elimina los espacios en blanco del valor y añade el prefijo `oauth:` requerido cuando se omite."
+
 #: src/foundations/fnd-005-contribution-culture.md
 msgid "**Authors should not interpret a blocking comment as rejection.** It is a specific, resolvable problem. Address it and move forward."
 msgstr "**Los autores no deben interpretar un comentario bloqueante como un rechazo.** Es un problema específico y resoluble. Abórdalo y sigue adelante."
@@ -3724,6 +3728,10 @@ msgstr "**Canales**"
 #: src/agents/anatomy.md
 msgid "**Channels** ([Channels](../channels/overview.md)): the messaging surfaces the agent answers on. When two agents share a channel, a [peer group](../channels/peer-groups.md) decides whether they can address each other."
 msgstr "**Canales** ([Canales](../channels/overview.md)): las superficies de mensajería en las que responde el agente. Cuando dos agentes comparten un canal, un [grupo de pares](../channels/peer-groups.md) decide si pueden dirigirse entre sí."
+
+#: src/channels/social.md
+msgid "**Channels:** entries in `channels` may include the leading `#`; ZeroClaw adds it when missing and normalizes channel names to lowercase."
+msgstr "**Canales:** las entradas en `channels` pueden incluir el `#` inicial; ZeroClaw lo añade cuando falta y normaliza los nombres de los canales a minúsculas."
 
 #: src/hardware/raspberry-pi-setup.md
 msgid "**Check `clk_ignore_unused`** isn't on the kernel cmdline if you use a custom image; it inhibits clock gating and raises idle power. Stock Raspberry Pi OS doesn't set it."
@@ -4409,6 +4417,10 @@ msgstr "**Rutas prohibidas**: reglas de prefijo de componentes absolutos de `[ri
 msgid "**Formal reviews**"
 msgstr "**Revisiones formales**"
 
+#: src/channels/social.md
+msgid "**Formatting:** Twitch replies use plain text and are split to fit IRC frames. Markdown formatting is not preserved."
+msgstr "**Formato:** Las respuestas de Twitch utilizan texto sin formato y se dividen para ajustarse a los marcos de IRC. El formato Markdown no se conserva."
+
 #: src/foundations/fnd-001-intentional-architecture.md
 msgid "**Foundation layer**: API traits, config, providers, memory backends, infra, tool-call parser. The irreducible core: builds with `--no-default-features`. Can exchange messages with an LLM and store memory. Nothing more."
 msgstr "**Capa de fundación**: traits de API, configuración, proveedores, backends de memoria, infraestructura, analizador de llamadas a herramientas. El núcleo irreducible: compila con `--no-default-features`. Puede intercambiar mensajes con un LLM y almacenar memoria. Nada más."
@@ -4669,6 +4681,10 @@ msgstr "**Importante:** el parámetro `cwd` cambia en qué directorio del **host
 #: src/channels/mattermost.md
 msgid "**In-flight work is scoped per thread.** A new message in one thread does not cancel an in-flight response in another; each thread's task stands alone."
 msgstr "**El trabajo en curso está delimitado por hilo.** Un mensaje nuevo en un hilo no cancela una respuesta en curso en otro; la tarea de cada hilo es independiente."
+
+#: src/channels/social.md
+msgid "**Inbound and outbound:** channel messages are answered in the same channel. `mention_only = true` ignores channel messages that do not mention `bot_username`. If Twitch delivers a non-channel IRC `PRIVMSG` to the bot login, ZeroClaw replies to that sender; the adapter does not configure a separate whisper transport."
+msgstr "**Entrantes y salientes:** los mensajes del canal reciben respuesta en el mismo canal. `mention_only = true` ignora los mensajes del canal que no mencionan a `bot_username`. Si Twitch entrega un `PRIVMSG` de IRC que no es de canal a la cuenta del bot, ZeroClaw responde a ese remitente; el adaptador no configura un transporte de susurros independiente."
 
 #: src/channels/nextcloud-talk.md
 msgid "**Inbound**: signature verification is **mandatory**. With no resolved secret the webhook endpoint returns `401` and never reaches the agent. There is no \"public\" mode that accepts unverified webhooks."
@@ -5823,6 +5839,10 @@ msgstr "**Límite de solicitudes (429)**: coloca el perfil del proveedor en un p
 msgid "**Rate limiting**: `rate_limit_per_sec` in the webhook channel config"
 msgstr "**Limitación de tasa**: `rate_limit_per_sec` en la configuración del canal de webhook"
 
+#: src/channels/social.md
+msgid "**Rate limits:** the adapter writes IRC `PRIVMSG` frames directly and has no Twitch-specific rate limiter or HTTP `429` backoff. Keep the agent's posting cadence within Twitch Chat limits and throttle bursty workflows at their source."
+msgstr "**Límites de frecuencia:** el adaptador escribe directamente tramas IRC `PRIVMSG` y no tiene ningún limitador de frecuencia específico de Twitch ni mecanismo de espera tras un `HTTP 429`. Mantén la frecuencia de publicación del agente dentro de los límites del chat de Twitch y limita los flujos de trabajo con ráfagas en su origen."
+
 #: src/foundations/fnd-004-engineering-infrastructure.md
 msgid "**Rationale:** A mutable tag is a promise from a third party that the action's behaviour will not change. That promise has been broken repeatedly across the GitHub Actions ecosystem. A SHA pin means the workflow runs exactly what was reviewed, regardless of what the action author does after the fact. This is especially important for actions that have write permissions or access to secrets."
 msgstr "**Rationale:** Una etiqueta mutable es una promesa de un tercero de que el comportamiento de la acción no cambiará. Esa promesa se ha roto repetidamente en el ecosistema de GitHub Actions. Fijar un SHA significa que el flujo de trabajo se ejecutará exactamente como fue revisado, independientemente de lo que haga el autor de la acción después. Esto es especialmente importante para las acciones que tienen permisos de escritura o acceso a secretos."
@@ -6709,6 +6729,10 @@ msgstr "**La consecuencia para los usuarios:** El objetivo declarado es un binar
 #: src/foundations/fnd-005-contribution-culture.md
 msgid "**The cost of being stuck and not asking is almost always higher than the cost of asking.** Three hours of spinning on a problem that a five-minute conversation would resolve is three hours of your time and your team's time that is gone. Knowing when to ask is a skill, not a weakness."
 msgstr "**El costo de quedarse atascado y no preguntar casi siempre es mayor que el costo de preguntar.** Tres horas dedicadas a resolver un problema que podría resolverse con una conversación de cinco minutos son tres horas de tu tiempo y del tiempo de tu equipo que se pierden. Saber cuándo preguntar es una habilidad, no una debilidad."
+
+#: src/maintainers/release-runbook.md
+msgid "**The crates.io publisher stopped after uploading some crates:** Do not bump the version or start a second release. crates.io versions cannot be replaced or deleted. Fix the failing crate at the same release commit, then re-run `Pub crates.io` for the same tag with `dry_run: false`; the publisher queries every `<crate>@<version>` first and skips versions that already landed. Read the Publish step for the last successful crate. If preflight failed, no upload was attempted and the problem is still reversible."
+msgstr "**El publicador de crates.io se detuvo después de subir algunos crates:** No incrementes la versión ni inicies una segunda publicación. Las versiones de crates.io no se pueden reemplazar ni eliminar. Corrige el crate que falla en el mismo commit de la versión y vuelve a ejecutar `Pub crates.io` para la misma etiqueta con `dry_run: false`; el publicador consulta primero cada `<crate>@<version>` y omite las versiones que ya se publicaron. Lee el paso Publish para ver el último crate publicado correctamente. Si falló la comprobación previa, no se intentó ninguna carga y el problema aún se puede revertir."
 
 #: src/foundations/fnd-003-governance.md
 msgid "**The failure modes of automating architectural judgment are both bad.**"
@@ -8711,7 +8735,10 @@ msgid ""
 "// Outbound platform delivery via wasi:http\n"
 "            // (requires the http_client permission in the manifest). Build the\n"
 "            // request from this call's values; never retain a second copy.\n"
-msgstr "// Entrega saliente de la plataforma mediante wasi:http\n            // (requiere el permiso http_client en el manifiesto). Construye la\n            // solicitud a partir de los valores de esta llamada; nunca conserves una segunda copia.\n"
+msgstr ""
+"// Entrega saliente de la plataforma mediante wasi:http\n"
+"            // (requiere el permiso http_client en el manifiesto). Construye la\n"
+"            // solicitud a partir de los valores de esta llamada; nunca conserves una segunda copia.\n"
 
 #: src/architecture/logging.md
 msgid "// Shell, HttpRequest, FetchUrl, ...\n"
@@ -11291,6 +11318,10 @@ msgstr "Una pequeña corrección de errores, una adición menor de funcionalidad
 msgid "A source must distinguish these states:"
 msgstr "Una fuente debe distinguir entre estos estados:"
 
+#: src/architecture/provider-routing-lifecycle.md
+msgid "A stream that completes with no final text or tool calls is a semantic-empty response, not a successful answer. When runtime marks that result replay-safe and `provider_retries` is nonzero, Reliable allows one non-streaming recovery call to the exact provider/model that produced the empty stream. That allowance is consumed once; a failed recovery advances to the remaining configured candidates with their normal retry budgets. With zero retries, the failed stream entry remains skipped. Reasoning already shown stays visible once, but does not count as a final answer. This exception does not authorize replay after cancellation, interrupted visible output, or provider-executed tool work."
+msgstr "Un flujo que finaliza sin texto final ni llamadas a herramientas es una respuesta semánticamente vacía, no una respuesta correcta. Cuando el entorno de ejecución marca ese resultado como seguro para repetir y `provider_retries` es distinto de cero, Reliable permite una llamada de recuperación sin streaming al proveedor/modelo exacto que produjo el flujo vacío. Esa autorización se consume una sola vez; si la recuperación falla, se pasa a los candidatos configurados restantes con sus presupuestos normales de reintentos. Con cero reintentos, la entrada del flujo fallido sigue omitiéndose. El razonamiento que ya se haya mostrado sigue visible una vez, pero no cuenta como respuesta final. Esta excepción no autoriza repetir la ejecución después de una cancelación, una salida visible interrumpida ni trabajo de herramientas ejecutado por el proveedor."
+
 #: src/getting-started/multi-model-setup.md
 msgid "A streaming call selects the first eligible, non-cooling entry that supports the required stream capabilities. It does not advance to another entry after that stream starts. If the stream fails before visible output reaches an immutable consumer, the runtime retries the whole call through the non-streaming path, which can walk the fallback graph. Once visible output exists, the runtime preserves the partial response and does not replay the request or switch providers. See [Provider routing lifecycle](../architecture/provider-routing-lifecycle.md#streaming-and-replay-boundary) for the complete contract."
 msgstr "Una llamada de streaming selecciona la primera entrada elegible, que no esté en periodo de enfriamiento y que admita las capacidades de streaming necesarias. No pasa a otra entrada después de que comienza ese streaming. Si el streaming falla antes de que la salida visible llegue a un consumidor inmutable, el tiempo de ejecución reintenta la llamada completa mediante la ruta sin streaming, que puede recorrer el grafo de respaldo. Una vez que existe salida visible, el tiempo de ejecución conserva la respuesta parcial y no vuelve a enviar la solicitud ni cambia de proveedor. Consulta [Ciclo de vida del enrutamiento de proveedores](../architecture/provider-routing-lifecycle.md#streaming-and-replay-boundary) para ver el contrato completo."
@@ -12844,10 +12875,6 @@ msgstr "Todas las configuraciones residen bajo las rutas de configuración `plug
 msgid "All slots"
 msgstr "Todas las ranuras"
 
-#: src/channels/social.md
-msgid "All social channels are subject to aggressive rate limits. ZeroClaw's outbound queue uses exponential backoff on 429 responses. If you hit persistent rate-limiting, throttle the agent's posting cadence at the source rather than relying on per-channel streaming knobs (none of these channels expose draft-update intervals; their schema is intentionally minimal)."
-msgstr "Todos los canales sociales están sujetos a límites de frecuencia agresivos. La cola de salida de ZeroClaw utiliza retroceso exponencial en las respuestas 429. Si te encuentras con limitación de frecuencia persistente, regula la cadencia de publicación del agente en el origen en lugar de depender de los ajustes de transmisión por canal (ninguno de estos canales expone intervalos de actualización de borradores; su esquema es intencionalmente mínimo)."
-
 #: src/zerocode/themes.md
 msgid "All theme settings live in zerocode's own config, independent of which daemon zerocode connects to."
 msgstr "Todas las configuraciones de tema residen en la configuración propia de zerocode, independientemente del daemon al que zerocode se conecte."
@@ -12945,8 +12972,8 @@ msgid "Allowed examples:"
 msgstr "Ejemplos permitidos:"
 
 #: src/channels/whatsapp.md
-msgid "Allowed group chats by JID (Web mode). An empty list (the default) permits all groups; a non-empty list drops every group message whose chat JID matches no entry. Each entry matches either the full group JID (`123456789012345@g.us`) or the JID user part - the segment before `@` (`123456789012345`) - compared exactly, not as a string prefix. Direct messages bypass this filter regardless of list contents. Modeled on the Matrix channel's `allowed_rooms`; it gates group identity, which `dm_policy`/`group_policy` (chat type) and the sender allowlist (sender) do not."
-msgstr "Chats de grupo permitidos por JID (modo Web). Una lista vacía (el valor predeterminado) permite todos los grupos; una lista no vacía descarta cada mensaje de grupo cuyo JID de chat no coincida con ninguna entrada. Cada entrada coincide con el JID completo del grupo (`123456789012345@g.us`) o con la parte de usuario del JID - el segmento antes de `@` (`123456789012345`) - comparado exactamente, no como prefijo de cadena. Los mensajes directos omiten este filtro independientemente del contenido de la lista. Basado en `allowed_rooms` del canal Matrix; controla la identidad del grupo, que `dm_policy`/`group_policy` (tipo de chat) y la allowlist del remitente (remitente) no controlan."
+msgid "Allowed group chats by JID (Web mode). An empty list (the default) admits NO group unless `group_policy = \"all\"`, which admits every group; a non-empty list drops every group message whose chat JID matches no entry. Each entry matches either the full group JID (`123456789012345@g.us`) or the JID user part - the segment before `@` (`123456789012345`) - compared exactly, not as a string prefix. Direct messages bypass this filter regardless of list contents. Modeled on the Matrix channel's `allowed_rooms`; it gates group identity, which `dm_policy`/`group_policy` (chat type) and the sender allowlist (sender) do not."
+msgstr "Chats grupales permitidos por JID (modo web). Una lista vacía (la predeterminada) NO admite ningún grupo salvo que `group_policy = \"all\"`, que admite todos los grupos; una lista no vacía descarta todos los mensajes de grupo cuyo JID de chat no coincida con ninguna entrada. Cada entrada coincide con el JID de grupo completo (`123456789012345@g.us`) o con la parte de usuario del JID —el segmento anterior a `@` (`123456789012345`)— mediante una comparación exacta, no como prefijo de cadena. Los mensajes directos omiten este filtro independientemente del contenido de la lista. Basado en el canal Matrix `allowed_rooms`; filtra la identidad del grupo, algo que `dm_policy`/`group_policy` (tipo de chat) y la lista de remitentes permitidos (remitente) no hacen."
 
 #: src/reference/config.md
 msgid "Allowlist of executable names for shell execution."
@@ -13506,14 +13533,14 @@ msgstr "Aprobar PRs para rutas de alto riesgo"
 msgid "Approve a SOP run waiting for out-of-band approval (talks to the running daemon)"
 msgstr "Aprueba una ejecución de SOP en espera de aprobación fuera de banda (se comunica con el daemon en ejecución)"
 
+#: src/maintainers/release-runbook.md
+msgid "Approve all three when they appear. Approve `crates-io` only after its tokenless package preflight is green:"
+msgstr "Aprueba los tres cuando aparezcan. Aprueba `crates-io` solo después de que la comprobación previa de su paquete sin token esté en verde:"
+
 #: src/sop/fan-in/mqtt.md src/sop/fan-in/filesystem.md src/sop/fan-in/amqp.md
 #: src/sop/fan-in/channel.md src/sop/fan-in/git.md src/sop/fan-in/manual.md
 msgid "Approve and observe"
 msgstr "Aprueba y observa"
-
-#: src/maintainers/release-runbook.md
-msgid "Approve both when they appear:"
-msgstr "Apruebe ambos cuando aparezcan:"
 
 #: src/ops/troubleshooting.md
 msgid "Approve inline when prompted"
@@ -17235,6 +17262,10 @@ msgstr "Configura Uno Q en App Lab (WiFi, SSH)"
 msgid "Configure WiFi (SSID, password)"
 msgstr "Configurar WiFi (SSID, contraseña)"
 
+#: src/channels/social.md
+msgid "Configure `enabled`, `bot_username`, `oauth_token`, and the channels to join under a Twitch alias. `mention_only` is optional and defaults to `false`. A minimal instance looks like this:"
+msgstr "Configura `enabled`, `bot_username`, `oauth_token` y los canales a los que unirse bajo un alias de Twitch. `mention_only` es opcional y su valor predeterminado es `false`. Una instancia mínima tiene este aspecto:"
+
 #: src/foundations/fnd-004-engineering-infrastructure.md
 msgid "Configure `release-plz` for the workspace. Workspace application crates use `version.workspace = true`. The independently versioned `zeroclaw-api` crate uses its own release settings. The `version-sync.yml` workflow is retired."
 msgstr "Configura `release-plz` para el espacio de trabajo. Los crates de aplicación del espacio de trabajo usan `version.workspace = true`. El crate `zeroclaw-api`, versionado de forma independiente, usa su propia configuración de lanzamiento. El flujo de trabajo `version-sync.yml` se retira."
@@ -19941,8 +19972,8 @@ msgid "Docker daemon not reachable from the ZeroClaw user, check `docker info`"
 msgstr "No se puede acceder al daemon de Docker desde el usuario de ZeroClaw, verifica `docker info`"
 
 #: src/maintainers/ci-and-actions.md
-msgid "Docker images push to GHCR using the automatic `GITHUB_TOKEN`; there is no separate registry token. The release pipeline does not publish to crates.io, so no `CARGO_REGISTRY_TOKEN` is required."
-msgstr "Las imágenes de Docker se publican en GHCR usando el `GITHUB_TOKEN` automático; no hay un token de registro separado. El pipeline de lanzamiento no publica en crates.io, por lo que no se requiere ningún `CARGO_REGISTRY_TOKEN`."
+msgid "Docker images push to GHCR using the automatic `GITHUB_TOKEN`; there is no separate registry token. Store `CARGO_REGISTRY_TOKEN` as a repository secret and map only that named secret into the reusable publisher. The called workflow references it only in the irreversible publish step, whose job requires approval through the `crates-io` environment; the tokenless preflight neither references nor exports it. The preflight packages the same immutable release commit before an approver can start the publish job."
+msgstr "Las imágenes de Docker se publican en GHCR mediante el `GITHUB_TOKEN` automático; no hay ningún token de registro independiente. Guarda `CARGO_REGISTRY_TOKEN` como secreto del repositorio y asigna únicamente ese secreto con nombre al publicador reutilizable. El flujo de trabajo invocado solo lo referencia en el paso de publicación irreversible, cuyo trabajo requiere aprobación mediante el entorno `crates-io`; la comprobación previa sin token ni lo referencia ni lo exporta. La comprobación previa empaqueta el mismo commit inmutable de la versión antes de que un aprobador pueda iniciar el trabajo de publicación."
 
 #: src/reference/config.md
 msgid "Docker network mode (`none`, `bridge`, etc.)."
@@ -21524,8 +21555,8 @@ msgid "Environment variables take precedence over empty config fields."
 msgstr "Las variables de entorno tienen prioridad sobre los campos vacíos de la configuración."
 
 #: src/maintainers/release-runbook.md
-msgid "Environment-gated jobs (`publish`, `docker`): the approval UI doesn't exist locally."
-msgstr "Trabajos restringidos por entorno (`publish`, `docker`): la interfaz de aprobación no existe localmente."
+msgid "Environment-gated jobs (`publish`, `docker`, and the crates publisher): the approval UI doesn't exist locally."
+msgstr "Trabajos condicionados por el entorno (`publish`, `docker` y el publicador de crates): la interfaz de aprobación no existe localmente."
 
 #: src/tools/python-skills.md
 msgid "Environment-variable prefixes such as `PYTHONPATH=... python3 script.py` are also policy-sensitive. Prefer a wrapper script, a project-local virtual environment, or explicit configuration inside the script when you need stable runtime environment setup."
@@ -23731,8 +23762,8 @@ msgid "For the local platform:"
 msgstr "Para la plataforma local:"
 
 #: src/maintainers/release-runbook.md
-msgid "For the normal `workflow_dispatch` path, Docker Publish runs synchronously inside the stable release workflow. You do not need a separate Docker check if all release jobs are green. If a maintainer instead starts the release by pushing a `vX.Y.Z` tag, Docker Publish starts as a separate tag-triggered run; confirm that sibling run is green before treating container publication as complete. Scoop and AUR need separate attention only when their jobs show red. Homebrew Core is external to this workflow; its [autobump service](https://docs.brew.sh/Autobump) checks eligible formulae on its own schedule."
-msgstr "En la ruta normal de `workflow_dispatch`, Docker Publish se ejecuta de forma síncrona dentro del flujo de trabajo de publicación estable. No necesitas una comprobación de Docker independiente si todos los trabajos de publicación están en verde. Si, en cambio, un mantenedor inicia la publicación enviando una etiqueta `vX.Y.Z`, Docker Publish se inicia como una ejecución independiente activada por la etiqueta; confirma que esa ejecución hermana esté en verde antes de considerar completa la publicación del contenedor. Scoop y AUR requieren atención por separado solo cuando sus trabajos aparecen en rojo. Homebrew Core es externo a este flujo de trabajo; su [servicio de autobump](https://docs.brew.sh/Autobump) comprueba las fórmulas elegibles según su propia programación."
+msgid "For the normal `workflow_dispatch` path, Docker Publish runs synchronously inside the stable release workflow. You do not need a separate Docker check if all release jobs are green. If a maintainer instead starts the release by pushing a `vX.Y.Z` tag, Docker Publish starts as a separate tag-triggered run; confirm that sibling run is green before treating container publication as complete. crates.io, Scoop, and AUR need separate attention only when their jobs show red. Homebrew Core is external to this workflow; its [autobump service](https://docs.brew.sh/Autobump) checks eligible formulae on its own schedule."
+msgstr "Para la ruta normal de `workflow_dispatch`, Docker Publish se ejecuta de forma síncrona dentro del flujo de trabajo de lanzamiento estable. No necesitas una comprobación independiente de Docker si todos los trabajos de lanzamiento aparecen en verde. Si, en cambio, un mantenedor inicia el lanzamiento insertando una etiqueta `vX.Y.Z`, Docker Publish se inicia como una ejecución independiente activada por etiqueta; confirma que esa ejecución paralela aparece en verde antes de considerar completa la publicación del contenedor. crates.io, Scoop y AUR solo requieren atención independiente cuando sus trabajos aparecen en rojo. Homebrew Core es externo a este flujo de trabajo; su [servicio de Autobump](https://docs.brew.sh/Autobump) comprueba las fórmulas aptas según su propia programación."
 
 #: src/plugins/index.md
 msgid "For the operator's view of discovery, signature policy, and configuration, see [How plugins work](../developing/how-plugins-work.md). For the normative contract reference, see [Plugin protocol](../developing/plugin-protocol.md)."
@@ -29017,6 +29048,14 @@ msgstr "Propiedades clave:"
 msgid "Key-source selection is not live-applied by this decision. A saved source change takes effect only after migration validation and a full daemon reload or process restart. Any future live handoff must define generation fencing in a separate implementation decision."
 msgstr "Esta decisión no aplica en vivo la selección de la fuente de claves. Un cambio de fuente guardado solo entra en vigor tras la validación de la migración y una recarga completa del demonio o un reinicio del proceso. Cualquier transferencia en vivo futura debe definir el aislamiento por generaciones en una decisión de implementación independiente."
 
+#: src/zerocode/config.md
+msgid "Keybinding modifiers"
+msgstr "Modificadores de las combinaciones de teclas"
+
+#: src/zerocode/config.md
+msgid "Keybindings use canonical modifier names: `control` is literal Control, `primary` is Command on macOS and Control elsewhere, and `super` is literal Super/Command. For example, `control+c`, `primary+r`, and `alt+shift+up` are portable persisted values. Older `ctrl+...` values are migrated once when the config loads and rewritten to the corresponding canonical spelling."
+msgstr "Las combinaciones de teclas usan nombres canónicos de modificadores: `control` es Control literal, `primary` es Comando en macOS y Control en el resto, y `super` es Super/Comando literal. Por ejemplo, `control+c`, `primary+r` y `alt+shift+up` son valores persistidos portátiles. Los valores antiguos `ctrl+...` se migran una sola vez al cargar la configuración y se reescriben con la forma canónica correspondiente."
+
 #: src/getting-started/quickstart.md
 msgid "Keys"
 msgstr "Claves"
@@ -31472,6 +31511,10 @@ msgstr "La mayoría de los trabajos con mucho uso de Rust en `ci.yml` almacenan 
 msgid "Most contributing guides tell you how to open a PR. They tell you what labels to use, how to run the test suite, and what goes in the commit message. Those things matter, and we have documents that cover them."
 msgstr "La mayoría de las guías de contribución te indican cómo abrir un PR. Te dicen qué etiquetas usar, cómo ejecutar el conjunto de pruebas y qué incluir en el mensaje del commit. Esas cosas son importantes, y tenemos documentos que las cubren."
 
+#: src/maintainers/ci-and-actions.md
+msgid "Most crates in the coordinated release set already exist and are eligible for crates.io trusted publishing. The v0.8.5 release additionally creates `zerorelay`, `zeroclaw-relay-proto`, and `zeroclaw-tls`, so its bootstrap token must include `publish-new`. The environment token remains the bootstrap path until every crate has a trusted-publisher entry for this workflow. After those entries are configured, migrate the job so GitHub exchanges OIDC identity for a short-lived token instead of retaining `CARGO_REGISTRY_TOKEN`."
+msgstr "La mayoría de los crates del conjunto de versiones coordinadas ya existen y cumplen los requisitos para la publicación de confianza en crates.io. La versión v0.8.5 además crea `zerorelay`, `zeroclaw-relay-proto` y `zeroclaw-tls`, por lo que su token de arranque debe incluir `publish-new`. El token de entorno sigue siendo la vía de arranque hasta que cada crate tenga una entrada de publicador de confianza para este flujo de trabajo. Una vez configuradas esas entradas, migra el trabajo para que GitHub intercambie la identidad OIDC por un token de corta duración en lugar de conservar `CARGO_REGISTRY_TOKEN`."
+
 #: src/setup/linux.md
 msgid "Most deployments don't need any of these."
 msgstr "La mayoría de los despliegues no necesitan ninguno de estos."
@@ -32158,10 +32201,6 @@ msgstr "Sin errores ni advertencias del compilador (con `#[allow]` silenciando e
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "No dead links in `docs/`"
 msgstr "No hay enlaces rotos en `docs/`"
-
-#: src/channels/overview.md
-msgid "No dedicated guide"
-msgstr "Sin guía dedicada"
 
 #: src/foundations/fnd-003-governance.md
 msgid "No direct pushes to master, ever"
@@ -35855,6 +35894,10 @@ msgstr "La identidad de los paquetes debe corresponderse con las líneas existen
 msgid "Package-coordinate reconciliation must happen early enough to avoid another registry identity system."
 msgstr "La conciliación de las coordenadas de los paquetes debe realizarse con suficiente antelación para evitar otro sistema de identidad del registro."
 
+#: src/maintainers/ci-and-actions.md
+msgid "Packages and verifies the coordinated workspace release, then publishes it to crates.io in dependency order behind the `crates-io` environment gate"
+msgstr "Empaqueta y verifica la versión coordinada del espacio de trabajo y, a continuación, la publica en crates.io en orden de dependencias, tras la barrera del entorno `crates-io`"
+
 #: src/plugins/distributing-plugins.md
 msgid "Packages signed by the former prefix-based canonicalizer need re-signing only if they relied on one of those edge cases or on TOML decoration attached to a removed field. Ordinary manifests keep the same signed content."
 msgstr "Los paquetes firmados por el antiguo canonicalizador basado en prefijos solo necesitan volver a firmarse si dependían de uno de esos casos extremos o de una decoración TOML asociada a un campo eliminado. Los manifiestos ordinarios conservan el mismo contenido firmado."
@@ -37853,6 +37896,10 @@ msgstr "Publicado en"
 msgid "Published to the plugin registry (not GitHub Releases); installable via `zeroclaw plugin install`"
 msgstr "Publicado en el registro de complementos (no en GitHub Releases); instalable mediante `zeroclaw plugin install`"
 
+#: src/maintainers/release-runbook.md
+msgid "Publishes the verified 23-crate workspace in dependency order"
+msgstr "Publica el espacio de trabajo verificado de 23 crates en orden de dependencias"
+
 #: src/contributing/how-to.md
 msgid "Publishing blog or website metadata"
 msgstr "Publicar metadatos del blog o sitio web"
@@ -38276,12 +38323,16 @@ msgid "Rate and volume limits"
 msgstr "Límites de tasa y volumen"
 
 #: src/channels/social.md
-msgid "Rate limits and backoff"
-msgstr "Límites de tasa y retroceso"
+msgid "Rate limits"
+msgstr "Límites de frecuencia"
 
 #: src/channels/nextcloud-talk.md
 msgid "Rate limits are Nextcloud-server dependent; the default bot doesn't run into them in normal conversation cadences"
 msgstr "Los límites de tasa dependen de Nextcloud-server; el bot predeterminado no los alcanza en cadencias de conversación normales."
+
+#: src/channels/social.md
+msgid "Rate-limit handling differs by channel. Twitch writes IRC `PRIVMSG` frames directly and has no adapter-specific limiter. If you hit persistent rate-limiting, throttle the agent's posting cadence at the source rather than relying on per-channel streaming knobs (none of these channels expose draft-update intervals; their schema is intentionally minimal)."
+msgstr "La gestión de los límites de frecuencia varía según el canal. Twitch escribe directamente tramas IRC `PRIVMSG` y no tiene ningún limitador específico del adaptador. Si te encuentras con una limitación de frecuencia persistente, reduce desde el origen la cadencia de publicación del agente en lugar de depender de ajustes de streaming por canal (ninguno de estos canales expone intervalos de actualización de borradores; su esquema es intencionadamente minimalista)."
 
 #: src/contributing/rfcs.md
 msgid "Ratification"
@@ -39324,6 +39375,10 @@ msgstr "Automatización de repositorios y ZeroClaw-Bot"
 #: src/maintainers/ci-and-actions.md
 msgid "Repository checkout"
 msgstr "Repositorio de checkout"
+
+#: src/maintainers/ci-and-actions.md
+msgid "Repository secret explicitly passed to `pub-crates.yml` and referenced only by its protected publish job; v0.8.5 needs `publish-new` for `zerorelay`, `zeroclaw-relay-proto`, and `zeroclaw-tls`, while later coordinated updates need `publish-update`"
+msgstr "Secreto del repositorio que se pasa explícitamente a `pub-crates.yml` y al que solo hace referencia su trabajo de publicación protegido; v0.8.5 necesita `publish-new` para `zerorelay`, `zeroclaw-relay-proto` y `zeroclaw-tls`, mientras que las actualizaciones coordinadas posteriores necesitan `publish-update`"
 
 #: src/architecture/generated-documentation-pipeline.md
 msgid "Repository state"
@@ -44306,8 +44361,8 @@ msgid "That is everything. Channel, agent_alias, provider, tool, session_key, cr
 msgstr "Eso es todo. Channel, agent_alias, provider, tool, session_key, cron_job_id, model: ninguno de esos son argumentos del punto de llamada. Fluyen desde los spans (consulte [Atribución: todo proviene de los spans](#attribution-it-all-comes-from-spans))."
 
 #: src/maintainers/release-runbook.md
-msgid "That is the entire process. Everything else (Docker, website redeploy, Scoop, AUR, Discord, tweet) runs automatically as downstream jobs. Homebrew Core detects the stable GitHub release through its own autobump service. You do not need to do anything for those unless a job explicitly fails or Homebrew's external bump remains stale."
-msgstr "Ese es todo el proceso. Todo lo demás (Docker, redespliegue del sitio web, Scoop, AUR, Discord, tweet) se ejecuta automáticamente como trabajos posteriores. Homebrew Core detecta la versión estable de GitHub a través de su propio servicio de autobump. No necesitas hacer nada para esos a menos que un trabajo falle explícitamente o el bump externo de Homebrew permanezca obsoleto."
+msgid "That is the entire process. Everything else (crates.io, Docker, website redeploy, Scoop, AUR, Discord, tweet) runs automatically as downstream jobs. Homebrew Core detects the stable GitHub release through its own autobump service. You do not need to do anything for those unless a job explicitly fails or Homebrew's external bump remains stale."
+msgstr "Ese es todo el proceso. Todo lo demás (crates.io, Docker, nuevo despliegue del sitio web, Scoop, AUR, Discord, tuit) se ejecuta automáticamente como trabajos posteriores. Homebrew Core detecta la versión estable de GitHub mediante su propio servicio de actualización automática. No necesitas hacer nada con respecto a ellos, a menos que un trabajo falle explícitamente o la actualización externa de Homebrew siga desactualizada."
 
 #: src/foundations/index.md
 msgid "That is the investment this series is making in you. Welcome to the team."
@@ -47031,8 +47086,8 @@ msgid "The record is only a family/model recovery hint. Production entries use t
 msgstr "El registro solo es una pista de recuperación de familia/modelo. Las entradas de producción usan la familia del proveedor como `display_name`, por lo que el registro puede perder el alias de perfil con notación de puntos. Por tanto, un fallback entre alias de la misma familia y el mismo modelo puede no distinguirse de la ruta solicitada. Las respuestas en tiempo de ejecución añaden un aviso de fallback de modelo/proveedor cuando el registro difiere. La entrega por canal añade un pie de página solo cuando hay un cambio entre familias; [issue #7883](https://github.com/zeroclaw-labs/zeroclaw/issues/7883) realiza el seguimiento de los avisos dentro de la misma familia."
 
 #: src/foundations/fnd-001-intentional-architecture.md
-msgid "The registry is a JSON index file served from a known URL (e.g., `https://plugins.zeroclawlabs.ai/index.json`). Each entry includes name, version, download URL, SHA-256 checksum, and the publisher's Ed25519 public key. The `PluginHost` signature verification already handles the security model."
-msgstr "El registro es un archivo de índice JSON que se sirve desde una URL conocida (por ejemplo, `https://plugins.zeroclawlabs.ai/index.json`). Cada entrada incluye el nombre, la versión, la URL de descarga, la suma de comprobación SHA-256 y la clave pública Ed25519 del editor. La verificación de la firma de `PluginHost` ya maneja el modelo de seguridad."
+msgid "The registry is a JSON index file served from a known URL (e.g., `https://plugins.zeroclaw.com/index.json`). Each entry includes name, version, download URL, SHA-256 checksum, and the publisher's Ed25519 public key. The `PluginHost` signature verification already handles the security model."
+msgstr "El registro es un archivo de índice JSON servido desde una URL conocida (p. ej., `https://plugins.zeroclaw.com/index.json`). Cada entrada incluye el nombre, la versión, la URL de descarga, la suma de comprobación SHA-256 y la clave pública Ed25519 del editor. La verificación de firmas de `PluginHost` ya gestiona el modelo de seguridad."
 
 #: src/agents/filesystem.md
 msgid "The relational half of an agent points at config; the on-disk half lives under the install root. The layout is organized by **scope**, not one flat tree: instance-wide state, cross-agent shared resources, and per-agent private data each get their own top-level directory."
@@ -48972,6 +49027,10 @@ msgstr "Hilo"
 msgid "Threads and context"
 msgstr "Hilos y contexto"
 
+#: src/maintainers/release-runbook.md
+msgid "Three jobs are gated by GitHub environment protection rules. When each becomes pending you will see a **\"Waiting for review\"** banner in the workflow run."
+msgstr "Tres trabajos están sujetos a las reglas de protección del entorno de GitHub. Cuando cada uno pase a estar pendiente, verás un banner **\"Waiting for review\"** en la ejecución del flujo de trabajo."
+
 #: src/reference/env-vars.md
 msgid "Three mechanical steps to derive an env-var name from any TOML key:"
 msgstr "Tres pasos mecánicos para derivar un nombre de variable de entorno a partir de cualquier clave TOML:"
@@ -49964,12 +50023,17 @@ msgid "Twilio / Telnyx / Plivo"
 msgstr "Twilio / Telnyx / Plivo"
 
 #: src/reference/feature-matrix.md src/channels/overview.md
+#: src/channels/social.md
 msgid "Twitch"
 msgstr "Twitch"
 
 #: src/reference/config.md
 msgid "Twitch chat channel instances (`[channels.twitch.<alias>]`)."
 msgstr "Instancias de canal de chat de Twitch (`[channels.twitch.<alias>]`)."
+
+#: src/channels/social.md
+msgid "Twitch chat is a thin adapter over IRC. Build it with `--features channel-twitch` or include it through `--features channels-full`; the lean default build does not include it."
+msgstr "El chat de Twitch es un adaptador ligero sobre IRC. Compílalo con `--features channel-twitch` o inclúyelo mediante `--features channels-full`; la compilación predeterminada reducida no lo incluye."
 
 #: src/channels/overview.md src/channels/social.md
 msgid "Twitter / X"
@@ -50034,10 +50098,6 @@ msgstr "Dos resoluciones de punto de control adicionales permiten que un revisor
 #: src/architecture/logging.md
 msgid "Two independent axes: the **recording floor** (what reaches `LogCaptureLayer`, resolved as flag → `RUST_LOG` → default) and **terminal display** (the stderr fmt layer, muted entirely unless `verbose` is true). That single call sets up the agent-alias-prefixed terminal formatter + the `LogCaptureLayer` over a `tracing-subscriber::Registry`. `src/main.rs` is the only place that calls it. Tests use `zeroclaw_log::try_install_capture_subscriber()` + `zeroclaw_log::subscribe_or_install()` to drain emitted events through the broadcast hook without any tracing types named in the test crate."
 msgstr "Dos ejes independientes: el **piso de registro** (lo que llega a `LogCaptureLayer`, resuelto como flag → `RUST_LOG` → valor predeterminado) y la **visualización en terminal** (la capa fmt de stderr, completamente silenciada a menos que `verbose` sea true). Esa única llamada configura el formateador de terminal con prefijo de alias de agente + el `LogCaptureLayer` sobre un `tracing-subscriber::Registry`. `src/main.rs` es el único lugar que la llama. Las pruebas usan `zeroclaw_log::try_install_capture_subscriber()` + `zeroclaw_log::subscribe_or_install()` para drenar los eventos emitidos a través del hook de broadcast sin que se nombre ningún tipo de tracing en el crate de pruebas."
-
-#: src/maintainers/release-runbook.md
-msgid "Two jobs are gated by GitHub environment protection rules. When each becomes pending you will see a **\"Waiting for review\"** banner in the workflow run."
-msgstr "Dos trabajos están restringidos por reglas de protección de entornos de GitHub. Cuando cada uno quede pendiente, verás un banner de **\"Waiting for review\"** en la ejecución del flujo de trabajo."
 
 #: src/architecture/localization-catalog-lifecycle.md
 msgid "Two localization branches"
@@ -56115,6 +56175,10 @@ msgstr "[Resolución de problemas](./troubleshooting.md)"
 msgid "[Troubleshooting](./troubleshooting.md): when things break"
 msgstr "[Solución de problemas](./troubleshooting.md): cuando las cosas fallan"
 
+#: src/channels/overview.md
+msgid "[Twitch](./social.md#twitch)"
+msgstr "[Twitch](./social.md#twitch)"
+
 #: src/contributing/architecture-map.md
 msgid "[User-boundary proof](./user-boundary-proof.md), [Testing](./testing.md), and the architecture or feature document for the changed surface"
 msgstr "[Prueba de límites de usuario](./user-boundary-proof.md), [Pruebas](./testing.md) y el documento de arquitectura o características de la superficie modificada"
@@ -59790,6 +59854,10 @@ msgstr "`AppliedLive` significa que el destino adoptó la generación identifica
 msgid "`Arc<dyn Memory>` wrapped in agent-scoping adapters"
 msgstr "`Arc<dyn Memory>` envuelto en adaptadores de ámbito de agente"
 
+#: src/maintainers/ci-and-actions.md
+msgid "`CARGO_REGISTRY_TOKEN`"
+msgstr "`CARGO_REGISTRY_TOKEN`"
+
 #: src/maintainers/release-runbook.md
 msgid "`CHANGELOG-next.md` is intentionally left on `master` after the release: the publish job only reads it as the release body, it does not delete it. The next release cycle overwrites it, so no manual cleanup is required."
 msgstr "`CHANGELOG-next.md` se deja intencionalmente en `master` después del lanzamiento: el trabajo de publicación solo lo lee como el cuerpo del lanzamiento, no lo elimina. El siguiente ciclo de lanzamiento lo sobrescribe, por lo que no se requiere limpieza manual."
@@ -61701,7 +61769,43 @@ msgid ""
 "connect_burst_per_node = 60\n"
 "connect_rate_per_node  = 20.0\n"
 "```"
-msgstr "```toml\n# relay.toml\nbind = \"0.0.0.0:8443\"\n\n[tls]\n# Omita cert/key para APROVISIONAR AUTOMÁTICAMENTE un certificado TLS externo en dir durante la primera ejecución (sin\n# openssl). Configure sans con los nombres de host/IP públicos del relay.\ndir  = \"/data/tls\"\nsans = [\"relay.example.com\"]\n# O proporcione su propio cert (p. ej., un certificado de una CA pública):\n# cert = \"/etc/zerorelay/fullchain.pem\"\n# key  = \"/etc/zerorelay/privkey.pem\"\n\n[admission]\n# \"open\" admite cualquier demonio firmado (sujeto a la lista deny); \"allowlist\" admite\n# solo las huellas digitales de las claves públicas de los demonios enumerados. deny siempre tiene prioridad.\nmode = \"open\"\nallow = []\ndeny  = []\n# Un relay público (que no sea de loopback) DEBE controlar el registro: establezca aquí un secreto compartido\n# (cada demonio lo presenta mediante [relay] relay_token) o use mode = \"allowlist\".\n# De lo contrario, un relay OPEN sin token en un bind público no puede iniciarse, porque\n# cualquier demonio en Internet podría registrarse y ocupar node-ids no reclamados. (Un\n# bind de loopback para desarrollo local está exento; un relay público configurado como open de forma deliberada\n# puede anular esta restricción con allow_public_open = true.)\nrelay_token = \"change-me-to-a-long-random-secret\"\n\n[limits]\nmax_conns_per_node     = 256\nidle_timeout_secs      = 300\nlease_ttl_secs         = 300\naccept_burst_per_ip    = 30\naccept_rate_per_ip     = 10.0\nconnect_burst_per_node = 60\nconnect_rate_per_node  = 20.0\n```"
+msgstr ""
+"```toml\n"
+"# relay.toml\n"
+"bind = \"0.0.0.0:8443\"\n"
+"\n"
+"[tls]\n"
+"# Omita cert/key para APROVISIONAR AUTOMÁTICAMENTE un certificado TLS externo en dir durante la primera ejecución (sin\n"
+"# openssl). Configure sans con los nombres de host/IP públicos del relay.\n"
+"dir  = \"/data/tls\"\n"
+"sans = [\"relay.example.com\"]\n"
+"# O proporcione su propio cert (p. ej., un certificado de una CA pública):\n"
+"# cert = \"/etc/zerorelay/fullchain.pem\"\n"
+"# key  = \"/etc/zerorelay/privkey.pem\"\n"
+"\n"
+"[admission]\n"
+"# \"open\" admite cualquier demonio firmado (sujeto a la lista deny); \"allowlist\" admite\n"
+"# solo las huellas digitales de las claves públicas de los demonios enumerados. deny siempre tiene prioridad.\n"
+"mode = \"open\"\n"
+"allow = []\n"
+"deny  = []\n"
+"# Un relay público (que no sea de loopback) DEBE controlar el registro: establezca aquí un secreto compartido\n"
+"# (cada demonio lo presenta mediante [relay] relay_token) o use mode = \"allowlist\".\n"
+"# De lo contrario, un relay OPEN sin token en un bind público no puede iniciarse, porque\n"
+"# cualquier demonio en Internet podría registrarse y ocupar node-ids no reclamados. (Un\n"
+"# bind de loopback para desarrollo local está exento; un relay público configurado como open de forma deliberada\n"
+"# puede anular esta restricción con allow_public_open = true.)\n"
+"relay_token = \"change-me-to-a-long-random-secret\"\n"
+"\n"
+"[limits]\n"
+"max_conns_per_node     = 256\n"
+"idle_timeout_secs      = 300\n"
+"lease_ttl_secs         = 300\n"
+"accept_burst_per_ip    = 30\n"
+"accept_rate_per_ip     = 10.0\n"
+"connect_burst_per_node = 60\n"
+"connect_rate_per_node  = 20.0\n"
+"```"
 
 #: src/tools/mcp.md
 msgid ""
@@ -61736,7 +61840,12 @@ msgid ""
 "type = \"webhook\"\n"
 "path = \"/sop/deploy\"\n"
 "```"
-msgstr "```toml\n[[triggers]]\ntype = \"webhook\"\npath = \"/sop/deploy\"\n```"
+msgstr ""
+"```toml\n"
+"[[triggers]]\n"
+"type = \"webhook\"\n"
+"path = \"/sop/deploy\"\n"
+"```"
 
 #: src/providers/configuration.md
 msgid ""
@@ -61745,7 +61854,12 @@ msgid ""
 "native_thinking = true\n"
 "display = \"updates\"\n"
 "```"
-msgstr "```toml\n[agent.thinking]\nnative_thinking = true\ndisplay = \"updates\"\n```"
+msgstr ""
+"```toml\n"
+"[agent.thinking]\n"
+"native_thinking = true\n"
+"display = \"updates\"\n"
+"```"
 
 #: src/channels/telegram.md
 msgid ""
@@ -61765,6 +61879,34 @@ msgstr ""
 "\n"
 "[agents.primary]\n"
 "channels = [\"telegram.home\"]\n"
+"```"
+
+#: src/channels/social.md
+msgid ""
+"```toml\n"
+"[channels.twitch.default]\n"
+"enabled = true\n"
+"bot_username = \"zeroclaw_bot\"\n"
+"oauth_token = \"replace-with-twitch-token\"\n"
+"channels = [\"zeroclaw_channel\"]\n"
+"mention_only = true\n"
+"\n"
+"[peer_groups.twitch_default]\n"
+"channel = \"twitch.default\"\n"
+"external_peers = [\"zeroclaw_user\"]\n"
+"```"
+msgstr ""
+"```toml\n"
+"[channels.twitch.default]\n"
+"enabled = true\n"
+"bot_username = \"zeroclaw_bot\"\n"
+"oauth_token = \"replace-with-twitch-token\"\n"
+"channels = [\"zeroclaw_channel\"]\n"
+"mention_only = true\n"
+"\n"
+"[peer_groups.twitch_default]\n"
+"channel = \"twitch.default\"\n"
+"external_peers = [\"zeroclaw_user\"]\n"
 "```"
 
 #: src/channels/whatsapp.md
@@ -61814,7 +61956,12 @@ msgid ""
 "relay_url  = \"relay.example.com:8443\"\n"
 "relay_node = \"<node-id>\"\n"
 "```"
-msgstr "```toml\n[connection.wss]\nrelay_url  = \"relay.example.com:8443\"\nrelay_node = \"<node-id>\"\n```"
+msgstr ""
+"```toml\n"
+"[connection.wss]\n"
+"relay_url  = \"relay.example.com:8443\"\n"
+"relay_node = \"<node-id>\"\n"
+"```"
 
 #: src/zerocode/secure-transport.md
 msgid ""
@@ -61827,7 +61974,16 @@ msgid ""
 "client_cert_path = \"/abs/path/client.crt\"\n"
 "client_key_path  = \"/abs/path/client.key\"\n"
 "```"
-msgstr "```toml\n[connection.wss]\nuri = \"wss://<remote-host>:9781\"\n\n[connection.wss.tls]\nca_cert_path     = \"/abs/path/ca.crt\"\nclient_cert_path = \"/abs/path/client.crt\"\nclient_key_path  = \"/abs/path/client.key\"\n```"
+msgstr ""
+"```toml\n"
+"[connection.wss]\n"
+"uri = \"wss://<remote-host>:9781\"\n"
+"\n"
+"[connection.wss.tls]\n"
+"ca_cert_path     = \"/abs/path/ca.crt\"\n"
+"client_cert_path = \"/abs/path/client.crt\"\n"
+"client_key_path  = \"/abs/path/client.key\"\n"
+"```"
 
 #: src/zerocode/secure-transport.md
 msgid ""
@@ -61840,7 +61996,16 @@ msgid ""
 "# If the CA key is absent the endpoint fails closed and certs must be provisioned\n"
 "# out of band.\n"
 "```"
-msgstr "```toml\n[enroll]\nenabled = true\n# bind = \"0.0.0.0\"   # predeterminado\n# port = 9782        # predeterminado\n# Requiere [wss] habilitado y una clave de CA del daemon (generada automáticamente arriba o BYO+key).\n# Si falta la clave de CA, el endpoint falla de forma segura y los certificados deben aprovisionarse\n# por un canal externo.\n```"
+msgstr ""
+"```toml\n"
+"[enroll]\n"
+"enabled = true\n"
+"# bind = \"0.0.0.0\"   # predeterminado\n"
+"# port = 9782        # predeterminado\n"
+"# Requiere [wss] habilitado y una clave de CA del daemon (generada automáticamente arriba o BYO+key).\n"
+"# Si falta la clave de CA, el endpoint falla de forma segura y los certificados deben aprovisionarse\n"
+"# por un canal externo.\n"
+"```"
 
 #: src/ops/network-deployment.md src/sop/fan-in/webhook.md
 msgid ""
@@ -61848,7 +62013,11 @@ msgid ""
 "[gateway]\n"
 "webhook_secret = \"replace-with-a-random-secret\"\n"
 "```"
-msgstr "```toml\n[gateway]\nwebhook_secret = \"replace-with-a-random-secret\"\n```"
+msgstr ""
+"```toml\n"
+"[gateway]\n"
+"webhook_secret = \"replace-with-a-random-secret\"\n"
+"```"
 
 #: src/ops/observability.md
 msgid ""
@@ -61919,7 +62088,18 @@ msgid ""
 "[agents.support]\n"
 "channels = [\"plugin.operations\"]\n"
 "```"
-msgstr "```toml\n[plugins]\nenabled = true\n\n[channels.plugin.operations]\npackage = \"acme.chat\"\nenabled = true\n\n[agents.support]\nchannels = [\"plugin.operations\"]\n```"
+msgstr ""
+"```toml\n"
+"[plugins]\n"
+"enabled = true\n"
+"\n"
+"[channels.plugin.operations]\n"
+"package = \"acme.chat\"\n"
+"enabled = true\n"
+"\n"
+"[agents.support]\n"
+"channels = [\"plugin.operations\"]\n"
+"```"
 
 #: src/providers/catalog.md
 msgid ""
@@ -61975,7 +62155,13 @@ msgid ""
 "model = \"my-model\"\n"
 "tool_result_image_policy = \"omit\"\n"
 "```"
-msgstr "```toml\n[providers.models.custom.gateway]\nuri = \"https://gateway.example.com/v1\"\nmodel = \"my-model\"\ntool_result_image_policy = \"omit\"\n```"
+msgstr ""
+"```toml\n"
+"[providers.models.custom.gateway]\n"
+"uri = \"https://gateway.example.com/v1\"\n"
+"model = \"my-model\"\n"
+"tool_result_image_policy = \"omit\"\n"
+"```"
 
 #: src/providers/catalog.md
 msgid ""
@@ -62255,7 +62441,13 @@ msgid ""
 "api_key = \"...\"   # a ZeroRouter key (prefix `zcr_`); or inject from the env\n"
 "# uri = \"http://localhost:8080/v1\"  # a self-hosted or local router; omit for the hosted default\n"
 "```"
-msgstr "```toml\n[providers.models.zerorouter.gateway]\nmodel   = \"anthropic/claude-sonnet-5\"\napi_key = \"...\"   # una clave de ZeroRouter (prefijo `zcr_`); o inyectar desde el entorno\n# uri = \"http://localhost:8080/v1\"  # un enrutador autohospedado o local; omitir para usar el valor predeterminado alojado\n```"
+msgstr ""
+"```toml\n"
+"[providers.models.zerorouter.gateway]\n"
+"model   = \"anthropic/claude-sonnet-5\"\n"
+"api_key = \"...\"   # una clave de ZeroRouter (prefijo `zcr_`); o inyectar desde el entorno\n"
+"# uri = \"http://localhost:8080/v1\"  # un enrutador autohospedado o local; omitir para usar el valor predeterminado alojado\n"
+"```"
 
 #: src/tools/mcp.md
 msgid ""
@@ -62425,7 +62617,15 @@ msgid ""
 "[[triggers]]\n"
 "type = \"manual\"\n"
 "```"
-msgstr "```toml\n[sop]\nname = \"alert-triage\"\ndescription = \"Clasifica una alerta entrante, corrige las alertas críticas y notifica al operador.\"\n\n[[triggers]]\ntype = \"manual\"\n```"
+msgstr ""
+"```toml\n"
+"[sop]\n"
+"name = \"alert-triage\"\n"
+"description = \"Clasifica una alerta entrante, corrige las alertas críticas y notifica al operador.\"\n"
+"\n"
+"[[triggers]]\n"
+"type = \"manual\"\n"
+"```"
 
 #: src/sop/syntax.md
 msgid ""
@@ -62465,7 +62665,15 @@ msgid ""
 "width = 32               # side-panel target column width (left/right)\n"
 "max_height = 5           # bottom-strip maximum height in rows\n"
 "```"
-msgstr "```toml\n[todotracker]\nenabled = true           # interruptor maestro; cuando es false, el rastreador nunca se renderiza\nenabled_at_start = false # visible al iniciar, antes de que llegue el primer plan\nlocation = \"right\"       # \"bottom\", \"left\" o \"right\"\nwidth = 32               # ancho de columna objetivo del panel lateral (izquierda/derecha)\nmax_height = 5           # altura máxima de la franja inferior en filas\n```"
+msgstr ""
+"```toml\n"
+"[todotracker]\n"
+"enabled = true           # interruptor maestro; cuando es false, el rastreador nunca se renderiza\n"
+"enabled_at_start = false # visible al iniciar, antes de que llegue el primer plan\n"
+"location = \"right\"       # \"bottom\", \"left\" o \"right\"\n"
+"width = 32               # ancho de columna objetivo del panel lateral (izquierda/derecha)\n"
+"max_height = 5           # altura máxima de la franja inferior en filas\n"
+"```"
 
 #: src/zerocode/secure-transport.md
 msgid ""
@@ -62477,7 +62685,15 @@ msgid ""
 "# Leave cert_path/key_path empty to auto-generate a server cert under\n"
 "# <data_dir>/tls/ on first boot. Set them only to bring your own server cert.\n"
 "```"
-msgstr "```toml\n[wss]\nenabled = true\n# bind = \"0.0.0.0\"   # predeterminado\n# port = 9781        # predeterminado\n# Deja cert_path/key_path vacíos para generar automáticamente un certificado de servidor en\n# <data_dir>/tls/ durante el primer arranque. Configúralos solo para usar tu propio certificado de servidor.\n```"
+msgstr ""
+"```toml\n"
+"[wss]\n"
+"enabled = true\n"
+"# bind = \"0.0.0.0\"   # predeterminado\n"
+"# port = 9781        # predeterminado\n"
+"# Deja cert_path/key_path vacíos para generar automáticamente un certificado de servidor en\n"
+"# <data_dir>/tls/ durante el primer arranque. Configúralos solo para usar tu propio certificado de servidor.\n"
+"```"
 
 #: src/zerocode/secure-transport.md
 msgid ""
@@ -62498,7 +62714,24 @@ msgid ""
 "# relay_insecure = true                    # OR skip outer verification (dev only)\n"
 "# (leave all three unset to use built-in public roots, for a public-CA relay)\n"
 "```"
-msgstr "```toml\n[wss]\nenabled = true          # OBLIGATORIO: el relay reenvía al listener WSS local\n\n[relay]\nenabled = true\nurl = \"relay.example.com:8443\"\n# node_id: dejar EMPTY (recomendado) para generar automáticamente + conservar una\n# capacidad aleatoria de 128 bits en <data_dir>/relay/node_id. Establecerlo solo para fijar un id específico.\n# token = \"change-me\"   # debe coincidir con [admission].relay_token del relay, si se establece\n\n# Confianza en el certificado EXTERIOR del relay: elegir UNO:\nrelay_ca_path = \"/path/to/relay/ca.crt\"   # confiar en la CA (autofirmada) del relay\n# tofu = true                              # O fijar el certificado hoja del relay en el primer uso\n# relay_insecure = true                    # O omitir la verificación exterior (solo para desarrollo)\n# (dejar los tres sin establecer para usar las raíces públicas integradas, para un relay con CA pública)\n```"
+msgstr ""
+"```toml\n"
+"[wss]\n"
+"enabled = true          # OBLIGATORIO: el relay reenvía al listener WSS local\n"
+"\n"
+"[relay]\n"
+"enabled = true\n"
+"url = \"relay.example.com:8443\"\n"
+"# node_id: dejar VACÍO (recomendado) para generar automáticamente + conservar una\n"
+"# capacidad aleatoria de 128 bits en <data_dir>/relay/node_id. Establecerlo solo para fijar un id específico.\n"
+"# token = \"change-me\"   # debe coincidir con [admission].relay_token del relay, si se establece\n"
+"\n"
+"# Confianza en el certificado EXTERIOR del relay: elegir UNO:\n"
+"relay_ca_path = \"/path/to/relay/ca.crt\"   # confiar en la CA (autofirmada) del relay\n"
+"# tofu = true                              # O fijar el certificado hoja del relay en el primer uso\n"
+"# relay_insecure = true                    # O omitir la verificación exterior (solo para desarrollo)\n"
+"# (dejar los tres sin establecer para usar las raíces públicas integradas, para un relay con CA pública)\n"
+"```"
 
 #: src/agents/delegation.md
 msgid ""
@@ -62540,7 +62773,29 @@ msgid ""
 "minLength = 1\n"
 "x-secret = true\n"
 "```"
-msgstr "```toml\nname = \"my-platform\"\nversion = \"0.1.0\"\nwasm_path = \"my_platform.wasm\"\ncapabilities = [\"channel\"]\npermissions = [\"config_read\", \"http_client\"]\n\n[config_schema]\n\"$schema\" = \"https://json-schema.org/draft/2020-12/schema\"\ntype = \"object\"\nadditionalProperties = false\nrequired = [\"api_base\", \"api_token\"]\n\n[config_schema.properties.api_base]\ntype = \"string\"\nminLength = 1\n\n[config_schema.properties.api_token]\ntype = \"string\"\nminLength = 1\nx-secret = true\n```"
+msgstr ""
+"```toml\n"
+"name = \"my-platform\"\n"
+"version = \"0.1.0\"\n"
+"wasm_path = \"my_platform.wasm\"\n"
+"capabilities = [\"channel\"]\n"
+"permissions = [\"config_read\", \"http_client\"]\n"
+"\n"
+"[config_schema]\n"
+"\"$schema\" = \"https://json-schema.org/draft/2020-12/schema\"\n"
+"type = \"object\"\n"
+"additionalProperties = false\n"
+"required = [\"api_base\", \"api_token\"]\n"
+"\n"
+"[config_schema.properties.api_base]\n"
+"type = \"string\"\n"
+"minLength = 1\n"
+"\n"
+"[config_schema.properties.api_token]\n"
+"type = \"string\"\n"
+"minLength = 1\n"
+"x-secret = true\n"
+"```"
 
 #: src/plugins/distributing-plugins.md
 msgid ""
@@ -63095,8 +63350,8 @@ msgid "`allowed_domains`"
 msgstr "`allowed_domains`"
 
 #: src/channels/whatsapp.md
-msgid "`allowed_groups` (Web mode) scopes the bot to a named set of group chats by JID. It is independent of `mode` - it applies in both business and personal mode, and runs before the chat-type policy. An empty list (the default) permits every group, so existing configs are unchanged. A non-empty list drops every group message whose chat JID matches no entry. **Direct messages always bypass this filter.**"
-msgstr "`allowed_groups` (modo Web) limita el bot a un conjunto nombrado de chats de grupo por JID. Es independiente de `mode` - se aplica tanto en modo empresarial como personal, y se ejecuta antes de la política de tipo de chat. Una lista vacía (el valor predeterminado) permite todos los grupos, por lo que las configuraciones existentes no cambian. Una lista no vacía descarta todo mensaje de grupo cuyo JID de chat no coincida con ninguna entrada. **Los mensajes directos siempre omiten este filtro.**"
+msgid "`allowed_groups` (Web mode) scopes the bot to a named set of group chats by JID. It is independent of `mode` - it applies in both business and personal mode, and runs before the chat-type policy. An empty list is **not** permission: what it means is decided by `group_policy`. Under `allowlist` (the default) or `ignore` an empty list admits no group, and under `all` it admits every group. A list that admits everything cannot be told apart from a list nobody configured, so open group access has to be asked for by name. A non-empty list drops every group message whose chat JID matches no entry, and keeps doing so under every policy including `all`, so `all` widens the empty-list default rather than overriding an explicit list. **Direct messages always bypass this filter.**"
+msgstr "`allowed_groups` (modo web) limita el bot a un conjunto específico de chats grupales mediante JID. Es independiente de `mode`: se aplica tanto en el modo empresarial como en el personal, y se ejecuta antes de la política de tipo de chat. Una lista vacía **no** es un permiso: lo que significa lo decide `group_policy`. Con `allowlist` (el valor predeterminado) o `ignore`, una lista vacía no admite ningún grupo, mientras que con `all` admite todos los grupos. Una lista que admite todo no se puede distinguir de una lista que nadie configuró, por lo que el acceso abierto a grupos debe solicitarse explícitamente por nombre. Una lista no vacía descarta todos los mensajes de grupo cuyo JID de chat no coincida con ninguna entrada y sigue haciéndolo con cualquier política, incluida `all`, por lo que `all` amplía el valor predeterminado de la lista vacía en lugar de anular una lista explícita. **Los mensajes directos siempre omiten este filtro.**"
 
 #: src/reference/config.md
 msgid "`allowed_operations`"
@@ -64359,20 +64614,20 @@ msgid "`ci-run.yml`, branded as \"CI\""
 msgstr "`ci-run.yml`, denominado \"CI\""
 
 #: src/maintainers/ci-and-actions.md
-msgid "`ci-sbom.yml`, `ci.yml`, `cross-platform-build-manual.yml`, `daily-npm-audit.yml`, `release-stable-manual.yml`"
-msgstr "`ci-sbom.yml`, `ci.yml`, `cross-platform-build-manual.yml`, `daily-npm-audit.yml`, `release-stable-manual.yml`"
+msgid "`ci-sbom.yml`, `ci.yml`, `cross-platform-build-manual.yml`, `daily-npm-audit.yml`, `pub-crates.yml`, `release-stable-manual.yml`"
+msgstr "`ci-sbom.yml`, `ci.yml`, `cross-platform-build-manual.yml`, `daily-npm-audit.yml`, `pub-crates.yml`, `release-stable-manual.yml`"
 
 #: src/maintainers/ci-and-actions.md
 msgid "`ci.yml` (Blacksmith path of `./.github/actions/rust-cache`)"
 msgstr "`ci.yml` (ruta de Blacksmith de `./.github/actions/rust-cache`)"
 
 #: src/maintainers/ci-and-actions.md
-msgid "`ci.yml` (GitHub-hosted path of `./.github/actions/rust-cache`), `platform-tests.yml`, `release-stable-manual.yml`, `cross-platform-build-manual.yml`, `cross-platform-clippy.yml`, `docs-deploy.yml`"
-msgstr "`ci.yml` (ruta alojada en GitHub de `./.github/actions/rust-cache`), `platform-tests.yml`, `release-stable-manual.yml`, `cross-platform-build-manual.yml`, `cross-platform-clippy.yml`, `docs-deploy.yml`"
+msgid "`ci.yml` (GitHub-hosted path of `./.github/actions/rust-cache`), `platform-tests.yml`, `pub-crates.yml`, `release-stable-manual.yml`, `cross-platform-build-manual.yml`, `cross-platform-clippy.yml`, `docs-deploy.yml`"
+msgstr "`ci.yml` (ruta alojada en GitHub de `./.github/actions/rust-cache`), `platform-tests.yml`, `pub-crates.yml`, `release-stable-manual.yml`, `cross-platform-build-manual.yml`, `cross-platform-clippy.yml`, `docs-deploy.yml`"
 
 #: src/maintainers/ci-and-actions.md
-msgid "`ci.yml`, `platform-tests.yml`, `release-stable-manual.yml`, `cross-platform-build-manual.yml`, `cross-platform-clippy.yml`, `daily-audit.yml`, `docs-deploy.yml`, `codeql.yml`"
-msgstr "`ci.yml`, `platform-tests.yml`, `release-stable-manual.yml`, `cross-platform-build-manual.yml`, `cross-platform-clippy.yml`, `daily-audit.yml`, `docs-deploy.yml`, `codeql.yml`"
+msgid "`ci.yml`, `platform-tests.yml`, `pub-crates.yml`, `release-stable-manual.yml`, `cross-platform-build-manual.yml`, `cross-platform-clippy.yml`, `daily-audit.yml`, `docs-deploy.yml`, `codeql.yml`"
+msgstr "`ci.yml`, `platform-tests.yml`, `pub-crates.yml`, `release-stable-manual.yml`, `cross-platform-build-manual.yml`, `cross-platform-clippy.yml`, `daily-audit.yml`, `docs-deploy.yml`, `codeql.yml`"
 
 #: src/maintainers/labels.md
 msgid "`ci`"
@@ -64801,6 +65056,14 @@ msgstr "`cp2102n`"
 #: src/reference/config.md
 msgid "`cpu_limit`"
 msgstr "`cpu_limit`"
+
+#: src/maintainers/release-runbook.md
+msgid "`crates / Publish to crates.io`"
+msgstr "`crates / Publicar en crates.io`"
+
+#: src/maintainers/release-runbook.md
+msgid "`crates-io`"
+msgstr "`crates-io`"
 
 #: src/architecture/decisions/ADR-002-trait-driven-extensibility.md
 msgid "`crates/zeroclaw-api/src/channel.rs`"
@@ -69124,6 +69387,10 @@ msgstr "`ps aux | grep zeroclaw` y confirma que solo se está ejecutando un daem
 #: src/maintainers/ci-and-actions.md
 msgid "`pub-aur.yml`"
 msgstr "`pub-aur.yml`"
+
+#: src/maintainers/ci-and-actions.md
+msgid "`pub-crates.yml`"
+msgstr "`pub-crates.yml`"
 
 #: src/maintainers/ci-and-actions.md
 msgid "`pub-scoop.yml`"
