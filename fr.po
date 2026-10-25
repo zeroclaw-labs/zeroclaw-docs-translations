@@ -379,7 +379,7 @@ msgstr "\"Authorization\""
 
 #: src/providers/custom.md
 msgid "\"Authorization: Bearer $API_KEY\""
-msgstr "\"Authorization : Bearer $API_KEY\""
+msgstr "\"Authorization: Bearer $API_KEY\""
 
 #: src/channels/matrix.md
 msgid "\"Authorization: Bearer <access_token>\""
