@@ -5290,7 +5290,7 @@ msgstr "**Medios en respuestas inline:** `channels.matrix.mention_only = true` h
 
 #: src/zerocode/secure-transport.md
 msgid "**Inner mTLS (the real boundary).** TLS 1.3 only, mutually authenticated. The client presents a daemon-issued certificate; the daemon presents its server leaf. This is the RPC plane. There is **no** server-only / unauthenticated path on it - a client certificate is always required. The certificate admits the _device_; it is not an RPC credential. Every remote `initialize` must also carry a bearer `auth_token` that identifies the _principal_, or the daemon refuses it with `AUTH_REQUIRED` (`-32010`). See [Bearer token](./remote.md#bearer-token-required-for-every-connection)."
-msgstr "**mTLS interno (la frontera real).** Solo TLS 1.3, con autenticación mutua. El cliente presenta un certificado emitido por el daemon; el daemon presenta su certificado de hoja del servidor. Este es el plano RPC. **No** existe ninguna ruta solo del servidor ni sin autenticar en este plano: siempre se requiere un certificado de cliente. El certificado admite el _dispositivo_; no es una credencial RPC. Cada `initialize` remoto también debe incluir un token bearer `auth_token` que identifique al _principal_, o el daemon lo rechaza con `AUTH_REQUIRED` (`-32010`). Ver [Token de portador](./remote.md#bearer-token-required-for-every-connection)."
+msgstr "**mTLS interno (el límite real).** Solo TLS 1.3, con autenticación mutua. El cliente presenta un certificado emitido por el daemon; el daemon presenta su certificado de hoja del servidor. Este es el plano RPC. **No** existe ninguna ruta solo del servidor ni sin autenticar en este plano: siempre se requiere un certificado de cliente. El certificado admite el _dispositivo_; no es una credencial RPC. Cada `initialize` remoto también debe incluir un token de portador `auth_token` que identifique al _principal_, o el daemon lo rechaza con `AUTH_REQUIRED` (`-32010`). Ver [Token de portador](./remote.md#bearer-token-required-for-every-connection)."
 
 #: src/developing/how-plugins-work.md
 msgid "**Install the package.** `zeroclaw plugin install <directory>` for a local package, or `zeroclaw plugin install <name>` for one from the plugin registry. Install validates the manifest, runs the signature policy, checks the payload digest when the manifest declares one, and instantiates the component against this host's WIT (skipped with `--no-verify`); a package that fails any of these is not installed. Install (unless `--no-verify`), `zeroclaw plugin info <name>`, and `zeroclaw plugin list --verify` compile and instantiate the component whether or not the plugin system is enabled. Instantiation calls none of its exports, but it does run any start function the component's core modules carry, in a store with no files, no network, and the per-call fuel, memory, and time limits."
@@ -6355,7 +6355,7 @@ msgstr "**Prioridad**"
 
 #: src/ops/observability.md
 msgid "**Privacy & cost.** Captured content is sanitized best-effort: inline image data is elided and known credential shapes (key=value, bearer, and `sk-`/`ghp_`/`xoxb-`\\-style prefixes) are redacted. This does NOT guarantee removal of all secrets or PII. Prefer an access-controlled trace backend if conversations may be sensitive. Capture cost is O(prompt size) **per agent-loop iteration** (the growing history is re-scanned each round), and full text grows per-span payload proportionally. On per-byte backends, apply exporter-side truncation rather than dropping the attributes."
-msgstr "**Privacidad y coste.** El contenido capturado se sanea con esfuerzo razonable: los datos de imágenes en línea se omiten y las formas conocidas de credenciales (key=value, bearer y prefijos de estilo `sk-`/`ghp_`/`xoxb-`\\-style) se censuran. Esto NO garantiza la eliminación de todos los secretos ni de la PII. Prefiera un backend de trazas con control de acceso si las conversaciones pueden ser sensibles. El coste de captura es O(tamaño_del_prompt) **por iteración del bucle del agente** (el historial en crecimiento se vuelve a analizar en cada ronda), y el texto completo crece proporcionalmente al payload por span. En backends por byte, aplique truncamiento del lado del exportador en lugar de descartar los atributos."
+msgstr "**Privacidad y coste.** El contenido capturado se sanea con esfuerzo razonable: los datos de imágenes en línea se omiten y las formas conocidas de credenciales (key=value, bearer y prefijos de estilo `sk-`/`ghp_`/`xoxb-`) se censuran. Esto NO garantiza la eliminación de todos los secretos ni de la PII. Prefiera un backend de trazas con control de acceso si las conversaciones pueden ser sensibles. El coste de captura es O(tamaño_del_prompt) **por iteración del bucle del agente** (el historial en crecimiento se vuelve a analizar en cada ronda), y el texto completo crece proporcionalmente al payload por span. En backends por byte, aplique truncamiento del lado del exportador en lugar de descartar los atributos."
 
 #: src/maintainers/pr-workflow.md
 msgid "**Privacy and PII rules**: see [Privacy](../contributing/privacy.md)."
@@ -7358,7 +7358,7 @@ msgstr "**Sweep**: pasada completa del backlog en orden de prioridad (corregido-
 
 #: src/zerocode/running.md
 msgid "**Switch session** opens the session list (default chord: Ctrl+S; rebindable in the keymap)."
-msgstr "**Cambiar de sesión** abre la lista de sesiones (atajo predeterminado: Ctrl+S; reasignable en el keymap)."
+msgstr "**Cambiar de sesión** abre la lista de sesiones (atajo predeterminado: Ctrl+S; reasignable en el mapa de teclas)."
 
 #: src/channels/matrix.md
 msgid "**Symptom:** `Matrix one-time key upload conflict detected; stopping sync to avoid infinite retry loop` and the channel becomes unavailable."
@@ -9721,7 +9721,7 @@ msgstr "/// Un turno de agente sin daemon: la ruta de consumidor independiente.\
 #: src/plugins/writing-a-tool-plugin.md
 msgid "/// Redact the input. Returns the output and the number of masked spans.\n"
 msgstr ""
-"/// Censurar la entrada. Devuelve la salida y el número de intervalos enmascarados.\n"
+"/// Censura la entrada. Devuelve la salida y el número de fragmentos enmascarados.\n"
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid "/// Redaction policy resolved from the plugin's own config section.\n"
@@ -13999,7 +13999,7 @@ msgstr "Agregar una superficie (el flujo de trabajo que sigue cada futura PR de 
 
 #: src/SUMMARY.md
 msgid "Adding boards & tools"
-msgstr "Agregando tableros y herramientas"
+msgstr "Agregar placas y herramientas"
 
 #: src/introduction.md
 msgid "Adding capabilities? → [Tools](./tools/overview.md)"
@@ -16596,7 +16596,7 @@ msgstr "Debido a que cada agente une sus propias referencias y su propio sistema
 
 #: src/tools/skills.md
 msgid "Because reflection forwards turn content to the model provider, the task, the tool-call trace, and the final answer are each scanned for credential-shaped values (API keys, tokens, AWS credentials, PEM private keys, JWTs, database connection URLs, and high-entropy secrets) and redacted **before** the prompt is composed and sent, using the same outbound-content guardrail ZeroClaw applies to channel responses. Redaction runs in-process ahead of the request, so a secret that appears in a tool argument or the final answer is replaced with a `[REDACTED_…]` marker rather than reaching the provider."
-msgstr "Debido a que reflection reenvía el contenido del turno al proveedor del modelo, la tarea, el registro de llamadas a herramientas y la respuesta final se analizan para detectar valores con forma de credencial (claves de API, tokens, credenciales de AWS, claves privadas PEM, JWT, URL de conexión a bases de datos y secretos de alta entropía) y se censuran **antes** de que se componga y envíe el prompt, utilizando la misma protección de contenido saliente que ZeroClaw aplica a las respuestas del canal. La censura se ejecuta en el proceso antes de la solicitud, de modo que un secreto que aparezca en un argumento de herramienta o en la respuesta final se sustituye por un marcador `[REDACTED_…]` en lugar de llegar al proveedor."
+msgstr "Debido a que la reflexión reenvía el contenido del turno al proveedor del modelo, la tarea, el registro de llamadas a herramientas y la respuesta final se analizan para detectar valores con forma de credencial (claves de API, tokens, credenciales de AWS, claves privadas PEM, JWT, URL de conexión a bases de datos y secretos de alta entropía) y se censuran **antes** de que se componga y envíe el prompt, utilizando la misma protección de contenido saliente que ZeroClaw aplica a las respuestas del canal. La censura se ejecuta en el proceso antes de la solicitud, de modo que un secreto que aparezca en un argumento de herramienta o en la respuesta final se sustituye por un marcador `[REDACTED_…]` en lugar de llegar al proveedor."
 
 #: src/ops/network-deployment.md
 msgid "Because remote access is enforced through pairing, `allow_remote_admin` has no effect unless `require_pairing` is also on: if pairing is disabled, a remote caller cannot be authenticated, so the request is rejected with `403 Forbidden` rather than allowed anonymously. This makes it impossible to expose an unauthenticated remote reload by flipping a single flag."
@@ -18187,7 +18187,7 @@ msgstr "La cobertura del catálogo está completa o la calidad de la traducción
 
 #: src/gateway/api.md
 msgid "Catalog discovery runs on a blocking worker because host admission reads and verifies installed WASM payloads. Only one scan runs at a time; a concurrent request receives `503 Service Unavailable` and may retry. The endpoint does not cache admitted package state between requests."
-msgstr "El descubrimiento del catálogo se ejecuta en un worker de bloqueo porque la admisión del host lee y verifica las cargas útiles WASM instaladas. Solo se ejecuta un escaneo a la vez; una solicitud concurrente recibe `503 Service Unavailable` y puede reintentarla. El endpoint no almacena en caché el estado de los paquetes admitidos entre solicitudes."
+msgstr "El descubrimiento del catálogo se ejecuta en un worker bloqueante porque la admisión del host lee y verifica las cargas útiles WASM instaladas. Solo se ejecuta un escaneo a la vez; una solicitud concurrente recibe `503 Service Unavailable` y puede reintentarla. El endpoint no almacena en caché el estado de los paquetes admitidos entre solicitudes."
 
 #: src/architecture/localization-catalog-lifecycle.md
 msgid "Catalog download map: `zeroclaw_config::schema::FTL_CATALOGS`"
@@ -27408,7 +27408,7 @@ msgstr "Instrucciones de publicación libre para el agente de IA."
 
 #: src/contributing/user-boundary-proof.md
 msgid "Fresh required CI counts when it reaches the named boundary. Follow [CI & Actions](../maintainers/ci-and-actions.md) for the current required coverage and the gaps that justify additional evidence."
-msgstr "El CI requerido y reciente cuenta cuando alcanza el límite indicado. Sigue [CI & Actions](../maintainers/ci-and-actions.md) para conocer la cobertura requerida actual y las carencias que justifican evidencia adicional."
+msgstr "El CI requerido y reciente cuenta cuando alcanza el límite indicado. Sigue [CI y Acciones](../maintainers/ci-and-actions.md) para conocer la cobertura requerida actual y las carencias que justifican evidencia adicional."
 
 #: src/maintainers/ci-and-actions.md
 msgid "Fresh required CI is normally the shared evidence for the Cargo surfaces it actually runs. A local rerun of the same Cargo command on the same head, target, and feature set is duplicate confidence, not a stronger proof. Before asking for extra Cargo or Clippy, compare the changed surface with the current workflow files and the actual checks on the PR. Extra validation belongs where the required gate does not prove the thing under review:"
@@ -34510,7 +34510,7 @@ msgstr "Trabajo de alcance del mantenedor destinado a colaboradores externos"
 
 #: src/SUMMARY.md
 msgid "Maintainers"
-msgstr "Mantenidores"
+msgstr "Mantenedores"
 
 #: src/contributing/rfcs.md
 msgid "Maintainers may relabel or close a filed RFC as an ordinary issue, feature request, or implementation follow-up when it does not meet the trigger. That disposition says whether the underlying work remains valid and where it continues; it is a routing decision, not a rejection on substance."
@@ -44252,7 +44252,7 @@ msgstr "Censura las categorías configuradas de secretos/PII antes de la persist
 
 #: src/reference/config.md
 msgid "Redact outbound SOP content before persistence/audit consumers write it."
-msgstr "Censura el contenido del SOP saliente antes de que los consumidores de persistencia/auditoría lo escriban."
+msgstr "Censura el contenido saliente del SOP antes de que los consumidores de persistencia/auditoría lo escriban."
 
 #: src/reference/config.md
 msgid "Redaction categories applied when `redact_on_write` is true."
@@ -44677,7 +44677,7 @@ msgstr "Recarga y ciclo de vida del listener"
 
 #: src/architecture/runtime-state-and-persistence.md
 msgid "Reload and new agent starts observe config and filesystem changes"
-msgstr "Recargue y el nuevo agente comienza a observar los cambios de configuración y del sistema de archivos"
+msgstr "Las recargas y los nuevos inicios de agente observan los cambios de configuración y del sistema de archivos"
 
 #: src/architecture/runtime-state-and-persistence.md
 msgid "Reload and restart"
@@ -46018,7 +46018,7 @@ msgstr "Los idiomas romances están ampliamente bien entrenados."
 
 #: src/sop/how-it-works.md
 msgid "Root it used"
-msgstr "Root lo usó"
+msgstr "Raíz que usaba"
 
 #: src/channels/filesystem.md
 msgid "Root paths to watch. At least one is required."
@@ -63532,7 +63532,7 @@ msgstr "[Pipeline de documentación generada](../architecture/generated-document
 
 #: src/sop/fan-in/git.md
 msgid "[Git channel](../../channels/git.md): provider, forge auth, polling, event routes"
-msgstr "[Canal Git](../../channels/git.md): proveedor, autenticación de forge, polling, rutas de eventos"
+msgstr "[Canal Git](../../channels/git.md): proveedor, autenticación de la forja, sondeo, rutas de eventos"
 
 #: src/foundations/fnd-004-engineering-infrastructure.md
 msgid "[GitHub Actions security hardening](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions): Official guidance on SHA pinning, token permissions, and supply chain risk in Actions workflows."
@@ -85079,11 +85079,11 @@ msgstr "cualquier nueva emisión o renovación de certificados,"
 
 #: src/architecture/runtime-composition.md
 msgid "api, **channels**, config, hardware, infra, log, memory, providers, **runtime**, spawn, tls, tools; plugins (optional)"
-msgstr "api, **canales**, configuración, hardware, infraestructura, registro, memoria, proveedores, **runtime**, spawn, tls, herramientas; plugins (opcional)"
+msgstr "api, **channels**, config, hardware, infra, log, memory, providers, **runtime**, spawn, tls, tools; plugins (opcional)"
 
 #: src/architecture/runtime-composition.md
 msgid "api, commands, config, infra, log, macros, **memory**, **providers**, relay-proto, sop-graph, spawn, tls, tool-call-parser, **tools**; plugins (optional)"
-msgstr "api, comandos, config, infra, log, macros, **memoria**, **proveedores**, relay-proto, sop-graph, spawn, tls, tool-call-parser, **herramientas**; plugins (opcional)"
+msgstr "api, commands, config, infra, log, macros, **memory**, **providers**, relay-proto, sop-graph, spawn, tls, tool-call-parser, **tools**; plugins (opcional)"
 
 #: src/architecture/runtime-composition.md
 msgid "api, config, infra, log, memory, providers, **runtime**, spawn, tool-call-parser; tools (optional)"

@@ -4740,7 +4740,7 @@ msgstr "**事件驱动自动化：** [标准操作程序](../sop/index.md) · [G
 
 #: src/channels/git.md
 msgid "**Events API backbone (optional, GitHub).** `events_backbone = true` additionally polls `/repos/{owner}/{repo}/events` with ETag-conditional requests (one request per repo per tick; an idle repo answers 304 and costs almost nothing). Caveats: the feed lags by up to ~5 minutes, payloads are trimmed, and **Actions events never appear in it**: workflow runs always use their dedicated endpoint. Anything surfaced by both the feed and a targeted endpoint is de-duplicated, so it's safe to combine. Gitea/Forgejo ignore this option today."
-msgstr "**Events API 骨干（可选，GitHub）。** `events_backbone = true` 还会使用 ETag 条件请求轮询 `/repos/{owner}/{repo}/events`（每个 repo 每个 tick 一次请求；空闲 repo 会返回 304，几乎没有成本）。注意事项：该 feed 最多会滞后约 5 分钟，payload 会被裁剪，而且 **Actions 事件永远不会出现在其中**：workflow runs 始终使用其专用 endpoint。凡是同时出现在 feed 和目标 endpoint 中的内容都会去重，因此可以安全组合。Gitea/Forgejo 目前会忽略此选项。"
+msgstr "**Events API 骨干（可选，GitHub）。** `events_backbone = true` 还会使用 ETag 条件请求轮询 `/repos/{owner}/{repo}/events`（每个 repo 每个 tick 一次请求；空闲 repo 会返回 304，几乎没有成本）。注意事项：该 feed 最多会滞后约 5 分钟，payload 会被裁剪，而且 **Actions 事件永远不会出现在其中**：工作流运行始终使用其专用端点。凡是同时出现在 feed 和目标端点中的内容都会去重，因此可以安全组合。Gitea/Forgejo 目前会忽略此选项。"
 
 #: src/channels/mattermost.md
 msgid "**Everyone in the channel can read the tool arguments.** The prompt includes the tool name and a summary of its arguments. Route approvals to a channel whose membership you are comfortable showing those to."
@@ -12622,7 +12622,7 @@ msgstr "重命名："
 
 #: src/architecture/rpc-socket.md
 msgid "A repeat of an upload the session already indexed is checked against the file on disk. If the file was edited, deleted, or replaced by a link, the uploaded bytes are written back at the indexed path before it is returned."
-msgstr "对已索引上传内容的重复上传会与磁盘上的文件进行比对。如果该文件被编辑、删除或替换为链接，则在返回之前，已上传的字节会被写回到已索引的路径。"
+msgstr "会话已索引过的上传若被再次上传，会与磁盘上的文件进行比对。如果该文件被编辑、删除或替换为链接，则在返回之前，已上传的字节会被写回到已索引的路径。"
 
 #: src/channels/mattermost.md
 msgid "A reply that matches a pending token is consumed as a decision and never reaches the model."
@@ -15336,7 +15336,7 @@ msgstr "来自 Meta Business Suite 的应用密钥（用于验证 webhook 签名
 
 #: src/channels/git-github-app.md
 msgid "App settings → **Install App** → pick your account or org → choose **All repositories** or a specific selection. Installation is what grants the app access to repos; without it the app can authenticate but sees nothing."
-msgstr "应用设置 → **安装 App** → 选择你的账户或组织 → 选择 **All repositories** 或特定选择。安装才会授予 app 对仓库的访问权限；没有安装，app 可以通过身份验证，但看不到任何内容。"
+msgstr "应用设置 → **Install App** → 选择你的账户或组织 → 选择 **All repositories** 或选定的仓库。安装才会授予应用对仓库的访问权限；没有安装，应用可以通过身份验证，但看不到任何内容。"
 
 #: src/maintainers/docs-and-translations.md
 msgid "App strings live in `crates/zeroclaw-runtime/locales/`. English is the source of truth and is embedded at compile time."
@@ -16596,7 +16596,7 @@ msgstr "由于每个 agent 都连接自己的引用和自己的文件系统，�
 
 #: src/tools/skills.md
 msgid "Because reflection forwards turn content to the model provider, the task, the tool-call trace, and the final answer are each scanned for credential-shaped values (API keys, tokens, AWS credentials, PEM private keys, JWTs, database connection URLs, and high-entropy secrets) and redacted **before** the prompt is composed and sent, using the same outbound-content guardrail ZeroClaw applies to channel responses. Redaction runs in-process ahead of the request, so a secret that appears in a tool argument or the final answer is replaced with a `[REDACTED_…]` marker rather than reaching the provider."
-msgstr "因为 reflection 会将转发后的内容发送给模型提供方，所以任务、工具调用轨迹和最终答案都会在提示词组装并发送之前，使用与 ZeroClaw 对频道响应应用的相同外发内容护栏，对凭据形态的值（API 密钥、令牌、AWS 凭据、PEM 私钥、JWT、数据库连接 URL，以及高熵密钥）进行扫描并删除。删除会在请求前于进程内运行，因此出现在工具参数或最终答案中的密钥会被替换为 `[REDACTED_…]` 标记，而不会传达到提供方。"
+msgstr "由于反思会将轮次内容转发给模型提供方，任务、工具调用轨迹和最终答案都会先扫描凭据形态的值（API 密钥、令牌、AWS 凭据、PEM 私钥、JWT、数据库连接 URL，以及高熵密钥），并在组装和发送提示词**之前**进行脱敏，所用的外发内容护栏与 ZeroClaw 对频道响应所用的相同。脱敏在请求之前于进程内运行，因此出现在工具参数或最终答案中的密钥会被替换为 `[REDACTED_…]` 标记，而不会到达提供方。"
 
 #: src/ops/network-deployment.md
 msgid "Because remote access is enforced through pairing, `allow_remote_admin` has no effect unless `require_pairing` is also on: if pairing is disabled, a remote caller cannot be authenticated, so the request is rejected with `403 Forbidden` rather than allowed anonymously. This makes it impossible to expose an unauthenticated remote reload by flipping a single flag."
@@ -34771,7 +34771,7 @@ msgstr "用于机器可读性的 Markdown Frontmatter"
 
 #: src/plugins/index.md
 msgid "Markdown-only [skill bundles](../tools/skill-bundles.md) are not plugins, but they travel through the same manifest, signing, and install machinery; that page lives with the Skills documentation."
-msgstr "仅限 Markdown 的[技能包](../tools/skill-bundles.md)不是插件，但它们会通过相同的清单、签名和安装机制；该页面与技能文档放在一起。"
+msgstr "仅限 Markdown 的[技能包](../tools/skill-bundles.md)不是插件，但它们使用相同的清单、签名和安装机制进行分发；该页面与技能文档放在一起。"
 
 #: src/developing/building-docs.md src/maintainers/docs-and-translations.md
 msgid "Marked PR-review policy zones"
@@ -51566,7 +51566,7 @@ msgstr "`wss` 部分："
 
 #: src/security/tool-receipts.md
 msgid "The `zc-receipt-` prefix exists so the leak detector doesn't redact them (receipts are safe to surface; they contain no secret material)."
-msgstr "`zc-receipt-` 前缀的存在是为了防止泄漏检测器将其删除（收据可以安全地显示，因为它们不包含任何敏感信息）。"
+msgstr "`zc-receipt-` 前缀的存在是为了防止泄漏检测器对其进行脱敏（收据可以安全地显示，因为它们不包含任何敏感信息）。"
 
 #: src/agents/multi-agent-setup.md
 msgid "The `zeroclaw agents` lifecycle commands perform the full owned-state cascade only in builds with `gateway` and `agent-runtime` enabled, including the standard distributed binary. A reduced-feature CLI still changes config but prints that owned state was not cascaded. Use the gateway dashboard or a binary with both features enabled for the operations below when owned state exists."
@@ -52030,7 +52030,7 @@ msgstr "浏览器仍可能在其自身的历史数据库中记录链接最初被
 
 #: src/developing/tool-inventory.md
 msgid "The buckets below describe implementation ownership and possible future homes. They do not declare either model catalog or authorize removing an existing implementation. `git_operations` remains in the approved eleven while its long-term classification and replacement-first requirements remain below."
-msgstr "桶below 描述的是实现归属和可能的未来归宿。它们并不声明任何模型目录，也不授权移除现有实现。`git_operations` 仍保留在已批准的十一项中，其长期分类和替换优先要求见下文。"
+msgstr "下面这些分类桶描述的是实现归属和可能的未来归宿。它们并不声明任何模型目录，也不授权移除现有实现。`git_operations` 仍保留在已批准的十一项中，其长期分类和替换优先要求见下文。"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "The built-in channel handled nothing"
@@ -55185,7 +55185,7 @@ msgstr "团队的工作方式是被动应对：谁的声音最大谁就得到关
 
 #: src/gateway/api.md
 msgid "The ten-second request lifetime cancelled parsing or delivery."
-msgstr "请求时间限制为 10 秒，超时后取消了解析或投递。"
+msgstr "10 秒的请求时限已到，解析或投递被取消。"
 
 #: src/contributing/rfcs.md
 msgid "The test follows substantive project effect, not the issue title, the author, whether the draft was AI-assisted, or the mere presence of a migration, feature, or default change. When you are unsure, open an ordinary issue and say why you think it might cross a trigger. A maintainer can promote it; that costs far less than a stalled RFC."
@@ -59711,11 +59711,11 @@ msgstr "想要参与贡献？→ [贡献指南](./contributing/index.md)"
 
 #: src/plugins/index.md
 msgid "Warm store behind an async mutex, refueled per call"
-msgstr "由异步互斥锁保护的热存储，每次调用都会重新填充"
+msgstr "由异步互斥锁保护的热存储，每次调用都会重新补充燃料"
 
 #: src/plugins/index.md
 msgid "Warm store behind an async mutex, refueled per call; imports scoped `config`, `secrets`, durable `state`, and host-fed `inbound`"
-msgstr "由异步互斥锁保护的热存储，每次调用时重新填充；导入限定作用域的 `config`、`secrets`、持久化的 `state`，以及由宿主提供的 `inbound`"
+msgstr "由异步互斥锁保护的热存储，每次调用时重新补充燃料；导入限定作用域的 `config`、`secrets`、持久化的 `state`，以及由宿主提供的 `inbound`"
 
 #: src/foundations/fnd-003-governance.md
 msgid "Warn (not block) if a PR is merged without a linked issue that has a milestone assigned. This is a gentle nudge, not a hard gate: the goal is to prevent work from happening without being tracked to a release."
@@ -63575,7 +63575,7 @@ msgstr "[生成文档流水线](../architecture/generated-documentation-pipeline
 
 #: src/sop/fan-in/git.md
 msgid "[Git channel](../../channels/git.md): provider, forge auth, polling, event routes"
-msgstr "[Git 通道](../../channels/git.md)：provider、forge 身份验证、轮询、事件路由"
+msgstr "[Git 通道](../../channels/git.md)：提供方、forge 身份验证、轮询、事件路由"
 
 #: src/foundations/fnd-004-engineering-infrastructure.md
 msgid "[GitHub Actions security hardening](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions): Official guidance on SHA pinning, token permissions, and supply chain risk in Actions workflows."
@@ -85119,15 +85119,15 @@ msgstr "任何新证书的签发或续期，"
 
 #: src/architecture/runtime-composition.md
 msgid "api, **channels**, config, hardware, infra, log, memory, providers, **runtime**, spawn, tls, tools; plugins (optional)"
-msgstr "api、**通道**、配置、硬件、基础设施、日志、记忆、提供商、**运行时**、生成、TLS、工具；插件（可选）"
+msgstr "api、**channels**、config、hardware、infra、log、memory、providers、**runtime**、spawn、tls、tools；plugins（可选）"
 
 #: src/architecture/runtime-composition.md
 msgid "api, commands, config, infra, log, macros, **memory**, **providers**, relay-proto, sop-graph, spawn, tls, tool-call-parser, **tools**; plugins (optional)"
-msgstr "api, 命令, 配置, 基础设施, 日志, 宏, **记忆**, **提供方**, relay-proto, sop-graph, 派生, TLS, tool-call-parser, **工具**; 插件（可选）"
+msgstr "api, commands, config, infra, log, macros, **memory**, **providers**, relay-proto, sop-graph, spawn, tls, tool-call-parser, **tools**; plugins（可选）"
 
 #: src/architecture/runtime-composition.md
 msgid "api, config, infra, log, memory, providers, **runtime**, spawn, tool-call-parser; tools (optional)"
-msgstr "api, 配置, 基础设施, 日志, 内存, 提供方, **运行时**, spawn, tool-call-parser; 工具（可选）"
+msgstr "api, config, infra, log, memory, providers, **runtime**, spawn, tool-call-parser; tools（可选）"
 
 #: src/setup/container.md
 msgid "apiVersion"
@@ -86461,7 +86461,7 @@ msgstr "整数类型？"
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "internal principals are implemented for cron, daemon/SOP, peer-agent, and subturn entry points, with tests proving they are provenance facts and never peer-membership grants;"
-msgstr "内部主体已为 cron、daemon/SOP、peer-agent 和 subturn 入口点实现，并通过测试证明它们是来源（provenance）事实，而不是 peer 成员资格授予；"
+msgstr "内部主体已为 cron、daemon/SOP、peer-agent 和 subturn 入口点实现，并通过测试证明它们是来源（provenance）事实，而绝非对等方成员资格授予；"
 
 #: src/setup/container.md
 msgid "interval"

@@ -3376,7 +3376,7 @@ msgstr "**9,500行のファイルはモジュールではありません。`.rs`
 
 #: src/maintainers/release-runbook.md
 msgid "**A Plugin Smoke leg failed:** On a dispatched release nothing was published: the GitHub Release and the release workflow's own image pushes wait for every leg. A release started by a tag push also triggers Docker Publish on its own, and that run does not wait for the smoke, so check it as well. Open the leg's step summary: the report names the check that failed and quotes the command output, and the `plugin-smoke-<target>` artifact holds the same report. A failure at `plugin install` or at the tool result means the archive built for that target cannot run a plugin; fix it on `master` and dispatch Release Stable again. Rehearse the fix first with the Cross-Platform Build workflow, which runs the same legs against the binaries it builds. A failure that names the provider or the scratch directory is a runner problem: re-run only the failed leg. Re-run a timeout once as well; a repeat timeout is a defect, since a binary that hangs on plugin load times out the same way."
-msgstr "**Plugin Smoke レッグが失敗しました:** dispatch で起動したリリースでは何も公開されていません。GitHub Release とリリースワークフロー自身のイメージ push は、すべてのレッグの完了を待っています。タグ push で開始されたリリースは Docker Publish も単独でトリガーしますが、その実行は smoke を待たないため、こちらも確認してください。失敗したレッグの step summary を開いてください。レポートには失敗したチェックの名前と、コマンド出力が引用されています。`plugin-smoke-<target>` artifact にも同じレポートが入っています。`plugin install` またはツール結果で失敗している場合、そのターゲット向けにビルドされたアーカイブはプラグインを実行できません。`master` で修正し、Release Stable を再度 dispatch してください。修正を先に確認するには、Cross-Platform Build ワークフローを使ってリハーサルしてください。このワークフローは、ビルドしたバイナリに対して同じレッグを実行します。プロバイダーまたは scratch ディレクトリの名前が出ている失敗は runner の問題です。失敗したレッグだけを再実行してください。タイムアウトも一度だけ再実行してください。再度タイムアウトした場合は欠陥です。プラグインロード時にハングするバイナリは、同じようにタイムアウトするためです。"
+msgstr "**Plugin Smoke レッグが失敗しました:** dispatch で起動したリリースでは何も公開されていません。GitHub Release とリリースワークフロー自身のイメージ push は、すべてのレッグの完了を待っています。タグ push で開始されたリリースは Docker Publish も単独でトリガーしますが、その実行はスモークを待たないため、こちらも確認してください。失敗したレッグのステップサマリーを開いてください。レポートには失敗したチェックの名前と、コマンド出力が引用されています。`plugin-smoke-<target>` アーティファクトにも同じレポートが入っています。`plugin install` またはツール結果で失敗している場合、そのターゲット向けにビルドされたアーカイブはプラグインを実行できません。`master` で修正し、Release Stable を再度 dispatch してください。修正を先に確認するには、Cross-Platform Build ワークフローを使ってリハーサルしてください。このワークフローは、ビルドしたバイナリに対して同じレッグを実行します。プロバイダーまたは scratch ディレクトリの名前が出ている失敗はランナーの問題です。失敗したレッグだけを再実行してください。タイムアウトも一度だけ再実行してください。再度タイムアウトした場合は欠陥です。プラグインロード時にハングするバイナリは、同じようにタイムアウトするためです。"
 
 #: src/maintainers/release-runbook.md
 msgid "**A Scoop or AUR distribution job failed:** Each has a corresponding manually-triggerable sub-workflow. Re-run the specific one with `dry_run: true` first to confirm the fix, then `dry_run: false`. These are nice-to-have: a failed distribution job does not invalidate the release itself. For Scoop credential failures, use Scoop Bucket Canary instead of treating a generic dry run as credential proof; the canary enables the fail-closed `credential_canary` path."
@@ -4120,7 +4120,7 @@ msgstr "**チャネルシークレット**: 基本設定タブ。"
 
 #: src/architecture/runtime-composition.md
 msgid "**Channels orchestrator** keeps a per-sender provider cache (`get_or_create_provider`) built with `create_resilient_model_provider_from_ref`, and calls `all_tools_with_runtime` directly."
-msgstr "**チャネルオーケストレーター**は送信者ごとのプロバイダーキャッシュ（`get_or_create_provider`）を保持しており、それは`create_resilient_model_provider_from_ref`で構築され、`all_tools_with_runtime`を直接呼び出します。"
+msgstr "**チャネルオーケストレーター**は、`create_resilient_model_provider_from_ref` で構築した送信者ごとのプロバイダーキャッシュ（`get_or_create_provider`）を保持し、`all_tools_with_runtime` を直接呼び出します。"
 
 #: src/getting-started/quickstart.md
 msgid "**Channels**"
@@ -7361,7 +7361,7 @@ msgstr "**スイープ**: 優先順位順にバックログ全体を処理（マ
 
 #: src/zerocode/running.md
 msgid "**Switch session** opens the session list (default chord: Ctrl+S; rebindable in the keymap)."
-msgstr "**セッションの切り替え** はセッション一覧を開きます（デフォルトのコード: Ctrl+S。キーマップで再バインド可能）。"
+msgstr "**セッションの切り替え** はセッション一覧を開きます（デフォルトのキー操作: Ctrl+S。キーマップで再バインド可能）。"
 
 #: src/channels/matrix.md
 msgid "**Symptom:** `Matrix one-time key upload conflict detected; stopping sync to avoid infinite retry loop` and the channel becomes unavailable."
@@ -15971,7 +15971,7 @@ msgstr "インストール済みスキルまたはローカルスキルディレ
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "Audit durability introduces file I/O and fail-closed behavior when enabled, so compatibility and rollback must be explicit."
-msgstr "監査の永続性を有効にすると、ファイル I/O と fail-closed の動作が加わるため、互換性とロールバックを明示的に扱う必要があります。"
+msgstr "監査の永続性を有効にすると、ファイル I/O とフェイルクローズの動作が加わるため、互換性とロールバックを明示的に扱う必要があります。"
 
 #: src/reference/config.md
 msgid "Audit logging configuration"
@@ -18509,7 +18509,7 @@ msgstr "チャネルシークレット（LINE Developers Consoleから取得）�
 
 #: src/agents/history-management.md
 msgid "Channel sender caches remain a separate exception: they count individual message rows and preserve their existing `0`\\-means-default behavior."
-msgstr "チャンネル送信者キャッシュは別の例外であり、個々のメッセージ行を数え、既存の `0`\\-means-default の動作を維持します。"
+msgstr "チャンネル送信者キャッシュは別の例外であり、個々のメッセージ行を数え、`0` をデフォルト値の指定とみなす既存の動作を維持します。"
 
 #: src/api.md
 msgid "Channel session backends, debouncing, and stall watchdog"
@@ -25235,9 +25235,7 @@ msgstr "ここで実践することすべて——実装前にRFCを理解する
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Evidence"
-msgstr ""
-"Evidence\n"
-"証拠"
+msgstr "証拠"
 
 #: src/architecture/runtime-composition.md
 msgid "Evidence required"
@@ -29482,7 +29480,7 @@ msgstr "このデバイスにキーが共有されていない場合、暗号化
 
 #: src/maintainers/reviewer-playbook.md
 msgid "If logs or payloads in the report contain personal identifiers or sensitive data, request redaction before deeper triage. The triage process must not propagate the exposure."
-msgstr "レポート内のログやペイロードに個人識別子や機密データが含まれている場合は、より詳細な調査を行う前に削除を依頼してください。調査プロセスでは、その露出が拡大しないようにする必要があります。"
+msgstr "レポート内のログやペイロードに個人識別子や機密データが含まれている場合は、より詳細な調査を行う前に伏せるよう依頼してください。調査プロセスでは、その露出が拡大しないようにする必要があります。"
 
 #: src/ops/observability.md
 msgid "If migration fails, the daemon logs a `warn` and continues writing v2 appends; the old v1 rows remain readable by tools that still understand v1 but won't pass the v2 reader's deserializer."
@@ -32214,9 +32212,7 @@ msgstr "初期化によって新しい鍵マテリアルが作成されるのは
 
 #: src/architecture/rpc-socket.md
 msgid "Initialize"
-msgstr ""
-"Initialize\n"
-"初期化"
+msgstr "初期化"
 
 #: src/maintainers/ci-and-actions.md
 msgid "Initialize CodeQL analysis (Rust and JS/TS)"
@@ -33323,9 +33319,7 @@ msgstr "`wasm_memory.rs` におけるアダプターの動作を知ることで�
 
 #: src/developing/tool-inventory.md
 msgid "Knowledge"
-msgstr ""
-"Knowledge\n"
-"ナレッジ"
+msgstr "ナレッジ"
 
 #: src/reference/config.md
 msgid "Knowledge bundle aliases. Additive: the agent loads every listed"
@@ -33716,9 +33710,7 @@ msgstr "Lima VM + containerd/Docker"
 
 #: src/architecture/rpc-socket.md
 msgid "Limit"
-msgstr ""
-"Limit\n"
-"上限"
+msgstr "上限"
 
 #: src/architecture/decisions/ADR-012-generation-scoped-live-config-apply.md
 msgid "Limit channel changes to proven transition modes"
@@ -40493,7 +40485,7 @@ msgstr "会話中のRAGベース知識ベース検索用のオプショナルツ
 
 #: src/architecture/logging.md
 msgid "Optional typed Observer bridge"
-msgstr "Optional 型の Observer ブリッジ"
+msgstr "オプションの型付き Observer ブリッジ"
 
 #: src/reference/config.md
 msgid "Optional window title/process allowlist forwarded to sidecar policy"
@@ -42387,9 +42379,7 @@ msgstr "ポーリングモードは、継続的な HTTP トラフィックが発
 
 #: src/channels/whatsapp.md
 msgid "Polls"
-msgstr ""
-"Polls\n"
-"投票"
+msgstr "投票"
 
 #: src/foundations/fnd-003-governance.md
 msgid "Populate the Backlog with deliverables from the documentation standards RFC"
@@ -46112,7 +46102,7 @@ msgstr "ロマンス語は広範にわたってよく訓練されている"
 
 #: src/sop/how-it-works.md
 msgid "Root it used"
-msgstr "Root はそれを使用しました"
+msgstr "使用されていたルート"
 
 #: src/channels/filesystem.md
 msgid "Root paths to watch. At least one is required."
@@ -47241,7 +47231,7 @@ msgstr "サンドボックス化"
 
 #: src/ops/troubleshooting.md
 msgid "Sanitise `zeroclaw-log.txt` (redact channel tokens if any slipped through, they shouldn't) and attach it to the issue. See [Contributing → Communication](../contributing/communication.md) for where."
-msgstr "`zeroclaw-log.txt` をサニタイズして（万が一チャンネルトークンが紛れ込んでいたら伏せてください。本来含まれることはありませんが）、issue に添付してください。添付先については [Contributing → Communication](../contributing/communication.md) を参照してください。"
+msgstr "`zeroclaw-log.txt` をサニタイズして（万が一チャンネルトークンが紛れ込んでいたら伏せてください。本来含まれることはありませんが）、issue に添付してください。添付先については [コントリビュート → コミュニケーション](../contributing/communication.md) を参照してください。"
 
 #: src/setup/freebsd.md
 msgid "Save as `/usr/local/etc/rc.d/zeroclaw`:"
@@ -47605,7 +47595,7 @@ msgstr "セキュリティと障害モードのチェック、ロールバック
 
 #: src/maintainers/pr-workflow.md
 msgid "Security and privacy fields are complete; evidence is redacted / anonymized."
-msgstr "セキュリティとプライバシーのフィールドは完了しており、証拠は削除/匿名化されています。"
+msgstr "セキュリティとプライバシーのフィールドは完了しており、証拠は秘匿化/匿名化されています。"
 
 #: src/maintainers/pr-workflow.md
 msgid "Security and stability rules"
@@ -50676,7 +50666,7 @@ msgstr "ターミナルUI"
 
 #: src/architecture/crates.md
 msgid "Terminal UI, built as a separate app under `apps/zerocode/`. It depends only on the shared contracts in `zeroclaw-api`, not runtime, config, channel, provider, or tool implementations. Its i18n catalogue remains independent; see [Docs & Translations → zerocode strings](../maintainers/docs-and-translations.md)."
-msgstr "ターミナル UI。`apps/zerocode/` 配下の独立したアプリとして構築されています。依存先は共有コントラクトである `zeroclaw-api` のみで、runtime、config、channel、provider、tool の実装には依存しません。i18n カタログは独立したままです。詳細は [ドキュメントと翻訳 → zerocode 文字列](../maintainers/docs-and-translations.md) を参照してください。"
+msgstr "ターミナル UI。`apps/zerocode/` 配下の独立したアプリとして構築されています。依存先は共有コントラクトである `zeroclaw-api` のみで、ランタイム、設定、チャネル、プロバイダー、ツールの実装には依存しません。i18n カタログは独立したままです。詳細は [ドキュメントと翻訳 → zerocode 文字列](../maintainers/docs-and-translations.md) を参照してください。"
 
 #: src/maintainers/labels.md
 msgid "Terminal and resolution labels"
@@ -51304,7 +51294,7 @@ msgstr "[標準のインストールパス](../getting-started/quickstart.md#ins
 
 #: src/foundations/fnd-003-governance.md
 msgid "The [expedited second-review lane](../maintainers/pr-workflow.md#expedited-second-review-lane) is the only standing exception to the two-Core default. It implements the accepted evidence-based second-review exception and adds a waiting condition based on this document's five-business-day review responsibility. The lane is not automatic, automated review is not an approval, and broad governance, security-floor, release, migration, and irreversible architecture changes continue to default to two human approvals. The maintainer PR workflow owns the full eligibility and accountability rules."
-msgstr "[迅速な二次レビューレーン](../maintainers/pr-workflow.md#expedited-second-review-lane) は、2 名の Core によるデフォルトの例外として定められた唯一の常設ルールです。これは、承認済みの「エビデンスに基づくセカンドレビュー例外」を実装するものであり、本ドキュメントの 5 営業日のレビュー責任に基づく待機条件を追加します。このレーンは自動的に適用されるものではなく、自動レビューは承認とはみなされません。また、広範なガバナンス、セキュリティの最低基準、リリース、移行、および不可逆なアーキテクチャ変更は、引き続きデフォルトで 2 名の人間による承認が必要です。適格性と説明責任に関する完全なルールは、メンテナー向け PR ワークフローが定めています。"
+msgstr "[迅速な二次レビューレーン](../maintainers/pr-workflow.md#expedited-second-review-lane) は、2 名の Core によるデフォルトの例外として定められた唯一の常設ルールです。これは、承認済みの「エビデンスに基づく二次レビュー例外」を実装するものであり、本ドキュメントの 5 営業日のレビュー責任に基づく待機条件を追加します。このレーンは自動的に適用されるものではなく、自動レビューは承認とはみなされません。また、広範なガバナンス、セキュリティの最低基準、リリース、移行、および不可逆なアーキテクチャ変更は、引き続きデフォルトで 2 名の人間による承認が必要です。適格性と説明責任に関する完全なルールは、メンテナー向け PR ワークフローが定めています。"
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid "The [protocol page](../developing/plugin-protocol.md#build-features) documents the backend choices and [lists plugin support per artifact](../developing/plugin-protocol.md#plugin-support-per-release-artifact)."
@@ -51632,7 +51622,7 @@ msgstr "`wss`セクション:"
 
 #: src/security/tool-receipts.md
 msgid "The `zc-receipt-` prefix exists so the leak detector doesn't redact them (receipts are safe to surface; they contain no secret material)."
-msgstr "`zc-receipt-` プレフィックスは、リーク検出器がそれらを削除しないようにするために存在します（レシートは表面化しても安全であり、機密情報を含んでいません）。"
+msgstr "`zc-receipt-` プレフィックスは、リーク検出器がそれらをマスクしないようにするために存在します（レシートは表面化しても安全であり、機密情報を含んでいません）。"
 
 #: src/agents/multi-agent-setup.md
 msgid "The `zeroclaw agents` lifecycle commands perform the full owned-state cascade only in builds with `gateway` and `agent-runtime` enabled, including the standard distributed binary. A reduced-feature CLI still changes config but prints that owned state was not cascaded. Use the gateway dashboard or a binary with both features enabled for the operations below when owned state exists."
@@ -58847,7 +58837,7 @@ msgstr "レビューされていない、またはマルチテナントのスキ
 
 #: src/contributing/user-boundary-proof.md
 msgid "Use synthetic data and dedicated test accounts for live proof. Redact credentials, tokens, personal data, and private endpoints. Do not exercise production accounts, irreversible side effects, or paid external operations without explicit authorization."
-msgstr "ライブデモには合成データと専用テストアカウントを使用してください。認証情報、トークン、個人データ、プライベートエンドポイントは削除してください。明示的な承認なしに、本番アカウント、取り消し不可能な副作用、または有料の外部操作を実行しないでください。"
+msgstr "ライブデモには合成データと専用テストアカウントを使用してください。認証情報、トークン、個人データ、プライベートエンドポイントは伏せてください。明示的な承認なしに、本番アカウント、取り消し不可能な副作用、または有料の外部操作を実行しないでください。"
 
 #: src/maintainers/reviewer-playbook.md
 msgid "Use the PR stale ramp below. PR backlog pruning uses `needs-author-action` and `stale-candidate`; issue stale sweeps use `status:stale` under the canonical [issue stale policy](./labels.md#issue-stale-policy)."
@@ -62666,7 +62656,7 @@ msgstr "Arduino Uno Q 上の ZeroClaw: ステップバイステップガイド"
 
 #: src/hardware/nucleo-setup.md
 msgid "ZeroClaw on Nucleo-F401RE: Step-by-Step Guide"
-msgstr "Nucleo-F401RE で使う ZeroClaw: ステップバイステップガイド"
+msgstr "Nucleo-F401RE 上の ZeroClaw: ステップバイステップガイド"
 
 #: src/hardware/hardware-peripherals-design.md
 msgid "ZeroClaw on Pi; GPIO via rppal or sysfs. No separate firmware."
@@ -64487,7 +64477,7 @@ msgstr "[セキュリティ概要](../security/overview.md)"
 
 #: src/getting-started/yolo.md
 msgid "[Security → Autonomy levels](../security/autonomy.md): the full gradient between YOLO and paranoid"
-msgstr "[セキュリティ → 自律レベル](../security/autonomy.md)：YOLOからparanoidまでの完全なグラデーション"
+msgstr "[セキュリティ → 自律レベル](../security/autonomy.md)：YOLO からパラノイドまでの全段階"
 
 #: src/channels/acp.md
 msgid "[Security → Autonomy](../security/autonomy.md)"
@@ -85211,15 +85201,15 @@ msgstr "証明書の新規発行または更新、"
 
 #: src/architecture/runtime-composition.md
 msgid "api, **channels**, config, hardware, infra, log, memory, providers, **runtime**, spawn, tls, tools; plugins (optional)"
-msgstr "API、**チャンネル**、設定、ハードウェア、インフラ、ログ、メモリ、プロバイダー、**ランタイム**、起動、TLS、ツール；プラグイン（任意）"
+msgstr "api、**channels**、config、hardware、infra、log、memory、providers、**runtime**、spawn、tls、tools；plugins（任意）"
 
 #: src/architecture/runtime-composition.md
 msgid "api, commands, config, infra, log, macros, **memory**, **providers**, relay-proto, sop-graph, spawn, tls, tool-call-parser, **tools**; plugins (optional)"
-msgstr "api、コマンド、設定、インフラ、ログ、マクロ、**メモリ**、**プロバイダー**、relay-proto、sop-graph、spawn、tls、tool-call-parser、**ツール**；プラグイン（任意）"
+msgstr "api、commands、config、infra、log、macros、**memory**、**providers**、relay-proto、sop-graph、spawn、tls、tool-call-parser、**tools**；plugins（任意）"
 
 #: src/architecture/runtime-composition.md
 msgid "api, config, infra, log, memory, providers, **runtime**, spawn, tool-call-parser; tools (optional)"
-msgstr "api, 設定, インフラ, ログ, メモリ, プロバイダー, **ランタイム**, spawn, tool-call-parser; ツール (任意)"
+msgstr "api, config, infra, log, memory, providers, **runtime**, spawn, tool-call-parser; tools (任意)"
 
 #: src/setup/container.md
 msgid "apiVersion"
@@ -86598,7 +86588,7 @@ msgstr "integer?"
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "internal principals are implemented for cron, daemon/SOP, peer-agent, and subturn entry points, with tests proving they are provenance facts and never peer-membership grants;"
-msgstr "内部プリンシパルは cron、daemon/SOP、peer-agent、subturn のエントリポイントに実装されており、テストによって、それらが来歴に関する事実であり、peer-membership の付与では決してないことが証明されています;"
+msgstr "内部プリンシパルは cron、daemon/SOP、peer-agent、subturn のエントリポイントに実装されており、テストによって、それらが来歴に関する事実であり、ピアメンバーシップの付与では決してないことが証明されています;"
 
 #: src/setup/container.md
 msgid "interval"
@@ -87892,7 +87882,7 @@ msgstr "共有ガードプリミティブが `zeroclaw-infra::net_guard` にあ�
 
 #: src/sop/fan-in/overview.md
 msgid "the step's `scope` excludes it under `step_scope_enforce`, or it is a SOP control tool"
-msgstr "ステップの `scope` で `step_scope_enforce` によって除外されているか、SOP 制御ツールである"
+msgstr "`step_scope_enforce` の下でステップの `scope` によって除外されているか、SOP 制御ツールである"
 
 #: src/plugins/migrating-to-typed-config.md
 msgid "the stored string does not parse as the declared type"

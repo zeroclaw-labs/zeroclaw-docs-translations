@@ -4187,7 +4187,7 @@ msgstr "**Bouclez la boucle.** Lorsque quelqu'un prend le temps de relire votre 
 
 #: src/channels/acp.md
 msgid "**Close vs. stop:** `session/close` deactivates the session while preserving its persistent record for later reload. `session/stop` also removes the session from memory but has the same effect on the store. Neither deletes the SQLite record."
-msgstr "**Fermeture vs. arrêt :** `session/close` désactive la session tout en préservant son enregistrement persistant pour un rechargement ultérieur. `session/stop` supprime également la session de la mémoire mais a le même effet sur le store. Ni l'un ni l'autre ne supprime l'enregistrement SQLite."
+msgstr "**Fermeture vs. arrêt :** `session/close` désactive la session tout en préservant son enregistrement persistant pour un rechargement ultérieur. `session/stop` supprime également la session de la mémoire mais a le même effet sur le magasin. Ni l'un ni l'autre ne supprime l'enregistrement SQLite."
 
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "**Code-adjacent documents** that must version with the codebase (ADRs, API specs, security policy, contribution process)"
@@ -4951,7 +4951,7 @@ msgstr "**Lacunes :** une lacune est signalée, jamais ignorée. Un curseur qui 
 
 #: src/developing/how-plugins-work.md
 msgid "**Gate.** If `[plugins] enabled` is false, the loader does nothing. This is the first and cheapest check."
-msgstr "**Gate.** Si `` `[plugins] enabled` `` est `false`, le chargeur ne fait rien. Il s'agit de la première vérification, et la plus légère."
+msgstr "**Contrôle d'activation.** Si `[plugins] enabled` est `false`, le chargeur ne fait rien. Il s'agit de la première vérification, et la plus légère."
 
 #: src/sop/decision-models.md
 msgid "**Gate:** should this event start this SOP at all?"
@@ -6093,7 +6093,7 @@ msgstr "**Sortant uniquement.** `ChannelSource` couvre les canaux par lesquels l
 
 #: src/providers/streaming.md
 msgid "**Outbound policy is per turn.** In `multi_message` mode each completed narration turn crosses outbound policy (the `on_message_sending` hook and leak redaction) exactly once, scoped to that turn rather than to the whole accumulated transcript. This keeps a stateful hook from re-processing an earlier turn when a later one is appended. As a consequence the \"narration is delivered before an approval prompt\" guarantee holds per delivered turn. A secret that straddles two turn boundaries is still caught before the final reply: each completing narration turn is scanned with a bounded suffix of the **guarded delivered history** as cross-turn context (the history the channel actually received, so a fragment the outbound hook itself created is included and a prior redaction is not re-flagged), so the fragment that completes the split is redacted when that turn crosses outbound policy, not deferred to the fully redacted final reply."
-msgstr "**La politique sortante s'applique par tour.** En mode `multi_message`, chaque tour de narration terminé traverse la politique sortante (le hook `on_message_sending` et le masquage des fuites) exactement une fois, limitée à ce tour plutôt qu'à l'ensemble de la transcription accumulée. Cela évite qu'un hook à état retraite un tour antérieur lorsqu'un tour ultérieur est ajouté. En conséquence, la garantie « la narration est livrée avant une demande d'approbation » tient par tour livré. Un secret à cheval sur deux frontières de tours est tout de même détecté avant la réponse finale : chaque tour de narration qui se termine est analysé avec un suffixe borné de l'**historique livré protégé** comme contexte inter-tours (l'historique que le canal a effectivement reçu, de sorte qu'un fragment créé par le hook sortant lui-même est inclus et qu'un masquage antérieur n'est pas signalé à nouveau). Ainsi, le fragment qui complète le partage est masqué lorsque ce tour traverse la politique sortante, et non reporté à la réponse finale entièrement masquée."
+msgstr "**La politique sortante s'applique par tour.** En mode `multi_message`, chaque tour de narration terminé traverse la politique sortante (le hook `on_message_sending` et le masquage des fuites) exactement une fois, limitée à ce tour plutôt qu'à l'ensemble de la transcription accumulée. Cela évite qu'un hook à état retraite un tour antérieur lorsqu'un tour ultérieur est ajouté. En conséquence, la garantie « la narration est livrée avant une demande d'approbation » tient par tour livré. Un secret à cheval sur deux frontières de tours est tout de même détecté avant la réponse finale : chaque tour de narration qui se termine est analysé avec un suffixe borné de l'**historique livré protégé** comme contexte inter-tours (l'historique que le canal a effectivement reçu, de sorte qu'un fragment créé par le hook sortant lui-même est inclus et qu'un masquage antérieur n'est pas signalé à nouveau). Ainsi, le fragment qui complète le secret scindé est masqué lorsque ce tour traverse la politique sortante, et non reporté à la réponse finale entièrement masquée."
 
 #: src/channels/matrix.md
 msgid "**Outbound voice markers:** the agent can also emit `[voice:<url|path>]` explicitly, which uploads that file as a voice note whatever the peer group says."
@@ -6877,7 +6877,7 @@ msgstr "**Revenir en arrière** est une opération sur les données de configura
 
 #: src/contributing/rfcs.md
 msgid "**Rollout**: feature-flagged? schema-versioned? breaking change window?"
-msgstr "**Déploiement** : derrière un indicateur de fonctionnalité ? avec version de schéma ? fenêtre de changement cassant ?"
+msgstr "**Déploiement** : derrière un indicateur de fonctionnalité ? schéma versionné ? fenêtre de changement incompatible ?"
 
 #: src/hardware/raspberry-pi-setup.md
 msgid "**Rootless by default.** No root daemon; containers run as your user, which matters on an exposed edge device."
@@ -18525,7 +18525,7 @@ msgstr "Pipeline multimédia canal/passerelle et `MediaAttachment`"
 #: src/ops/troubleshooting.md src/hardware/hardware-peripherals-design.md
 #: src/contributing/user-boundary-proof.md
 msgid "Channels"
-msgstr "Chaînes"
+msgstr "Canaux"
 
 #: src/SUMMARY.md
 msgid "Channels & Integrations"
@@ -27982,7 +27982,7 @@ msgstr "Git (GitHub / Gitea / Forgejo)"
 
 #: src/channels/overview.md
 msgid "Git forge behind a provider seam (GitHub, Gitea, Forgejo); REST polling of issues, PRs, CI runs & releases with per-event routing"
-msgstr "Forge Git derrière une interface de fournisseur (GitHub, Gitea, Forgejo) ; polling REST des tickets, PRs, exécutions CI et releases avec routage par événement"
+msgstr "Forge Git derrière une interface de fournisseur (GitHub, Gitea, Forgejo) ; interrogation REST des tickets, PR, exécutions CI et versions, avec routage par événement"
 
 #: src/contributing/communication.md
 msgid "Git forge channel (GitHub, Gitea, Forgejo)"
@@ -32140,7 +32140,7 @@ msgstr "Système d'initialisation / d'exécution"
 
 #: src/reference/config.md
 msgid "Initial backoff for channel/daemon restarts."
-msgstr "Délai d'attente initial pour les redémarrages de canal/daemon."
+msgstr "Délai initial de temporisation (backoff) pour les redémarrages de canal/daemon."
 
 #: src/foundations/fnd-001-intentional-architecture.md
 #: src/foundations/fnd-003-governance.md
@@ -33496,7 +33496,7 @@ msgstr "Couche : Core"
 
 #: src/architecture/crates.md
 msgid "Layer: Edge"
-msgstr "Couche : Arête"
+msgstr "Couche : Périphérie"
 
 #: src/architecture/crates.md
 msgid "Layer: Support"
@@ -34907,7 +34907,7 @@ msgstr "Nombre maximal de requêtes `/webhook` par minute par clé client."
 
 #: src/reference/config.md
 msgid "Max backoff for channel/daemon restarts."
-msgstr "Délai d'attente maximal pour les redémarrages de canal/daemon."
+msgstr "Délai maximal de temporisation (backoff) pour les redémarrages de canal/daemon."
 
 #: src/reference/config.md
 msgid "Max embedding cache entries before LRU eviction"
@@ -63185,7 +63185,7 @@ msgstr "[Vue d'ensemble des canaux](./overview.md)"
 
 #: src/channels/nextcloud-talk.md src/channels/webhook.md src/channels/acp.md
 msgid "[Channels → Overview](./overview.md)"
-msgstr "[Chaînes → Vue d'ensemble](./overview.md)"
+msgstr "[Canaux → Vue d'ensemble](./overview.md)"
 
 #: src/sop/fan-in/overview.md
 msgid "[Channels: Overview](../../channels/overview.md): the transport side of MQTT, filesystem, and AMQP"
@@ -85075,15 +85075,15 @@ msgstr "toute nouvelle émission ou tout renouvellement de certificat,"
 
 #: src/architecture/runtime-composition.md
 msgid "api, **channels**, config, hardware, infra, log, memory, providers, **runtime**, spawn, tls, tools; plugins (optional)"
-msgstr "api, **canaux**, configuration, matériel, infrastructure, journal, mémoire, fournisseurs, **runtime**, lancement de processus, tls, outils ; plugins (optionnel)"
+msgstr "api, **channels**, config, hardware, infra, log, memory, providers, **runtime**, spawn, tls, tools ; plugins (optionnel)"
 
 #: src/architecture/runtime-composition.md
 msgid "api, commands, config, infra, log, macros, **memory**, **providers**, relay-proto, sop-graph, spawn, tls, tool-call-parser, **tools**; plugins (optional)"
-msgstr "api, commandes, config, infra, journal, macros, **mémoire**, **fournisseurs**, relay-proto, sop-graph, spawn, tls, tool-call-parser, **outils** ; plugins (optionnel)"
+msgstr "api, commands, config, infra, log, macros, **memory**, **providers**, relay-proto, sop-graph, spawn, tls, tool-call-parser, **tools** ; plugins (optionnel)"
 
 #: src/architecture/runtime-composition.md
 msgid "api, config, infra, log, memory, providers, **runtime**, spawn, tool-call-parser; tools (optional)"
-msgstr "api, config, infra, log, mémoire, fournisseurs, **runtime**, spawn, tool-call-parser ; outils (facultatif)"
+msgstr "api, config, infra, log, memory, providers, **runtime**, spawn, tool-call-parser ; tools (facultatif)"
 
 #: src/setup/container.md
 msgid "apiVersion"
@@ -87803,7 +87803,7 @@ msgstr "suivi"
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "transport-edge authentication, pairing, allowlists, signature checks, payload validation, rate limits, self/bot filtering, and abuse controls remain enforced before normalized model admission;"
-msgstr "La authentification en périphérie de transport, l'appairage, les listes d'autorisation, les vérifications de signature, la validation des charges utiles, les limites de débit, le filtrage des messages propres et des bots, ainsi que les contrôles anti-abus restent appliqués avant l'admission du modèle normalisé ;"
+msgstr "L'authentification en périphérie de transport, l'appairage, les listes d'autorisation, les vérifications de signature, la validation des charges utiles, les limites de débit, le filtrage des messages propres et des bots, ainsi que les contrôles anti-abus restent appliqués avant l'admission du modèle normalisé ;"
 
 #: src/channels/filesystem.md
 msgid "trigger `path` glob does not match"
