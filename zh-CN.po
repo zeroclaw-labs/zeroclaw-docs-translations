@@ -530,7 +530,10 @@ msgid ""
 "\"Redact secrets and PII from text before it reaches a log, \\\n"
 "             channel, or model. Masks emails, credential prefixes, and \\\n"
 "             operator-configured literal patterns.\""
-msgstr "\"在文本到达日志、通道或模型之前，对其中的机密和 PII 进行编辑。屏蔽电子邮件、凭据前缀以及运维人员配置的字面模式。\""
+msgstr ""
+"\"在文本到达日志、通道或模型之前，\\\n"
+"             对其中的机密和 PII 进行脱敏。屏蔽电子邮件、凭据前缀\\\n"
+"             以及运维人员配置的字面模式。\""
 
 #: src/channels/acp.md
 msgid "\"Reject\""
@@ -2900,7 +2903,8 @@ msgstr "# 运行中 / 已停止，上次退出代码\n"
 
 #: src/zerocode/environment.md
 msgid "# runs (git push, ssh, gpg-sign) gets SSH_AUTH_SOCK from your terminal.\n"
-msgstr "# runs（git push、ssh、gpg-sign）会从你的终端获取 SSH_AUTH_SOCK。\n"
+msgstr ""
+"# 运行的命令（git push、ssh、gpg-sign）会从你的终端获取 SSH_AUTH_SOCK。\n"
 
 #: src/developing/building-docs.md src/maintainers/docs-and-translations.md
 msgid "# serve all locales at http://localhost:3000/en/\n"
@@ -3232,7 +3236,7 @@ msgid ""
 "'s client_secret):\n"
 "export ZEROCLAW_AUTH_TOKEN=\"$(zeroclaw oidc token corp)\"\n"
 msgstr ""
-"ś的 client_secret）：\n"
+"的 client_secret）：\n"
 "export ZEROCLAW_AUTH_TOKEN=\"$(zeroclaw oidc token corp)\"\n"
 
 #: src/setup/freebsd.md
@@ -3600,7 +3604,7 @@ msgstr "**Agent**"
 
 #: src/agents/delegation.md
 msgid "**Agentic children** (bounded or independent) are bound to the launching turn's cancellation and stop with it."
-msgstr "**Agentic children**（有界或独立）与发起它们的轮次的取消机制绑定，并随之停止。"
+msgstr "**代理式子节点**（有界或独立）与发起它们的轮次的取消机制绑定，并随之停止。"
 
 #: src/getting-started/concepts.md
 msgid "**Alias.** An alias is the name you assign to a configured instance, then reference elsewhere to point at it. You choose the name freely; other parts of the config wire things together by that name. Aliases are lowercase ASCII letters, digits, and single underscores, must start and end with a letter or digit, and cannot contain `__` or hyphens. In the config they appear as the `<alias>` segment of a section header, such as `[agents.<alias>]` or `[providers.models.<type>.<alias>]`. See [Reference → Environment variables → Alias grammar](../reference/env-vars.md#alias-grammar)."
@@ -4736,7 +4740,7 @@ msgstr "**事件驱动自动化：** [标准操作程序](../sop/index.md) · [G
 
 #: src/channels/git.md
 msgid "**Events API backbone (optional, GitHub).** `events_backbone = true` additionally polls `/repos/{owner}/{repo}/events` with ETag-conditional requests (one request per repo per tick; an idle repo answers 304 and costs almost nothing). Caveats: the feed lags by up to ~5 minutes, payloads are trimmed, and **Actions events never appear in it**: workflow runs always use their dedicated endpoint. Anything surfaced by both the feed and a targeted endpoint is de-duplicated, so it's safe to combine. Gitea/Forgejo ignore this option today."
-msgstr "**Events API backbone（可选，GitHub）。** `events_backbone = true` 还会使用 ETag 条件请求轮询 `/repos/{owner}/{repo}/events`（每个 repo 每个 tick 一次请求；空闲 repo 会返回 304，几乎没有成本）。注意事项：该 feed 最多会滞后约 5 分钟，payload 会被裁剪，而且 **Actions events never appear in it**：workflow runs 始终使用其专用 endpoint。凡是同时出现在 feed 和目标 endpoint 中的内容都会去重，因此可以安全组合。Gitea/Forgejo 目前会忽略此选项。"
+msgstr "**Events API 骨干（可选，GitHub）。** `events_backbone = true` 还会使用 ETag 条件请求轮询 `/repos/{owner}/{repo}/events`（每个 repo 每个 tick 一次请求；空闲 repo 会返回 304，几乎没有成本）。注意事项：该 feed 最多会滞后约 5 分钟，payload 会被裁剪，而且 **Actions 事件永远不会出现在其中**：workflow runs 始终使用其专用 endpoint。凡是同时出现在 feed 和目标 endpoint 中的内容都会去重，因此可以安全组合。Gitea/Forgejo 目前会忽略此选项。"
 
 #: src/channels/mattermost.md
 msgid "**Everyone in the channel can read the tool arguments.** The prompt includes the tool name and a summary of its arguments. Route approvals to a channel whose membership you are comfortable showing those to."
@@ -5514,7 +5518,7 @@ msgstr "**MIT 许可证**：宽松的开源使用授权"
 
 #: src/sop/syntax.md
 msgid "**MQTT / cron / filesystem / channel-router** (and any other headless source that only logs its dispatch results): no per-message redelivery, so a deferred trigger is dropped after a loud log (the next scheduled/published/observed trigger is the only recovery)."
-msgstr "**MQTT / cron / filesystem / channel-router**（以及其他任何仅记录调度结果的无头源）：不支持逐消息重新投递，因此延迟触发器在产生明显日志记录后即被丢弃（唯一的恢复方式是等待下一次计划/发布/观测到的触发器）。"
+msgstr "**MQTT / cron / 文件系统 / 通道路由器**（以及其他任何仅记录调度结果的无头源）：不支持逐消息重新投递，因此延迟触发器在产生明显日志记录后即被丢弃（唯一的恢复方式是等待下一次计划/发布/观测到的触发器）。"
 
 #: src/sop/fan-in/overview.md
 msgid "**MQTT transport**"
@@ -5802,11 +5806,11 @@ msgstr "**后续发布：** 使用 `workflow_dispatch` 并指定标签 `v0.8.0-b
 
 #: src/channels/nextcloud-talk.md
 msgid "**Nextcloud server 27.1 or later with Talk 17.1 or later.** This is a hard minimum, not a recommendation: the signed Talk Bot API this integration uses to send replies was introduced in Talk 17.1, and `occ talk:bot:install` below is unavailable on earlier releases."
-msgstr "**Nextcloud server 27.1 或更高版本，以及 Talk 17.1 或更高版本。** 这是硬性最低要求，而非建议：此集成用于发送回复的已签名 Talk Bot API 是在 Talk 17.1 中引入的，且早期版本不支持下方的 `occ talk:bot:install`。"
+msgstr "**Nextcloud 服务器 27.1 或更高版本，以及 Talk 17.1 或更高版本。** 这是硬性最低要求，而非建议：此集成用于发送回复的已签名 Talk Bot API 是在 Talk 17.1 中引入的，且早期版本不支持下方的 `occ talk:bot:install`。"
 
 #: src/developing/plugin-protocol.md
 msgid "**No JIT backend** (`plugins-wasm-pulley` or runtime-only): there is no compiler in the binary, so `load_component` deserializes the file directly via `Component::deserialize_file`, treating it as a precompiled `.cwasm` produced by a matching wasmtime. A mismatched artifact is rejected by deserialize's version check."
-msgstr "**No JIT backend** (`plugins-wasm-pulley` or runtime-only)：二进制中没有编译器，因此 `load_component` 会直接通过 `Component::deserialize_file` 反序列化该文件，将其视为由匹配的 wasmtime 生成的预编译 `.cwasm`。版本不匹配的制品会在反序列化的版本检查中被拒绝。"
+msgstr "**无 JIT 后端**（`plugins-wasm-pulley` 或仅运行时）：二进制中没有编译器，因此 `load_component` 会直接通过 `Component::deserialize_file` 反序列化该文件，将其视为由匹配的 wasmtime 生成的预编译 `.cwasm`。版本不匹配的制品会在反序列化的版本检查中被拒绝。"
 
 #: src/setup/freebsd.md
 msgid "**No `zeroclaw service` backend.** The `zeroclaw service install` command knows systemd, OpenRC, launchd, and Windows Task Scheduler, not FreeBSD `rc.d`. You install a small `rc.d` script yourself. This page gives you a complete, tested one."
@@ -6062,7 +6066,7 @@ msgstr "**排序很重要：**版本号提升的 master 部署通常先于发布
 
 #: src/channels/git-github-app.md
 msgid "**Org app:** switch to the org first (_Settings → Developer settings_ on the organization), so the org owns the app and org admins can manage it."
-msgstr "**Org app:** 先切换到该组织（组织中的 _Settings → Developer settings_），这样该组织就拥有该应用，组织管理员也可以管理它。"
+msgstr "**组织应用：** 先切换到该组织（组织中的 _Settings → Developer settings_），这样该组织就拥有该应用，组织管理员也可以管理它。"
 
 #: src/agents/delegation.md
 msgid "**Origin-session approval forwarding and bounded approvals.** Independent delegates can use an explicit target-owned [approval route](#independent-delegate-approvals), but cannot forward approval to the caller's originating CLI, ACP, RPC, or dashboard session. Bounded agentic targets with non-empty `always_ask` remain blocked before execution, including background and parallel delegation. Non-agentic bounded delegation remains available because it cannot execute child tools."
@@ -7727,7 +7731,7 @@ msgstr "**Token 显示为已过期或无效**：启动时，使用相同的 curl
 
 #: src/agents/history-management.md
 msgid "**Token-budget trimming** acts on the provider-facing `ChatMessage` working history and drops oldest whole turns until the estimated context fits the token budget."
-msgstr "**Token-budget trimming** 作用于面向提供商的 `ChatMessage` 工作历史，并丢弃最旧的完整轮次，直到估计的上下文符合 token 预算。"
+msgstr "**Token 预算裁剪**作用于面向提供商的 `ChatMessage` 工作历史，并丢弃最旧的完整轮次，直到估计的上下文符合 token 预算。"
 
 #: src/architecture/request-lifecycle.md
 msgid "**Tool calls are mid-stream.** The model can emit a tool call while still generating text. The runtime reads the stream to completion, flushing visible text as it arrives, then recovers the tool calls, validates, invokes, feeds the result back, and starts a fresh stream for the next turn."
@@ -9510,7 +9514,7 @@ msgstr "**为构建产物使用 tmpfs**（需有足够的 RAM + swap 空间）�
 
 #: src/maintainers/release-runbook.md
 msgid "**validate failed: version mismatch:** The version bump PR was not merged, or you typed the wrong version. Fix the mismatch and re-trigger."
-msgstr "**validate failed: version mismatch:** 版本升级 PR 未被合并，或者您输入了错误的版本。修复此不一致后重新触发。"
+msgstr "**validate 失败：版本不匹配：** 版本升级 PR 未被合并，或者您输入了错误的版本。修复此不一致后重新触发。"
 
 #: src/zerocode/themes.md
 msgid "**xterm-256** is used for macOS Terminal.app, which lacks 24-bit color (detected via `TERM_PROGRAM=Apple_Terminal`). iTerm2, kitty, WezTerm, Ghostty, and other truecolor terminals are unaffected."
@@ -11532,7 +11536,7 @@ msgstr "**编号归档**通过轮转时写入其文件名中的序号进行寻�
 
 #: src/security/authentication.md
 msgid "A **paired bearer** (`Authorization: Bearer zc_...`) resolves to the shared operator with full access, exactly as before. Denials keep the historical 401 shape."
-msgstr "**paired bearer**（`Authorization: Bearer zc_...`）会解析为拥有完整权限的共享操作员，与之前的行为一致。拒绝访问时仍保持原有的 401 响应格式。"
+msgstr "**已配对的 bearer 令牌**（`Authorization: Bearer zc_...`）会解析为拥有完整权限的共享操作员，与之前的行为一致。拒绝访问时仍保持原有的 401 响应格式。"
 
 #: src/channels/peer-groups.md
 msgid "A **peer group** declares who an agent accepts inbound messages from on a channel, and which other agents it can exchange messages with there. It is the inbound gate for chat channels and the routing primitive for cross-agent dispatch. In config it lives at `[peer_groups.<name>]`. For how peer groups fit into an agent's wiring, see [Agents](../agents/overview.md)."
@@ -11576,7 +11580,7 @@ msgstr "NAT64 转换器会将配置前缀内的任何 IPv6 目标地址投递到
 
 #: src/maintainers/pr-workflow.md
 msgid "A PR carrying `risk:high` or `domain:security` satisfies the two-Core default or every condition of the [expedited second-review lane](#expedited-second-review-lane); automated review never counts as a Core Team approval."
-msgstr "ľ带有 `risk:high` 或 `domain:security` 标签的 PR 需满足默认的两名核心成员审批要求，或满足 [加急二次审查通道](#expedited-second-review-lane) 的全部条件；自动化审查不计入核心团队的审批。"
+msgstr "带有 `risk:high` 或 `domain:security` 标签的 PR 需满足默认的两名核心成员审批要求，或满足 [加急二次审查通道](#expedited-second-review-lane) 的全部条件；自动化审查不计入核心团队的审批。"
 
 #: src/contributing/agent-guidelines.md
 msgid "A PR carrying either `risk:high` or `domain:security` needs deep review and defaults to two independent Core Team approvals before merge. The only standing exception is the human-accountable [expedited second-review lane](../maintainers/pr-workflow.md#expedited-second-review-lane), which never turns automated review into an approval or lets elapsed time clear a finding. Classify uncertainty upward. Validation and rollback evidence should match the actual blast radius, not only the number of changed lines. Use [How to contribute](./how-to.md) for PR mechanics and [Testing](./testing.md) for the validation taxonomy."
@@ -12352,7 +12356,7 @@ msgstr "未在已验证的刷新 head 上重新运行的待定门禁，不适用
 
 #: src/sop/fan-in/git.md
 msgid "A periodic reconciliation sweep can remain as a backstop for forge events that arrive while the polling channel is offline. Send the Git event's stable work item ID as `dedup_key` when the sweep starts the same SOP through the gateway or `sops/run` RPC. For a pull request, the Git channel key is `ghpr_<owner>/<repo>#<number>`:"
-msgstr "A周期性对账扫描可以保留为兜底机制，用于处理在轮询通道离线期间到达的代码托管平台事件。当扫描通过网关或 `sops/run` RPC 启动同一 SOP 时，请将 Git 事件的稳定工作项 ID 作为 `dedup_key` 发送。对于拉取请求，Git 通道键为 `ghpr_<owner>/<repo>#<number>`："
+msgstr "周期性对账扫描可以保留为兜底机制，用于处理在轮询通道离线期间到达的代码托管平台事件。当扫描通过网关或 `sops/run` RPC 启动同一 SOP 时，请将 Git 事件的稳定工作项 ID 作为 `dedup_key` 发送。对于拉取请求，Git 通道键为 `ghpr_<owner>/<repo>#<number>`："
 
 #: src/sop/fan-in/peripheral.md
 msgid "A peripheral signal is matched exactly against `board/signal`."
@@ -12618,11 +12622,11 @@ msgstr "重命名："
 
 #: src/architecture/rpc-socket.md
 msgid "A repeat of an upload the session already indexed is checked against the file on disk. If the file was edited, deleted, or replaced by a link, the uploaded bytes are written back at the indexed path before it is returned."
-msgstr "A对已索引上传内容的重复上传会与磁盘上的文件进行比对。如果该文件被编辑、删除或替换为链接，则在返回之前，已上传的字节会被写回到已索引的路径。"
+msgstr "对已索引上传内容的重复上传会与磁盘上的文件进行比对。如果该文件被编辑、删除或替换为链接，则在返回之前，已上传的字节会被写回到已索引的路径。"
 
 #: src/channels/mattermost.md
 msgid "A reply that matches a pending token is consumed as a decision and never reaches the model."
-msgstr "A与待处理令牌匹配的回复会被视为决策并被消费，不会传递给模型。"
+msgstr "与待处理令牌匹配的回复会被视为决策并被消费，不会传递给模型。"
 
 #: src/contributing/pr-review-protocol.md
 msgid "A required check whose `bucket` is `fail` or `cancel` on the current `headRefOid` is a current failure first. Investigate its cause and classify the concrete failure on its merits; it may be blocking. Do not treat a failed result from an older head as current."
@@ -13006,7 +13010,7 @@ msgstr "A. `zeroclaw-runtime`（骨架当前的放置位置）"
 
 #: src/SUMMARY.md src/gateway/a2a-discovery.md
 msgid "A2A agent discovery"
-msgstr "A2A agent 发现"
+msgstr "A2A 代理发现"
 
 #: src/gateway/a2a-discovery.md
 msgid "A2A is not MCP"
@@ -14404,7 +14408,7 @@ msgstr "Agent 工具注册表、风险配置文件、每次运行的范围收窄
 
 #: src/architecture/decisions/ADR-005-pluggable-memory-backends.md
 msgid "Agent, channel, gateway, and tool code can depend on one memory interface."
-msgstr "Agent、channel、gateway 和工具代码可以依赖同一个内存接口。"
+msgstr "代理、通道、网关和工具代码可以依赖同一个内存接口。"
 
 #: src/api.md
 msgid "Agent-callable tools"
@@ -15332,7 +15336,7 @@ msgstr "来自 Meta Business Suite 的应用密钥（用于验证 webhook 签名
 
 #: src/channels/git-github-app.md
 msgid "App settings → **Install App** → pick your account or org → choose **All repositories** or a specific selection. Installation is what grants the app access to repos; without it the app can authenticate but sees nothing."
-msgstr "App settings → **安装 App** → 选择你的账户或组织 → 选择 **All repositories** 或特定选择。安装才会授予 app 对仓库的访问权限；没有安装，app 可以通过身份验证，但看不到任何内容。"
+msgstr "应用设置 → **安装 App** → 选择你的账户或组织 → 选择 **All repositories** 或特定选择。安装才会授予 app 对仓库的访问权限；没有安装，app 可以通过身份验证，但看不到任何内容。"
 
 #: src/maintainers/docs-and-translations.md
 msgid "App strings live in `crates/zeroclaw-runtime/locales/`. English is the source of truth and is embedded at compile time."
@@ -16993,7 +16997,7 @@ msgstr "启用后，Boards 会变成 agent 工具。"
 
 #: src/reference/config.md
 msgid "Bocha AI Web Search API key (required if search_provider is `\"bocha\"`). Obtain at <https://open.bochaai.com>."
-msgstr "Bocha AI Web Search API key（当 search_provider 为 `\"bocha\"` 时必需）。请访问 <https://open.bochaai.com> 获取。"
+msgstr "Bocha AI Web Search API 密钥（当 search_provider 为 `\"bocha\"` 时必需）。请访问 <https://open.bochaai.com> 获取。"
 
 #: src/foundations/fnd-003-governance.md
 msgid "Body edits before a vote do not need a waiting period. The vote opener is responsible for deciding whether the body is stable enough to snapshot. Body edits after a vote opens either stop the current vote as a material replacement or remain outside the voted snapshot until the next revision."
@@ -18463,7 +18467,7 @@ msgstr "频道插件（Telegram、Discord 等）"
 
 #: src/channels/mattermost.md
 msgid "Channel purpose as instructions (`purpose_as_instructions`)"
-msgstr "Channel purpose 作为指令 (`purpose_as_instructions`)"
+msgstr "频道用途作为指令（`purpose_as_instructions`）"
 
 #: src/SUMMARY.md src/architecture/channel-runtime-lifecycle.md
 msgid "Channel runtime lifecycle"
@@ -22543,7 +22547,7 @@ msgstr "当推送新提交时，撤销过期的审批。"
 
 #: src/maintainers/release-runbook.md
 msgid "Dispatch **Deploy mdBook docs to Pages** from branch **master**, set **mode** to `promote-stable`, and set **tag** to the exact final tag, for example `v0.8.5`. The default `build` mode retains the normal build behavior."
-msgstr "Dispatch **Deploy mdBook docs to Pages** 工作流，分支选择 **master**，将 **mode** 设为 `promote-stable`，并将 **tag** 设为确切的最终标签，例如 `v0.8.5`。默认的 `build` 模式保留常规构建行为。"
+msgstr "触发 **Deploy mdBook docs to Pages** 工作流，分支选择 **master**，将 **mode** 设为 `promote-stable`，并将 **tag** 设为确切的最终标签，例如 `v0.8.5`。默认的 `build` 模式保留常规构建行为。"
 
 #: src/channels/amqp.md
 msgid "Dispatch modes"
@@ -22623,7 +22627,7 @@ msgstr "不要仅仅因为工作包含以下内容就提交 RFC："
 
 #: src/architecture/config-lifecycle.md
 msgid "Do CLI, gateway, RPC/TUI, and quickstart surfaces agree on the dotted path?"
-msgstr "CLI、gateway、RPC/TUI 和 quickstart 各界面在带点路径上是否一致？"
+msgstr "CLI、网关、RPC/TUI 和 quickstart 各界面在带点路径上是否一致？"
 
 #: src/architecture/tool-execution-lifecycle.md
 msgid "Do `excluded_tools`, per-run narrowing, `tool_filter_groups`, and deferred MCP activation still agree?"
@@ -23312,7 +23316,7 @@ msgstr "持久性"
 
 #: src/reference/config.md
 msgid "Durable SOP run-state backend selector. A closed, compile-time-known set, so it"
-msgstr "Durable SOP 运行状态后端选择器。一个封闭的、编译期已知的集合，因此它"
+msgstr "持久化 SOP 运行状态后端选择器。一个封闭的、编译期已知的集合，因此它"
 
 #: src/sop/syntax.md
 msgid "Durable backend when `persist_runs` is true. `sqlite` writes `runs.db` under the run-state dir."
@@ -24708,7 +24712,7 @@ msgstr "升级路由配置（`[escalation]` 部分）。"
 
 #: src/reference/config.md
 msgid "Escape hatch: when `true`, the agent can read or write anywhere"
-msgstr "Escape hatch：当 `true` 时，agent 可以在任意位置读写"
+msgstr "应急通道：当 `true` 时，agent 可以在任意位置读写"
 
 #: src/agents/filesystem.md
 msgid "Escape hatch: when `true`, the agent can read or write anywhere the host filesystem permits. Off by default; flipping this on is auditable."
@@ -26308,7 +26312,7 @@ msgstr "完成清单：名称、版本、功能，以及代码使用的最小权
 
 #: src/channels/acp.md
 msgid "Finalized conversation history: the agent's post-turn `ConversationMessage` history, including partial output retained after cancellation or failure, written atomically after the turn reaches a terminal outcome"
-msgstr "Finalized conversation history：智能体在一轮对话达到终结状态后原子写入的 `ConversationMessage` 历史记录，包括取消或失败后保留的部分输出"
+msgstr "已定稿的对话历史：智能体在一轮对话达到终结状态后原子写入的 `ConversationMessage` 历史记录，包括取消或失败后保留的部分输出"
 
 #: src/maintainers/labels.md
 msgid "Finding or work item that must be reconciled for the named release gate"
@@ -27676,7 +27680,7 @@ msgstr "网关 REST/WS"
 
 #: src/architecture/decisions/ADR-008-goal-mode-control-plane-and-usage-accounting.md
 msgid "Gateway ask-user/free-form gap #7776: <https://github.com/zeroclaw-labs/zeroclaw/issues/7776>"
-msgstr "Gateway ask-user/free-form 差距 #7776：<https://github.com/zeroclaw-labs/zeroclaw/issues/7776>"
+msgstr "网关 ask-user/自由格式缺口 #7776：<https://github.com/zeroclaw-labs/zeroclaw/issues/7776>"
 
 #: src/architecture/config-lifecycle.md
 msgid "Gateway bearer auth helper: `crates/zeroclaw-gateway/src/api.rs`"
@@ -27815,7 +27819,7 @@ msgstr "Gateway webhooks"
 
 #: src/architecture/channel-runtime-lifecycle.md
 msgid "Gateway webhooks have one legitimate special requirement: the HTTP request may need to return quickly even when the agent turn is slow. Nextcloud Talk is the clearest example because slow local models can exceed provider webhook timeouts."
-msgstr "Gateway webhooks 有一个合理的特殊要求：即使 agent 的轮次很慢，HTTP 请求也可能需要快速返回。Nextcloud Talk 是最明确的例子，因为较慢的本地模型可能会超过提供方的 webhook 超时。"
+msgstr "网关 webhook 有一个合理的特殊要求：即使 agent 的轮次很慢，HTTP 请求也可能需要快速返回。Nextcloud Talk 是最明确的例子，因为较慢的本地模型可能会超过提供方的 webhook 超时。"
 
 #: src/contributing/user-boundary-proof.md
 msgid "Gateway, API, and dashboard"
@@ -28761,7 +28765,7 @@ msgstr "诚实评估：代码库在告诉我们什么"
 
 #: src/architecture/tool-execution-lifecycle.md
 msgid "Hooks, delivery defaults, approval, prompt-required duplicate guards, and ordinary duplicate-call guards run before dispatch."
-msgstr "Hooks、delivery defaults、approval、prompt-required duplicate guards 和 ordinary duplicate-call guards 在 dispatch 之前运行。"
+msgstr "钩子、投递默认值、审批、针对需要提示的调用的重复保护以及普通的重复调用保护会在分发之前运行。"
 
 #: src/architecture/channel-runtime-lifecycle.md
 msgid "Hooks, self-loop guard, passive context, media/link enrichment, runtime commands, model routing, autosave, memory recall, reply intent, tool execution, receipts, cost, and delivery should live in one path."
@@ -29015,7 +29019,7 @@ msgstr "贡献者、维护者以及借助 AI 协助完成的工作应如何沟�
 
 #: src/maintainers/ci-and-actions.md
 msgid "How the Scoop bucket stays correct"
-msgstr "Scoop bucket 如何保持正确性"
+msgstr "Scoop 存储桶如何保持正确性"
 
 #: src/channels/telegram.md
 msgid "How the current implementation is wired"
@@ -33907,7 +33911,7 @@ msgstr "实时探测：`session/prompt` 接受图像块（没有协议错误）�
 
 #: src/architecture/runtime-state-and-persistence.md
 msgid "Live session handles, uploads, cancel tokens, owners, and overrides are runtime state."
-msgstr "Live session 句柄、上传、取消令牌、所有者和覆盖项是运行时状态。"
+msgstr "实时会话句柄、上传、取消令牌、所有者和覆盖项是运行时状态。"
 
 #: src/contributing/testing.md
 msgid "Live test conventions"
@@ -34767,7 +34771,7 @@ msgstr "用于机器可读性的 Markdown Frontmatter"
 
 #: src/plugins/index.md
 msgid "Markdown-only [skill bundles](../tools/skill-bundles.md) are not plugins, but they travel through the same manifest, signing, and install machinery; that page lives with the Skills documentation."
-msgstr "Markdown-only [skill bundles](../tools/skill-bundles.md) 不是插件，但它们会通过相同的清单、签名和安装机制；该页面与 Skills 文档放在一起。"
+msgstr "仅限 Markdown 的[技能包](../tools/skill-bundles.md)不是插件，但它们会通过相同的清单、签名和安装机制；该页面与技能文档放在一起。"
 
 #: src/developing/building-docs.md src/maintainers/docs-and-translations.md
 msgid "Marked PR-review policy zones"
@@ -35435,7 +35439,7 @@ msgstr "内存存储使用与后端无关的契约，默认采用 SQLite。"
 
 #: src/architecture/memory-payload-lifecycle.md
 msgid "Memory tool registry and examples: `crates/zeroclaw-tools/src/lib.rs` (`MEMORY_TOOL_NAMES`), `crates/zeroclaw-tools/src/memory_store.rs`, and `crates/zeroclaw-tools/src/memory_recall.rs`"
-msgstr "Memory tool 注册表和示例：`crates/zeroclaw-tools/src/lib.rs`（`MEMORY_TOOL_NAMES`）、`crates/zeroclaw-tools/src/memory_store.rs` 和 `crates/zeroclaw-tools/src/memory_recall.rs`"
+msgstr "内存工具注册表和示例：`crates/zeroclaw-tools/src/lib.rs`（`MEMORY_TOOL_NAMES`）、`crates/zeroclaw-tools/src/memory_store.rs` 和 `crates/zeroclaw-tools/src/memory_recall.rs`"
 
 #: src/channels/acp.md
 msgid "Memory tools (`memory_recall`, `memory_store`, `memory_forget`, `memory_export`, `memory_purge`) are not available"
@@ -36975,7 +36979,7 @@ msgstr "非空的 `shell_env_passthrough`：宿主机环境变量会传递到 sh
 
 #: src/developing/plugin-protocol.md
 msgid "Non-empty guest message IDs are deduplicated in a namespace derived from the route. An in-flight duplicate waits for the owning delivery to commit or roll back; generation-scoped ownership tokens prevent a stale owner from erasing a replacement reservation. Failed or cancelled delivery rolls back, so a provider retry can become the new owner."
-msgstr "Non-empty guest 消息 ID 会在由路由派生的命名空间内去重。正在处理中的重复消息会等待所属投递提交或回滚；基于代际的所有权令牌可防止过期的所有者清除替换后的预留。投递失败或被取消时会回滚，因此提供方重试可以成为新的所有者。"
+msgstr "非空的 guest 消息 ID 会在由路由派生的命名空间内去重。正在处理中的重复消息会等待所属投递提交或回滚；基于代际的所有权令牌可防止过期的所有者清除替换后的预留。投递失败或被取消时会回滚，因此提供方重试可以成为新的所有者。"
 
 #: src/architecture/decisions/ADR-013-key-source-authority.md
 msgid "Non-file sources add platform dependencies, prompts, external-process behavior, or service availability that the file source does not have."
@@ -40797,7 +40801,7 @@ msgstr "所有者"
 
 #: src/architecture/runtime-state-and-persistence.md
 msgid "Owner PID plus process-start identity prevents recovery from reclaiming live work; heartbeat timeout applies only to producers that emit heartbeats"
-msgstr "Owner PID 加进程启动标识可防止恢复流程回收仍在运行的任务；心跳超时仅适用于会发送心跳的生产者。"
+msgstr "所有者 PID 加进程启动标识可防止恢复流程回收仍在运行的任务；心跳超时仅适用于会发送心跳的生产者。"
 
 #: src/foundations/fnd-005-contribution-culture.md
 msgid "Ownership"
@@ -42740,7 +42744,7 @@ msgstr "Pro"
 
 #: src/channels/matrix.md
 msgid "Proactive delivery (cron `delivery.to`, announcements) has no sender to consult, so a target room is voiced when one of its joined members belongs to such a group."
-msgstr "Proactive delivery（cron `delivery.to`、公告）没有可供咨询的发送者，因此当目标房间中有已加入成员属于此类群组时，该房间即可接收语音。"
+msgstr "主动投递（cron `delivery.to`、公告）没有可供查询的发送者，因此当目标房间中有已加入成员属于此类群组时，该房间即可接收语音。"
 
 #: src/agents/history-management.md
 msgid "Proactive token-budget trimming runs before the first provider call of a turn when history already exceeds the effective budget and at provider-call boundaries between tool-loop iterations. If a provider reports a context-window overflow, the existing reactive recovery path retries after trimming to two thirds of the current estimated history size. It does not derive a new recovery target from model capacity. Both paths retain whole turns, so neither splits a tool exchange."
@@ -43246,9 +43250,7 @@ msgstr "跨工作区 crate 的公共 Rust 项"
 
 #: src/gateway/api.md
 msgid "Public body"
-msgstr ""
-"Public body\n"
-"公共机构"
+msgstr "公开响应体"
 
 #: src/channels/webhook.md
 msgid "Public exposure"
@@ -44278,7 +44280,7 @@ msgstr "发布前请先脱敏"
 
 #: src/reference/config.md
 msgid "Redact configured secret/PII categories before persistence."
-msgstr "在持久化之前对已配置的机密/PII 类别进行编辑处理。"
+msgstr "在持久化之前对已配置的机密/PII 类别进行脱敏处理。"
 
 #: src/reference/config.md
 msgid "Redact outbound SOP content before persistence/audit consumers write it."
@@ -47174,7 +47176,7 @@ msgstr "沙盒化"
 
 #: src/ops/troubleshooting.md
 msgid "Sanitise `zeroclaw-log.txt` (redact channel tokens if any slipped through, they shouldn't) and attach it to the issue. See [Contributing → Communication](../contributing/communication.md) for where."
-msgstr "清理 `zeroclaw-log.txt`（如果有任何频道令牌混入其中，请将其编辑掩盖，不过本不应出现这种情况），并将其附加到该 issue。请参阅 [Contributing → Communication](../contributing/communication.md) 了解附加位置。"
+msgstr "清理 `zeroclaw-log.txt`（如果有任何频道令牌混入其中，请对其进行脱敏，不过本不应出现这种情况），并将其附加到该 issue。请参阅 [Contributing → Communication](../contributing/communication.md) 了解附加位置。"
 
 #: src/setup/freebsd.md
 msgid "Save as `/usr/local/etc/rc.d/zeroclaw`:"
@@ -50536,7 +50538,7 @@ msgstr "Telegram Bot API 的 `getUpdates` 对每个 bot token 只允许单一轮
 
 #: src/reference/config.md
 msgid "Telegram bot channel instances (`[channels.telegram.<alias>]`)."
-msgstr "Telegram bot 频道实例（`[channels.telegram.<alias>]`）。"
+msgstr "Telegram 机器人频道实例（`[channels.telegram.<alias>]`）。"
 
 #: src/ops/network-deployment.md
 msgid "Telegram polling caveat"
@@ -50730,7 +50732,7 @@ msgstr "存在的测试通过"
 
 #: src/reference/config.md
 msgid "Text browser tool configuration (`[text_browser]` section)."
-msgstr "Text browser 工具配置（`[text_browser]` 部分）。"
+msgstr "文本浏览器工具配置（`[text_browser]` 部分）。"
 
 #: src/channels/discord.md
 msgid "Text messages only: no attachments, threads, slash commands, reactions, streaming, typing indicators, or archive search"
@@ -50858,7 +50860,7 @@ msgstr "**Installer Drift** 门禁会在 CI 中检查生成的产物是否与规
 
 #: src/architecture/logging.md
 msgid "The **active file** is addressed by offset plus an anchor event id. Its path is stable but its content is replaced on each rotation, so the anchor is what lets the reader detect that a rotation happened and resume from the archive the anchored event now lives in."
-msgstr "**active file**（活动文件）由偏移量加锚点事件 ID 进行寻址。其路径保持稳定，但每次轮转时内容都会被替换；正是锚点使读取方能够检测到轮转已经发生，并从锚点事件现在所在的归档文件中继续读取。"
+msgstr "**活动文件**由偏移量加锚点事件 ID 进行寻址。其路径保持稳定，但每次轮转时内容都会被替换；正是锚点使读取方能够检测到轮转已经发生，并从锚点事件现在所在的归档文件中继续读取。"
 
 #: src/maintainers/release-runbook.md
 msgid "The **crates.io Package Preflight** gate runs whenever a PR changes `[workspace.package] version` to a stable `X.Y.Z`. It packages every crate in the release set and compiles each one from its own tarball, with no registry token, so a bump whose crates cannot publish cannot merge. Expect it to add about half an hour to the bump PR. It also runs again in the merge queue. If it fails, read the Preflight step first. A packaging or compile error is real and must be fixed in the bump PR. A crates.io API error, an npm install failure, or a runner timeout is infrastructure. Re-run only the failed jobs rather than pushing again. If the outage persists, keep the bump unmerged until required CI is green. The release run independently repeats the same preflight before the GitHub Release."
@@ -51236,7 +51238,7 @@ msgstr "[规范的安装路径](../getting-started/quickstart.md#install)介绍�
 
 #: src/foundations/fnd-003-governance.md
 msgid "The [expedited second-review lane](../maintainers/pr-workflow.md#expedited-second-review-lane) is the only standing exception to the two-Core default. It implements the accepted evidence-based second-review exception and adds a waiting condition based on this document's five-business-day review responsibility. The lane is not automatic, automated review is not an approval, and broad governance, security-floor, release, migration, and irreversible architecture changes continue to default to two human approvals. The maintainer PR workflow owns the full eligibility and accountability rules."
-msgstr "[expedited second-review lane](../maintainers/pr-workflow.md#expedited-second-review-lane) 是对两名 Core 默认审核机制的唯一常设例外。它落实了已接受的、基于证据的第二审核例外机制，并基于本文档中的五个工作日审核责任，增加了一个等待条件。该通道并非自动启用，自动化审核不构成批准，涉及广泛治理、安全底线、发布、迁移以及不可逆架构变更的情况，仍默认需要两名人工批准。完整的资格与问责规则由维护者 PR 工作流负责定义。"
+msgstr "[加急二次审核通道](../maintainers/pr-workflow.md#expedited-second-review-lane)是对两名 Core 默认审核机制的唯一常设例外。它落实了已接受的、基于证据的第二审核例外机制，并基于本文档中的五个工作日审核责任，增加了一个等待条件。该通道并非自动启用，自动化审核不构成批准，涉及广泛治理、安全底线、发布、迁移以及不可逆架构变更的情况，仍默认需要两名人工批准。完整的资格与问责规则由维护者 PR 工作流负责定义。"
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid "The [protocol page](../developing/plugin-protocol.md#build-features) documents the backend choices and [lists plugin support per artifact](../developing/plugin-protocol.md#plugin-support-per-release-artifact)."
@@ -52180,7 +52182,7 @@ msgstr "该频道使用了另一个别名。请使用匹配的 `--alias` 重新�
 
 #: src/architecture/runtime-composition.md
 msgid "The channels starter, cron scheduler, SOP drivers, and `RpcContext` receive the generation's `RuntimeCapabilities`. The gateway starter is deleted at the v0.9.0 cut and receives no capabilities; its own construction disappears as its routes move to RPC"
-msgstr "channels starter、cron 调度器、SOP 驱动程序和 `RpcContext` 接收该代的 `RuntimeCapabilities`。gateway starter 在 v0.9.0 切割时被删除，不接收任何能力；随着其路由迁移到 RPC，其自身的构造也随之消失。"
+msgstr "通道启动器、cron 调度器、SOP 驱动程序和 `RpcContext` 接收该代的 `RuntimeCapabilities`。网关启动器在 v0.9.0 切割时被删除，不接收任何能力；随着其路由迁移到 RPC，其自身的构造也随之消失。"
 
 #: src/architecture/runtime-composition.md
 msgid "The channels, cron, SOP, and `RpcContext` starters gain access to the generation's `RuntimeCapabilities`, so they stop building providers, memory, and tools of their own. That signature change is its own slice (step 4 below). The gateway starter receives no capabilities: it is deleted at the v0.9.0 cut, and its own construction disappears as its routes move to RPC."
@@ -52337,7 +52339,7 @@ msgstr "条件评估器将JSON布尔值转换为字符串 `true` 和 `false`，�
 
 #: src/architecture/config-lifecycle.md
 msgid "The config migrate endpoint prepares a fully hydrated candidate (secrets decrypted, env overrides applied, strict validation) _before_ replacing the file, so a candidate that cannot hydrate or validate is refused with the original file untouched."
-msgstr "config migrate 端点会在 _before_ 替换文件之前，先准备一个完整加载的候选配置（解密机密信息、应用环境变量覆盖、执行严格校验）。因此，无法完成加载或校验的候选配置会被拒绝，原始文件保持不变。"
+msgstr "config migrate 端点会在替换文件 _之前_ 先准备一个完整加载的候选配置（解密机密信息、应用环境变量覆盖、执行严格校验）。因此，无法完成加载或校验的候选配置会被拒绝，原始文件保持不变。"
 
 #: src/providers/configuration.md
 msgid "The config schema additionally defines a `providers.models.bedrock.<alias>.region` field, but the current implementation does not read it. The endpoint region is always resolved from the AWS credential chain (environment variables, `credential_process`, or IMDS) as described above."
@@ -53297,7 +53299,7 @@ msgstr "该层次结构在架构 RFC（#5574）中有完整描述。这里重要
 
 #: src/reference/config.md
 msgid "The hints reference existing `[[model_routes]]` entries; provider credentials, models, and reliability remain owned by those entries and their provider profiles."
-msgstr "The提示引用了现有的 `[[model_routes]]` 条目；提供商凭据、模型和可靠性仍由这些条目及其提供商配置文件管理。"
+msgstr "提示引用了现有的 `[[model_routes]]` 条目；提供商凭据、模型和可靠性仍由这些条目及其提供商配置文件管理。"
 
 #: src/architecture/decisions/ADR-016-holding-crate-exceptions.md
 msgid "The holding-crate instruction keeps its force. This does not weaken it; it supplies the process the instruction assumed but never defined."
@@ -54099,7 +54101,7 @@ msgstr "该策略对未来任何 GitHub 状态在实质上都是正确的"
 
 #: src/architecture/decisions/ADR-014-plugin-egress-authority.md
 msgid "The policy read happens per request rather than per instantiation, so the configuration resolver is on the connection path."
-msgstr "The策略读取是按请求进行的，而不是按实例化进行的，因此配置解析器位于连接路径上。"
+msgstr "策略读取是按请求进行的，而不是按实例化进行的，因此配置解析器位于连接路径上。"
 
 #: src/agents/delegation.md
 msgid "The policy's `allowed_tools` / `excluded_tools` (sourced from the parent's `risk_profile`)."
@@ -55183,7 +55185,7 @@ msgstr "团队的工作方式是被动应对：谁的声音最大谁就得到关
 
 #: src/gateway/api.md
 msgid "The ten-second request lifetime cancelled parsing or delivery."
-msgstr "ååºæ—¶é—´é™åˆ¶ä¸º 10 ç§’ï¼Œè¶…æ—¶åŽå–æ¶ˆäº†è§£æžæˆ–æŠ•é€’ã€‚"
+msgstr "请求时间限制为 10 秒，超时后取消了解析或投递。"
 
 #: src/contributing/rfcs.md
 msgid "The test follows substantive project effect, not the issue title, the author, whether the draft was AI-assisted, or the mere presence of a migration, feature, or default change. When you are unsure, open an ordinary issue and say why you think it might cross a trigger. A maintainer can promote it; that costs far less than a stalled RFC."
@@ -57182,7 +57184,7 @@ msgstr "工具收据"
 
 #: src/security/tool-receipts.md
 msgid "Tool receipts are cryptographic proofs that a successful tool result came from the runtime. When receipts are enabled, successful tool executions receive an HMAC-SHA256 digest over the call and its result. The digest is appended to the tool-result text and passed back to the model as part of the conversation."
-msgstr "Tool receipts 是加密证明，用于表明一个成功的工具结果来自运行时。启用 receipts 时，成功的工具执行会收到一个针对调用及其结果的 HMAC-SHA256 摘要。该摘要会追加到工具结果文本中，并作为对话的一部分传回给模型。"
+msgstr "工具收据是加密证明，用于表明一个成功的工具结果来自运行时。启用收据时，成功的工具执行会收到一个针对调用及其结果的 HMAC-SHA256 摘要。该摘要会追加到工具结果文本中，并作为对话的一部分传回给模型。"
 
 #: src/security/tool-receipts.md
 msgid "Tool receipts close that gap with the cheapest possible construct: a symmetric MAC with an ephemeral in-memory key."
@@ -58317,7 +58319,7 @@ msgstr "Unix 套接字目录：`0o700`（仅所有者）"
 
 #: src/architecture/rpc-socket.md
 msgid "Unix socket file: `0o600` (owner only)"
-msgstr "Unix socket 文件：`0o600`（仅所有者）"
+msgstr "Unix 套接字文件：`0o600`（仅所有者）"
 
 #: src/reference/config.md
 msgid "Unix uid accepted for this user over the local socket (peer"
@@ -59713,7 +59715,7 @@ msgstr "由异步互斥锁保护的热存储，每次调用都会重新填充"
 
 #: src/plugins/index.md
 msgid "Warm store behind an async mutex, refueled per call; imports scoped `config`, `secrets`, durable `state`, and host-fed `inbound`"
-msgstr "Warm store 放在异步互斥锁之后，每次调用时重新填充；导入的作用域包括 `config`、`secrets`、持久化的 `state`，以及由宿主提供的 `inbound`"
+msgstr "由异步互斥锁保护的热存储，每次调用时重新填充；导入限定作用域的 `config`、`secrets`、持久化的 `state`，以及由宿主提供的 `inbound`"
 
 #: src/foundations/fnd-003-governance.md
 msgid "Warn (not block) if a PR is merged without a linked issue that has a milestone assigned. This is a gentle nudge, not a hard gate: the goal is to prevent work from happening without being tracked to a release."
@@ -59841,7 +59843,7 @@ msgstr "Web 仪表盘 (web_dist_dir)"
 
 #: src/reference/config.md
 msgid "Web fetch tool configuration (`[web_fetch]` section)."
-msgstr "Web fetch 工具配置（`[web_fetch]` 部分）。"
+msgstr "网页抓取工具配置（`[web_fetch]` 部分）。"
 
 #: src/getting-started/quickstart.md
 msgid "Web gateway"
@@ -59853,7 +59855,7 @@ msgstr "网页模式"
 
 #: src/reference/config.md
 msgid "Web search tool configuration (`[web_search]` section)."
-msgstr "Web search 工具配置（`[web_search]` 部分）。"
+msgstr "网页搜索工具配置（`[web_search]` 部分）。"
 
 #: src/tools/overview.md
 msgid "Web search. Provider is configurable: DuckDuckGo (default, no key), Brave, Tavily, SearXNG, Jina, Bocha, AnySearch, Serply, or Keenable (no key required; optional key lifts rate limits)"
@@ -61949,7 +61951,7 @@ msgstr "为工作区中的每个新 crate 编写 `AGENTS.md` 文件（按照架�
 
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "Write `docs/book/src/architecture/diagrams/component-map.md` (Mermaid, reflects target crate topology)"
-msgstr "Write `docs/book/src/architecture/diagrams/component-map.md`（Mermaid，反映目标 crate 拓扑）"
+msgstr "编写 `docs/book/src/architecture/diagrams/component-map.md`（Mermaid，反映目标 crate 拓扑）"
 
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "Write `docs/book/src/architecture/diagrams/data-flow.md` (Mermaid, message lifecycle)"
@@ -62697,7 +62699,7 @@ msgstr "ZeroClaw 工具是模型在一次对话轮次中可以调用的能力。
 
 #: src/architecture/decisions/ADR-004-tool-shared-state-ownership.md
 msgid "ZeroClaw tools execute in a multi-client environment where a single daemon process can serve multiple connected clients and agent sessions. Some tools need long-lived shared state:"
-msgstr "ZeroClaw tools 在多客户端环境中运行，在这种环境下，单个守护进程可以为多个已连接的客户端和代理会话提供服务。某些工具需要长生命周期的共享状态："
+msgstr "ZeroClaw 工具在多客户端环境中运行，在这种环境下，单个守护进程可以为多个已连接的客户端和代理会话提供服务。某些工具需要长生命周期的共享状态："
 
 #: src/maintainers/release-verification.md
 msgid "ZeroClaw uses GitHub artifact attestations as the canonical provenance mechanism for downloadable release assets. Each successful attestation records the asset digest, source commit, and release workflow identity as SLSA v1.0 Build Level 2 provenance."
@@ -62899,7 +62901,7 @@ msgstr "[ADR-002](./ADR-002-trait-driven-extensibility.md) 记录了 Rust 扩展
 
 #: src/architecture/decisions/ADR-009-wit-wasmtime-plugin-execution.md
 msgid "[ADR-003: WASM plugins use Extism as the initial execution bridge](./ADR-003-wasm-plugin-model.md)"
-msgstr "[ADR-003: WASM plugins use Extism 作为初始执行桥接](./ADR-003-wasm-plugin-model.md)"
+msgstr "[ADR-003：WASM 插件使用 Extism 作为初始执行桥接](./ADR-003-wasm-plugin-model.md)"
 
 #: src/architecture/decisions/index.md
 msgid "[ADR-003](./ADR-003-wasm-plugin-model.md)"
@@ -63573,7 +63575,7 @@ msgstr "[生成文档流水线](../architecture/generated-documentation-pipeline
 
 #: src/sop/fan-in/git.md
 msgid "[Git channel](../../channels/git.md): provider, forge auth, polling, event routes"
-msgstr "[Git channel](../../channels/git.md)：provider、forge auth、polling、event routes"
+msgstr "[Git 通道](../../channels/git.md)：provider、forge 身份验证、轮询、事件路由"
 
 #: src/foundations/fnd-004-engineering-infrastructure.md
 msgid "[GitHub Actions security hardening](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions): Official guidance on SHA pinning, token permissions, and supply chain risk in Actions workflows."
@@ -63989,7 +63991,7 @@ msgstr "[所有权](#ownership)"
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "[PR #10425: internal-principal envelope and separated cron run outcomes](https://github.com/zeroclaw-labs/zeroclaw/pull/10425)"
-msgstr "[PR #10425：internal-principal 信封与分离的 cron 运行结果](https://github.com/zeroclaw-labs/zeroclaw/pull/10425)"
+msgstr "[PR #10425：内部主体信封与分离的 cron 运行结果](https://github.com/zeroclaw-labs/zeroclaw/pull/10425)"
 
 #: src/architecture/decisions/ADR-014-plugin-egress-authority.md
 msgid "[PR #11098: grant egress at install and report whether a plugin loads](https://github.com/zeroclaw-labs/zeroclaw/pull/11098) (merged)"
@@ -64140,7 +64142,7 @@ msgstr "[提供商目录](./catalog.md)：每个规范化槽位"
 
 #: src/providers/overview.md
 msgid "[Provider catalog](./catalog.md): every supported family with a worked TOML example"
-msgstr "[Provider catalog](./catalog.md)：每个受支持的系列及其完整的 TOML 示例"
+msgstr "[提供商目录](./catalog.md)：每个受支持的系列及其完整的 TOML 示例"
 
 #: src/contributing/architecture-map.md
 msgid "[Provider routing lifecycle](../architecture/provider-routing-lifecycle.md), [Routing](../providers/routing.md), [Provider configuration](../providers/configuration.md)"
@@ -64484,7 +64486,7 @@ msgstr "[Signal](./signal.md)"
 
 #: src/plugins/writing-a-memory-plugin.md
 msgid "[Skill bundles](../tools/skill-bundles.md): markdown-only skill distribution through the same install machinery."
-msgstr "[Skill bundles](../tools/skill-bundles.md)：通过相同的安装机制进行仅限 markdown 的技能分发。"
+msgstr "[技能包](../tools/skill-bundles.md)：通过相同的安装机制进行仅限 markdown 的技能分发。"
 
 #: src/tools/relationship-memory.md
 #: src/tools/relationship-memory-skill-template.md src/tools/python-skills.md
@@ -68452,7 +68454,7 @@ msgstr "`<PATH>` — 串口或设备路径"
 
 #: src/reference/cli.md
 msgid "`<REASON>` — Optional reason recorded in the approval ledger"
-msgstr "`<REASON>` —  approval ledger 中记录的可选原因"
+msgstr "`<REASON>` — 记录在审批账本中的可选原因"
 
 #: src/reference/cli.md
 msgid "`<RUN_ID>` — The run ID to approve"
@@ -81246,7 +81248,7 @@ msgstr "`session/prompt` 在回合完成时返回最终结果。在执行过程�
 
 #: src/channels/acp.md
 msgid "`session/request_permission` (agent → client, outbound request)"
-msgstr "`session/request_permission`（agent → client，出站请求）"
+msgstr "`session/request_permission`（代理 → 客户端，出站请求）"
 
 #: src/channels/acp.md
 msgid "`session/resume` _(ZeroClaw extension)_"
@@ -85273,7 +85275,7 @@ msgstr "规范的类型化配置选择源和安装根目录，二进制或运行
 
 #: src/architecture/decisions/ADR-004-tool-shared-state-ownership.md
 msgid "canvas tooling keeps shared display state;"
-msgstr "canvas tooling 保持共享显示状态；"
+msgstr "画布工具保持共享显示状态；"
 
 #: src/architecture/localization-catalog-lifecycle.md
 msgid "catalog sync merged the new source but no translation fill has run;"
@@ -85389,7 +85391,7 @@ msgstr "containers"
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "conversation binding loads and appends history through a serialized per-conversation owner, cron `session_target = \"main\"` becomes visible in the next interactive turn, and `isolated` remains deliberately unbound;"
-msgstr "conversation binding 通过串行化的每会话所有者加载并追加历史记录，cron 中的 `session_target = \"main\"` 会在下一次交互式轮次中可见，而 `isolated` 则刻意保持未绑定。"
+msgstr "会话绑定通过串行化的每会话所有者加载并追加历史记录，cron 中的 `session_target = \"main\"` 会在下一次交互式轮次中可见，而 `isolated` 则刻意保持未绑定。"
 
 #: src/contributing/agent-guidelines.md
 msgid "copying a provider credential into another runtime field."
@@ -85670,7 +85672,7 @@ msgstr "默认 umask"
 
 #: src/architecture/tool-execution-lifecycle.md
 msgid "deferred MCP can expose a `tool_search` stub instead of every MCP wrapper."
-msgstr "deferred MCP 可以暴露一个 `tool_search` 存根，而不是每个 MCP 包装器。"
+msgstr "延迟 MCP 可以暴露一个 `tool_search` 存根，而不是每个 MCP 包装器。"
 
 #: src/architecture/decisions/ADR-004-tool-shared-state-ownership.md
 msgid "define a named handle type or wrapper;"
@@ -85686,7 +85688,7 @@ msgstr "委托工具会保留对父工具的句柄；"
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "direct, nested, scheduled, delegated, SOP, gateway, RPC, and security-sensitive tool paths cannot bypass the registered pipeline boundary, and unknown or unclassified protected actions fail closed;"
-msgstr "direct、nested、scheduled、delegated、SOP、gateway、RPC 及安全敏感的工具路径不得绕过已注册的流水线边界，且未知或未分类的受保护操作一律采取失败关闭（fail closed）策略。"
+msgstr "直接、嵌套、定时、委派、SOP、网关、RPC 及安全敏感的工具路径不得绕过已注册的流水线边界，且未知或未分类的受保护操作一律采取失败关闭（fail closed）策略。"
 
 #: src/architecture/decisions/ADR-006-runtime-channel-plugins.md
 msgid "discovered channel plugins can be configured and registered by a running daemon;"
@@ -86459,7 +86461,7 @@ msgstr "整数类型？"
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "internal principals are implemented for cron, daemon/SOP, peer-agent, and subturn entry points, with tests proving they are provenance facts and never peer-membership grants;"
-msgstr "internal principals 已为 cron、daemon/SOP、peer-agent 和 subturn 入口点实现，并通过测试证明它们是来源（provenance）事实，而不是 peer 成员资格授予；"
+msgstr "内部主体已为 cron、daemon/SOP、peer-agent 和 subturn 入口点实现，并通过测试证明它们是来源（provenance）事实，而不是 peer 成员资格授予；"
 
 #: src/setup/container.md
 msgid "interval"
@@ -86744,7 +86746,7 @@ msgstr "原生配对、本地对等凭据、RPC 分发、WSS 启动校验和重�
 
 #: src/architecture/tool-execution-lifecycle.md
 msgid "native-tool providers receive structured specs for effective tools;"
-msgstr "native-tool providers 接收结构化规范，以实现有效的工具；"
+msgstr "原生工具提供方接收有效工具的结构化规范；"
 
 #: src/architecture/decisions/ADR-010-memory-authority-boundaries.md
 msgid "new automatic transcript writes are excluded from enrichment connectors; and"
@@ -87130,7 +87132,7 @@ msgstr "qwen3、mistral、gemma3、托管"
 
 #: src/gateway/api.md
 msgid "rate-limit JSON or `webhook queue full`"
-msgstr "rate-limit JSON 或 `webhook queue full`"
+msgstr "速率限制 JSON 或 `webhook queue full`"
 
 #: src/sop/how-it-works.md
 msgid "re-runs strict save validation, so it cannot put a definition back on disk that the authoring surface would have refused to write;"
@@ -87431,7 +87433,7 @@ msgstr "start_period"
 
 #: src/architecture/tool-execution-lifecycle.md
 msgid "static tools come from the scoped registry;"
-msgstr "static tools 来自作用域注册表；"
+msgstr "静态工具来自作用域注册表；"
 
 #: src/ops/observability.md
 msgid "static_configs"
@@ -87529,7 +87531,7 @@ msgstr "test"
 
 #: src/architecture/tool-execution-lifecycle.md
 msgid "text-protocol providers receive tool instructions only when text tool calling is allowed;"
-msgstr "text-protocol providers 仅在允许文本工具调用时才接收工具指令；"
+msgstr "文本协议提供方仅在允许文本工具调用时才接收工具指令；"
 
 #: src/agents/portability.md
 msgid "the **content** of each referenced skill bundle, under `skills/<alias>/`. Skills live in the install-wide `<install>/shared/skills/` tree rather than the agent's workspace, so config alone would import an agent whose skills do not exist. Each bundle's own `include` and `exclude` filter the copy, so a skill the bundle excludes does not travel."

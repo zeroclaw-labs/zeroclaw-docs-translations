@@ -2906,7 +2906,8 @@ msgstr "# en cours d'exécution / arrêté, dernier code de sortie\n"
 
 #: src/zerocode/environment.md
 msgid "# runs (git push, ssh, gpg-sign) gets SSH_AUTH_SOCK from your terminal.\n"
-msgstr "# runs (git push, ssh, gpg-sign) récupère SSH_AUTH_SOCK depuis votre terminal.\n"
+msgstr ""
+"# exécute (git push, ssh, gpg-sign) récupère SSH_AUTH_SOCK depuis votre terminal.\n"
 
 #: src/developing/building-docs.md src/maintainers/docs-and-translations.md
 msgid "# serve all locales at http://localhost:3000/en/\n"
@@ -3526,7 +3527,7 @@ msgstr "**À propos de `--service-init`.** L'interface en ligne de commande expo
 
 #: src/contributing/rfcs.md
 msgid "**Accepted**: quorum met, no valid `REVISE` or `REJECT`, and the applicable threshold is satisfied. By default, that means at least two-thirds approve explicitly or by silence; exceptional-unanimous votes require explicit `APPROVE` from every assigned voter. Issue carries `status:accepted`, and the closing record or implementation handoff records non-blocking implementation boundaries when they were raised. Implementation PRs can proceed once that handoff is visible."
-msgstr "**Accepted** : quorum atteint, aucun `REVISE` ou `REJECT` valide, et le seuil applicable est satisfait. Par défaut, cela signifie qu'au moins deux tiers approuvent explicitement ou par silence ; les votes exceptionnels à l'unanimité exigent un `APPROVE` explicite de chaque votant assigné. Le ticket porte `status:accepted`, et l'enregistrement de clôture ou la transmission à l'implémentation consigne les limites d'implémentation non bloquantes lorsqu'elles ont été soulevées. Les PR d'implémentation peuvent avancer une fois cette transmission visible."
+msgstr "**Acceptée** : quorum atteint, aucun `REVISE` ou `REJECT` valide, et le seuil applicable est satisfait. Par défaut, cela signifie qu'au moins deux tiers approuvent explicitement ou par silence ; les votes exceptionnels à l'unanimité exigent un `APPROVE` explicite de chaque votant assigné. Le ticket porte `status:accepted`, et l'enregistrement de clôture ou la transmission à l'implémentation consigne les limites d'implémentation non bloquantes lorsqu'elles ont été soulevées. Les PR d'implémentation peuvent avancer une fois cette transmission visible."
 
 #: src/channels/matrix.md
 msgid "**Acknowledgement reactions:** controlled by `channels.matrix.ack_reactions` (default `true`). When on, the bot reacts with 👀 while processing and ✅ when done. Set to `false` to keep rooms reaction-free."
@@ -3702,7 +3703,7 @@ msgstr "**Autorité d'approbation.** Qui l'a accordée."
 
 #: src/providers/catalog.md
 msgid "**Arcee**: slot `arcee`. Native models include `conductor`, `maestro`, `virtuoso-large`, `coder-large`, and `blitz`. Key from the [Arcee platform](https://www.arcee.ai). Arcee's Platform API uses the non-standard `/api/v1` base path; the typed endpoint already accounts for this, so still leave `uri` off."
-msgstr "**Arcee** : slot `arcee`. Les modèles natifs incluent `conductor`, `maestro`, `virtuoso-large`, `coder-large` et `blitz`. Clé disponible sur la [plateforme Arcee](https://www.arcee.ai). L'API de la plateforme Arcee utilise le chemin de base non standard `/api/v1` ; le point de terminaison typé en tient déjà compte, donc laissez toujours `uri` de côté."
+msgstr "**Arcee** : emplacement `arcee`. Les modèles natifs incluent `conductor`, `maestro`, `virtuoso-large`, `coder-large` et `blitz`. Clé disponible sur la [plateforme Arcee](https://www.arcee.ai). L'API de la plateforme Arcee utilise le chemin de base non standard `/api/v1` ; le point de terminaison typé en tient déjà compte, donc laissez toujours `uri` de côté."
 
 #: src/foundations/fnd-005-contribution-culture.md
 msgid "**Architectural fit.** Does this respect the dependency rules? Does it live in the right crate? Does it introduce a coupling that the design explicitly avoids?"
@@ -3742,7 +3743,7 @@ msgstr "**À ce stade :** Le chat Telegram fonctionne. Envoyez des messages à v
 
 #: src/providers/catalog.md
 msgid "**Atlas Cloud**: slot `atlascloud`. OpenAI-compatible endpoint `https://api.atlascloud.ai/v1` with bearer-token auth. Use the canonical `atlascloud` slot only; `atlas`, `atlas-cloud`, and `atlas_cloud` are not runtime aliases."
-msgstr "**Atlas Cloud** : slot `atlascloud`. Point de terminaison compatible avec OpenAI `https://api.atlascloud.ai/v1` avec authentification par jeton bearer. Utilisez uniquement le slot canonique `atlascloud` ; `atlas`, `atlas-cloud` et `atlas_cloud` ne sont pas des alias d’exécution."
+msgstr "**Atlas Cloud** : emplacement `atlascloud`. Point de terminaison compatible avec OpenAI `https://api.atlascloud.ai/v1` avec authentification par jeton bearer. Utilisez uniquement l’emplacement canonique `atlascloud` ; `atlas`, `atlas-cloud` et `atlas_cloud` ne sont pas des alias d’exécution."
 
 #: src/channels/matrix.md
 msgid "**Attachments thread alongside text:** `room.send_attachment` calls carry an `AttachmentConfig::reply(...)` with `EnforceThread::Threaded` when a thread anchor is present, so PDFs / images / voice notes land inside the bot's thread instead of the main timeline."
@@ -3770,19 +3771,19 @@ msgstr "**Les profils d'authentification ne sont pas portables.** `auth-profiles
 
 #: src/channels/social.md
 msgid "**Auth:** Bluesky app-password (not your real password). Create one in settings."
-msgstr "**Auth :** mot de passe d'application Bluesky (pas votre vrai mot de passe). Créez-en un dans les paramètres."
+msgstr "**Authentification :** mot de passe d'application Bluesky (pas votre vrai mot de passe). Créez-en un dans les paramètres."
 
 #: src/channels/social.md
 msgid "**Auth:** OAuth 2.0 with a refresh token. Generate one with a script-type Reddit app and the `password` or `code` flow."
-msgstr "**Auth :** OAuth 2.0 avec un jeton de rafraîchissement. Générez-en un avec une application Reddit de type script et le flux `password` ou `code`."
+msgstr "**Authentification :** OAuth 2.0 avec un jeton de rafraîchissement. Générez-en un avec une application Reddit de type script et le flux `password` ou `code`."
 
 #: src/channels/social.md
 msgid "**Auth:** Twitter API v2 OAuth 2.0 Bearer Token only."
-msgstr "**Auth :** Twitter API v2 OAuth 2.0 Bearer Token uniquement."
+msgstr "**Authentification :** jeton Bearer OAuth 2.0 de l'API Twitter v2 uniquement."
 
 #: src/channels/social.md
 msgid "**Auth:** raw private key (`nsec` bech32 or hex)."
-msgstr "**Auth :** clé privée brute (`nsec` bech32 ou hexadécimal)."
+msgstr "**Authentification :** clé privée brute (`nsec` bech32 ou hexadécimal)."
 
 #: src/channels/social.md
 msgid "**Auth:** use a Twitch user access token for the bot account with [`chat:read` and `chat:edit`](https://dev.twitch.tv/docs/chat/irc/#authenticating-with-the-twitch-irc-server). After configuring the [Twitch CLI](https://dev.twitch.tv/docs/cli/token-command/), generate it while signed in as that account with `twitch token -u -s 'chat:read chat:edit'`, then store it through a protected config surface. ZeroClaw trims the value and adds the required `oauth:` prefix when it is omitted."
@@ -4026,7 +4027,7 @@ msgstr "**Les écritures dans le cache sont réservées à master.** `save-if` e
 
 #: src/channels/acp.md
 msgid "**Cancel vs. stop:** `session/cancel` aborts an in-flight prompt turn and returns `stopReason: \"cancelled\"` with any streamed text accumulated up to the interrupt point. `session/stop` gracefully ends the session after the current turn completes, it waits for the turn to finish rather than interrupting it."
-msgstr "**Cancel vs. stop :** `session/cancel` interrompt un tour de prompt en cours et renvoie `stopReason: \"cancelled\"` avec tout le texte diffusé en streaming accumulé jusqu'au point d'interruption. `session/stop` met fin à la session de manière progressive une fois le tour en cours terminé : il attend la fin du tour au lieu de l'interrompre."
+msgstr "**Annulation vs. arrêt :** `session/cancel` interrompt un tour de prompt en cours et renvoie `stopReason: \"cancelled\"` avec tout le texte diffusé en streaming accumulé jusqu'au point d'interruption. `session/stop` met fin à la session de manière progressive une fois le tour en cours terminé : il attend la fin du tour au lieu de l'interrompre."
 
 #: src/architecture/logging.md
 msgid "**Cancel:** `subscription/cancel{subscription_id}` (grant `Logs:Read`, the same as subscribing) ends one subscription on the calling connection. Closing the connection ends them all."
@@ -4186,7 +4187,7 @@ msgstr "**Bouclez la boucle.** Lorsque quelqu'un prend le temps de relire votre 
 
 #: src/channels/acp.md
 msgid "**Close vs. stop:** `session/close` deactivates the session while preserving its persistent record for later reload. `session/stop` also removes the session from memory but has the same effect on the store. Neither deletes the SQLite record."
-msgstr "**Close vs. stop :** `session/close` désactive la session tout en préservant son enregistrement persistant pour un rechargement ultérieur. `session/stop` supprime également la session de la mémoire mais a le même effet sur le store. Ni l'un ni l'autre ne supprime l'enregistrement SQLite."
+msgstr "**Fermeture vs. arrêt :** `session/close` désactive la session tout en préservant son enregistrement persistant pour un rechargement ultérieur. `session/stop` supprime également la session de la mémoire mais a le même effet sur le store. Ni l'un ni l'autre ne supprime l'enregistrement SQLite."
 
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "**Code-adjacent documents** that must version with the codebase (ADRs, API specs, security policy, contribution process)"
@@ -4510,7 +4511,7 @@ msgstr "**Validation déterministe** : la porte de fusion repose sur des vérifi
 
 #: src/maintainers/reviewer-playbook.md
 msgid "**Diff shape**: large or new-integration PRs are coherent, merge-justified now, not easily split, and not mostly duplicated machinery."
-msgstr "**Diff shape** : les PR de grande taille ou de nouvelle intégration sont cohérents, la fusion est justifiée maintenant, difficiles à scinder, et ne consistent pas principalement en du code dupliqué."
+msgstr "**Forme du diff** : les PR de grande taille ou de nouvelle intégration sont cohérentes, leur fusion est justifiée maintenant, elles sont difficiles à scinder et ne consistent pas principalement en du code dupliqué."
 
 #: src/contributing/pr-review-protocol.md
 msgid "**Diff**"
@@ -4830,7 +4831,7 @@ msgstr "**Itération rapide sur les traductions :** modifiez `po/<locale>.po` et
 
 #: src/providers/catalog.md
 msgid "**Featherless**: slot `featherless`. Serverless open-weight models, addressed by their Hugging Face repo IDs (e.g. `meta-llama/Meta-Llama-3.1-8B-Instruct`). Key from [featherless.ai](https://featherless.ai)."
-msgstr "**Featherless** : slot `featherless`. Modèles serverless à poids ouverts, désignés par leurs identifiants de dépôt Hugging Face (p. ex. `meta-llama/Meta-Llama-3.1-8B-Instruct`). Clé disponible sur [featherless.ai](https://featherless.ai)."
+msgstr "**Featherless** : emplacement `featherless`. Modèles serverless à poids ouverts, désignés par leurs identifiants de dépôt Hugging Face (p. ex. `meta-llama/Meta-Llama-3.1-8B-Instruct`). Clé disponible sur [featherless.ai](https://featherless.ai)."
 
 #: src/contributing/communication.md
 msgid "**Feature requests**: use the feature template (`.github/ISSUE_TEMPLATE/feature_request.yml`). Focus on user value and constraints; implementation details are for RFCs or PR discussion."
@@ -5006,7 +5007,7 @@ msgstr "**Discussions GitHub**"
 
 #: src/providers/catalog.md
 msgid "**GitHub Models**: slot `github_models` (alias `github-models`). OpenAI / Meta / Microsoft models behind a single GitHub Personal Access Token. Create a PAT with the **`models`** permission (fine-grained); a Copilot token is _not_ the same credential. Model IDs are publisher-prefixed (e.g. `openai/gpt-4o`)."
-msgstr "**GitHub Models** : slot `github_models` (alias `github-models`). Modèles OpenAI / Meta / Microsoft accessibles via un seul GitHub Personal Access Token. Créez un PAT avec la permission **`models`** (à granularité fine) ; un jeton Copilot n'est _pas_ le même identifiant. Les ID de modèles sont préfixés par l'éditeur (p. ex. `openai/gpt-4o`)."
+msgstr "**GitHub Models** : emplacement `github_models` (alias `github-models`). Modèles OpenAI / Meta / Microsoft accessibles via un seul GitHub Personal Access Token. Créez un PAT avec la permission **`models`** (à granularité fine) ; un jeton Copilot n'est _pas_ le même identifiant. Les ID de modèles sont préfixés par l'éditeur (p. ex. `openai/gpt-4o`)."
 
 #: src/foundations/fnd-003-governance.md
 msgid "**GitHub Projects v2**"
@@ -5231,7 +5232,7 @@ msgstr "L'« inbox » non lue, qui regroupe les mentions, les réponses aux comm
 
 #: src/providers/catalog.md
 msgid "**Inception**: slot `inception`. The Mercury diffusion-LLM family (`mercury-coder` and the newer `mercury-2`). Key from the [Inception platform](https://platform.inceptionlabs.ai)."
-msgstr "**Inception** : slot `inception`. La famille de LLM à diffusion Mercury (`mercury-coder` et le plus récent `mercury-2`). Clé disponible sur la [plateforme Inception](https://platform.inceptionlabs.ai)."
+msgstr "**Inception** : emplacement `inception`. La famille de LLM à diffusion Mercury (`mercury-coder` et le plus récent `mercury-2`). Clé disponible sur la [plateforme Inception](https://platform.inceptionlabs.ai)."
 
 #: src/providers/openai-codex-subscription.md
 msgid "**Included plan usage first.** Each ChatGPT plan includes a Codex usage allowance that refreshes on a rolling window. While you are inside it, Codex requests do not draw extra charges."
@@ -5396,7 +5397,7 @@ msgstr "**Labels** : les mainteneurs utilisent les labels pour orienter le nivea
 
 #: src/providers/catalog.md
 msgid "**Lambda AI**: slot `lambda_ai` (alias `lambda-ai`). Lambda's hosted inference (e.g. `hermes3-405b`). Key from the [Lambda Cloud](https://cloud.lambda.ai) API-keys page."
-msgstr "**Lambda AI** : slot `lambda_ai` (alias `lambda-ai`). Inférence hébergée de Lambda (par ex. `hermes3-405b`). Clé disponible sur la page des clés API de [Lambda Cloud](https://cloud.lambda.ai)."
+msgstr "**Lambda AI** : emplacement `lambda_ai` (alias `lambda-ai`). Inférence hébergée de Lambda (par ex. `hermes3-405b`). Clé disponible sur la page des clés API de [Lambda Cloud](https://cloud.lambda.ai)."
 
 #: src/security/sandboxing.md
 msgid "**Landlock** controls filesystem access only, so network egress is unchanged."
@@ -5459,7 +5460,7 @@ msgstr "**Charger et vérifier le SOP :**"
 
 #: src/channels/acp.md
 msgid "**Load vs. resume:** use `session/load` when reconnecting after an unexpected disconnect and the client needs to rebuild its UI from the stored history. Use `session/resume` when the client already has the history (e.g., it stored it locally) and only needs the server-side agent state restored."
-msgstr "**Load vs. resume :** utilisez `session/load` lors d'une reconnexion après une déconnexion inattendue, lorsque le client doit reconstruire son interface à partir de l'historique stocké. Utilisez `session/resume` lorsque le client dispose déjà de l'historique (par exemple, s'il l'a stocké localement) et qu'il a uniquement besoin de restaurer l'état de l'agent côté serveur."
+msgstr "**Chargement vs. reprise :** utilisez `session/load` lors d'une reconnexion après une déconnexion inattendue, lorsque le client doit reconstruire son interface à partir de l'historique stocké. Utilisez `session/resume` lorsque le client dispose déjà de l'historique (par exemple, s'il l'a stocké localement) et qu'il a uniquement besoin de restaurer l'état de l'agent côté serveur."
 
 #: src/getting-started/multi-model-setup.md
 msgid "**Local-first development**: local Ollama for development, hosted endpoint for production"
@@ -5672,7 +5673,7 @@ msgstr "**Fournisseur de modèles.** Un fournisseur de modèles est l'abstractio
 
 #: src/providers/catalog.md
 msgid "**Morph**: slot `morph`. Fast apply-edits models (`morph-v3-large`, `morph-v3-fast`, or `auto`). Key from the [Morph dashboard](https://morphllm.com)."
-msgstr "**Morph** : slot `morph`. Modèles d'application rapide de modifications (`morph-v3-large`, `morph-v3-fast` ou `auto`). Clé disponible sur le [tableau de bord Morph](https://morphllm.com)."
+msgstr "**Morph** : emplacement `morph`. Modèles d'application rapide de modifications (`morph-v3-large`, `morph-v3-fast` ou `auto`). Clé disponible sur le [tableau de bord Morph](https://morphllm.com)."
 
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "**Moves to the GitHub Wiki (proposed; not yet executed):**"
@@ -5796,7 +5797,7 @@ msgstr "**Vous découvrez ZeroClaw ?** [Quickstart](../getting-started/quickstar
 
 #: src/architecture/logging.md
 msgid "**New tool impl** (workspace built-in): add to `ToolKind`."
-msgstr "**New tool impl** (intégré au workspace) : ajouter à `ToolKind`."
+msgstr "**Nouvelle implémentation d'outil** (intégré au workspace) : ajouter à `ToolKind`."
 
 #: src/maintainers/superseding.md
 msgid "**Next recommended action.**"
@@ -6092,7 +6093,7 @@ msgstr "**Sortant uniquement.** `ChannelSource` couvre les canaux par lesquels l
 
 #: src/providers/streaming.md
 msgid "**Outbound policy is per turn.** In `multi_message` mode each completed narration turn crosses outbound policy (the `on_message_sending` hook and leak redaction) exactly once, scoped to that turn rather than to the whole accumulated transcript. This keeps a stateful hook from re-processing an earlier turn when a later one is appended. As a consequence the \"narration is delivered before an approval prompt\" guarantee holds per delivered turn. A secret that straddles two turn boundaries is still caught before the final reply: each completing narration turn is scanned with a bounded suffix of the **guarded delivered history** as cross-turn context (the history the channel actually received, so a fragment the outbound hook itself created is included and a prior redaction is not re-flagged), so the fragment that completes the split is redacted when that turn crosses outbound policy, not deferred to the fully redacted final reply."
-msgstr "**La politique sortante s'applique par tour.** En mode `multi_message`, chaque tour de narration terminé traverse la politique sortante (le hook `on_message_sending` et la rédaction des fuites) exactement une fois, limitée à ce tour plutôt qu'à l'ensemble de la transcription accumulée. Cela évite qu'un hook à état retraite un tour antérieur lorsqu'un tour ultérieur est ajouté. En conséquence, la garantie « la narration est livrée avant une demande d'approbation » tient par tour livré. Un secret à cheval sur deux frontières de tours est tout de même détecté avant la réponse finale : chaque tour de narration qui se termine est analysé avec un suffixe borné de l'**historique livré protégé** comme contexte inter-tours (l'historique que le canal a effectivement reçu, de sorte qu'un fragment créé par le hook sortant lui-même est inclus et qu'une rédaction antérieure n'est pas signalée à nouveau). Ainsi, le fragment qui complète le partage est rédigé lorsque ce tour traverse la politique sortante, et non reporté à la réponse finale entièrement rédigée."
+msgstr "**La politique sortante s'applique par tour.** En mode `multi_message`, chaque tour de narration terminé traverse la politique sortante (le hook `on_message_sending` et le masquage des fuites) exactement une fois, limitée à ce tour plutôt qu'à l'ensemble de la transcription accumulée. Cela évite qu'un hook à état retraite un tour antérieur lorsqu'un tour ultérieur est ajouté. En conséquence, la garantie « la narration est livrée avant une demande d'approbation » tient par tour livré. Un secret à cheval sur deux frontières de tours est tout de même détecté avant la réponse finale : chaque tour de narration qui se termine est analysé avec un suffixe borné de l'**historique livré protégé** comme contexte inter-tours (l'historique que le canal a effectivement reçu, de sorte qu'un fragment créé par le hook sortant lui-même est inclus et qu'un masquage antérieur n'est pas signalé à nouveau). Ainsi, le fragment qui complète le partage est masqué lorsque ce tour traverse la politique sortante, et non reporté à la réponse finale entièrement masquée."
 
 #: src/channels/matrix.md
 msgid "**Outbound voice markers:** the agent can also emit `[voice:<url|path>]` explicitly, which uploads that file as a voice note whatever the peer group says."
@@ -6804,7 +6805,7 @@ msgstr "**Réutilisez le même `device_id` à chaque redémarrage** : le modifie
 
 #: src/channels/webhook.md
 msgid "**Reverse proxy**: terminate TLS at nginx / Caddy / Traefik and proxy to the channel's port. See [Operations → Network deployment](../ops/network-deployment.md)."
-msgstr "**Reverse proxy** : terminer TLS au niveau de nginx / Caddy / Traefik et faire un proxy vers le port du canal. Voir [Opérations → Déploiement réseau](../ops/network-deployment.md)."
+msgstr "**Proxy inverse** : terminer TLS au niveau de nginx / Caddy / Traefik et faire un proxy vers le port du canal. Voir [Opérations → Déploiement réseau](../ops/network-deployment.md)."
 
 #: src/contributing/pr-review-protocol.md
 msgid "**Review body** for overall verdict, comprehension summary, cross-references to other PRs, and template-level issues that aren't tied to a specific line."
@@ -6876,7 +6877,7 @@ msgstr "**Revenir en arrière** est une opération sur les données de configura
 
 #: src/contributing/rfcs.md
 msgid "**Rollout**: feature-flagged? schema-versioned? breaking change window?"
-msgstr "**Rollout** : feature-flagged ? schema-versioned ? fenêtre de breaking change ?"
+msgstr "**Déploiement** : derrière un indicateur de fonctionnalité ? avec version de schéma ? fenêtre de changement cassant ?"
 
 #: src/hardware/raspberry-pi-setup.md
 msgid "**Rootless by default.** No root daemon; containers run as your user, which matters on an exposed edge device."
@@ -7877,7 +7878,7 @@ msgstr "**Conclusion :** un bot exclusivement Telegram fonctionne sur un Pi derr
 
 #: src/providers/catalog.md
 msgid "**Upstage**: slot `upstage`. Solar Pro / Solar Mini (e.g. `solar-pro2`). Key from the [Upstage console](https://console.upstage.ai/api-keys)."
-msgstr "**Upstage** : slot `upstage`. Solar Pro / Solar Mini (par ex. `solar-pro2`). Clé depuis la [console Upstage](https://console.upstage.ai/api-keys)."
+msgstr "**Upstage** : emplacement `upstage`. Solar Pro / Solar Mini (par ex. `solar-pro2`). Clé depuis la [console Upstage](https://console.upstage.ai/api-keys)."
 
 #: src/providers/configuration.md
 msgid "**Usage reporting.** When the gateway forwards the Anthropic-shaped usage counters, `cache_read_input_tokens` fills the cached-input figure in token usage and cost reporting, and `cache_creation_input_tokens` is written to the debug log with counts only. A response that reports zero cache reads keeps the cached figure at zero rather than substituting the OpenAI-shaped counter. This accounting covers the structured paths only, which is exactly why the helpers without usage capture stay inert above."
@@ -16597,7 +16598,7 @@ msgstr "Parce que chaque agent joint ses propres références et son propre syst
 
 #: src/tools/skills.md
 msgid "Because reflection forwards turn content to the model provider, the task, the tool-call trace, and the final answer are each scanned for credential-shaped values (API keys, tokens, AWS credentials, PEM private keys, JWTs, database connection URLs, and high-entropy secrets) and redacted **before** the prompt is composed and sent, using the same outbound-content guardrail ZeroClaw applies to channel responses. Redaction runs in-process ahead of the request, so a secret that appears in a tool argument or the final answer is replaced with a `[REDACTED_…]` marker rather than reaching the provider."
-msgstr "Parce que les appels de réflexion transmettent du contenu au fournisseur de modèles, la tâche, la trace des appels d'outil et la réponse finale sont chacune analysée à la recherche de valeurs de type identifiants (clés API, jetons, identifiants AWS, clés privées PEM, JWT, URL de connexion aux bases de données et secrets à haute entropie) et redactée **avant** que le prompt ne soit composé et envoyé, en utilisant le même garde-fou de contenu sortant que ZeroClaw applique aux réponses de canal. La redaction s'exécute en mémoire avant la requête, de sorte qu'un secret apparaissant dans un argument d'outil ou la réponse finale soit remplacé par un marqueur `[REDACTED_…]` au lieu d'atteindre le fournisseur."
+msgstr "Parce que la réflexion transmet le contenu du tour au fournisseur de modèles, la tâche, la trace des appels d'outil et la réponse finale sont chacune analysées à la recherche de valeurs de type identifiants (clés API, jetons, identifiants AWS, clés privées PEM, JWT, URL de connexion aux bases de données et secrets à haute entropie) et masquées **avant** que le prompt ne soit composé et envoyé, en utilisant le même garde-fou de contenu sortant que ZeroClaw applique aux réponses de canal. Le masquage s'exécute dans le processus avant la requête, de sorte qu'un secret apparaissant dans un argument d'outil ou la réponse finale soit remplacé par un marqueur `[REDACTED_…]` au lieu d'atteindre le fournisseur."
 
 #: src/ops/network-deployment.md
 msgid "Because remote access is enforced through pairing, `allow_remote_admin` has no effect unless `require_pairing` is also on: if pairing is disabled, a remote caller cannot be authenticated, so the request is rejected with `403 Forbidden` rather than allowed anonymously. This makes it impossible to expose an unauthenticated remote reload by flipping a single flag."
@@ -17711,7 +17712,7 @@ msgstr "Le CI applique cette règle via un job de validation du titre des PR, qu
 
 #: src/contributing/pr-review-protocol.md
 msgid "CI freshness and base drift"
-msgstr "CI freshness et dérive de la base"
+msgstr "Fraîcheur de la CI et dérive de la base"
 
 #: src/maintainers/pr-workflow.md
 msgid "CI gate is green."
@@ -17727,7 +17728,7 @@ msgstr "La qualité du signal CI reste élevée, avec un retour rapide et peu de
 
 #: src/contributing/architecture-map.md
 msgid "CI, release, GitHub Actions, or allowed actions"
-msgstr "CI, release, GitHub Actions ou actions autorisées"
+msgstr "CI, publication, GitHub Actions ou actions autorisées"
 
 #: src/foundations/fnd-003-governance.md
 msgid "CI, tooling, build system"
@@ -17875,7 +17876,7 @@ msgstr "CODEOWNERS achemine les revues ; la règle conditionnelle de deux approb
 
 #: src/security/authentication.md
 msgid "CORS preflight (`OPTIONS`) passes through unauthenticated, as it always has. Any other method outside GET, HEAD, POST, PUT, PATCH and DELETE is refused."
-msgstr "CORS preflight (`OPTIONS`) passe sans authentification, comme c'était déjà le cas. Toute autre méthode en dehors de GET, HEAD, POST, PUT, PATCH et DELETE est refusée."
+msgstr "La pré-vérification CORS (`OPTIONS`) passe sans authentification, comme c'était déjà le cas. Toute autre méthode en dehors de GET, HEAD, POST, PUT, PATCH et DELETE est refusée."
 
 #: src/gateway/api.md
 msgid "CORS preflight requests (those carrying `Access-Control-Request-Method`) get the standard preflight response and short-circuit before the schema body is returned."
@@ -25290,7 +25291,7 @@ msgstr "Exemples : zeroclaw agent -a assistant                                  
 
 #: src/reference/cli.md
 msgid "Examples: zeroclaw browse                  # list shared/ root zeroclaw browse skills           # list shared/skills/ zeroclaw browse skills/coding    # list shared/skills/coding/"
-msgstr "Examples : zeroclaw browse                  # lister la racine shared/ zeroclaw browse skills           # lister shared/skills/ zeroclaw browse skills/coding    # lister shared/skills/coding/"
+msgstr "Exemples : zeroclaw browse                  # lister la racine shared/ zeroclaw browse skills           # lister shared/skills/ zeroclaw browse skills/coding    # lister shared/skills/coding/"
 
 #: src/reference/cli.md
 msgid "Examples: zeroclaw channel add telegram '{\"bot_token\":\"...\",\"name\":\"my-bot\"}' zeroclaw channel add discord '{\"bot_token\":\"...\",\"name\":\"my-discord\"}'"
@@ -27981,7 +27982,7 @@ msgstr "Git (GitHub / Gitea / Forgejo)"
 
 #: src/channels/overview.md
 msgid "Git forge behind a provider seam (GitHub, Gitea, Forgejo); REST polling of issues, PRs, CI runs & releases with per-event routing"
-msgstr "Git forge derrière une interface de fournisseur (GitHub, Gitea, Forgejo) ; polling REST des tickets, PRs, exécutions CI et releases avec routage par événement"
+msgstr "Forge Git derrière une interface de fournisseur (GitHub, Gitea, Forgejo) ; polling REST des tickets, PRs, exécutions CI et releases avec routage par événement"
 
 #: src/contributing/communication.md
 msgid "Git forge channel (GitHub, Gitea, Forgejo)"
@@ -29818,7 +29819,7 @@ msgstr "Si vous préférez générer un certificat sur le démon et le copier ai
 
 #: src/contributing/privacy.md
 msgid "If you're capturing an incident trace, log payload, or external response in a test fixture: redact and anonymize before committing. Real session IDs, real user IDs, real hostnames, and real auth tokens all need to go through a scrubbing pass first. The redacted version is what ships; the original stays out of git."
-msgstr "Si vous capturez une trace d’incident, un payload de journalisation ou une réponse externe dans un jeu de tests : redigez et anonymisez avant de valider. Les vrais identifiants de session, les vrais identifiants utilisateur, les vrais noms d’hôte et les vrais jetons d’authentification doivent tous passer par une étape de nettoyage. La version redigée est celle qui est livrée ; l’original reste hors du dépôt git."
+msgstr "Si vous capturez une trace d’incident, un payload de journalisation ou une réponse externe dans un jeu de tests : caviardez et anonymisez avant de valider. Les vrais identifiants de session, les vrais identifiants utilisateur, les vrais noms d’hôte et les vrais jetons d’authentification doivent tous passer par une étape de nettoyage. La version caviardée est celle qui est livrée ; l’original reste hors du dépôt git."
 
 #: src/gateway/web-dashboard.md
 msgid "If you're on one of those distributions and the dashboard \"just works\", you don't need to set `gateway.web_dist_dir` at all, the auto-detect found it."
@@ -34466,7 +34467,7 @@ msgstr "Identifiant du client MQTT (doit être unique pour chaque broker)."
 
 #: src/channels/mqtt.md
 msgid "MQTT connections use MQTT 3.1.1. TLS connections verify the broker certificate and hostname against the system trust store. The maintained MQTT client uses the same patched Rustls certificate verifier as the rest of the TLS stack."
-msgstr "MQTT connections utilisent MQTT 3.1.1. Les connexions TLS vérifient le certificat du broker et le nom d'hôte auprès du magasin de confiance du système. Le client MQTT maintenu utilise le même vérificateur de certificats Rustls patché que le reste de la pile TLS."
+msgstr "Les connexions MQTT utilisent MQTT 3.1.1. Les connexions TLS vérifient le certificat du broker et le nom d'hôte auprès du magasin de confiance du système. Le client MQTT maintenu utilise le même vérificateur de certificats Rustls patché que le reste de la pile TLS."
 
 #: src/sop/syntax.md src/sop/fan-in/overview.md src/sop/fan-in/mqtt.md
 msgid "MQTT message arrival. Live: delivered by the MQTT listener."
@@ -34906,7 +34907,7 @@ msgstr "Nombre maximal de requêtes `/webhook` par minute par clé client."
 
 #: src/reference/config.md
 msgid "Max backoff for channel/daemon restarts."
-msgstr "Max backoff pour les redémarrages de canal/daemon."
+msgstr "Délai d'attente maximal pour les redémarrages de canal/daemon."
 
 #: src/reference/config.md
 msgid "Max embedding cache entries before LRU eviction"
@@ -42920,7 +42921,7 @@ msgstr "Action Prompt-guard pour une entrée de déclencheur non fiable : `warn`
 
 #: src/reference/config.md
 msgid "Prompt-guard and outbound-redaction sensitivity for untrusted SOP content."
-msgstr "Sensibilité de Prompt-guard et d'outbound-redaction pour le contenu SOP non fiable."
+msgstr "Sensibilité de Prompt-guard et du masquage sortant pour le contenu SOP non fiable."
 
 #: src/architecture/tool-execution-lifecycle.md
 msgid "Prompt-required shell calls have an extra loop guard: if the agent repeats the same prompt-required shell call before approval, the loop aborts instead of prompting over and over."
@@ -44264,7 +44265,7 @@ msgstr "Expurger le contenu SOP sortant avant que les consommateurs de persistan
 
 #: src/reference/config.md
 msgid "Redaction categories applied when `redact_on_write` is true."
-msgstr "Catégories de rédaction appliquées lorsque `redact_on_write` est true."
+msgstr "Catégories de masquage appliquées lorsque `redact_on_write` est true."
 
 #: src/reference/feature-matrix.md src/channels/overview.md
 #: src/channels/social.md
@@ -46776,7 +46777,7 @@ msgstr "SBC / Raspberry Pi"
 
 #: src/reference/feature-matrix.md
 msgid "SBC / edge (Raspberry Pi class)"
-msgstr "SBC / edge (classe Raspberry Pi)"
+msgstr "SBC / périphérie (classe Raspberry Pi)"
 
 #: src/maintainers/release-verification.md
 msgid "SBOMs"
@@ -47931,7 +47932,7 @@ msgstr "Envoie l’événement structuré aux abonnés actuels du processus. Un 
 
 #: src/sop/syntax.md
 msgid "Sensitivity used by prompt-guard screening and outbound redaction."
-msgstr "Sensibilité utilisée par le filtrage prompt-guard et la rédaction sortante."
+msgstr "Sensibilité utilisée par le filtrage prompt-guard et le masquage sortant."
 
 #: src/contributing/agent-guidelines.md
 msgid "Separate binary at v0.9.0"
@@ -49175,7 +49176,7 @@ msgstr "Source de vérité, intégrée à la compilation"
 
 #: src/tools/overview.md
 msgid "Source of truth: `crates/zeroclaw-runtime/locales/en/tools.ftl`. Translations are generated and maintained via `cargo fluent fill --locale <code>` (see [Maintainers → Docs & Translations](../maintainers/docs-and-translations.md))."
-msgstr "Source of truth : `crates/zeroclaw-runtime/locales/en/tools.ftl`. Les traductions sont générées et maintenues via `cargo fluent fill --locale <code>` (voir [Maintainers → Docs & Translations](../maintainers/docs-and-translations.md))."
+msgstr "Source de vérité : `crates/zeroclaw-runtime/locales/en/tools.ftl`. Les traductions sont générées et maintenues via `cargo fluent fill --locale <code>` (voir [Mainteneurs → Docs et Traductions](../maintainers/docs-and-translations.md))."
 
 #: src/architecture/channel-runtime-lifecycle.md
 #: src/architecture/tool-execution-lifecycle.md
@@ -59615,7 +59616,7 @@ msgstr "Les règles de versionnement et de compatibilité WIT se trouvent avec l
 
 #: src/architecture/rpc-socket.md
 msgid "WSS (WebSocket Secure) transport + TLS acceptor"
-msgstr "WSS (WebSocket Secure) transport + accepteur TLS"
+msgstr "Transport WSS (WebSocket Secure) + accepteur TLS"
 
 #: src/zerocode/secure-transport.md
 msgid "WSS server leaf (SANs `localhost`, `127.0.0.1`)"
@@ -63092,7 +63093,7 @@ msgstr "[Cycle de vie des tâches en arrière-plan](../background-work-lifecycle
 
 #: src/architecture/tool-execution-lifecycle.md
 msgid "[Background work lifecycle](./background-work-lifecycle.md) owns the longer-lived contract when a tool starts delegated or subagent work. A tool returning a task ID does not make its execution restart-resumable."
-msgstr "[Background work lifecycle](./background-work-lifecycle.md) possède le contrat de plus longue durée lorsqu'un outil démarre un travail délégué ou un sous-agent. Un outil renvoyant un ID de tâche ne rend pas son exécution reprise après redémarrage."
+msgstr "[Cycle de vie du travail en arrière-plan](./background-work-lifecycle.md) possède le contrat de plus longue durée lorsqu'un outil démarre un travail délégué ou un sous-agent. Un outil renvoyant un ID de tâche ne rend pas son exécution reprenable après redémarrage."
 
 #: src/channels/discord.md
 msgid "[Binding a channel instance](../plugins/index.md#binding-a-channel-instance) describes both commands and the report they print."
@@ -64768,7 +64769,7 @@ msgstr "[Mode YOLO](./yolo.md) documente le préréglage de développement local
 
 #: src/philosophy/index.md
 msgid "[You own it](./you-own-it.md) is the foundational constraint."
-msgstr "[You own it](./you-own-it.md) est la contrainte fondamentale."
+msgstr "[Vous en êtes le propriétaire](./you-own-it.md) est la contrainte fondamentale."
 
 #: src/integrations/zega-ai.md
 msgid "[ZEGA AI](https://github.com/siabang35/zega.ai) is an external fintech platform that connects to a ZeroClaw v0.8.x gateway daemon through a TypeScript bridge package (`@zega/zeroclaw-bridge`). The bridge is an **external prototype** maintained in the ZEGA monorepo and is not part of ZeroClaw itself."
@@ -77020,7 +77021,7 @@ msgstr "`gateway`, `acp-bridge`, `whatsapp-web` : groupes de capacités à activ
 
 #: src/tools/mcp.md
 msgid "`gbr-mcp` logs tool-call arguments to `~/.gbr/logs/gbr-mcp-YYYY-MM-DD.jsonl` at info, default retention 7 days. Secret redaction does not strip ordinary inject text. For the safe baseline set `GBR_MCP_LOG_BODIES=0` on the `gbr` server `env` in ZeroCode Config. Delete or disable those logs if you do not want a second persistence surface outside ZeroClaw history."
-msgstr "`gbr-mcp` journalise les arguments des appels d'outils dans `~/.gbr/logs/gbr-mcp-YYYY-MM-DD.jsonl` au niveau info, avec une rétention par défaut de 7 jours. La redaction des secrets ne supprime pas le texte d'injection ordinaire. Pour la configuration de base sûre, définissez `GBR_MCP_LOG_BODIES=0` dans la variable `env` du serveur `gbr` dans ZeroCode Config. Supprimez ou désactivez ces journaux si vous ne voulez pas d'une seconde surface de persistance en dehors de l'historique de ZeroClaw."
+msgstr "`gbr-mcp` journalise les arguments des appels d'outils dans `~/.gbr/logs/gbr-mcp-YYYY-MM-DD.jsonl` au niveau info, avec une rétention par défaut de 7 jours. Le masquage des secrets ne supprime pas le texte d'injection ordinaire. Pour la configuration de base sûre, définissez `GBR_MCP_LOG_BODIES=0` dans la variable `env` du serveur `gbr` dans ZeroCode Config. Supprimez ou désactivez ces journaux si vous ne voulez pas d'une seconde surface de persistance en dehors de l'historique de ZeroClaw."
 
 #: src/maintainers/labels.md
 msgid "`gemini.rs`, `gemini_cli.rs`"
@@ -85010,7 +85011,7 @@ msgstr "agent"
 
 #: src/ops/observability.md
 msgid "agent context → `[<agent_alias>]`"
-msgstr "agent context → `[<agent_alias>]`"
+msgstr "contexte d'agent → `[<agent_alias>]`"
 
 #: src/providers/catalog.md
 msgid "allowed"
@@ -85262,7 +85263,7 @@ msgstr "les outils orientés canaux conservent des handles vers les maps de cana
 
 #: src/ops/observability.md
 msgid "channel-only context (channel listener, no agent yet) → `[<channel_composite>]` (e.g. `[discord.glados]`)"
-msgstr "channel-only context (écouteur de canal, pas encore d'agent) → `[<channel_composite>]` (par ex. `[discord.glados]`)"
+msgstr "contexte limité au canal (écouteur de canal, pas encore d'agent) → `[<channel_composite>]` (par ex. `[discord.glados]`)"
 
 #: src/architecture/channel-runtime-lifecycle.md
 msgid "choose synchronous or background dispatch;"
@@ -86436,7 +86437,7 @@ msgstr "integer?"
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "internal principals are implemented for cron, daemon/SOP, peer-agent, and subturn entry points, with tests proving they are provenance facts and never peer-membership grants;"
-msgstr "internal principals sont implémentés pour les points d'entrée cron, daemon/SOP, peer-agent et subturn, avec des tests démontrant qu'il s'agit de faits de provenance et jamais d'octrois d'appartenance à un pair ;"
+msgstr "les principaux internes sont implémentés pour les points d'entrée cron, daemon/SOP, agent pair et sous-tour, avec des tests démontrant qu'il s'agit de faits de provenance et jamais d'octrois d'appartenance à un pair ;"
 
 #: src/setup/container.md
 msgid "interval"
@@ -87303,7 +87304,7 @@ msgstr "services"
 
 #: src/architecture/decisions/ADR-017-inbound-authentication-and-principals.md
 msgid "sessions, approvals, attachments, resumes, deletes, private-memory reads, and private-memory mutations enforce principal ownership at the storage boundary, including documented treatment for legacy records and an explicit internal-origin owner rule for scheduled or SOP-initiated work;"
-msgstr "sessions, approvals, pièces jointes, reprises, suppressions, lectures de mémoire privée et modifications de mémoire privée appliquent la propriété du principal à la frontière du stockage, y compris un traitement documenté des enregistrements hérités et une règle explicite de propriétaire d'origine interne pour les travaux planifiés ou initiés par une SOP;"
+msgstr "sessions, approbations, pièces jointes, reprises, suppressions, lectures de mémoire privée et modifications de mémoire privée appliquent la propriété du principal à la frontière du stockage, y compris un traitement documenté des enregistrements hérités et une règle explicite de propriétaire d'origine interne pour les travaux planifiés ou initiés par une SOP ;"
 
 #: src/ops/observability.md
 msgid "severity"
@@ -87384,7 +87385,7 @@ msgstr "Le basculement de source est refusé, sauf si l’inventaire complet des
 
 #: src/developing/plugin-protocol.md
 msgid "source wiring in `scripts/desktop/prepare-kernel.sh`; desktop bundles have no plugin smoke gate"
-msgstr "source wiring dans `scripts/desktop/prepare-kernel.sh` ; les bundles desktop n'ont pas de porte de test de fumée pour les plugins"
+msgstr "câblage dans le code source de `scripts/desktop/prepare-kernel.sh` ; les bundles desktop n'ont pas de porte de test de fumée pour les plugins"
 
 #: src/setup/container.md
 msgid "spec"
@@ -87542,7 +87543,7 @@ msgstr "l'agent : les entrées `risk_profile` et `runtime_profile`;"
 
 #: src/plugins/index.md
 msgid "the alias is already bound to a different package, which the refusal names; another binding's `package` is never rewritten;"
-msgstr "the alias est déjà lié à un autre paquet, que le refus désigne ; le `package` d'une autre liaison n'est jamais réécrit ;"
+msgstr "l'alias est déjà lié à un autre paquet, que le refus désigne ; le `package` d'une autre liaison n'est jamais réécrit ;"
 
 #: src/plugins/index.md
 msgid "the alias is not 1 to 63 lowercase letters, digits, and single underscores, starting and ending with a letter or digit;"

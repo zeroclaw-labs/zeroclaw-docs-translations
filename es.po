@@ -531,7 +531,7 @@ msgid ""
 "             channel, or model. Masks emails, credential prefixes, and \\\n"
 "             operator-configured literal patterns.\""
 msgstr ""
-"\"Redacta secretos y PII del texto antes de que llegue a un registro, \\\n"
+"\"Censura secretos y PII del texto antes de que llegue a un registro, \\\n"
 "             canal o modelo. Oculta correos electrónicos, prefijos de credenciales y \\\n"
 "             patrones literales configurados por el operador.\""
 
@@ -613,7 +613,7 @@ msgstr "\"La fuente de verdad es `<path>`; esto la duplicaría.\" Resuélvela de
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid "\"The text to redact.\""
-msgstr "\"El texto para redactar.\""
+msgstr "\"El texto a censurar.\""
 
 #: src/contributing/agent-guidelines.md
 msgid "\"This is the source of truth, created here.\" State what it represents."
@@ -2063,7 +2063,8 @@ msgstr "# /run/user/1000/gnupg/S.gpg-agent.ssh\n"
 
 #: src/hardware/raspberry-pi-setup.md
 msgid "# 32-bit (Pi Zero 2 W, older Pi 3 with 32-bit OS)\n"
-msgstr "# 32-bit (Pi Zero 2 W, Pi 3 más antiguas con SO de 32 bits)\n"
+msgstr ""
+"# 32 bits (Pi Zero 2 W, Pi 3 más antiguas con SO de 32 bits)\n"
 
 #: src/hardware/raspberry-pi-setup.md
 msgid "# 64-bit (Pi 4/5 with 64-bit Raspberry Pi OS)\n"
@@ -3772,7 +3773,7 @@ msgstr "**Autenticación:** Contraseña de aplicación de Bluesky (no tu contras
 
 #: src/channels/social.md
 msgid "**Auth:** OAuth 2.0 with a refresh token. Generate one with a script-type Reddit app and the `password` or `code` flow."
-msgstr "**Auth:** OAuth 2.0 con un token de actualización. Genera uno con una app de Reddit de tipo script y el flujo `password` o `code`."
+msgstr "**Autenticación:** OAuth 2.0 con un token de actualización. Genera uno con una app de Reddit de tipo script y el flujo `password` o `code`."
 
 #: src/channels/social.md
 msgid "**Auth:** Twitter API v2 OAuth 2.0 Bearer Token only."
@@ -5289,7 +5290,7 @@ msgstr "**Medios en respuestas inline:** `channels.matrix.mention_only = true` h
 
 #: src/zerocode/secure-transport.md
 msgid "**Inner mTLS (the real boundary).** TLS 1.3 only, mutually authenticated. The client presents a daemon-issued certificate; the daemon presents its server leaf. This is the RPC plane. There is **no** server-only / unauthenticated path on it - a client certificate is always required. The certificate admits the _device_; it is not an RPC credential. Every remote `initialize` must also carry a bearer `auth_token` that identifies the _principal_, or the daemon refuses it with `AUTH_REQUIRED` (`-32010`). See [Bearer token](./remote.md#bearer-token-required-for-every-connection)."
-msgstr "**Inner mTLS (la frontera real).** Solo TLS 1.3, con autenticación mutua. El cliente presenta un certificado emitido por el daemon; el daemon presenta su certificado de hoja del servidor. Este es el plano RPC. **No** existe ninguna ruta solo del servidor ni sin autenticar en este plano: siempre se requiere un certificado de cliente. El certificado admite el _dispositivo_; no es una credencial RPC. Cada `initialize` remoto también debe incluir un token bearer `auth_token` que identifique al _principal_, o el daemon lo rechaza con `AUTH_REQUIRED` (`-32010`). Ver [Bearer token](./remote.md#bearer-token-required-for-every-connection)."
+msgstr "**mTLS interno (la frontera real).** Solo TLS 1.3, con autenticación mutua. El cliente presenta un certificado emitido por el daemon; el daemon presenta su certificado de hoja del servidor. Este es el plano RPC. **No** existe ninguna ruta solo del servidor ni sin autenticar en este plano: siempre se requiere un certificado de cliente. El certificado admite el _dispositivo_; no es una credencial RPC. Cada `initialize` remoto también debe incluir un token bearer `auth_token` que identifique al _principal_, o el daemon lo rechaza con `AUTH_REQUIRED` (`-32010`). Ver [Token de portador](./remote.md#bearer-token-required-for-every-connection)."
 
 #: src/developing/how-plugins-work.md
 msgid "**Install the package.** `zeroclaw plugin install <directory>` for a local package, or `zeroclaw plugin install <name>` for one from the plugin registry. Install validates the manifest, runs the signature policy, checks the payload digest when the manifest declares one, and instantiates the component against this host's WIT (skipped with `--no-verify`); a package that fails any of these is not installed. Install (unless `--no-verify`), `zeroclaw plugin info <name>`, and `zeroclaw plugin list --verify` compile and instantiate the component whether or not the plugin system is enabled. Instantiation calls none of its exports, but it does run any start function the component's core modules carry, in a store with no files, no network, and the per-call fuel, memory, and time limits."
@@ -5426,7 +5427,7 @@ msgstr "**Detección de fugas**: si un modelo devuelve sus propias instrucciones
 
 #: src/security/model.md
 msgid "**Leak detector**: scans outbound channel responses for credentials and redacts matches before delivery. It covers deterministic credential patterns and can also run a standalone high-entropy-token heuristic."
-msgstr "**Detector de fugas**: analiza las respuestas salientes del canal en busca de credenciales y redacta las coincidencias antes de la entrega. Cubre patrones deterministas de credenciales y también puede ejecutar una heurística independiente de tokens de alta entropía."
+msgstr "**Detector de fugas**: analiza las respuestas salientes del canal en busca de credenciales y censura las coincidencias antes de la entrega. Cubre patrones deterministas de credenciales y también puede ejecutar una heurística independiente de tokens de alta entropía."
 
 #: src/maintainers/superseding.md
 msgid "**Leave a review with specific requested changes.** If the contributor is responsive and the fix is within their original scope (a clippy lint, an edge case, a test addition), request the change and let them push the fixup. Single-line fixes are almost always better as a requested change than a supersede."
@@ -6026,7 +6027,7 @@ msgstr "**Abrir el puerto del firewall:**"
 
 #: src/providers/configuration.md
 msgid "**OpenAI Codex subscription**: run `zeroclaw auth login --model-provider openai-codex` (or import an existing Codex CLI login with `--import ~/.codex/auth.json`), then set `requires_openai_auth = true` and leave `api_key` unset on `[providers.models.openai.<alias>]`; the runtime reads ZeroClaw's stored `openai-codex` auth profile."
-msgstr "**OpenAI Codex subscription**: ejecuta `zeroclaw auth login --model-provider openai-codex` (o importa un inicio de sesión existente de Codex CLI con `--import ~/.codex/auth.json`), luego establece `requires_openai_auth = true` y deja `api_key` sin definir en `[providers.models.openai.<alias>]`; en tiempo de ejecución se lee el perfil de autenticación `openai-codex` almacenado de ZeroClaw."
+msgstr "**Suscripción de OpenAI Codex**: ejecuta `zeroclaw auth login --model-provider openai-codex` (o importa un inicio de sesión existente de Codex CLI con `--import ~/.codex/auth.json`), luego establece `requires_openai_auth = true` y deja `api_key` sin definir en `[providers.models.openai.<alias>]`; en tiempo de ejecución se lee el perfil de autenticación `openai-codex` almacenado de ZeroClaw."
 
 #: src/setup/windows.md
 msgid "**OpenSSH password auth.** If you're driving Windows over SSH and pubkey isn't accepted, drop your key into `C:\\Users\\<user>\\.ssh\\authorized_keys` (regular user) or `C:\\ProgramData\\ssh\\administrators_authorized_keys` (when logged in as a member of `Administrators`)."
@@ -6090,7 +6091,7 @@ msgstr "**Solo salida.** `ChannelSource` cubre los canales a través de los que 
 
 #: src/providers/streaming.md
 msgid "**Outbound policy is per turn.** In `multi_message` mode each completed narration turn crosses outbound policy (the `on_message_sending` hook and leak redaction) exactly once, scoped to that turn rather than to the whole accumulated transcript. This keeps a stateful hook from re-processing an earlier turn when a later one is appended. As a consequence the \"narration is delivered before an approval prompt\" guarantee holds per delivered turn. A secret that straddles two turn boundaries is still caught before the final reply: each completing narration turn is scanned with a bounded suffix of the **guarded delivered history** as cross-turn context (the history the channel actually received, so a fragment the outbound hook itself created is included and a prior redaction is not re-flagged), so the fragment that completes the split is redacted when that turn crosses outbound policy, not deferred to the fully redacted final reply."
-msgstr "**La política de salida es por turno.** En el modo `multi_message`, cada turno de narración completado pasa por la política de salida (el hook `on_message_sending` y la redacción de fugas) exactamente una vez, con alcance limitado a ese turno y no a toda la transcripción acumulada. Así, un hook con estado no vuelve a procesar un turno anterior cuando se añade uno posterior. Como consecuencia, la garantía de que \"la narración se entrega antes de una solicitud de aprobación\" se cumple por cada turno entregado. Un secreto que atraviesa el límite entre dos turnos sigue detectándose antes de la respuesta final: cada turno de narración que se completa se analiza con un sufijo acotado del **historial entregado protegido** como contexto entre turnos (el historial que el canal recibió realmente, de modo que un fragmento creado por el propio hook de salida queda incluido y una redacción previa no se vuelve a marcar). Así, el fragmento que completa la división se redacta cuando ese turno pasa por la política de salida, y no se aplaza hasta la respuesta final totalmente redactada."
+msgstr "**La política de salida es por turno.** En el modo `multi_message`, cada turno de narración completado pasa por la política de salida (el hook `on_message_sending` y la censura de fugas) exactamente una vez, con alcance limitado a ese turno y no a toda la transcripción acumulada. Así, un hook con estado no vuelve a procesar un turno anterior cuando se añade uno posterior. Como consecuencia, la garantía de que \"la narración se entrega antes de una solicitud de aprobación\" se cumple por cada turno entregado. Un secreto que atraviesa el límite entre dos turnos sigue detectándose antes de la respuesta final: cada turno de narración que se completa se analiza con un sufijo acotado del **historial entregado protegido** como contexto entre turnos (el historial que el canal recibió realmente, de modo que un fragmento creado por el propio hook de salida queda incluido y una censura previa no se vuelve a marcar). Así, el fragmento que completa la división se censura cuando ese turno pasa por la política de salida, y no se aplaza hasta la respuesta final totalmente censurada."
 
 #: src/channels/matrix.md
 msgid "**Outbound voice markers:** the agent can also emit `[voice:<url|path>]` explicitly, which uploads that file as a voice note whatever the peer group says."
@@ -6354,7 +6355,7 @@ msgstr "**Prioridad**"
 
 #: src/ops/observability.md
 msgid "**Privacy & cost.** Captured content is sanitized best-effort: inline image data is elided and known credential shapes (key=value, bearer, and `sk-`/`ghp_`/`xoxb-`\\-style prefixes) are redacted. This does NOT guarantee removal of all secrets or PII. Prefer an access-controlled trace backend if conversations may be sensitive. Capture cost is O(prompt size) **per agent-loop iteration** (the growing history is re-scanned each round), and full text grows per-span payload proportionally. On per-byte backends, apply exporter-side truncation rather than dropping the attributes."
-msgstr "**Privacidad y coste.** El contenido capturado se sanea con esfuerzo razonable: los datos de imágenes en línea se omiten y las formas conocidas de credenciales (key=value, bearer y prefijos de estilo `sk-`/`ghp_`/`xoxb-`\\-style) se redactan. Esto NO garantiza la eliminación de todos los secretos ni de la PII. Prefiera un backend de trazas con control de acceso si las conversaciones pueden ser sensibles. El coste de captura es O(tamaño_del_prompt) **por iteración del bucle del agente** (el historial en crecimiento se vuelve a analizar en cada ronda), y el texto completo crece proporcionalmente al payload por span. En backends por byte, aplique truncamiento del lado del exportador en lugar de descartar los atributos."
+msgstr "**Privacidad y coste.** El contenido capturado se sanea con esfuerzo razonable: los datos de imágenes en línea se omiten y las formas conocidas de credenciales (key=value, bearer y prefijos de estilo `sk-`/`ghp_`/`xoxb-`\\-style) se censuran. Esto NO garantiza la eliminación de todos los secretos ni de la PII. Prefiera un backend de trazas con control de acceso si las conversaciones pueden ser sensibles. El coste de captura es O(tamaño_del_prompt) **por iteración del bucle del agente** (el historial en crecimiento se vuelve a analizar en cada ronda), y el texto completo crece proporcionalmente al payload por span. En backends por byte, aplique truncamiento del lado del exportador en lugar de descartar los atributos."
 
 #: src/maintainers/pr-workflow.md
 msgid "**Privacy and PII rules**: see [Privacy](../contributing/privacy.md)."
@@ -7357,7 +7358,7 @@ msgstr "**Sweep**: pasada completa del backlog en orden de prioridad (corregido-
 
 #: src/zerocode/running.md
 msgid "**Switch session** opens the session list (default chord: Ctrl+S; rebindable in the keymap)."
-msgstr "**Switch session** abre la lista de sesiones (atajo predeterminado: Ctrl+S; reasignable en el keymap)."
+msgstr "**Cambiar de sesión** abre la lista de sesiones (atajo predeterminado: Ctrl+S; reasignable en el keymap)."
 
 #: src/channels/matrix.md
 msgid "**Symptom:** `Matrix one-time key upload conflict detected; stopping sync to avoid infinite retry loop` and the channel becomes unavailable."
@@ -7373,7 +7374,7 @@ msgstr "**Sistema**"
 
 #: src/foundations/fnd-003-governance.md
 msgid "**T-shirt sizing**: An estimation technique that uses abstract sizes (XS, S, M, L, XL) rather than numeric story points. Easier to use without historical calibration data and sufficient for teams at an early stage."
-msgstr "**T-shirt sizing**: Una técnica de estimación que utiliza tallas abstractas (XS, S, M, L, XL) en lugar de puntos de historia numéricos. Es más fácil de usar sin datos históricos de calibración y suficiente para equipos en una etapa temprana."
+msgstr "**Estimación por tallas de camiseta**: Una técnica de estimación que utiliza tallas abstractas (XS, S, M, L, XL) en lugar de puntos de historia numéricos. Es más fácil de usar sin datos históricos de calibración y suficiente para equipos en una etapa temprana."
 
 #: src/ops/network-deployment.md
 msgid "**Tailnet-only, even with funnel.** Funnel only listens on ports 443, 8443, and 10000, and putting the mTLS plane on the public internet should be your explicit choice. It is not turned on as a side effect of funneling the gateway. To reach WSS from outside the tailnet, use `[relay]`."
@@ -9719,11 +9720,13 @@ msgstr "/// Un turno de agente sin daemon: la ruta de consumidor independiente.\
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid "/// Redact the input. Returns the output and the number of masked spans.\n"
-msgstr "/// Redactar la entrada. Devuelve la salida y el número de intervalos enmascarados.\n"
+msgstr ""
+"/// Censurar la entrada. Devuelve la salida y el número de intervalos enmascarados.\n"
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid "/// Redaction policy resolved from the plugin's own config section.\n"
-msgstr "/// Política de redacción resuelta a partir de la propia sección de configuración del plugin.\n"
+msgstr ""
+"/// Política de censura resuelta a partir de la propia sección de configuración del plugin.\n"
 
 #: src/hardware/hardware-peripherals-design.md
 msgid "/// Tools this peripheral provides (gpio_read, gpio_write, sensor_read, etc.)\n"
@@ -13448,7 +13451,7 @@ msgstr "Las entregas de AMQP pueden iniciar ejecuciones de SOP. Cuando un alias 
 
 #: src/sop/syntax.md src/sop/fan-in/overview.md src/sop/fan-in/amqp.md
 msgid "AMQP delivery. Live: delivered by the AMQP consumer in a SOP dispatch mode."
-msgstr "AMQP delivery. Live: entregado por el consumidor AMQP en un modo de despacho SOP."
+msgstr "Entrega AMQP. En vivo: entregado por el consumidor AMQP en un modo de despacho SOP."
 
 #: src/SUMMARY.md
 msgid "API (rustdoc)"
@@ -14292,7 +14295,7 @@ msgstr "La retención por antigüedad y por número de archivos solo se ejecuta 
 
 #: src/reference/config.md
 msgid "Agent Card cache TTL (seconds). `0` disables caching: every"
-msgstr "Agent Card cache TTL (segundos). `0` desactiva la caché: cada"
+msgstr "TTL de la caché de tarjetas de agente (segundos). `0` desactiva la caché: cada"
 
 #: src/reference/config.md
 msgid "Agent alias to use when `session/new` omits `agentAlias` and more than"
@@ -15288,7 +15291,7 @@ msgstr "Cualquier → No se hará"
 
 #: src/reference/config.md
 msgid "AnySearch API key (optional if search_provider is `\"anysearch\"`). Without a key, requests use AnySearch's rate-limited anonymous quota. Obtain at <https://www.anysearch.com/console/api-keys>."
-msgstr "AnySearch API key (opcional si search_provider es `\"anysearch\"`). Sin una clave, las solicitudes usan la cuota anónima con límite de velocidad de AnySearch. Obtén una en <https://www.anysearch.com/console/api-keys>."
+msgstr "Clave de API de AnySearch (opcional si search_provider es `\"anysearch\"`). Sin una clave, las solicitudes usan la cuota anónima con límite de velocidad de AnySearch. Obtén una en <https://www.anysearch.com/console/api-keys>."
 
 #: src/tools/overview.md
 msgid "AnySearch is an explicit, opt-in backend for `web_search_tool`:"
@@ -15845,7 +15848,7 @@ msgstr "En tiempo de compilación:"
 
 #: src/foundations/fnd-003-governance.md
 msgid "At least 1 GitHub approval in branch protection; `risk:high` or `domain:security` defaults to 2 independent Core Team approvals before merge, subject to the explicit expedited exception below"
-msgstr "At least 1 aprobación de GitHub en la protección de la rama; `risk:high` o `domain:security` requiere por defecto 2 aprobaciones independientes del Core Team antes de la fusión, sujeto a la excepción explícita de procedimiento acelerado que se indica a continuación"
+msgstr "Al menos 1 aprobación de GitHub en la protección de la rama; `risk:high` o `domain:security` requiere por defecto 2 aprobaciones independientes del Core Team antes de la fusión, sujeto a la excepción explícita de procedimiento acelerado que se indica a continuación"
 
 #: src/hardware/arduino-uno-q-setup.md
 msgid "At minimum, configure one `[providers.models.<type>.<alias>]` entry with `api_key` / `model`, one `[agents.<alias>]` that references it via `model_provider = \"<type>.<alias>\"`, and one `[channels.telegram.<alias>]` with your `bot_token`. Bind the channel to the agent via `channels = [\"telegram.<alias>\"]` on the agent. Leave `[peripherals]` disabled until Phase 4 below. See the [Config reference](../reference/config.md) for all fields."
@@ -16593,7 +16596,7 @@ msgstr "Debido a que cada agente une sus propias referencias y su propio sistema
 
 #: src/tools/skills.md
 msgid "Because reflection forwards turn content to the model provider, the task, the tool-call trace, and the final answer are each scanned for credential-shaped values (API keys, tokens, AWS credentials, PEM private keys, JWTs, database connection URLs, and high-entropy secrets) and redacted **before** the prompt is composed and sent, using the same outbound-content guardrail ZeroClaw applies to channel responses. Redaction runs in-process ahead of the request, so a secret that appears in a tool argument or the final answer is replaced with a `[REDACTED_…]` marker rather than reaching the provider."
-msgstr "Debido a que reflection reenvía el contenido del turno al proveedor del modelo, la tarea, el registro de llamadas a herramientas y la respuesta final se analizan para detectar valores con forma de credencial (claves de API, tokens, credenciales de AWS, claves privadas PEM, JWT, URL de conexión a bases de datos y secretos de alta entropía) y se redactan **antes** de que se componga y envíe el prompt, utilizando la misma protección de contenido saliente que ZeroClaw aplica a las respuestas del canal. La redacción se ejecuta en el proceso antes de la solicitud, de modo que un secreto que aparezca en un argumento de herramienta o en la respuesta final se sustituye por un marcador `[REDACTED_…]` en lugar de llegar al proveedor."
+msgstr "Debido a que reflection reenvía el contenido del turno al proveedor del modelo, la tarea, el registro de llamadas a herramientas y la respuesta final se analizan para detectar valores con forma de credencial (claves de API, tokens, credenciales de AWS, claves privadas PEM, JWT, URL de conexión a bases de datos y secretos de alta entropía) y se censuran **antes** de que se componga y envíe el prompt, utilizando la misma protección de contenido saliente que ZeroClaw aplica a las respuestas del canal. La censura se ejecuta en el proceso antes de la solicitud, de modo que un secreto que aparezca en un argumento de herramienta o en la respuesta final se sustituye por un marcador `[REDACTED_…]` en lugar de llegar al proveedor."
 
 #: src/ops/network-deployment.md
 msgid "Because remote access is enforced through pairing, `allow_remote_admin` has no effect unless `require_pairing` is also on: if pairing is disabled, a remote caller cannot be authenticated, so the request is rejected with `403 Forbidden` rather than allowed anonymously. This makes it impossible to expose an unauthenticated remote reload by flipping a single flag."
@@ -17720,7 +17723,7 @@ msgstr "La calidad de la señal de CI se mantiene alta, con retroalimentación r
 
 #: src/contributing/architecture-map.md
 msgid "CI, release, GitHub Actions, or allowed actions"
-msgstr "CI, release, GitHub Actions o acciones permitidas"
+msgstr "CI, lanzamientos, GitHub Actions o acciones permitidas"
 
 #: src/foundations/fnd-003-governance.md
 msgid "CI, tooling, build system"
@@ -18184,7 +18187,7 @@ msgstr "La cobertura del catálogo está completa o la calidad de la traducción
 
 #: src/gateway/api.md
 msgid "Catalog discovery runs on a blocking worker because host admission reads and verifies installed WASM payloads. Only one scan runs at a time; a concurrent request receives `503 Service Unavailable` and may retry. The endpoint does not cache admitted package state between requests."
-msgstr "Catalog discovery se ejecuta en un worker de bloqueo porque la admisión del host lee y verifica las cargas útiles WASM instaladas. Solo se ejecuta un escaneo a la vez; una solicitud concurrente recibe `503 Service Unavailable` y puede reintentarla. El endpoint no almacena en caché el estado de los paquetes admitidos entre solicitudes."
+msgstr "El descubrimiento del catálogo se ejecuta en un worker de bloqueo porque la admisión del host lee y verifica las cargas útiles WASM instaladas. Solo se ejecuta un escaneo a la vez; una solicitud concurrente recibe `503 Service Unavailable` y puede reintentarla. El endpoint no almacena en caché el estado de los paquetes admitidos entre solicitudes."
 
 #: src/architecture/localization-catalog-lifecycle.md
 msgid "Catalog download map: `zeroclaw_config::schema::FTL_CATALOGS`"
@@ -21003,7 +21006,7 @@ msgstr "Acceso a memoria entre agentes y backends (p. ej., un agente SQLite leye
 
 #: src/agents/internals.md
 msgid "Cross-backend cross-agent memory is not supported: the schema validator at config load rejects `read_memory_from` entries that point at a sibling on a different backend. Category grants are exact-match and non-transitive; an unknown category matches no rows."
-msgstr "Cross-backend cross-agent memory no está soportada: el validador de esquema al cargar la configuración rechaza las entradas de `read_memory_from` que apuntan a un agente hermano en un backend diferente. Las concesiones por categoría son de coincidencia exacta y no transitivas; una categoría desconocida no coincide con ninguna fila."
+msgstr "La memoria entre agentes y backends no está soportada: el validador de esquema al cargar la configuración rechaza las entradas de `read_memory_from` que apuntan a un agente hermano en un backend diferente. Las concesiones por categoría son de coincidencia exacta y no transitivas; una categoría desconocida no coincide con ninguna fila."
 
 #: src/security/autonomy.md
 msgid "Cross-channel approval routing"
@@ -22641,7 +22644,7 @@ msgstr "No apliques el legado `observability: runtime_trace` a nuevos issues o P
 
 #: src/maintainers/labels.md
 msgid "Do not apply legacy `security: leak_detector` to new issues or PRs. Use `security:leak-detector` for LeakDetector redaction and sensitive-output scanning work."
-msgstr "No apliques el heredado `security: leak_detector` a nuevos issues o PRs. Usa `security:leak-detector` para el trabajo de redacción de LeakDetector y de escaneo de salida sensible."
+msgstr "No apliques el heredado `security: leak_detector` a nuevos issues o PRs. Usa `security:leak-detector` para el trabajo de censura de LeakDetector y de escaneo de salida sensible."
 
 #: src/maintainers/pr-workflow.md
 msgid "Do not build a separate manual PR board for these lanes unless native GitHub state and CODEOWNERS stop answering the routing question. Check native GitHub merge state before normal lane review: `DIRTY` means resolve conflicts first; `BEHIND` alone is mergeability housekeeping, not an author-facing blocker."
@@ -24064,7 +24067,7 @@ msgstr "Habilitar el cifrado de claves de API y tokens en reposo"
 
 #: src/reference/config.md
 msgid "Enable high-entropy token redaction; deterministic patterns still run when false."
-msgstr "Habilita la redacción de tokens de alta entropía; los patrones deterministas siguen ejecutándose cuando es false."
+msgstr "Habilita la censura de tokens de alta entropía; los patrones deterministas siguen ejecutándose cuando es false."
 
 #: src/reference/config.md
 msgid "Enable image generation for posts."
@@ -24132,7 +24135,7 @@ msgstr "Habilitar herramientas de operaciones de seguridad."
 
 #: src/sop/syntax.md
 msgid "Enable shared outbound redaction for SOP content-safety consumers."
-msgstr "Habilita la redacción compartida de salida para los consumidores de seguridad del contenido de SOP."
+msgstr "Habilita la censura compartida de salida para los consumidores de seguridad del contenido de SOP."
 
 #: src/reference/config.md
 msgid "Enable suggestions for installable skills before normal agent turns."
@@ -27405,11 +27408,11 @@ msgstr "Instrucciones de publicación libre para el agente de IA."
 
 #: src/contributing/user-boundary-proof.md
 msgid "Fresh required CI counts when it reaches the named boundary. Follow [CI & Actions](../maintainers/ci-and-actions.md) for the current required coverage and the gaps that justify additional evidence."
-msgstr "Fresh requiere recuentos de CI cuando alcanza el límite indicado. Sigue [CI & Actions](../maintainers/ci-and-actions.md) para conocer la cobertura requerida actual y las carencias que justifican evidencia adicional."
+msgstr "El CI requerido y reciente cuenta cuando alcanza el límite indicado. Sigue [CI & Actions](../maintainers/ci-and-actions.md) para conocer la cobertura requerida actual y las carencias que justifican evidencia adicional."
 
 #: src/maintainers/ci-and-actions.md
 msgid "Fresh required CI is normally the shared evidence for the Cargo surfaces it actually runs. A local rerun of the same Cargo command on the same head, target, and feature set is duplicate confidence, not a stronger proof. Before asking for extra Cargo or Clippy, compare the changed surface with the current workflow files and the actual checks on the PR. Extra validation belongs where the required gate does not prove the thing under review:"
-msgstr "Fresh required CI suele ser la evidencia compartida para las superficies de Cargo que realmente ejecuta. Una nueva ejecución local del mismo comando de Cargo en el mismo head, destino y conjunto de características es confianza duplicada, no una prueba más sólida. Antes de pedir Cargo o Clippy adicionales, compara la superficie modificada con los archivos de flujo de trabajo actuales y las comprobaciones reales en el PR. La validación adicional corresponde donde la puerta de entrada requerida no demuestra lo que está bajo revisión:"
+msgstr "El CI requerido y reciente suele ser la evidencia compartida para las superficies de Cargo que realmente ejecuta. Una nueva ejecución local del mismo comando de Cargo en el mismo head, destino y conjunto de características es confianza duplicada, no una prueba más sólida. Antes de pedir Cargo o Clippy adicionales, compara la superficie modificada con los archivos de flujo de trabajo actuales y las comprobaciones reales en el PR. La validación adicional corresponde donde la puerta de entrada requerida no demuestra lo que está bajo revisión:"
 
 #: src/plugins/index.md
 msgid "Fresh store per `execute`; imports scoped `secrets` and durable `state`"
@@ -27970,7 +27973,7 @@ msgstr "Git (GitHub / Gitea / Forgejo)"
 
 #: src/channels/overview.md
 msgid "Git forge behind a provider seam (GitHub, Gitea, Forgejo); REST polling of issues, PRs, CI runs & releases with per-event routing"
-msgstr "Git forge detrás de una capa de proveedor (GitHub, Gitea, Forgejo); sondeo REST de issues, PRs, ejecuciones de CI y lanzamientos con enrutamiento por evento"
+msgstr "Forja Git detrás de una capa de proveedor (GitHub, Gitea, Forgejo); sondeo REST de issues, PRs, ejecuciones de CI y lanzamientos con enrutamiento por evento"
 
 #: src/contributing/communication.md
 msgid "Git forge channel (GitHub, Gitea, Forgejo)"
@@ -28174,7 +28177,7 @@ msgstr "El modo objetivo usa el plano de control de tareas duraderas y el libro 
 
 #: src/foundations/fnd-003-governance.md
 msgid "Goal, observed behavior, redacted config or commands when relevant"
-msgstr "Objetivo, comportamiento observado, configuración o comandos redactados cuando sea relevante"
+msgstr "Objetivo, comportamiento observado, configuración o comandos censurados cuando sea relevante"
 
 #: src/architecture/background-work-lifecycle.md
 msgid "Goal-mode decision: [ADR-008](./decisions/ADR-008-goal-mode-control-plane-and-usage-accounting.md)"
@@ -29807,7 +29810,7 @@ msgstr "Si prefiere generar un certificado en el daemon y copiarlo fuera:"
 
 #: src/contributing/privacy.md
 msgid "If you're capturing an incident trace, log payload, or external response in a test fixture: redact and anonymize before committing. Real session IDs, real user IDs, real hostnames, and real auth tokens all need to go through a scrubbing pass first. The redacted version is what ships; the original stays out of git."
-msgstr "Si estás capturando un rastro de incidente, carga útil de registro o respuesta externa en un fixture de prueba: redacta y anonimiza antes de hacer el commit. Los IDs de sesión reales, IDs de usuario reales, nombres de host reales y tokens de autenticación reales deben pasar por un proceso de limpieza primero. La versión redactada es la que se envía; la original permanece fuera de git."
+msgstr "Si estás capturando un rastro de incidente, carga útil de registro o respuesta externa en un fixture de prueba: censura y anonimiza antes de hacer el commit. Los IDs de sesión reales, IDs de usuario reales, nombres de host reales y tokens de autenticación reales deben pasar por un proceso de limpieza primero. La versión censurada es la que se envía; la original permanece fuera de git."
 
 #: src/gateway/web-dashboard.md
 msgid "If you're on one of those distributions and the dashboard \"just works\", you don't need to set `gateway.web_dist_dir` at all, the auto-detect found it."
@@ -33512,7 +33515,7 @@ msgstr "Configuración del detector de fugas"
 
 #: src/maintainers/labels.md
 msgid "LeakDetector redaction and sensitive-output scanning"
-msgstr "Redacción de LeakDetector y análisis de salida sensible"
+msgstr "Censura de LeakDetector y análisis de salida sensible"
 
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "Learning-oriented, leads through an experience"
@@ -34895,7 +34898,7 @@ msgstr "Máximo de solicitudes `/webhook` por minuto por clave de cliente."
 
 #: src/reference/config.md
 msgid "Max backoff for channel/daemon restarts."
-msgstr "Max backoff para reinicios de canal/daemon."
+msgstr "Retardo máximo para reinicios de canal/daemon."
 
 #: src/reference/config.md
 msgid "Max embedding cache entries before LRU eviction"
@@ -39372,7 +39375,7 @@ msgstr "Abre [`/config/providers.models/custom`](http://127.0.0.1:42617/config/p
 
 #: src/providers/custom.md
 msgid "Open [`/config/providers.models/custom`](http://127.0.0.1:42617/config/providers.models/custom) and set the `providers.models.custom.<alias>.live_pricing` field."
-msgstr "Open [`/config/providers.models/custom`](http://127.0.0.1:42617/config/providers.models/custom) and establece el campo `providers.models.custom.<alias>.live_pricing`."
+msgstr "Abre [`/config/providers.models/custom`](http://127.0.0.1:42617/config/providers.models/custom) y establece el campo `providers.models.custom.<alias>.live_pricing`."
 
 #: src/providers/custom.md
 msgid "Open [`/config/providers.models/custom`](http://127.0.0.1:42617/config/providers.models/custom) and set the `providers.models.custom.<alias>.max_tokens` field."
@@ -39768,7 +39771,7 @@ msgstr "OpenAI Codex con una suscripción a ChatGPT"
 
 #: src/getting-started/quickstart.md
 msgid "OpenAI Codex subscription auth"
-msgstr "OpenAI Codex suscripción auth"
+msgstr "Autenticación de la suscripción de OpenAI Codex"
 
 #: src/providers/catalog.md
 msgid "OpenAI Codex subscription auth lives on the `openai` slot. Set `wire_api = \"responses\"` to route through `POST /v1/responses` and `requires_openai_auth = true` to use the Codex subscription login (from the Codex CLI's own `~/.codex/auth.json`) instead of an `api_key` field on the entry. The subscription path does not read `OPENAI_API_KEY`; that variable applies only to the metered `openai` API-key mode. See [Provider Configuration → OAuth and subscription auth](./configuration.md#oauth-and-subscription-auth) for the credential model."
@@ -40233,7 +40236,7 @@ msgstr "Lista de permitidos opcional de nombres de herramientas para trabajos de
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "Optional audit sinks and responders are separate extension points. They can receive redacted projections or add containment and notification behavior, but they cannot remove, rewrite, delay, or replace the runtime-created canonical event and baseline runtime hooks."
-msgstr "Los receptores y sinks de auditoría opcionales son puntos de extensión independientes. Pueden recibir proyecciones redactadas o añadir comportamientos de contención y notificación, pero no pueden eliminar, reescribir, retrasar ni reemplazar el evento canónico creado en tiempo de ejecución ni los hooks base del runtime."
+msgstr "Los receptores y sinks de auditoría opcionales son puntos de extensión independientes. Pueden recibir proyecciones censuradas o añadir comportamientos de contención y notificación, pero no pueden eliminar, reescribir, retrasar ni reemplazar el evento canónico creado en tiempo de ejecución ni los hooks base del runtime."
 
 #: src/reference/config.md
 msgid "Optional bearer token for computer-use sidecar"
@@ -42909,7 +42912,7 @@ msgstr "Acción de prompt-guard para entrada de activación no confiable: `warn`
 
 #: src/reference/config.md
 msgid "Prompt-guard and outbound-redaction sensitivity for untrusted SOP content."
-msgstr "Sensibilidad de prompt-guard y redacción saliente para contenido SOP no confiable."
+msgstr "Sensibilidad de prompt-guard y censura saliente para contenido SOP no confiable."
 
 #: src/architecture/tool-execution-lifecycle.md
 msgid "Prompt-required shell calls have an extra loop guard: if the agent repeats the same prompt-required shell call before approval, the loop aborts instead of prompting over and over."
@@ -43239,7 +43242,7 @@ msgstr "Canal de equipo público."
 
 #: src/contributing/pr-review-protocol.md
 msgid "Public text does not include bot/AI attribution footers, local workflow mechanics, private paths, unredacted sensitive logs, excessive raw logs, irrelevant dumps, or stale lifecycle wording. Concise, relevant command output tails in `How I tested` are expected when the template asks for them."
-msgstr "El texto público no incluye pies de página de atribución de bot/IA, mecánicas locales del flujo de trabajo, rutas privadas, registros sensibles sin redactar, registros sin procesar excesivos, volcados irrelevantes ni redacción obsoleta del ciclo de vida. Se esperan colas concisas y relevantes de la salida de comandos en `How I tested` cuando la plantilla las solicite."
+msgstr "El texto público no incluye pies de página de atribución de bot/IA, mecánicas locales del flujo de trabajo, rutas privadas, registros sensibles sin censurar, registros sin procesar excesivos, volcados irrelevantes ni redacción obsoleta del ciclo de vida. Se esperan colas concisas y relevantes de la salida de comandos en `How I tested` cuando la plantilla las solicite."
 
 #: src/architecture/overview.md
 msgid "Public traits: `ModelProvider`, `Channel`, `Tool`, `Memory`, `Observer`, `RuntimeAdapter`, and `Peripheral`. The kernel ABI"
@@ -44245,15 +44248,15 @@ msgstr "Censurar antes de publicar"
 
 #: src/reference/config.md
 msgid "Redact configured secret/PII categories before persistence."
-msgstr "Redacta las categorías configuradas de secretos/PII antes de la persistencia."
+msgstr "Censura las categorías configuradas de secretos/PII antes de la persistencia."
 
 #: src/reference/config.md
 msgid "Redact outbound SOP content before persistence/audit consumers write it."
-msgstr "Redacta el contenido del SOP saliente antes de que los consumidores de persistencia/auditoría lo escriban."
+msgstr "Censura el contenido del SOP saliente antes de que los consumidores de persistencia/auditoría lo escriban."
 
 #: src/reference/config.md
 msgid "Redaction categories applied when `redact_on_write` is true."
-msgstr "Categorías de redacción aplicadas cuando `redact_on_write` es verdadero."
+msgstr "Categorías de censura aplicadas cuando `redact_on_write` es verdadero."
 
 #: src/reference/feature-matrix.md src/channels/overview.md
 #: src/channels/social.md
@@ -46159,7 +46162,7 @@ msgstr "Regla"
 
 #: src/channels/matrix.md
 msgid "Rule order is irrelevant, duplicate tool/default entries are rejected, and an omitted rule `base` inherits `default_base`. `include` adds fields after the base is selected; `exclude` removes them. Runtime-only fields are never shown, credential-named fields are redacted recursively within every selected value, and every rendered value passes credential leak detection and one-line normalization before it reaches Matrix. Including a composite remains an explicit operator disclosure decision, but does not bypass credential redaction. In `safe` mode, only the recommended top-level scalar arguments are rendered; nulls, arrays, and objects are omitted. Selecting `all` or naming an argument in `include` is explicit operator opt-in to compact JSON rendering of a composite value. `argument_chars` on the default entry changes the inherited per-value cap from `60`; the same field on a tool rule overrides it for that tool. `0` keeps full values while `message_max_bytes` still bounds the rendered draft. Explicit `all` applies to unknown tools; use an exact-name rule when enabling arguments for only one extension tool."
-msgstr "El orden de las reglas no es relevante, se rechazan las entradas de herramienta/predeterminadas duplicadas y una regla `base` omitida hereda `default_base`. `include` añade campos después de seleccionar la base; `exclude` los elimina. Los campos exclusivos del tiempo de ejecución nunca se muestran, los campos cuyos nombres son credenciales se redactan recursivamente dentro de cada valor seleccionado y cada valor renderizado pasa por la detección de filtraciones de credenciales y la normalización a una sola línea antes de llegar a Matrix. Incluir un valor compuesto sigue siendo una decisión explícita de divulgación por parte del operador, pero no omite la redacción de credenciales. En el modo `safe`, solo se renderizan los argumentos escalares de nivel superior recomendados; se omiten los valores nulos, las matrices y los objetos. Seleccionar `all` o nombrar un argumento en `include` es una aceptación explícita del operador para el renderizado de un valor compuesto como JSON compacto. `argument_chars` en la entrada predeterminada cambia el límite heredado por valor de `60`; el mismo campo en una regla de herramienta lo anula para esa herramienta. `0` conserva los valores completos, mientras `message_max_bytes` sigue limitando el borrador renderizado. `all` explícito se aplica a herramientas desconocidas; usa una regla con el nombre exacto al habilitar argumentos solo para una herramienta de extensión."
+msgstr "El orden de las reglas no es relevante, se rechazan las entradas de herramienta/predeterminadas duplicadas y una regla `base` omitida hereda `default_base`. `include` añade campos después de seleccionar la base; `exclude` los elimina. Los campos exclusivos del tiempo de ejecución nunca se muestran, los campos cuyos nombres son credenciales se censuran recursivamente dentro de cada valor seleccionado y cada valor renderizado pasa por la detección de filtraciones de credenciales y la normalización a una sola línea antes de llegar a Matrix. Incluir un valor compuesto sigue siendo una decisión explícita de divulgación por parte del operador, pero no omite la censura de credenciales. En el modo `safe`, solo se renderizan los argumentos escalares de nivel superior recomendados; se omiten los valores nulos, las matrices y los objetos. Seleccionar `all` o nombrar un argumento en `include` es una aceptación explícita del operador para el renderizado de un valor compuesto como JSON compacto. `argument_chars` en la entrada predeterminada cambia el límite heredado por valor de `60`; el mismo campo en una regla de herramienta lo anula para esa herramienta. `0` conserva los valores completos, mientras `message_max_bytes` sigue limitando el borrador renderizado. `all` explícito se aplica a herramientas desconocidas; usa una regla con el nombre exacto al habilitar argumentos solo para una herramienta de extensión."
 
 #: src/sop/syntax.md
 msgid "Run Durability"
@@ -47503,7 +47506,7 @@ msgstr "Revisiones de seguridad y de modos de fallo, y claridad en la reversión
 
 #: src/maintainers/pr-workflow.md
 msgid "Security and privacy fields are complete; evidence is redacted / anonymized."
-msgstr "Los campos de seguridad y privacidad están completos; la evidencia está redactada/anonimizada."
+msgstr "Los campos de seguridad y privacidad están completos; la evidencia está censurada/anonimizada."
 
 #: src/maintainers/pr-workflow.md
 msgid "Security and stability rules"
@@ -47920,7 +47923,7 @@ msgstr "Envía el evento estructurado a los suscriptores actuales dentro del pro
 
 #: src/sop/syntax.md
 msgid "Sensitivity used by prompt-guard screening and outbound redaction."
-msgstr "Sensibilidad utilizada por la detección de prompt-guard y la redacción de salida."
+msgstr "Sensibilidad utilizada por la detección de prompt-guard y la censura de salida."
 
 #: src/contributing/agent-guidelines.md
 msgid "Separate binary at v0.9.0"
@@ -49939,7 +49942,7 @@ msgstr "Sustituye el nombre del alias en lugar de `home` para que coincida con t
 
 #: src/contributing/testing.md
 msgid "Subsystem real, everything else mocked"
-msgstr "Subsystem real, todo lo demás simulado"
+msgstr "Subsistema real, todo lo demás simulado"
 
 #: src/architecture/runtime-composition.md
 msgid "Subsystems"
@@ -54437,7 +54440,7 @@ msgstr "El resultado es un binario `zeroclaw` que carga los tipos de canal `amqp
 
 #: src/foundations/fnd-001-intentional-architecture.md
 msgid "The result is a codebase that is impressively functional but architecturally accidental. The code does what it needs to do today, but it was not designed. It accumulated. This pattern has a name in our industry: **the Big Ball of Mud**. It is the most common architecture in software, not because anyone chose it, but because it is what you get when you skip the top of the hierarchy."
-msgstr "El resultado es una base de código impresionantemente funcional pero arquitectónicamente accidental. El código hace lo que necesita hacer hoy, pero no fue diseñado. Se acumuló. Este patrón tiene un nombre en nuestra industria: **the Big Ball of Mud**. Es la arquitectura más común en el software, no porque alguien la haya elegido, sino porque es lo que se obtiene cuando se omite la parte superior de la jerarquía."
+msgstr "El resultado es una base de código impresionantemente funcional pero arquitectónicamente accidental. El código hace lo que necesita hacer hoy, pero no fue diseñado. Se acumuló. Este patrón tiene un nombre en nuestra industria: **Big Ball of Mud**. Es la arquitectura más común en el software, no porque alguien la haya elegido, sino porque es lo que se obtiene cuando se omite la parte superior de la jerarquía."
 
 #: src/maintainers/labels.md
 msgid "The retained product labels are intentionally distinct. `cli` is the end-user command-line surface, while `channel:cli` is the interactive CLI chat channel. `web` is the browser dashboard and web-chat product, while `tool:web` is the agent's web-fetch/search tool group. `zerocode` is the ZeroCode terminal application, `hardware` covers the host integrations, support crates, and firmware tree, and `desktop` is the Tauri desktop product. Use the applicable tool or product label for native computer-use work outside `apps/tauri/**`; do not apply synchronized `desktop` manually to a PR whose paths do not match."
@@ -55221,7 +55224,7 @@ msgstr "El token necesita acceso de lectura al repositorio y acceso de escritura
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "The token never appears in the evidence, redacted or not."
-msgstr "El token nunca aparece en la evidencia, ni redactado ni sin redactar."
+msgstr "El token nunca aparece en la evidencia, ni censurado ni sin censurar."
 
 #: src/foundations/fnd-001-intentional-architecture.md
 msgid "The tool call parsing logic in `src/agent/loop_.rs` is approximately 1,400 lines of pure text transformation: it takes a string from the LLM and returns a list of structured tool calls. It has no dependency on agent state, memory, providers, or channels. It handles a dozen different LLM output formats (JSON, XML, GLM-style, MiniMax, Perl-style, markdown fences, and more)."
@@ -56932,7 +56935,7 @@ msgstr "Hoy, el publicador de versiones es el único escritor automatizado:"
 
 #: src/zerocode/config.md
 msgid "TodoWrite values are re-read at every session boundary, so an edit made in the Config pane applies to the next session you start, restart, or switch to, with no zerocode restart needed."
-msgstr "TodoWrite values se vuelven a leer en cada límite de sesión, así que una edición hecha en el panel Config se aplica a la siguiente sesión que inicies, reinicies o a la que cambies, sin necesidad de reiniciar zerocode."
+msgstr "Los valores de TodoWrite se vuelven a leer en cada límite de sesión, así que una edición hecha en el panel Config se aplica a la siguiente sesión que inicies, reinicies o a la que cambies, sin necesidad de reiniciar zerocode."
 
 #: src/sop/syntax.md
 msgid "Together with a checkpoint they form a headless review pipeline:"
@@ -58726,7 +58729,7 @@ msgstr "Use perfiles de riesgo más estrictos, listas de comandos permitidos má
 
 #: src/contributing/user-boundary-proof.md
 msgid "Use synthetic data and dedicated test accounts for live proof. Redact credentials, tokens, personal data, and private endpoints. Do not exercise production accounts, irreversible side effects, or paid external operations without explicit authorization."
-msgstr "Utilice datos sintéticos y cuentas de prueba dedicadas para la verificación en vivo. Redacte credenciales, tokens, datos personales y endpoints privados. No utilice cuentas de producción, efectos secundarios irreversibles ni operaciones externas de pago sin autorización explícita."
+msgstr "Utilice datos sintéticos y cuentas de prueba dedicadas para la verificación en vivo. Censure credenciales, tokens, datos personales y endpoints privados. No utilice cuentas de producción, efectos secundarios irreversibles ni operaciones externas de pago sin autorización explícita."
 
 #: src/maintainers/reviewer-playbook.md
 msgid "Use the PR stale ramp below. PR backlog pruning uses `needs-author-action` and `stale-candidate`; issue stale sweeps use `status:stale` under the canonical [issue stale policy](./labels.md#issue-stale-policy)."
@@ -60687,7 +60690,7 @@ msgstr "Cuando un asistente de codificación con IA lee un repositorio, ve el c�
 
 #: src/tools/mcp.md
 msgid "When an MCP `tools/call` result includes a content item shaped as `type: \"resource\"` with a nested `blob` (base64), ZeroClaw does **not** dump that base64 into the model context. Instead it materializes the bytes under the session workspace `uploads/` directory (same shared helper and 10 MB limit as ACP inbound `resource.blob`) and redacts the blob from the model-facing tool output, replacing it with a `materialized` reference: a `[Document: …]` marker for non-image mimes, or the plain saved path for image mimes, with the image declared as an attachment on the tool result rather than written into the text as a marker. This is gated by content shape, not by tool name. Materialization does not auto-deliver the file to ACP clients; the agent still calls `deliver_file` when outbound delivery is needed. See [ACP `session/prompt` blob intake](../channels/acp.md#sessionprompt)."
-msgstr "Cuando un resultado de `tools/call` de MCP incluye un elemento de contenido con forma `type: \"resource\"` y un `blob` anidado (base64), ZeroClaw **no** vuelca ese base64 en el contexto del modelo. En su lugar, materializa los bytes en el directorio `uploads/` del espacio de trabajo de la sesión (mismo helper compartido y límite de 10 MB que el `resource.blob` entrante de ACP) y redacta el blob de la salida de la herramienta que ve el modelo, sustituyéndolo por una referencia `materialized`: un marcador `[Document: …]` para tipos MIME que no son imágenes, o la ruta guardada sin más para tipos MIME de imagen, declarando la imagen como adjunto del resultado de la herramienta en lugar de escribirla en el texto como marcador. Esto se activa según la forma del contenido, no según el nombre de la herramienta. La materialización no entrega automáticamente el archivo a los clientes de ACP; el agente sigue llamando a `deliver_file` cuando se necesita la entrega saliente. Consulta [Ingesta de blobs en `session/prompt` de ACP](../channels/acp.md#sessionprompt)."
+msgstr "Cuando un resultado de `tools/call` de MCP incluye un elemento de contenido con forma `type: \"resource\"` y un `blob` anidado (base64), ZeroClaw **no** vuelca ese base64 en el contexto del modelo. En su lugar, materializa los bytes en el directorio `uploads/` del espacio de trabajo de la sesión (mismo helper compartido y límite de 10 MB que el `resource.blob` entrante de ACP) y censura el blob en la salida de la herramienta que ve el modelo, sustituyéndolo por una referencia `materialized`: un marcador `[Document: …]` para tipos MIME que no son imágenes, o la ruta guardada sin más para tipos MIME de imagen, declarando la imagen como adjunto del resultado de la herramienta en lugar de escribirla en el texto como marcador. Esto se activa según la forma del contenido, no según el nombre de la herramienta. La materialización no entrega automáticamente el archivo a los clientes de ACP; el agente sigue llamando a `deliver_file` cuando se necesita la entrega saliente. Consulta [Ingesta de blobs en `session/prompt` de ACP](../channels/acp.md#sessionprompt)."
 
 #: src/agents/operating.md
 msgid "When an agent needs a one-off helper instead of an existing peer, it spawns an ephemeral [SubAgent](./delegation.md) that inherits its identity and security policy for a single task, then disappears."
@@ -60919,7 +60922,7 @@ msgstr "Cuando se dispara el evento, la capa recorre el ámbito del span **de ho
 
 #: src/channels/chat-others.md
 msgid "When the floor is active, sends that arrive before the floor elapses enter a bounded FIFO queue. A background worker drains the queue at the floor rate so replies still land in order at the configured cadence. The queue depth defaults to **16** (good for the \"agent went briefly bursty\" case) and is capped at `REPLY_QUEUE_DEPTH_CEILING` (`1024`). When the queue is full the **newest** send is dropped and a `WARN` is emitted with `channel_alias`, redacted `recipient`, `queue_depth`, `queue_max`, and `dropped_chars`: body content stays out of logs."
-msgstr "Cuando el floor está activo, los envíos que llegan antes de que el floor expire entran en una cola FIFO acotada. Un worker en segundo plano drena la cola a la velocidad del floor para que las respuestas sigan llegando en orden con la cadencia configurada. La profundidad de la cola es por defecto **16** (adecuada para el caso de \"el agente tuvo una ráfaga breve\") y está limitada por `REPLY_QUEUE_DEPTH_CEILING` (`1024`). Cuando la cola está llena, se descarta el envío **más reciente** y se emite un `WARN` con `channel_alias`, `recipient` redactado, `queue_depth`, `queue_max` y `dropped_chars`: el contenido del cuerpo queda fuera de los logs."
+msgstr "Cuando el floor está activo, los envíos que llegan antes de que el floor expire entran en una cola FIFO acotada. Un worker en segundo plano drena la cola a la velocidad del floor para que las respuestas sigan llegando en orden con la cadencia configurada. La profundidad de la cola es por defecto **16** (adecuada para el caso de \"el agente tuvo una ráfaga breve\") y está limitada por `REPLY_QUEUE_DEPTH_CEILING` (`1024`). Cuando la cola está llena, se descarta el envío **más reciente** y se emite un `WARN` con `channel_alias`, `recipient` censurado, `queue_depth`, `queue_max` y `dropped_chars`: el contenido del cuerpo queda fuera de los logs."
 
 #: src/maintainers/ci-and-actions.md
 msgid "When the gate goes red"
@@ -62649,11 +62652,11 @@ msgstr "ZeroClaw suprime `matrix_sdk`, `matrix_sdk_base` y `matrix_sdk_crypto` a
 
 #: src/architecture/tool-execution-lifecycle.md
 msgid "ZeroClaw tools are capabilities the model can invoke during a turn. The tool catalog says what can be called; the execution lifecycle says how a call becomes safe, observable, cancellable, and provider-visible."
-msgstr "ZeroClaw tools son capacidades que el modelo puede invocar durante un turno. El catálogo de herramientas indica qué se puede llamar; el ciclo de vida de ejecución indica cómo una llamada se vuelve segura, observable, cancelable y visible para el proveedor."
+msgstr "Las herramientas de ZeroClaw son capacidades que el modelo puede invocar durante un turno. El catálogo de herramientas indica qué se puede llamar; el ciclo de vida de ejecución indica cómo una llamada se vuelve segura, observable, cancelable y visible para el proveedor."
 
 #: src/architecture/decisions/ADR-004-tool-shared-state-ownership.md
 msgid "ZeroClaw tools execute in a multi-client environment where a single daemon process can serve multiple connected clients and agent sessions. Some tools need long-lived shared state:"
-msgstr "ZeroClaw tools se ejecutan en un entorno multicliente donde un único proceso daemon puede atender a múltiples clientes conectados y sesiones de agente. Algunas herramientas necesitan estado compartido de larga duración:"
+msgstr "Las herramientas de ZeroClaw se ejecutan en un entorno multicliente donde un único proceso daemon puede atender a múltiples clientes conectados y sesiones de agente. Algunas herramientas necesitan estado compartido de larga duración:"
 
 #: src/maintainers/release-verification.md
 msgid "ZeroClaw uses GitHub artifact attestations as the canonical provenance mechanism for downloadable release assets. Each successful attestation records the asset digest, source commit, and release workflow identity as SLSA v1.0 Build Level 2 provenance."
@@ -63292,7 +63295,7 @@ msgstr "[Cookbook](./cookbook.md): patrones SOP reutilizables."
 
 #: src/ops/overview.md
 msgid "[Cost tracking](./cost-tracking.md): token spend and per-model cost"
-msgstr "[Cost tracking](./cost-tracking.md): gasto de tokens y costo por modelo"
+msgstr "[Seguimiento de costos](./cost-tracking.md): gasto de tokens y costo por modelo"
 
 #: src/architecture/decisions/ADR-007-gateway-extraction.md
 msgid "[Crate map](../crates.md)"
@@ -63481,7 +63484,7 @@ msgstr "[Descripción general de fan-in](./overview.md)"
 
 #: src/sop/fan-in/filesystem.md
 msgid "[Filesystem channel](../../channels/filesystem.md): watched paths, globs, symlink safety"
-msgstr "[Filesystem channel](../../channels/filesystem.md): rutas observadas, globs, seguridad de symlinks"
+msgstr "[Canal Filesystem](../../channels/filesystem.md): rutas observadas, globs, seguridad de symlinks"
 
 #: src/agents/overview.md
 msgid "[Filesystem components](./filesystem.md): the workspace, memory, and identity that live on disk per agent."
@@ -63529,7 +63532,7 @@ msgstr "[Pipeline de documentación generada](../architecture/generated-document
 
 #: src/sop/fan-in/git.md
 msgid "[Git channel](../../channels/git.md): provider, forge auth, polling, event routes"
-msgstr "[Git channel](../../channels/git.md): proveedor, autenticación de forge, polling, rutas de eventos"
+msgstr "[Canal Git](../../channels/git.md): proveedor, autenticación de forge, polling, rutas de eventos"
 
 #: src/foundations/fnd-004-engineering-infrastructure.md
 msgid "[GitHub Actions security hardening](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions): Official guidance on SHA pinning, token permissions, and supply chain risk in Actions workflows."
@@ -63569,7 +63572,7 @@ msgstr "[Subsistema de hardware](./subsystem.md): objetivos compatibles, habilit
 
 #: src/hardware/raspberry-pi-setup.md
 msgid "[Hardware → Adding boards & tools](./adding-boards-and-tools.md): extending hardware support"
-msgstr "[Hardware → Adding boards & tools](./adding-boards-and-tools.md): ampliación de la compatibilidad con hardware"
+msgstr "[Hardware → Agregar placas y herramientas](./adding-boards-and-tools.md): ampliación de la compatibilidad con hardware"
 
 #: src/hardware/raspberry-pi-setup.md
 msgid "[Hardware → Peripherals design](./hardware-peripherals-design.md): GPIO and the peripherals crate"
@@ -64428,7 +64431,7 @@ msgstr "[Configuración → Gestión de servicios](../setup/service.md)"
 
 #: src/ops/overview.md
 msgid "[Setup → Service management](../setup/service.md): install/remove/logs per platform"
-msgstr "[Setup → Service management](../setup/service.md): instalar/eliminar/ver registros según la plataforma"
+msgstr "[Configuración → Gestión de servicios](../setup/service.md): instalar/eliminar/ver registros según la plataforma"
 
 #: src/ops/network-deployment.md
 msgid "[Setup → Service management](../setup/service.md): platform service integration"
@@ -77022,7 +77025,7 @@ msgstr "`gateway`, `acp-bridge`, `whatsapp-web`: grupos de capacidades opcionale
 
 #: src/tools/mcp.md
 msgid "`gbr-mcp` logs tool-call arguments to `~/.gbr/logs/gbr-mcp-YYYY-MM-DD.jsonl` at info, default retention 7 days. Secret redaction does not strip ordinary inject text. For the safe baseline set `GBR_MCP_LOG_BODIES=0` on the `gbr` server `env` in ZeroCode Config. Delete or disable those logs if you do not want a second persistence surface outside ZeroClaw history."
-msgstr "`gbr-mcp` registra los argumentos de las llamadas a herramientas en `~/.gbr/logs/gbr-mcp-YYYY-MM-DD.jsonl` con nivel info, con una retención predeterminada de 7 días. La redacción de secretos no elimina el texto de inyección común. Para la configuración base segura, establezca `GBR_MCP_LOG_BODIES=0` en el `env` del servidor `gbr` en ZeroCode Config. Si no desea una segunda superficie de persistencia fuera del historial de ZeroClaw, elimine o desactive esos registros."
+msgstr "`gbr-mcp` registra los argumentos de las llamadas a herramientas en `~/.gbr/logs/gbr-mcp-YYYY-MM-DD.jsonl` con nivel info, con una retención predeterminada de 7 días. La censura de secretos no elimina el texto de inyección común. Para la configuración base segura, establezca `GBR_MCP_LOG_BODIES=0` en el `env` del servidor `gbr` en ZeroCode Config. Si no desea una segunda superficie de persistencia fuera del historial de ZeroClaw, elimine o desactive esos registros."
 
 #: src/maintainers/labels.md
 msgid "`gemini.rs`, `gemini_cli.rs`"
@@ -85320,7 +85323,7 @@ msgstr "config writes check `config_write_paths`;"
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "configurable `Annotate`, `Gate`, and `Drop` behavior cannot be enabled until unimplemented non-`Loop` dispositions fail closed with audit evidence and tests;"
-msgstr "configurable `Annotate`, `Gate` y `Drop` no se pueden habilitar hasta que las disposiciones no implementadas distintas de `Loop` fallen de forma segura (fail closed) con evidencia de auditoría y pruebas;"
+msgstr "el comportamiento configurable de `Annotate`, `Gate` y `Drop` no se puede habilitar hasta que las disposiciones no implementadas distintas de `Loop` fallen de forma segura (fail closed) con evidencia de auditoría y pruebas;"
 
 #: src/architecture/decisions/ADR-013-key-source-authority.md
 msgid "configuration selects exactly one source, defaults compatibly to the file source, and fails closed without fallback or replacement-key generation;"
@@ -86955,7 +86958,7 @@ msgstr "validación de la ruta cuando una ruta provenía de un usuario, una soli
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "peer reply provenance delivers or records completed live-process recipient output without exposing the sender's session handle to the recipient, and `require` cannot be weakened by the recipient or message content;"
-msgstr "peer reply provenance entrega o registra la salida completada del destinatario en proceso activo sin exponer el identificador de sesión del remitente al destinatario, y `require` no puede ser debilitado por el destinatario ni por el contenido del mensaje;"
+msgstr "la procedencia de las respuestas entre pares entrega o registra la salida completada del destinatario en proceso activo sin exponer el identificador de sesión del remitente al destinatario, y `require` no puede ser debilitado por el destinatario ni por el contenido del mensaje;"
 
 #: src/channels/overview.md
 msgid "per channel"
@@ -87099,7 +87102,7 @@ msgstr "qwen3, mistral, gemma3, hosted"
 
 #: src/gateway/api.md
 msgid "rate-limit JSON or `webhook queue full`"
-msgstr "rate-limit JSON o `webhook queue full`"
+msgstr "JSON de límite de tasa o `webhook queue full`"
 
 #: src/sop/how-it-works.md
 msgid "re-runs strict save validation, so it cannot put a definition back on disk that the authoring surface would have refused to write;"
@@ -87534,7 +87537,7 @@ msgstr "las entradas `risk_profile` y `runtime_profile` del agente;"
 
 #: src/plugins/index.md
 msgid "the alias is already bound to a different package, which the refusal names; another binding's `package` is never rewritten;"
-msgstr "the alias ya está asociado a otro paquete, el que indica el mensaje de rechazo; el `package` de otro enlace nunca se reescribe;"
+msgstr "el alias ya está asociado a otro paquete, el que indica el mensaje de rechazo; el `package` de otro enlace nunca se reescribe;"
 
 #: src/plugins/index.md
 msgid "the alias is not 1 to 63 lowercase letters, digits, and single underscores, starting and ending with a letter or digit;"
@@ -88158,7 +88161,7 @@ msgstr "zerocode incluye un conjunto de temas de color con nombre, permite que c
 
 #: src/maintainers/docs-and-translations.md
 msgid "zerocode strings (Fluent, independent)"
-msgstr "zerocode strings (Fluent, independiente)"
+msgstr "Cadenas de zerocode (Fluent, independientes)"
 
 #: src/architecture/localization-catalog-lifecycle.md
 msgid "zerocode strings loaded over the embedded English catalog from the shared disk locale directory"

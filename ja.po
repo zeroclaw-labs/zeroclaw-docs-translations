@@ -2547,7 +2547,8 @@ msgstr "# aarch64 = 64 ビット（実験的なビルド済みバイナリを利
 
 #: src/hardware/raspberry-pi-setup.md
 msgid "# aarch64 → 64-bit (use the aarch64-unknown-linux-gnu binary)\n"
-msgstr "# aarch64 → 64-bit（aarch64-unknown-linux-gnu バイナリを使用）\n"
+msgstr ""
+"# aarch64 → 64ビット（aarch64-unknown-linux-gnu バイナリを使用）\n"
 
 #: src/providers/openai-codex-subscription.md
 msgid "# account_id is OPTIONAL in auth.json; ZeroClaw falls back to the OAuth JWT when\n"
@@ -2731,7 +2732,8 @@ msgstr "# インタラクティブピッカー\n"
 
 #: src/getting-started/language.md
 msgid "# just CLI strings\n"
-msgstr "# just CLI 文字列\n"
+msgstr ""
+"# CLI 文字列のみ\n"
 
 #: src/contributing/testing.md
 msgid "# level-specific CI commands (Docker)\n"
@@ -2824,7 +2826,8 @@ msgstr "# 存在し、有効期限内である\n"
 
 #: src/developing/web.md
 msgid "# production bundle into web/dist/\n"
-msgstr "# production bundle を web/dist/ へ\n"
+msgstr ""
+"# 本番バンドルを web/dist/ へ\n"
 
 #: src/channels/matrix.md src/channels/discord.md src/channels/slack.md
 #: src/channels/mattermost.md src/channels/whatsapp.md src/channels/email.md
@@ -3373,7 +3376,7 @@ msgstr "**9,500行のファイルはモジュールではありません。`.rs`
 
 #: src/maintainers/release-runbook.md
 msgid "**A Plugin Smoke leg failed:** On a dispatched release nothing was published: the GitHub Release and the release workflow's own image pushes wait for every leg. A release started by a tag push also triggers Docker Publish on its own, and that run does not wait for the smoke, so check it as well. Open the leg's step summary: the report names the check that failed and quotes the command output, and the `plugin-smoke-<target>` artifact holds the same report. A failure at `plugin install` or at the tool result means the archive built for that target cannot run a plugin; fix it on `master` and dispatch Release Stable again. Rehearse the fix first with the Cross-Platform Build workflow, which runs the same legs against the binaries it builds. A failure that names the provider or the scratch directory is a runner problem: re-run only the failed leg. Re-run a timeout once as well; a repeat timeout is a defect, since a binary that hangs on plugin load times out the same way."
-msgstr "**Plugin Smoke leg が失敗しました:** dispatch で起動したリリースでは何も公開されていません。GitHub Release とリリースワークフロー自身のイメージ push は、すべての leg の完了を待っています。タグ push で開始されたリリースは Docker Publish も単独でトリガーしますが、その実行は smoke を待たないため、こちらも確認してください。失敗した leg の step summary を開いてください。レポートには失敗したチェックの名前と、コマンド出力が引用されています。`plugin-smoke-<target>` artifact にも同じレポートが入っています。`plugin install` またはツール結果で失敗している場合、そのターゲット向けにビルドされたアーカイブはプラグインを実行できません。`master` で修正し、Release Stable を再度 dispatch してください。修正を先に確認するには、Cross-Platform Build ワークフローを使ってリハーサルしてください。このワークフローは、ビルドしたバイナリに対して同じ leg を実行します。プロバイダーまたは scratch ディレクトリの名前が出ている失敗は runner の問題です。失敗した leg だけを再実行してください。タイムアウトも一度だけ再実行してください。再度タイムアウトした場合は欠陥です。プラグインロード時にハングするバイナリは、同じようにタイムアウトするためです。"
+msgstr "**Plugin Smoke レッグが失敗しました:** dispatch で起動したリリースでは何も公開されていません。GitHub Release とリリースワークフロー自身のイメージ push は、すべてのレッグの完了を待っています。タグ push で開始されたリリースは Docker Publish も単独でトリガーしますが、その実行は smoke を待たないため、こちらも確認してください。失敗したレッグの step summary を開いてください。レポートには失敗したチェックの名前と、コマンド出力が引用されています。`plugin-smoke-<target>` artifact にも同じレポートが入っています。`plugin install` またはツール結果で失敗している場合、そのターゲット向けにビルドされたアーカイブはプラグインを実行できません。`master` で修正し、Release Stable を再度 dispatch してください。修正を先に確認するには、Cross-Platform Build ワークフローを使ってリハーサルしてください。このワークフローは、ビルドしたバイナリに対して同じレッグを実行します。プロバイダーまたは scratch ディレクトリの名前が出ている失敗は runner の問題です。失敗したレッグだけを再実行してください。タイムアウトも一度だけ再実行してください。再度タイムアウトした場合は欠陥です。プラグインロード時にハングするバイナリは、同じようにタイムアウトするためです。"
 
 #: src/maintainers/release-runbook.md
 msgid "**A Scoop or AUR distribution job failed:** Each has a corresponding manually-triggerable sub-workflow. Re-run the specific one with `dry_run: true` first to confirm the fix, then `dry_run: false`. These are nice-to-have: a failed distribution job does not invalidate the release itself. For Scoop credential failures, use Scoop Bucket Canary instead of treating a generic dry run as credential proof; the canary enables the fail-closed `credential_canary` path."
@@ -3473,7 +3476,7 @@ msgstr "**型付きの言語非依存 ABI。** ホストとプラグイン間の
 
 #: src/architecture/runtime-composition.md
 msgid "**ACP server** builds agents through `Agent::from_config_with_session_cwd_and_mcp_backchannel*`."
-msgstr "**ACP server** は `Agent::from_config_with_session_cwd_and_mcp_backchannel*` を使ってエージェントを構築します。"
+msgstr "**ACP サーバー** は `Agent::from_config_with_session_cwd_and_mcp_backchannel*` を使ってエージェントを構築します。"
 
 #: src/channels/acp.md
 msgid "**ACP** is a JSON-RPC 2.0 protocol over stdio that lets editors and IDEs drive a running ZeroClaw agent as a session host. Newline-delimited JSON, lightweight, streamable, easy to wire to a subprocess."
@@ -3929,7 +3932,7 @@ msgstr "そのインストールから取得する **Bot secret** です。Nextc
 
 #: src/channels/mattermost.md
 msgid "**Bot token** (preferred). Create at **System Console → Integrations → Bot Accounts**, copy the access token, store it in `bot_token`. Tokens survive password rotations and are easier to revoke."
-msgstr "**Bot token**（推奨）。**System Console → Integrations → Bot Accounts** で作成し、アクセストークンをコピーして `bot_token` に保存します。トークンはパスワードのローテーションの影響を受けず、取り消しも容易です。"
+msgstr "**ボットトークン**（推奨）。**System Console → Integrations → Bot Accounts** で作成し、アクセストークンをコピーして `bot_token` に保存します。トークンはパスワードのローテーションの影響を受けず、取り消しも容易です。"
 
 #: src/channels/nextcloud-talk.md
 msgid "**Bot-originated events** (`actorType = \"bots\"`) are ignored: prevents feedback loops"
@@ -4117,7 +4120,7 @@ msgstr "**チャネルシークレット**: 基本設定タブ。"
 
 #: src/architecture/runtime-composition.md
 msgid "**Channels orchestrator** keeps a per-sender provider cache (`get_or_create_provider`) built with `create_resilient_model_provider_from_ref`, and calls `all_tools_with_runtime` directly."
-msgstr "**Channels orchestrator**は送信者ごとのプロバイダーキャッシュ（`get_or_create_provider`）を保持しており、それは`create_resilient_model_provider_from_ref`で構築され、`all_tools_with_runtime`を直接呼び出します。"
+msgstr "**チャネルオーケストレーター**は送信者ごとのプロバイダーキャッシュ（`get_or_create_provider`）を保持しており、それは`create_resilient_model_provider_from_ref`で構築され、`all_tools_with_runtime`を直接呼び出します。"
 
 #: src/getting-started/quickstart.md
 msgid "**Channels**"
@@ -4509,7 +4512,7 @@ msgstr "**確定的な検証**: マージゲートは、主観的なコメント
 
 #: src/maintainers/reviewer-playbook.md
 msgid "**Diff shape**: large or new-integration PRs are coherent, merge-justified now, not easily split, and not mostly duplicated machinery."
-msgstr "**Diff shape**: 大規模または新規統合の PR は一貫性があり、現時点でマージが正当化され、容易に分割できず、大部分が重複した機構ではない。"
+msgstr "**差分の形状**: 大規模または新規統合の PR は一貫性があり、現時点でマージが正当化され、容易に分割できず、大部分が重複した機構ではない。"
 
 #: src/contributing/pr-review-protocol.md
 msgid "**Diff**"
@@ -4813,7 +4816,7 @@ msgstr "**障害モード**: エラー処理が明示的であり、安全に劣
 
 #: src/providers/configuration.md
 msgid "**Family endpoint**: the family's `*Endpoint` enum supplies the URL (e.g. `OpenAIEndpoint::Default` -> `https://api.openai.com/v1`). Multi-region families have an `endpoint` field on the alias entry that picks the variant (e.g. `endpoint = \"cn\"` for Moonshot)."
-msgstr "**Family endpoint**: ファミリーの `*Endpoint` 列挙型が URL を提供します（例: `OpenAIEndpoint::Default` -> `https://api.openai.com/v1`）。マルチリージョンのファミリーでは、エイリアスエントリに `endpoint` フィールドがあり、バリアントを選択します（例: Moonshot の場合は `endpoint = \"cn\"`）。"
+msgstr "**ファミリーのエンドポイント**: ファミリーの `*Endpoint` 列挙型が URL を提供します（例: `OpenAIEndpoint::Default` -> `https://api.openai.com/v1`）。マルチリージョンのファミリーでは、エイリアスエントリに `endpoint` フィールドがあり、バリアントを選択します（例: Moonshot の場合は `endpoint = \"cn\"`）。"
 
 #: src/foundations/fnd-006-zero-compromise-in-practice.md
 msgid "**Far from a trust boundary**"
@@ -5073,7 +5076,7 @@ msgstr "**ヘッドレス実行:** cron トリガーと webhook 配信は、そ�
 
 #: src/sop/fan-in/overview.md
 msgid "**Headless ownership**"
-msgstr "Headless ownership"
+msgstr "**ヘッドレス時の所有者**"
 
 #: src/sop/fan-in/overview.md
 msgid "**Headless ownership:** a headless step runs as the agent named by the step's `agent`, falling back to the SOP's `agent`, and that agent must be configured and enabled. There is no ambient agent turn to inherit an identity from, so a procedure with no owner is **rejected at authoring time** and refused at dispatch; it is never run as some other configured agent. A [manual](./manual.md) SOP is the one case that saves without an owner, because `sop_execute` supplies one; the dashboard's run endpoint, which has no agent behind it, refuses to start such a procedure."
@@ -5218,7 +5221,7 @@ msgstr "**受信:** `mention` および `reply` の通知。ピアからのも�
 
 #: src/channels/social.md
 msgid "**Inbound:** kind-1 (text), kind-4 (DM, NIP-04), and kind-1059 (gift-wrap, NIP-17)."
-msgstr "**Inbound:** kind-1 (テキスト)、kind-4 (DM、NIP-04)、および kind-1059 (ギフトラップ、NIP-17)。"
+msgstr "**受信:** kind-1 (テキスト)、kind-4 (DM、NIP-04)、および kind-1059 (ギフトラップ、NIP-17)。"
 
 #: src/channels/social.md
 msgid "**Inbound:** mentions via the Filtered Stream endpoint."
@@ -5807,7 +5810,7 @@ msgstr "**次回のリリース:** タグ `v0.8.0-beta-1` などを指定した 
 
 #: src/channels/nextcloud-talk.md
 msgid "**Nextcloud server 27.1 or later with Talk 17.1 or later.** This is a hard minimum, not a recommendation: the signed Talk Bot API this integration uses to send replies was introduced in Talk 17.1, and `occ talk:bot:install` below is unavailable on earlier releases."
-msgstr "**Nextcloud server 27.1 以降、かつ Talk 17.1 以降。** これは推奨ではなく厳格な最小要件です。この統合が返信の送信に使用する署名付き Talk Bot API は Talk 17.1 で導入されたため、以下の `occ talk:bot:install` はそれ以前のリリースでは利用できません。"
+msgstr "**Nextcloud サーバー 27.1 以降、かつ Talk 17.1 以降。** これは推奨ではなく厳格な最小要件です。この統合が返信の送信に使用する署名付き Talk Bot API は Talk 17.1 で導入されたため、以下の `occ talk:bot:install` はそれ以前のリリースでは利用できません。"
 
 #: src/developing/plugin-protocol.md
 msgid "**No JIT backend** (`plugins-wasm-pulley` or runtime-only): there is no compiler in the binary, so `load_component` deserializes the file directly via `Component::deserialize_file`, treating it as a precompiled `.cwasm` produced by a matching wasmtime. A mismatched artifact is rejected by deserialize's version check."
@@ -6643,7 +6646,7 @@ msgstr "**関連する基盤ドキュメント**"
 
 #: src/reference/env-vars.md
 msgid "**Reload drift**: `GET /api/config/drift`, `GET /api/config/list`, and the reload banner exclude env-overridden paths from drift computation. Because these values live only in memory and are never written to disk, they would otherwise report as permanent drift that no config-file edit could reconcile. Excluding them keeps drift output limited to differences an operator can actually resolve by editing the stored config."
-msgstr "**Reload drift**: `GET /api/config/drift`、`GET /api/config/list`、およびリロードバナーは、環境変数でオーバーライドされたパスをドリフト計算から除外します。これらの値はメモリ上にのみ存在し、ディスクには書き込まれないため、除外しないと設定ファイルの編集では解消できない永続的なドリフトとして報告されてしまいます。除外することで、ドリフト出力はオペレーターが保存された設定を編集することで実際に解決できる差分に限定されます。"
+msgstr "**リロード時のドリフト**: `GET /api/config/drift`、`GET /api/config/list`、およびリロードバナーは、環境変数でオーバーライドされたパスをドリフト計算から除外します。これらの値はメモリ上にのみ存在し、ディスクには書き込まれないため、除外しないと設定ファイルの編集では解消できない永続的なドリフトとして報告されてしまいます。除外することで、ドリフト出力はオペレーターが保存された設定を編集することで実際に解決できる差分に限定されます。"
 
 #: src/maintainers/superseding.md
 msgid "**Remaining risks / unknowns.**"
@@ -6791,7 +6794,7 @@ msgstr "**差し戻し**: 提案本文に実質的な変更が加えられた場
 
 #: src/contributing/rfcs.md
 msgid "**Returned to revision**: a valid eligible `REVISE` before the deadline stops the current snapshot. The return record names the blocking body change or decision needed."
-msgstr "**Returned to revision**（差し戻し）: 期限前に有効な対象の `REVISE` が出されると、現在のスナップショットは停止されます。差し戻し記録には、ブロックしている本文の変更または必要な判断が明記されます。"
+msgstr "**修正のための差し戻し**: 期限前に有効な対象の `REVISE` が出されると、現在のスナップショットは停止されます。差し戻し記録には、ブロックしている本文の変更または必要な判断が明記されます。"
 
 #: src/foundations/fnd-004-engineering-infrastructure.md
 msgid "**Reusable workflow**: A GitHub Actions workflow that can be called as a job from another workflow, with parameters. Allows build, test, and security logic to be defined once and called from both the PR pipeline and the release pipeline."
@@ -7358,7 +7361,7 @@ msgstr "**スイープ**: 優先順位順にバックログ全体を処理（マ
 
 #: src/zerocode/running.md
 msgid "**Switch session** opens the session list (default chord: Ctrl+S; rebindable in the keymap)."
-msgstr "**Switch session** はセッション一覧を開きます（デフォルトのコード: Ctrl+S。キーマップで再バインド可能）。"
+msgstr "**セッションの切り替え** はセッション一覧を開きます（デフォルトのコード: Ctrl+S。キーマップで再バインド可能）。"
 
 #: src/channels/matrix.md
 msgid "**Symptom:** `Matrix one-time key upload conflict detected; stopping sync to avoid infinite retry loop` and the channel becomes unavailable."
@@ -8657,7 +8660,7 @@ msgstr "**ビジョン**"
 
 #: src/channels/matrix.md
 msgid "**Voice messages** (MSC3245): inbound `m.audio` events carrying the `org.matrix.msc3245.voice` field are saved to `{workspace_dir}/matrix_files/` and run through the agent's configured transcription provider so the agent gets both the transcript text and the source path. Outbound voice notes upload as `m.audio` with the voice flag + zero-waveform set, so Element renders the bubble as a voice note; in an encrypted room the audio is encrypted before upload like any other attachment. See [Model Providers](../providers/overview.md) for transcription provider setup."
-msgstr "**Voice messages**（MSC3245）：`org.matrix.msc3245.voice` フィールドを持つ受信 `m.audio` イベントは `{workspace_dir}/matrix_files/` に保存され、エージェントに設定された文字起こしプロバイダーで処理されます。これにより、エージェントは文字起こしテキストと元のファイルパスの両方を取得できます。送信するボイスノートは、音声フラグとゼロ波形を設定した `m.audio` としてアップロードされるため、Element ではボイスノートの吹き出しとして表示されます。暗号化されたルームでは、他の添付ファイルと同様に、アップロード前に音声が暗号化されます。文字起こしプロバイダーの設定については、[モデルプロバイダー](../providers/overview.md)を参照してください。"
+msgstr "**音声メッセージ**（MSC3245）：`org.matrix.msc3245.voice` フィールドを持つ受信 `m.audio` イベントは `{workspace_dir}/matrix_files/` に保存され、エージェントに設定された文字起こしプロバイダーで処理されます。これにより、エージェントは文字起こしテキストと元のファイルパスの両方を取得できます。送信するボイスノートは、音声フラグとゼロ波形を設定した `m.audio` としてアップロードされるため、Element ではボイスノートの吹き出しとして表示されます。暗号化されたルームでは、他の添付ファイルと同様に、アップロード前に音声が暗号化されます。文字起こしプロバイダーの設定については、[モデルプロバイダー](../providers/overview.md)を参照してください。"
 
 #: src/setup/windows.md
 msgid "**Volume mounts.** Bind-mounting Windows-side paths (`-v C:/Users/...:/zeroclaw-data`) into a Linux container crosses the WSL2 ⇄ Windows filesystem boundary; Microsoft documents the layout and the cross-OS path implications in the [WSL file systems](https://learn.microsoft.com/en-us/windows/wsl/filesystems) reference. Prefer Docker named volumes (`-v zeroclaw-data:/zeroclaw-data`) or store the workspace inside the WSL filesystem (`\\\\wsl$\\Debian\\home\\...`) for near-native performance."
@@ -8689,7 +8692,7 @@ msgstr "**Web Config エディター**: すべての `ListEntry` には `is_env_
 
 #: src/tools/mcp.md
 msgid "**Web dashboard** (Config -> MCP servers -> a server): the same per-field surface as the TUI, one form per server."
-msgstr "**Web dashboard**（Config -> MCP servers -> a server）: TUI と同じフィールド単位の設定画面を、サーバーごとに 1 つのフォームとして提供します。"
+msgstr "**Webダッシュボード**（Config -> MCP servers -> 個々のサーバー）: TUI と同じフィールド単位の設定画面を、サーバーごとに 1 つのフォームとして提供します。"
 
 #: src/setup/windows.md
 msgid "**Web dashboard:** bundled and served by default in the published image. The image sets `gateway.web_dist_dir = \"/usr/share/zeroclawlabs/web/dist\"` and includes the built frontend there, so the gateway serves the SPA fallback out-of-the-box. The assets live **outside** the `/zeroclaw-data` mount point so a `-v …:/zeroclaw-data` volume mount cannot shadow them (ref #6400)."
@@ -9049,7 +9052,7 @@ msgstr "**[rustdoc を開く →](/api/zeroclaw/index.html)**"
 
 #: src/getting-started/yolo.md
 msgid "**[Tool receipts](../security/tool-receipts.md)** still protect successful tool-result claims when enabled. They are conversation-visible receipts, not a durable receipt log."
-msgstr "**[Tool receipts](../security/tool-receipts.md)** は、有効にすると成功したツール結果のクレームを引き続き保護します。会話内で可視化されるレシートであり、永続的なレシートログではありません。"
+msgstr "**[ツールレシート](../security/tool-receipts.md)** は、有効にすると成功したツール結果のクレームを引き続き保護します。会話内で可視化されるレシートであり、永続的なレシートログではありません。"
 
 #: src/architecture/runtime-composition.md
 msgid "**[\\#10998](https://github.com/zeroclaw-labs/zeroclaw/issues/10998)** (core tools only in the default runtime) consumes `ToolSource`: the optional tools move behind the application's `ToolSource`, and the runtime keeps only its core tools."
@@ -9489,7 +9492,7 @@ msgstr "**parallel-runtime-test**: `scripts/ci/parallel_runtime_test_gate.sh` �
 
 #: src/hardware/nucleo-setup.md
 msgid "**probe-rs not found**: `cargo install probe-rs-tools --locked` (the `probe-rs` crate is a library; the CLI is in `probe-rs-tools`)"
-msgstr "**probe-rs not found**: `cargo install probe-rs-tools --locked`（`probe-rs` クレートはライブラリです。CLI は `probe-rs-tools` に含まれています）"
+msgstr "**probe-rs が見つからない**: `cargo install probe-rs-tools --locked`（`probe-rs` クレートはライブラリです。CLI は `probe-rs-tools` に含まれています）"
 
 #: src/agents/delegation.md
 msgid "**same-profile peers**: every other agent sharing the caller's risk profile, included while `delegate_same_risk_profile = true` (the default). Set it `false` to opt the caller out of auto-allowing peers."
@@ -9517,7 +9520,7 @@ msgstr "**ビルド成果物用の tmpfs**（RAM + swap に余裕がある場合
 
 #: src/maintainers/release-runbook.md
 msgid "**validate failed: version mismatch:** The version bump PR was not merged, or you typed the wrong version. Fix the mismatch and re-trigger."
-msgstr "**validate failed: version mismatch:** バージョン更新のPRがマージされていないか、誤ったバージョンを入力しています。不一致を修正して再実行してください。"
+msgstr "**validate の失敗: バージョンの不一致:** バージョン更新のPRがマージされていないか、誤ったバージョンを入力しています。不一致を修正して再実行してください。"
 
 #: src/zerocode/themes.md
 msgid "**xterm-256** is used for macOS Terminal.app, which lacks 24-bit color (detected via `TERM_PROGRAM=Apple_Terminal`). iTerm2, kitty, WezTerm, Ghostty, and other truecolor terminals are unaffected."
@@ -11199,7 +11202,7 @@ msgstr "6. アーキテクチャ: 拡張ポイントとしてのペリフェラ�
 
 #: src/channels/telegram.md
 msgid "6. Bind another user from the operator CLI"
-msgstr "6. operator CLI から別のユーザーをバインドする"
+msgstr "6. オペレーター CLI から別のユーザーをバインドする"
 
 #: src/foundations/fnd-003-governance.md
 msgid "6. CODEOWNERS and Branch Protection"
@@ -11531,7 +11534,7 @@ msgstr "**ゲート**はバイナリです。合格か不合格か。これは�
 
 #: src/architecture/logging.md
 msgid "A **legacy archive**, written before sequence numbering existed, is addressed by filename. An archive name is never reassigned to different content, so this is stable in the same way."
-msgstr "**legacy archive**（シーケンス番号の仕組みが導入される前に書かれたもの）は、ファイル名によって参照されます。アーカイブ名が別の内容に再割り当てされることは決してないため、この参照は同じ意味で安定しています。"
+msgstr "**レガシーアーカイブ**（シーケンス番号の仕組みが導入される前に書かれたもの）は、ファイル名によって参照されます。アーカイブ名が別の内容に再割り当てされることは決してないため、この参照は同じ意味で安定しています。"
 
 #: src/architecture/logging.md
 msgid "A **numbered archive** is addressed by the sequence number written into its name at rotation. A best-effort sidecar keeps numbers monotonic across normal restarts. If its write fails, retention removes all numbered archives, and the daemon restarts, a number can be reused and an outstanding cursor can bind to newer history."
@@ -11539,7 +11542,7 @@ msgstr "**番号付きアーカイブ**は、ローテーション時にその�
 
 #: src/security/authentication.md
 msgid "A **paired bearer** (`Authorization: Bearer zc_...`) resolves to the shared operator with full access, exactly as before. Denials keep the historical 401 shape."
-msgstr "**paired bearer** (`Authorization: Bearer zc_...`) は、従来どおり完全なアクセス権を持つ共有オペレーターに解決されます。拒否時は従来の 401 形式を維持します。"
+msgstr "**ペアリング済みベアラー** (`Authorization: Bearer zc_...`) は、従来どおり完全なアクセス権を持つ共有オペレーターに解決されます。拒否時は従来の 401 形式を維持します。"
 
 #: src/channels/peer-groups.md
 msgid "A **peer group** declares who an agent accepts inbound messages from on a channel, and which other agents it can exchange messages with there. It is the inbound gate for chat channels and the routing primitive for cross-agent dispatch. In config it lives at `[peer_groups.<name>]`. For how peer groups fit into an agent's wiring, see [Agents](../agents/overview.md)."
@@ -11855,7 +11858,7 @@ msgstr "チャネルの機能はその構成に従います。`stream_mode` 列�
 
 #: src/sop/decision-models.md
 msgid "A chosen mode applies to that run only and is stored with the run, so it survives a restart. Step-level `requires_confirmation` and checkpoints still gate regardless of the chosen mode."
-msgstr "A選択されたモードはその実行にのみ適用され、実行とともに保存されるため、再起動後も維持されます。ステップレベルの `requires_confirmation` とチェックポイントは、選択されたモードに関係なく引き続き確認を要求します。"
+msgstr "選択されたモードはその実行にのみ適用され、実行とともに保存されるため、再起動後も維持されます。ステップレベルの `requires_confirmation` とチェックポイントは、選択されたモードに関係なく引き続き確認を要求します。"
 
 #: src/gateway/api.md
 msgid "A claimed path must be 1–64 ASCII letters, digits, hyphens, or underscores. Duplicate or invalid claimants are rejected before the daemon atomically publishes its runtime route map."
@@ -12371,7 +12374,7 @@ msgstr "個人のデプロイメントは、ログインを共有せずに企業
 
 #: src/getting-started/quickstart.md
 msgid "A picked plugin that was already installed may never have passed the load check, for example when it was installed with `zeroclaw plugin install --no-verify`, so Quickstart runs the check `zeroclaw plugin info` runs before it reports the plugin. When the plugin does not load against this host, ZeroClaw skips it at startup, so its status says that instead of calling it active and gives the `zeroclaw plugin info` command that shows why."
-msgstr "A選択されたプラグインが既にインストール済みの場合、読み込みチェックを通過していない可能性があります。たとえば `zeroclaw plugin install --no-verify` でインストールされた場合がこれに当たります。そのため Quickstart は、プラグインを報告する前に `zeroclaw plugin info` が実行するチェックを実行します。プラグインがこのホストで読み込めない場合、ZeroClaw は起動時にそのプラグインをスキップします。その際、ステータスは「アクティブ」ではなく読み込めなかったことを示し、原因を確認するための `zeroclaw plugin info` コマンドを案内します。"
+msgstr "選択されたプラグインが既にインストール済みの場合、読み込みチェックを通過していない可能性があります。たとえば `zeroclaw plugin install --no-verify` でインストールされた場合がこれに当たります。そのため Quickstart は、プラグインを報告する前に `zeroclaw plugin info` が実行するチェックを実行します。プラグインがこのホストで読み込めない場合、ZeroClaw は起動時にそのプラグインをスキップします。その際、ステータスは「アクティブ」ではなく読み込めなかったことを示し、原因を確認するための `zeroclaw plugin info` コマンドを案内します。"
 
 #: src/ops/overview.md
 msgid "A plain `tar czf zeroclaw-$(date +%F).tar.gz ~/.zeroclaw` covers everything. Restic, borg, or Duplicacy work fine for incremental backups."
@@ -12969,7 +12972,7 @@ msgstr "投票バッチはスケジュール設定のみを行います。各RFC
 
 #: src/contributing/rfcs.md
 msgid "A vote cycle normally stays open for **72 hours** against an immutable proposal snapshot, identified by an immutable artifact or commit, or by a recorded issue-body digest plus a concise decision summary. The vote-opening comment records the snapshot, the assigned electorate, the threshold and why it applies, that quorum requires two explicit ballots, and the exact UTC deadline. It may not add ad hoc closing conditions outside this protocol."
-msgstr "A投票サイクルは、通常、不変の提案スナップショットに対して**72時間**開かれたままになります。このスナップショットは、不変のアーティファクトまたはコミット、あるいは記録された Issue 本文のダイジェストと簡潔な決定概要によって識別されます。投票開始コメントには、スナップショット、割り当てられた有権者、閾値とその適用理由、定足数には2件の明示的な投票が必要であること、そして正確なUTCの締切時刻を記録します。このプロトコル外の独自の終了条件を追加することはできません。"
+msgstr "投票サイクルは、通常、不変の提案スナップショットに対して**72時間**開かれたままになります。このスナップショットは、不変のアーティファクトまたはコミット、あるいは記録された Issue 本文のダイジェストと簡潔な決定概要によって識別されます。投票開始コメントには、スナップショット、割り当てられた有権者、閾値とその適用理由、定足数には2件の明示的な投票が必要であること、そして正確なUTCの締切時刻を記録します。このプロトコル外の独自の終了条件を追加することはできません。"
 
 #: src/contributing/rfcs.md
 msgid "A vote may close early only when every member of the final active electorate has explicitly approved and no inactive Core contributor has asked for the full window. The closing record must say why it closed early."
@@ -13567,7 +13570,7 @@ msgstr "許容される `acr`（認証コンテキストクラス）の値。空
 
 #: src/security/authentication.md
 msgid "Acceptable `acr` (authentication context class) values. Empty = no requirement; non-empty = the token's `acr` claim must be one of these values or authentication fails closed."
-msgstr "Acceptable `acr` (authentication context class) 値です。空の場合は要件なしを意味します。空でない場合、トークンの `acr` クレームはこれらの値のいずれかでなければならず、そうでなければ認証はフェイルクローズで失敗します。"
+msgstr "許容される `acr`（認証コンテキストクラス）の値です。空の場合は要件なしを意味します。空でない場合、トークンの `acr` クレームはこれらの値のいずれかでなければならず、そうでなければ認証はフェイルクローズで失敗します。"
 
 #: src/architecture/decisions/ADR-016-holding-crate-exceptions.md
 msgid "Acceptance"
@@ -14875,7 +14878,7 @@ msgstr "プロジェクトが依存しているクレートが、制御できな
 
 #: src/security/authentication.md
 msgid "An **OIDC bearer** presented with the `X-ZeroClaw-Auth-Provider: oidc.<alias>` header is verified by that provider and resolved to a scoped principal. Selection is explicit, mirroring the RPC handshake's `auth_provider` field: the named provider's denial is authoritative, and there is never a fallback between providers."
-msgstr "**OIDC bearer** を `X-ZeroClaw-Auth-Provider: oidc.<alias>` ヘッダーとともに提示すると、そのプロバイダーによって検証され、スコープ付きのプリンシパルに解決されます。プロバイダーの選択は明示的に行われ、RPC ハンドシェイクの `auth_provider` フィールドと同じ仕組みです。指定されたプロバイダーによる拒否が最終的な判断となり、プロバイダー間のフォールバックは一切行われません。"
+msgstr "**OIDC ベアラー** を `X-ZeroClaw-Auth-Provider: oidc.<alias>` ヘッダーとともに提示すると、そのプロバイダーによって検証され、スコープ付きのプリンシパルに解決されます。プロバイダーの選択は明示的に行われ、RPC ハンドシェイクの `auth_provider` フィールドと同じ仕組みです。指定されたプロバイダーによる拒否が最終的な判断となり、プロバイダー間のフォールバックは一切行われません。"
 
 #: src/agents/portability.md
 msgid "An **agent bundle** is the portable form:"
@@ -15968,7 +15971,7 @@ msgstr "インストール済みスキルまたはローカルスキルディレ
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "Audit durability introduces file I/O and fail-closed behavior when enabled, so compatibility and rollback must be explicit."
-msgstr "Audit durability では、有効化するとファイル I/O と fail-closed の動作が加わるため、互換性とロールバックを明示的に扱う必要があります。"
+msgstr "監査の永続性を有効にすると、ファイル I/O と fail-closed の動作が加わるため、互換性とロールバックを明示的に扱う必要があります。"
 
 #: src/reference/config.md
 msgid "Audit logging configuration"
@@ -17228,7 +17231,7 @@ msgstr "Brave Search APIキー（search_providerが\"brave\"の場合に必須�
 
 #: src/security/authentication.md
 msgid "Breaking change: remote WSS requires authentication"
-msgstr "Breaking change: リモートのWSSには認証が必要になりました"
+msgstr "破壊的変更: リモートのWSSには認証が必要になりました"
 
 #: src/foundations/fnd-004-engineering-infrastructure.md
 msgid "Breaking changes"
@@ -17630,7 +17633,7 @@ msgstr "Bundleの内容はスキャンされません"
 
 #: src/agents/portability.md
 msgid "Bundle format 1 carries no memory, and there is no flag to opt in. The store is a live SQLite database in WAL mode: while the agent is running, its committed state is spread across the database and its `-wal` sidecar, so copying those files one at a time can capture a torn or stale database. A bundle is not a place to discover that. Carrying memory needs a real snapshot boundary, taken through SQLite's own backup API against a quiesced store, which a later format version can add."
-msgstr "Bundle format 1 にはメモリが含まれず、それを有効にするフラグもありません。ストアは WAL モードで動作する稼働中の SQLite データベースであり、エージェントの実行中は、コミット済みの状態がデータベース本体と `-wal` サイドカーに分散して存在します。そのため、これらのファイルを一つずつコピーすると、破損した、または古い状態のデータベースを取り込んでしまう可能性があります。バンドルは、そうした問題に後から気づく場所であってはなりません。メモリを含めるには、静止させたストアに対して SQLite 独自のバックアップ API を使って実行する、本物のスナップショット境界が必要です。これは後のフォーマットバージョンで追加できます。"
+msgstr "バンドル形式 1 にはメモリが含まれず、それを有効にするフラグもありません。ストアは WAL モードで動作する稼働中の SQLite データベースであり、エージェントの実行中は、コミット済みの状態がデータベース本体と `-wal` サイドカーに分散して存在します。そのため、これらのファイルを一つずつコピーすると、破損した、または古い状態のデータベースを取り込んでしまう可能性があります。バンドルは、そうした問題に後から気づく場所であってはなりません。メモリを含めるには、静止させたストアに対して SQLite 独自のバックアップ API を使って実行する、本物のスナップショット境界が必要です。これは後のフォーマットバージョンで追加できます。"
 
 #: src/agents/portability.md
 msgid "Bundles carry `format_version = 1`. An exported closure is self-sufficient: it loads and validates on a fresh install with no other entries present."
@@ -18494,7 +18497,7 @@ msgstr "チャネルプラグイン（Telegram、Discord など）"
 
 #: src/channels/mattermost.md
 msgid "Channel purpose as instructions (`purpose_as_instructions`)"
-msgstr "Channel purpose を指示として扱う (`purpose_as_instructions`)"
+msgstr "チャンネルの目的を指示として扱う (`purpose_as_instructions`)"
 
 #: src/SUMMARY.md src/architecture/channel-runtime-lifecycle.md
 msgid "Channel runtime lifecycle"
@@ -18506,7 +18509,7 @@ msgstr "チャネルシークレット（LINE Developers Consoleから取得）�
 
 #: src/agents/history-management.md
 msgid "Channel sender caches remain a separate exception: they count individual message rows and preserve their existing `0`\\-means-default behavior."
-msgstr "Channel sender キャッシュは別の例外であり、個々のメッセージ行を数え、既存の `0`\\-means-default の動作を維持します。"
+msgstr "チャンネル送信者キャッシュは別の例外であり、個々のメッセージ行を数え、既存の `0`\\-means-default の動作を維持します。"
 
 #: src/api.md
 msgid "Channel session backends, debouncing, and stall watchdog"
@@ -18807,7 +18810,7 @@ msgstr "クラス"
 
 #: src/channels/chat-others.md
 msgid "Classic IRC. Supports SASL, NickServ auth, and multiple channels."
-msgstr "Classic IRC。SASL、NickServ認証、および複数のチャンネルをサポートしています。"
+msgstr "従来の IRC。SASL、NickServ認証、および複数のチャンネルをサポートしています。"
 
 #: src/channels/overview.md
 msgid "Classic poll-based inbox"
@@ -19672,7 +19675,7 @@ msgstr "設定画面"
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid "Config validation or the metadata probe failed, the package or tool name conflicts with an already registered tool, or the tool name contains the MCP separator `__`. Check the log for the specific error: a name conflict carries `error_key` `plugin_package_name_conflict` or `plugin_tool_name_conflict`, a name containing `__` carries `plugin_tool_name_reserved`, and a probe failure usually means the component was built against mismatched WIT."
-msgstr "Config validation または metadata probe が失敗したか、パッケージ名またはツール名が既に登録されているツールと衝突しているか、ツール名に MCP の区切り文字 `__` が含まれています。ログで具体的なエラーを確認してください。名前の衝突は `error_key` が `plugin_package_name_conflict` または `plugin_tool_name_conflict` になり、`__` を含む名前は `plugin_tool_name_reserved` になります。probe の失敗は通常、コンポーネントが一致しない WIT に対してビルドされたことを意味します。"
+msgstr "設定の検証またはメタデータプローブが失敗したか、パッケージ名またはツール名が既に登録されているツールと衝突しているか、ツール名に MCP の区切り文字 `__` が含まれています。ログで具体的なエラーを確認してください。名前の衝突は `error_key` が `plugin_package_name_conflict` または `plugin_tool_name_conflict` になり、`__` を含む名前は `plugin_tool_name_reserved` になります。プローブの失敗は通常、コンポーネントが一致しない WIT に対してビルドされたことを意味します。"
 
 #: src/architecture/runtime-state-and-persistence.md
 msgid "Config values"
@@ -21013,7 +21016,7 @@ msgstr "クロスエージェントメモリの許可リスト。空のリスト
 
 #: src/agents/filesystem.md
 msgid "Cross-agent memory allowlist. An empty list grants access only to local memory. Legacy string entries grant all categories; structured entries can restrict reads to exact category names."
-msgstr "Cross-agent memory allowlist（エージェント間メモリの許可リスト）。空のリストではローカルメモリへのアクセスのみが許可されます。レガシーな文字列エントリはすべてのカテゴリを許可し、構造化エントリでは読み取りを正確なカテゴリ名に制限できます。"
+msgstr "エージェント間メモリの許可リスト。空のリストではローカルメモリへのアクセスのみが許可されます。レガシーな文字列エントリはすべてのカテゴリを許可し、構造化エントリでは読み取りを正確なカテゴリ名に制限できます。"
 
 #: src/architecture/decisions/ADR-011-multi-agent-runtime-boundaries.md
 msgid "Cross-agent recall is additive and explicit. It requires compatible same-backend access; the runtime does not silently bridge different backend kinds."
@@ -22656,7 +22659,7 @@ msgstr "作業に以下が含まれるというだけの理由で、RFC を**提
 
 #: src/architecture/config-lifecycle.md
 msgid "Do CLI, gateway, RPC/TUI, and quickstart surfaces agree on the dotted path?"
-msgstr "CLI、gateway、RPC/TUI、および quickstart のサーフェスは、ドット区切りパスについて一致していますか？"
+msgstr "CLI、ゲートウェイ、RPC/TUI、およびクイックスタートの各サーフェスは、ドット区切りパスについて一致していますか？"
 
 #: src/architecture/tool-execution-lifecycle.md
 msgid "Do `excluded_tools`, per-run narrowing, `tool_filter_groups`, and deferred MCP activation still agree?"
@@ -22664,7 +22667,7 @@ msgstr "`excluded_tools`、実行ごとの絞り込み、`tool_filter_groups`、
 
 #: src/architecture/config-lifecycle.md
 msgid "Do not add ad-hoc `std::env::var(\"PROVIDER_API_KEY\")` reads inside provider, channel, tool, transcription, TTS, memory, or gateway constructors. That creates a second credential source outside `Config`, bypasses env-override visibility, and can make CLI, gateway, RPC/TUI, quickstart, and reload behavior disagree."
-msgstr "provider、channel、tool、transcription、TTS、memory、gateway のコンストラクター内に、アドホックな `std::env::var(\"PROVIDER_API_KEY\")` の読み取りを追加しないでください。これにより `Config` の外部に 2 つ目の認証情報ソースが作成され、環境変数オーバーライドの可視性が迂回され、CLI、gateway、RPC/TUI、quickstart、reload の動作に不一致が生じる可能性があります。"
+msgstr "プロバイダー、チャネル、ツール、文字起こし、TTS、メモリ、ゲートウェイのコンストラクター内に、アドホックな `std::env::var(\"PROVIDER_API_KEY\")` の読み取りを追加しないでください。これにより `Config` の外部に 2 つ目の認証情報ソースが作成され、環境変数オーバーライドの可視性が迂回され、CLI、ゲートウェイ、RPC/TUI、クイックスタート、リロードの動作に不一致が生じる可能性があります。"
 
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "Do not advance the revision for moves, formatting, punctuation, heading normalization, link repairs, or path updates that do not change the contract. When a foundation document explicitly delegates operational details to another maintained source, changes confined to those details do not revise the foundation document."
@@ -23822,7 +23825,7 @@ msgstr "実効権限は、マニフェストの要求とは別に確認されま
 
 #: src/providers/routing.md
 msgid "Effort routing has a deliberately narrow relationship to adjacent work:"
-msgstr "Effort routing は、隣接する作業とは意図的に限定された関係にあります:"
+msgstr "effort ルーティングは、隣接する作業とは意図的に限定された関係にあります:"
 
 #: src/providers/routing.md
 msgid "Effort-based local/cloud routing"
@@ -25643,7 +25646,7 @@ msgstr "明示的なデリゲート名簿: 同一プロファイルのピア以�
 
 #: src/architecture/decisions/ADR-017-inbound-authentication-and-principals.md
 msgid "Explicit deny semantics, provider-specific policy languages, broader policy administration APIs, and different precedence rules are separate decisions. They do not arrive as side effects of this ADR."
-msgstr "Explicit deny のセマンティクス、プロバイダー固有のポリシー言語、より広範なポリシー管理 API、および異なる優先順位ルールは、それぞれ個別に判断すべき事項です。これらは本 ADR の副次的な効果として生じるものではありません。"
+msgstr "明示的な拒否のセマンティクス、プロバイダー固有のポリシー言語、より広範なポリシー管理 API、および異なる優先順位ルールは、それぞれ個別に判断すべき事項です。これらは本 ADR の副次的な効果として生じるものではありません。"
 
 #: src/reference/config.md
 msgid "Explicit deny-all for this profile: no tool may be invoked under it"
@@ -27723,7 +27726,7 @@ msgstr "ゲートウェイ REST/WS"
 
 #: src/architecture/decisions/ADR-008-goal-mode-control-plane-and-usage-accounting.md
 msgid "Gateway ask-user/free-form gap #7776: <https://github.com/zeroclaw-labs/zeroclaw/issues/7776>"
-msgstr "Gateway ask-user/free-form のギャップ #7776: <https://github.com/zeroclaw-labs/zeroclaw/issues/7776>"
+msgstr "ゲートウェイの ask-user/自由形式のギャップ #7776: <https://github.com/zeroclaw-labs/zeroclaw/issues/7776>"
 
 #: src/architecture/config-lifecycle.md
 msgid "Gateway bearer auth helper: `crates/zeroclaw-gateway/src/api.rs`"
@@ -27846,7 +27849,7 @@ msgstr "ゲートウェイ Webhook 確認応答"
 
 #: src/architecture/channel-runtime-lifecycle.md
 msgid "Gateway webhook handlers own generic HTTP transport details, then enter the same channel turn lifecycle as long-running listeners."
-msgstr "Gateway webhook ハンドラーは汎用的な HTTP トランスポートの詳細を担当し、その後、長時間実行リスナーと同じチャネルターンのライフサイクルに入ります。"
+msgstr "ゲートウェイの Webhook ハンドラーは汎用的な HTTP トランスポートの詳細を担当し、その後、長時間実行リスナーと同じチャネルターンのライフサイクルに入ります。"
 
 #: src/architecture/channel-runtime-lifecycle.md
 msgid "Gateway webhook route"
@@ -28548,7 +28551,7 @@ msgstr "応答の長さの上限をトークン数で指定するハードキャ
 
 #: src/reference/config.md
 msgid "Hard ceiling (seconds) on the precheck LLM call. On timeout the"
-msgstr "precheck LLM 呼び出しのハード上限（秒）。タイムアウト時に"
+msgstr "事前チェックの LLM 呼び出しのハード上限（秒）。タイムアウト時に"
 
 #: src/setup/macos.md src/contributing/how-to.md
 msgid "Hardware"
@@ -28954,7 +28957,7 @@ msgstr "個別の例外が記録される仕組み"
 
 #: src/architecture/channel-runtime-lifecycle.md
 msgid "How are self-loop, addressedness, passive context, and reply intent carried?"
-msgstr "self-loop、addressedness、passive context、および reply intent はどのように運ばれますか？"
+msgstr "自己ループ、宛先指定の有無、パッシブコンテキスト、および返信インテントはどのように運ばれますか？"
 
 #: src/SUMMARY.md src/philosophy/how-decisions-get-made.md
 msgid "How decisions get made"
@@ -31436,7 +31439,7 @@ msgstr "**Config**ペインで、`oidc.<alias>.actor_claim`フィールドを設
 
 #: src/security/authentication.md
 msgid "In the **Config** pane, set the `oidc.<alias>.allowed_authorized_parties` field."
-msgstr "In the **Config** ペインで、`oidc.<alias>.allowed_authorized_parties` フィールドを設定します。"
+msgstr "**Config** ペインで、`oidc.<alias>.allowed_authorized_parties` フィールドを設定します。"
 
 #: src/security/authentication.md
 msgid "In the **Config** pane, set the `oidc.<alias>.audience` field."
@@ -31444,7 +31447,7 @@ msgstr "**Config** ペインで、`oidc.<alias>.audience` フィールドを設�
 
 #: src/security/authentication.md
 msgid "In the **Config** pane, set the `oidc.<alias>.claim_path` field."
-msgstr "In the **Config** ペインで、`oidc.<alias>.claim_path` フィールドを設定します。"
+msgstr "**Config** ペインで、`oidc.<alias>.claim_path` フィールドを設定します。"
 
 #: src/security/authentication.md
 msgid "In the **Config** pane, set the `oidc.<alias>.client_id` field."
@@ -31464,11 +31467,11 @@ msgstr "**Config** ペインで、`oidc.<alias>.issuer` フィールドを設定
 
 #: src/security/authentication.md
 msgid "In the **Config** pane, set the `oidc.<alias>.max_auth_lifetime_secs` field."
-msgstr "In the **Config** ペインで、`oidc.<alias>.max_auth_lifetime_secs` フィールドを設定します。"
+msgstr "**Config** ペインで、`oidc.<alias>.max_auth_lifetime_secs` フィールドを設定します。"
 
 #: src/security/authentication.md
 msgid "In the **Config** pane, set the `oidc.<alias>.profile_map` field."
-msgstr "In the **設定**ペインで、`oidc.<alias>.profile_map` フィールドを設定します。"
+msgstr "**Config** ペインで、`oidc.<alias>.profile_map` フィールドを設定します。"
 
 #: src/security/authentication.md
 msgid "In the **Config** pane, set the `oidc.<alias>.require_at_jwt` field."
@@ -31884,7 +31887,7 @@ msgstr "**Config** ペインで、`users.<alias>.permission_profiles` フィー�
 
 #: src/security/authentication.md
 msgid "In the **Config** pane, set the `users.<alias>.principal_id` field."
-msgstr "In the **Config** ペインで、`users.<alias>.principal_id` フィールドを設定します。"
+msgstr "**Config** ペインで、`users.<alias>.principal_id` フィールドを設定します。"
 
 #: src/security/authentication.md
 msgid "In the **Config** pane, set the `users.<alias>.uid` field."
@@ -31986,7 +31989,7 @@ msgstr "受信 HTTP リクエスト。稼働中: ゲートウェイの `/sop/*` 
 
 #: src/channels/overview.md
 msgid "Inbound HTTP → agent"
-msgstr "Inbound HTTP → エージェント"
+msgstr "受信 HTTP → エージェント"
 
 #: src/channels/email.md
 msgid "Inbound attachments are stored under `<workspace>/attachments/<conversation>/`. The agent gets file paths in its context and can read them via the `file_read` tool. Filenames are taken from the `Content-Disposition` header first, falling back to the `Content-Type` `name` parameter."
@@ -31994,7 +31997,7 @@ msgstr "受信した添付ファイルは `<workspace>/attachments/<conversation
 
 #: src/architecture/decisions/ADR-017-inbound-authentication-and-principals.md
 msgid "Inbound authentication has three separate stages:"
-msgstr "Inbound authentication（受信認証）は3つの独立した段階で構成されています:"
+msgstr "受信認証は3つの独立した段階で構成されています:"
 
 #: src/architecture/decisions/index.md
 msgid "Inbound authentication resolves credentials into canonical principals and permission-profile grants before privileged runtime surfaces act."
@@ -32892,7 +32895,7 @@ msgstr "JSONトレースフィクスチャ"
 
 #: src/channels/overview.md
 msgid "JSON-RPC 2.0 over stdio: editor/IDE sessions"
-msgstr "JSON-RPC 2.0 over stdio: エディター/IDE セッション"
+msgstr "stdio 上の JSON-RPC 2.0: エディター/IDE セッション"
 
 #: src/hardware/nucleo-setup.md
 msgid "JSON-over-serial protocol (same as Arduino/ESP32)"
@@ -36322,7 +36325,7 @@ msgstr "名前付きピアグループ（`[peer_groups.<name>]`）。各エン�
 
 #: src/reference/config.md
 msgid "Named permission profiles (`[permission_profiles.<alias>]`): the"
-msgstr "Named permission profiles（`[permission_profiles.<alias>]`）：the"
+msgstr "名前付きパーミッションプロファイル（`[permission_profiles.<alias>]`）："
 
 #: src/reference/config.md
 msgid "Named permission profiles (`[permission_profiles.<alias>]`): the single runtime authorization vocabulary. OIDC claim mappings and user roster entries resolve here; deny-by-default: anything a profile does not grant is refused."
@@ -37288,7 +37291,7 @@ msgstr "OIDC"
 
 #: src/architecture/decisions/ADR-017-inbound-authentication-and-principals.md
 msgid "OIDC JWT/JWKS, introspection, browser Authorization Code with PKCE, browserless Device Authorization Grant, service `client_credentials`, token-purpose separation, bounded revalidation, and gateway principal propagation work through the same resolver and fail closed when credentials, provider state, or revalidation context are unavailable;"
-msgstr "OIDC JWT/JWKS、introspection、ブラウザーでの Authorization Code with PKCE、ブラウザーを使わない Device Authorization Grant、サービス `client_credentials`、トークン用途の分離、有界な再検証、ゲートウェイのプリンシパル伝播が、同じリゾルバーを通じて動作し、認証情報、プロバイダーの状態、または再検証コンテキストが利用できない場合はフェイルクローズドになります;"
+msgstr "OIDC JWT/JWKS、イントロスペクション、ブラウザーでの Authorization Code with PKCE、ブラウザーを使わない Device Authorization Grant、サービス `client_credentials`、トークン用途の分離、有界な再検証、ゲートウェイのプリンシパル伝播が、同じリゾルバーを通じて動作し、認証情報、プロバイダーの状態、または再検証コンテキストが利用できない場合はフェイルクローズドになります;"
 
 #: src/architecture/decisions/ADR-017-inbound-authentication-and-principals.md
 msgid "OIDC human identities are keyed by validated issuer and `sub`, not by `sub` alone. A provider alias may appear in audit output, but it cannot make equal subject strings from different issuers represent the same actor."
@@ -37773,7 +37776,7 @@ msgstr "1つの `zeroclaw daemon` プロセスが、有効化され設定され�
 
 #: src/reference/config.md
 msgid "One absolute deadline, in seconds, covering TLS accept AND the"
-msgstr "TLS accept とその両方を対象とする、秒単位の単一の絶対デッドライン"
+msgstr "秒単位の単一の絶対デッドラインで、TLS の受け入れと"
 
 #: src/contributing/architecture-map.md
 msgid "One canonical event is offered independently to live broadcast and persisted JSONL; an optional typed Observer projection runs only when bound. Verify projection fields, active-file cursor lifetime, rewrite and retention behavior, migration compatibility, and privacy at the changed destination."
@@ -42592,7 +42595,7 @@ msgstr "準備はエグゼキューターがツールを実行する前に行わ
 
 #: src/architecture/tool-execution-lifecycle.md
 msgid "Prepared calls run sequentially or in parallel according to policy, cancellation, and activation constraints."
-msgstr "Prepared calls は、ポリシー、キャンセル、アクティベーションの制約に従って、順次または並列に実行されます。"
+msgstr "準備済みの呼び出しは、ポリシー、キャンセル、アクティベーションの制約に従って、順次または並列に実行されます。"
 
 #: src/maintainers/skills.md
 msgid "Preparing `CHANGELOG-next.md` for a release: summarises merges since the last tag"
@@ -42963,7 +42966,7 @@ msgstr "昇格処理では、サイトルートの `stable-version.txt`、`index
 
 #: src/providers/configuration.md
 msgid "Prompt cache passthrough (chat-completions gateways)"
-msgstr "Prompt cache のパススルー（chat-completions ゲートウェイ向け）"
+msgstr "プロンプトキャッシュのパススルー（chat-completions ゲートウェイ向け）"
 
 #: src/architecture/decisions/ADR-005-pluggable-memory-backends.md
 msgid "Prompt construction, consolidation, and hygiene can evolve without adding lifecycle policy methods to every storage implementation."
@@ -43321,7 +43324,7 @@ msgstr "パブリックチームチャンネル。"
 
 #: src/contributing/pr-review-protocol.md
 msgid "Public text does not include bot/AI attribution footers, local workflow mechanics, private paths, unredacted sensitive logs, excessive raw logs, irrelevant dumps, or stale lifecycle wording. Concise, relevant command output tails in `How I tested` are expected when the template asks for them."
-msgstr "公開テキストには、ボット/AI帰属フッター、ローカルワークフローの仕組み、プライベートパス、未編集の機密ログ、過剰な生ログ、無関係なダンプ、または古いライフサイクルの表現を含めません。テンプレートで要求される場合は、`How I tested` に簡潔で関連性のあるコマンド出力の末尾を含めることが期待されます。"
+msgstr "公開テキストには、ボット/AI帰属フッター、ローカルワークフローの仕組み、プライベートパス、秘匿化されていない機密ログ、過剰な生ログ、無関係なダンプ、または古いライフサイクルの表現を含めません。テンプレートで要求される場合は、`How I tested` に簡潔で関連性のあるコマンド出力の末尾を含めることが期待されます。"
 
 #: src/architecture/overview.md
 msgid "Public traits: `ModelProvider`, `Channel`, `Tool`, `Memory`, `Observer`, `RuntimeAdapter`, and `Peripheral`. The kernel ABI"
@@ -43393,7 +43396,7 @@ msgstr "公開済み言語セレクター"
 
 #: src/architecture/config-lifecycle.md
 msgid "Published pair and writer serialization"
-msgstr "Published pair と writer のシリアライズ"
+msgstr "公開ペアとライターのシリアライズ"
 
 #: src/architecture/config-lifecycle.md
 msgid "Published pair storage and read-only handle: `crates/zeroclaw-config/src/live.rs`"
@@ -44087,7 +44090,7 @@ msgstr "変更が要求している場合に読み取る..."
 
 #: src/architecture/logging.md
 msgid "Reader cursors span the active file and retained archives"
-msgstr "Reader cursors は、アクティブなファイルと保持されたアーカイブの両方にまたがります"
+msgstr "読み取りカーソルは、アクティブなファイルと保持されたアーカイブの両方にまたがります"
 
 #: src/developing/tool-inventory.md
 msgid "Reading the workspace is the minimum for any task. It runs behind the path guard."
@@ -45742,7 +45745,7 @@ msgstr "共有データディレクトリの保持期間プレビューとスト
 
 #: src/reference/config.md
 msgid "Retention preview and storage-statistics configuration for the shared data directory (`[data_retention]` section). Confirmed purge is currently unavailable."
-msgstr "Retention preview・storage統計の設定（共有データディレクトリ向け、`[data_retention]` セクション）。確定的な削除（purge）は現在利用できません。"
+msgstr "共有データディレクトリの保持期間プレビューとストレージ統計の設定（`[data_retention]` セクション）。確定的な削除（purge）は現在利用できません。"
 
 #: src/foundations/fnd-003-governance.md
 msgid "Retired in Rev. 15 and never created as live labels. RFC state uses the live `type:rfc` and `status:accepted` labels; see §8.1."
@@ -46386,7 +46389,7 @@ msgstr "実行レベル: `LIMITED` (昇格せず、現在のユーザーとし�
 
 #: src/sop/observability.md
 msgid "Run logs follow the runtime trace's configured persistence and retention policy. The gateway reads only the current active JSONL file, so a sufficiently old run may have no retained rows after rolling trim or rotation. The UI and CLI report when persistence is disabled; rotated archives remain offline diagnostic artifacts."
-msgstr "Run logs は runtime trace に設定された永続化と保持ポリシーに従います。gateway は現在アクティブな JSONL ファイルのみを読み取るため、十分に古い run は、ローリングトリムまたはローテーションの後に保持された行が存在しない場合があります。UI と CLI は永続化が無効になっている場合にそれを報告します。ローテーション済みのアーカイブは、オフラインの診断用アーティファクトとして残ります。"
+msgstr "実行ログは、ランタイムトレースに設定された永続化と保持ポリシーに従います。ゲートウェイは現在アクティブな JSONL ファイルのみを読み取るため、十分に古い実行では、ローリングトリムまたはローテーションの後に保持された行が存在しない場合があります。UI と CLI は永続化が無効になっている場合にそれを報告します。ローテーション済みのアーカイブは、オフラインの診断用アーティファクトとして残ります。"
 
 #: src/architecture/generated-documentation-pipeline.md
 msgid "Run mdBook once for every locale in `locales.toml`, with preprocessors configured by `docs/book/book.toml`."
@@ -46530,7 +46533,7 @@ msgstr "テストの実行"
 
 #: src/setup/nixos.md
 msgid "Running the CLI through `nix run` does not add it to your login shell's `PATH`. For a persistent NixOS installation, Nixpkgs provides `pkgs.zeroclaw`:"
-msgstr "Ń`nix run` で CLI を実行しても、ログインシェルの `PATH` には追加されません。NixOS に永続的にインストールする場合は、Nixpkgs が提供する `pkgs.zeroclaw` を利用してください:"
+msgstr "`nix run` で CLI を実行しても、ログインシェルの `PATH` には追加されません。NixOS に永続的にインストールする場合は、Nixpkgs が提供する `pkgs.zeroclaw` を利用してください:"
 
 #: src/setup/freebsd.md
 msgid "Running the Linux image under Podman + Linuxulator"
@@ -46996,7 +46999,7 @@ msgstr "SOPエンジンと実行ストア: `crates/zeroclaw-runtime/src/sop/engi
 
 #: src/ops/troubleshooting.md
 msgid "SOP fan-in is not covered by `channel doctor`"
-msgstr "SOP fan-in は `channel doctor` の対象ではありません"
+msgstr "SOP ファンインは `channel doctor` の対象ではありません"
 
 #: src/contributing/agent-policy-parity-harness.md
 msgid "SOP live nested step"
@@ -47238,7 +47241,7 @@ msgstr "サンドボックス化"
 
 #: src/ops/troubleshooting.md
 msgid "Sanitise `zeroclaw-log.txt` (redact channel tokens if any slipped through, they shouldn't) and attach it to the issue. See [Contributing → Communication](../contributing/communication.md) for where."
-msgstr "`zeroclaw-log.txt` をサニタイズして（万が一チャンネルトークンが紛れ込んでいたら編集して伏せてください。本来含まれることはありませんが）、issue に添付してください。添付先については [Contributing → Communication](../contributing/communication.md) を参照してください。"
+msgstr "`zeroclaw-log.txt` をサニタイズして（万が一チャンネルトークンが紛れ込んでいたら伏せてください。本来含まれることはありませんが）、issue に添付してください。添付先については [Contributing → Communication](../contributing/communication.md) を参照してください。"
 
 #: src/setup/freebsd.md
 msgid "Save as `/usr/local/etc/rc.d/zeroclaw`:"
@@ -50661,11 +50664,11 @@ msgstr "Tencentのコンシューマー向けメッセンジャーです。Bot A
 
 #: src/tools/mcp.md
 msgid "Terminal 1 (leave this process running):"
-msgstr "Terminal 1（このプロセスは実行したままにしてください）:"
+msgstr "ターミナル 1（このプロセスは実行したままにしてください）:"
 
 #: src/tools/mcp.md
 msgid "Terminal 2 (MCP install and diagnose; `gbr-agent run` must already be up). Paste the key into a silent prompt so the value is not stored in shell history:"
-msgstr "Terminal 2 (MCP のインストールと診断。`gbr-agent run` が既に起動している必要があります）。値がシェル履歴に保存されないよう、サイレントプロンプトにキーを貼り付けてください:"
+msgstr "ターミナル 2（MCP のインストールと診断。`gbr-agent run` が既に起動している必要があります）。値がシェル履歴に保存されないよう、サイレントプロンプトにキーを貼り付けてください:"
 
 #: src/architecture/overview.md
 msgid "Terminal UI"
@@ -50673,7 +50676,7 @@ msgstr "ターミナルUI"
 
 #: src/architecture/crates.md
 msgid "Terminal UI, built as a separate app under `apps/zerocode/`. It depends only on the shared contracts in `zeroclaw-api`, not runtime, config, channel, provider, or tool implementations. Its i18n catalogue remains independent; see [Docs & Translations → zerocode strings](../maintainers/docs-and-translations.md)."
-msgstr "Terminal UI。`apps/zerocode/` 配下の独立したアプリとして構築されています。依存先は共有コントラクトである `zeroclaw-api` のみで、runtime、config、channel、provider、tool の実装には依存しません。i18n カタログは独立したままです。詳細は [Docs & Translations → zerocode strings](../maintainers/docs-and-translations.md) を参照してください。"
+msgstr "ターミナル UI。`apps/zerocode/` 配下の独立したアプリとして構築されています。依存先は共有コントラクトである `zeroclaw-api` のみで、runtime、config、channel、provider、tool の実装には依存しません。i18n カタログは独立したままです。詳細は [ドキュメントと翻訳 → zerocode 文字列](../maintainers/docs-and-translations.md) を参照してください。"
 
 #: src/maintainers/labels.md
 msgid "Terminal and resolution labels"
@@ -51301,11 +51304,11 @@ msgstr "[標準のインストールパス](../getting-started/quickstart.md#ins
 
 #: src/foundations/fnd-003-governance.md
 msgid "The [expedited second-review lane](../maintainers/pr-workflow.md#expedited-second-review-lane) is the only standing exception to the two-Core default. It implements the accepted evidence-based second-review exception and adds a waiting condition based on this document's five-business-day review responsibility. The lane is not automatic, automated review is not an approval, and broad governance, security-floor, release, migration, and irreversible architecture changes continue to default to two human approvals. The maintainer PR workflow owns the full eligibility and accountability rules."
-msgstr "[expedited second-review lane](../maintainers/pr-workflow.md#expedited-second-review-lane) は、2 名の Core によるデフォルトの例外として定められた唯一の常設ルールです。これは、承認済みの「エビデンスに基づくセカンドレビュー例外」を実装するものであり、本ドキュメントの 5 営業日のレビュー責任に基づく待機条件を追加します。このレーンは自動的に適用されるものではなく、自動レビューは承認とはみなされません。また、広範なガバナンス、セキュリティの最低基準、リリース、移行、および不可逆なアーキテクチャ変更は、引き続きデフォルトで 2 名の人間による承認が必要です。適格性と説明責任に関する完全なルールは、メンテナー向け PR ワークフローが定めています。"
+msgstr "[迅速な二次レビューレーン](../maintainers/pr-workflow.md#expedited-second-review-lane) は、2 名の Core によるデフォルトの例外として定められた唯一の常設ルールです。これは、承認済みの「エビデンスに基づくセカンドレビュー例外」を実装するものであり、本ドキュメントの 5 営業日のレビュー責任に基づく待機条件を追加します。このレーンは自動的に適用されるものではなく、自動レビューは承認とはみなされません。また、広範なガバナンス、セキュリティの最低基準、リリース、移行、および不可逆なアーキテクチャ変更は、引き続きデフォルトで 2 名の人間による承認が必要です。適格性と説明責任に関する完全なルールは、メンテナー向け PR ワークフローが定めています。"
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid "The [protocol page](../developing/plugin-protocol.md#build-features) documents the backend choices and [lists plugin support per artifact](../developing/plugin-protocol.md#plugin-support-per-release-artifact)."
-msgstr "[protocol page](../developing/plugin-protocol.md#build-features) ではバックエンドの選択肢を説明しており、[成果物ごとのプラグインサポート](../developing/plugin-protocol.md#plugin-support-per-release-artifact) も一覧にしています。"
+msgstr "[プロトコルページ](../developing/plugin-protocol.md#build-features) ではバックエンドの選択肢を説明しており、[成果物ごとのプラグインサポート](../developing/plugin-protocol.md#plugin-support-per-release-artifact) も一覧にしています。"
 
 #: src/agents/portability.md
 msgid "The _effective_ policy is unconfined: `workspace_only = false`, `level = \"full\"` (which forces confinement off whatever `workspace_only` says), or `workspace.unrestricted_filesystem = true`."
@@ -52245,11 +52248,11 @@ msgstr "チャネルは別のエイリアスを使用しています。一致す
 
 #: src/architecture/runtime-composition.md
 msgid "The channels starter, cron scheduler, SOP drivers, and `RpcContext` receive the generation's `RuntimeCapabilities`. The gateway starter is deleted at the v0.9.0 cut and receives no capabilities; its own construction disappears as its routes move to RPC"
-msgstr "channels starter、cron scheduler、SOP drivers、および`RpcContext`は、世代の`RuntimeCapabilities`を受け取ります。gateway starterは v0.9.0 のカットで削除され、`RuntimeCapabilities`は受け取りません。そのルートがRPCに移行すると、gatewayの構築自体も不要になります。"
+msgstr "チャネルのスターター、cron スケジューラー、SOP ドライバー、および`RpcContext`は、世代の`RuntimeCapabilities`を受け取ります。ゲートウェイのスターターは v0.9.0 のカットで削除され、機能を受け取りません。そのルートがRPCに移行すると、ゲートウェイの構築自体も不要になります。"
 
 #: src/architecture/runtime-composition.md
 msgid "The channels, cron, SOP, and `RpcContext` starters gain access to the generation's `RuntimeCapabilities`, so they stop building providers, memory, and tools of their own. That signature change is its own slice (step 4 below). The gateway starter receives no capabilities: it is deleted at the v0.9.0 cut, and its own construction disappears as its routes move to RPC."
-msgstr "channels、cron、SOP、`RpcContext` のスターターは generation の `RuntimeCapabilities` にアクセスできるようになり、独自に providers、memory、tools を構築しなくなります。このシグネチャ変更は独立したスライスとして扱います（下記のステップ4）。gateway スターターは capabilities を受け取りません。v0.9.0 のカットで削除され、その routes が RPC へ移行するため、gateway 自体の構築も不要になります。"
+msgstr "チャネル、cron、SOP、`RpcContext` のスターターは世代の `RuntimeCapabilities` にアクセスできるようになり、プロバイダー、メモリ、ツールを独自に構築しなくなります。このシグネチャ変更は独立したスライスとして扱います（下記のステップ4）。ゲートウェイのスターターは機能を受け取りません。v0.9.0 のカットで削除され、そのルートが RPC へ移行するため、ゲートウェイ自体の構築も不要になります。"
 
 #: src/maintainers/release-runbook.md
 msgid "The cheap insurance against this is to run the same job graph locally first, on the exact merged master commit, before opening the GitHub Actions form. [`act`](https://nektosact.com/) executes GitHub Actions workflows inside Docker containers using the same `actions/*` ecosystem GitHub does. It does not perfectly mirror the cloud runner; it cannot reach the artifact upload runtime, GitHub-issued OIDC tokens, environment secrets, or jobs that depend on a real release tag, but it does run the build and test steps that account for nearly every release-time CI failure we have ever hit."
@@ -52407,7 +52410,7 @@ msgstr "条件評価器は JSON のブール値を文字列 `true` と `false` �
 
 #: src/architecture/config-lifecycle.md
 msgid "The config migrate endpoint prepares a fully hydrated candidate (secrets decrypted, env overrides applied, strict validation) _before_ replacing the file, so a candidate that cannot hydrate or validate is refused with the original file untouched."
-msgstr "config migrate エンドポイントは、ファイルを置き換える _before_ に、完全にハイドレートされた候補（シークレットの復号、環境変数による上書きの適用、厳格な検証）を準備します。そのため、ハイドレートまたは検証できない候補は拒否され、元のファイルは変更されません。"
+msgstr "config migrate エンドポイントは、ファイルを置き換える _前に_、完全にハイドレートされた候補（シークレットの復号、環境変数による上書きの適用、厳格な検証）を準備します。そのため、ハイドレートまたは検証できない候補は拒否され、元のファイルは変更されません。"
 
 #: src/providers/configuration.md
 msgid "The config schema additionally defines a `providers.models.bedrock.<alias>.region` field, but the current implementation does not read it. The endpoint region is always resolved from the AWS credential chain (environment variables, `credential_process`, or IMDS) as described above."
@@ -54222,7 +54225,7 @@ msgstr "主要なコントラクトには以下が含まれます:"
 
 #: src/architecture/logging.md
 msgid "The primary pagination cursor is `next_segment_cursor`, an opaque string. Pass it back verbatim as `until_segment_cursor` to resume; do not construct or parse it. Its internal shape depends on which segment the page ended in, because the three segment kinds have different stability properties:"
-msgstr "The主要なページネーションカーソルは`next_segment_cursor`で、不透明な文字列です。再開するには、これを`until_segment_cursor`としてそのまま渡し直してください。構築も解析もしないでください。その内部形式は、ページが終了したセグメントの種類によって異なります。3つのセグメントの種類は安定性の特性が異なるためです。"
+msgstr "主要なページネーションカーソルは`next_segment_cursor`で、不透明な文字列です。再開するには、これを`until_segment_cursor`としてそのまま渡し直してください。構築も解析もしないでください。その内部形式は、ページが終了したセグメントの種類によって異なります。3つのセグメントの種類は安定性の特性が異なるためです。"
 
 #: src/plugins/index.md
 msgid "The printed command carries the union of the existing grant and the declaration, because `zeroclaw config set` replaces a list rather than appending to it. Running it as printed adds the declared destinations without dropping a host you authored yourself."
@@ -58005,7 +58008,7 @@ msgstr "異なる`PATH`を持つ別々のシェルから2つのクライアン�
 
 #: src/sop/fan-in/cron.md
 msgid "Two constraints apply to the step turn, both of them fail-closed:"
-msgstr "step turn に適用される制約は2つあり、どちらも**フェイルクローズ**です:"
+msgstr "ステップのターンに適用される制約は2つあり、どちらもフェイルクローズです:"
 
 #: src/foundations/fnd-001-intentional-architecture.md
 msgid "Two crate classes are intentionally excluded from workspace inheritance and maintain independent versions on their own cadence:"
@@ -59232,7 +59235,7 @@ msgstr "Vale CI チェックがすべてのドキュメントでパスしまし�
 
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "Vale for Prose Linting"
-msgstr "Prose Linting 用の Vale"
+msgstr "文章リンティング用の Vale"
 
 #: src/architecture/runtime-state-and-persistence.md
 msgid "Valid bearer tokens are config state, not `devices.db` rows."
@@ -60028,7 +60031,7 @@ msgstr "確認対象のWell-Architected Frameworks。デフォルト: \\[`aws-wa
 
 #: src/tools/skills.md
 msgid "Well-known discovery follows the pinned Agents Skills discovery schema `0.2.0` from [agentskills/agentskills commit `ab2ff8db3d5c9597985b06f94ea3caf1996ce82e`](https://github.com/agentskills/agentskills/tree/ab2ff8db3d5c9597985b06f94ea3caf1996ce82e). `--skill` is required so an index can never cause every advertised skill to be installed. The selected entry's SHA-256 digest is checked over the raw artifact bytes before use. Single `SKILL.md`, `.tar.gz`, and `.zip` artifacts are supported; archives must contain a root `SKILL.md`, stay within a 16 MiB raw artifact, 32 MiB gzip-decoded archive, and 512-entry limit, and contain no links, special files, absolute paths, traversal, or cross-platform drive paths. Index responses are capped at 256 KiB. Each redirect is revalidated for HTTPS, public DNS results, and the configured NAT64 policy, with at most 3 redirects and a 30-second request/DNS timeout; ambient proxies are disabled. No discovery cache is kept. The existing security audit and script policy still apply before publication."
-msgstr "Well-known discovery は、[agentskills/agentskills commit `ab2ff8db3d5c9597985b06f94ea3caf1996ce82e`](https://github.com/agentskills/agentskills/tree/ab2ff8db3d5c9597985b06f94ea3caf1996ce82e) で固定された Agents Skills discovery schema `0.2.0` に従います。`--skill` は必須であり、インデックスによってアドバタイズされたすべてのスキルがインストールされることを防ぎます。選択されたエントリの SHA-256 ダイジェストは、使用前に生のアーティファクトのバイト列に対して検証されます。単一の `SKILL.md`、`.tar.gz`、`.zip` アーティファクトがサポートされます。アーカイブにはルートに `SKILL.md` が含まれている必要があり、生のアーティファクトは 16 MiB、gzip 展開後のアーカイブは 32 MiB、エントリ数は 512 以内に収める必要があります。また、リンク、特殊ファイル、絶対パス、トラバーサル、クロスプラットフォームのドライブパスを含んではなりません。インデックスレスポンスは 256 KiB に制限されます。各リダイレクトは HTTPS、パブリック DNS の結果、設定済みの NAT64 ポリシーについて再検証され、リダイレクトは最大 3 回まで、リクエストと DNS のタイムアウトはそれぞれ 30 秒です。環境のプロキシは無効化されます。discovery キャッシュは保持されません。既存のセキュリティ監査とスクリプトポリシーは、公開の前に引き続き適用されます。"
+msgstr "well-known 検出は、[agentskills/agentskills のコミット `ab2ff8db3d5c9597985b06f94ea3caf1996ce82e`](https://github.com/agentskills/agentskills/tree/ab2ff8db3d5c9597985b06f94ea3caf1996ce82e) で固定された Agents Skills の検出スキーマ `0.2.0` に従います。`--skill` は必須であり、インデックスによってアドバタイズされたすべてのスキルがインストールされることを防ぎます。選択されたエントリの SHA-256 ダイジェストは、使用前に生のアーティファクトのバイト列に対して検証されます。単一の `SKILL.md`、`.tar.gz`、`.zip` アーティファクトがサポートされます。アーカイブにはルートに `SKILL.md` が含まれている必要があり、生のアーティファクトは 16 MiB、gzip 展開後のアーカイブは 32 MiB、エントリ数は 512 以内に収める必要があります。また、リンク、特殊ファイル、絶対パス、トラバーサル、クロスプラットフォームのドライブパスを含んではなりません。インデックスレスポンスは 256 KiB に制限されます。各リダイレクトは HTTPS、パブリック DNS の結果、設定済みの NAT64 ポリシーについて再検証され、リダイレクトは最大 3 回まで、リクエストと DNS のタイムアウトはそれぞれ 30 秒です。環境のプロキシは無効化されます。検出キャッシュは保持されません。既存のセキュリティ監査とスクリプトポリシーは、公開の前に引き続き適用されます。"
 
 #: src/maintainers/docs-and-translations.md
 msgid "Well-supported by"
@@ -61037,7 +61040,7 @@ msgstr "イベントが発火すると、レイヤーはスパンスコープを
 
 #: src/channels/chat-others.md
 msgid "When the floor is active, sends that arrive before the floor elapses enter a bounded FIFO queue. A background worker drains the queue at the floor rate so replies still land in order at the configured cadence. The queue depth defaults to **16** (good for the \"agent went briefly bursty\" case) and is capped at `REPLY_QUEUE_DEPTH_CEILING` (`1024`). When the queue is full the **newest** send is dropped and a `WARN` is emitted with `channel_alias`, redacted `recipient`, `queue_depth`, `queue_max`, and `dropped_chars`: body content stays out of logs."
-msgstr "フロアがアクティブな間、フロアが経過する前に到着した送信は、境界付きのFIFOキューに入ります。バックグラウンドワーカーがフロアレートでキューを排出するため、設定されたケイデンスで応答が順序どおりに届きます。キューの深さはデフォルトで **16**（「エージェントが一時的にバースト状態になった」ケースに適しています）で、`REPLY_QUEUE_DEPTH_CEILING`（`1024`）が上限です。キューが満杯の場合、**最新の**送信が破棄され、`channel_alias`、編集済みの`recipient`、`queue_depth`、`queue_max`、`dropped_chars`を含む`WARN`が出力されます。本文の内容はログに残りません。"
+msgstr "フロアがアクティブな間、フロアが経過する前に到着した送信は、境界付きのFIFOキューに入ります。バックグラウンドワーカーがフロアレートでキューを排出するため、設定されたケイデンスで応答が順序どおりに届きます。キューの深さはデフォルトで **16**（「エージェントが一時的にバースト状態になった」ケースに適しています）で、`REPLY_QUEUE_DEPTH_CEILING`（`1024`）が上限です。キューが満杯の場合、**最新の**送信が破棄され、`channel_alias`、秘匿化された`recipient`、`queue_depth`、`queue_max`、`dropped_chars`を含む`WARN`が出力されます。本文の内容はログに残りません。"
 
 #: src/maintainers/ci-and-actions.md
 msgid "When the gate goes red"
@@ -61850,7 +61853,7 @@ msgstr "チャネルがないと、エージェントは待ち受ける場所が
 
 #: src/agents/delegation.md
 msgid "Without a complete target route, independent targets with non-empty `always_ask` are refused before execution, including background and parallel admission. Other prompt-required calls still fail closed at tool dispatch. Bounded agentic delegates keep their existing no-operator behavior and caller-owned command policy."
-msgstr "Ń×ö„Éľ„ā≤„ÉÉ„Éą„ĀģŚģĆŚÖ®„Ā™ŚģõŚÖą„Éę„Éľ„Éą„ĀĆ„Ā™„ĀĄŚ†īŚźą„ÄĀ`always_ask` „ĀĆÁ©ļ„Āß„Ā™„ĀĄÁč¨Áęč„Āó„Āü„Éľ„ā≤„ÉÉ„Éą„ĀĮ„ÄĀ„Éź„ÉÉ„āĮ„āį„É©„ā¶„É≥„ÉČ„āĄšł¶Ť°Ćšĺ°ŚÄ§„ĀģŚŹóšĽė„āíŚźę„āÄŚģüŤ°ĆŚČć„ĀęśčíŚź¶„Āē„āĆ„Āĺ„Āô„ÄāŚźĄ„Āē„āĆ„Āü„Éó„É≠„É≥„Éó„Éą„ĀĆŚŅÖŤ¶Ā„Ā™„Āģ„ĀĮ„ÄĀ„ÉĄ„Éľ„Éę„Āģ„Éá„ā£„āĻ„ÉĎ„ÉÉ„ÉĀ„Āß„Ā™„Āä„Éē„āß„ā§„Éę„āĮ„É≠„Éľ„āļ„Āē„āĆ„Āĺ„Āô„ÄāśúČŚäĻ„Ā™ŚĀīÁęĮŚÖ•Śäõ„Āģ„Ā™„ĀĄŚĹĻŚČ≤ŚąÜśčÖ„ā®„Éľ„āł„āß„É≥„Éą„ĀĮ„ÄĀśóĘŚ≠ė„Āģ„Ā≤„Ā®„ĀĄ„ā™„Éö„É¨„Éľ„āŅ„Éľ„ĀĆ„Ā™„ĀĄŚčēšĹú„Ā®„ÄĀŚĎľ„Ā≥Śáļ„ĀóŚÖÉ„ĀĆśČÄśúČ„Āô„āč„ā≥„Éě„É≥„ÉČ„ÉĚ„É™„ā∑„Éľ„āíÁ∂≠śĆĀ„Āó„Āĺ„Āô„Äā"
+msgstr "完全なターゲットルートがない場合、空でない `always_ask` を持つ独立したターゲットは、バックグラウンドおよび並列での受け入れを含め、実行前に拒否されます。プロンプトが必要なその他の呼び出しは、引き続きツールのディスパッチ時にフェイルクローズします。有界のエージェント型デリゲートは、既存のオペレーター不在時の動作と、呼び出し元が所有するコマンドポリシーを維持します。"
 
 #: src/channels/nextcloud-talk.md
 msgid "Without a resolved secret, ZeroClaw returns `401` before parsing or dispatching the webhook. There is no mode that accepts an unverified request."
@@ -62659,11 +62662,11 @@ msgstr "ZeroClawが実行されていない、またはポートに到達でき�
 
 #: src/hardware/arduino-uno-q-setup.md
 msgid "ZeroClaw on Arduino Uno Q: Step-by-Step Guide"
-msgstr "ZeroClaw on Arduino Uno Q: ステップバイステップガイド"
+msgstr "Arduino Uno Q 上の ZeroClaw: ステップバイステップガイド"
 
 #: src/hardware/nucleo-setup.md
 msgid "ZeroClaw on Nucleo-F401RE: Step-by-Step Guide"
-msgstr "ZeroClaw on Nucleo-F401RE: ステップバイステップガイド"
+msgstr "Nucleo-F401RE で使う ZeroClaw: ステップバイステップガイド"
 
 #: src/hardware/hardware-peripherals-design.md
 msgid "ZeroClaw on Pi; GPIO via rppal or sysfs. No separate firmware."
@@ -63265,7 +63268,7 @@ msgstr "[組み込みツール一覧](./tool-inventory.md)"
 
 #: src/contributing/architecture-map.md
 msgid "[CI & Actions](../maintainers/ci-and-actions.md), [FND-004](../foundations/fnd-004-engineering-infrastructure.md), [PR workflow](../maintainers/pr-workflow.md)"
-msgstr "[CI & Actions](../maintainers/ci-and-actions.md)、[FND-004](../foundations/fnd-004-engineering-infrastructure.md)、[PR workflow](../maintainers/pr-workflow.md)"
+msgstr "[CI & Actions](../maintainers/ci-and-actions.md)、[FND-004](../foundations/fnd-004-engineering-infrastructure.md)、[PR ワークフロー](../maintainers/pr-workflow.md)"
 
 #: src/maintainers/index.md
 msgid "[CI & Actions](./ci-and-actions.md): workflow inventory, build cache behavior, allowed-actions policy, triage when CI goes red"
@@ -64193,7 +64196,7 @@ msgstr "[プラグインプロトコル](./plugin-protocol.md)"
 
 #: src/maintainers/index.md
 msgid "[Plugin release acceptance](./plugin-release-acceptance.md): proving a first-party plugin installs and runs from a published binary, with an evidence template"
-msgstr "[Plugin release acceptance](./plugin-release-acceptance.md)：公開済みバイナリからファーストパーティプラグインがインストールされ、実行されることを確認するための、エビデンステンプレート付きガイド"
+msgstr "[プラグインリリースの受け入れ](./plugin-release-acceptance.md)：公開済みバイナリからファーストパーティプラグインがインストールされ、実行されることを確認するための、エビデンステンプレート付きガイド"
 
 #: src/architecture/decisions/ADR-015-unified-capability-catalog.md
 msgid "[Plugins documentation](../../plugins/index.md)"
@@ -64484,7 +64487,7 @@ msgstr "[セキュリティ概要](../security/overview.md)"
 
 #: src/getting-started/yolo.md
 msgid "[Security → Autonomy levels](../security/autonomy.md): the full gradient between YOLO and paranoid"
-msgstr "[Security → Autonomy levels](../security/autonomy.md)：YOLOからparanoidまでの完全なグラデーション"
+msgstr "[セキュリティ → 自律レベル](../security/autonomy.md)：YOLOからparanoidまでの完全なグラデーション"
 
 #: src/channels/acp.md
 msgid "[Security → Autonomy](../security/autonomy.md)"
@@ -64513,7 +64516,7 @@ msgstr "[サービスとデーモン](./service.md)"
 
 #: src/ops/overview.md
 msgid "[Service & daemon](./service.md): keeping the process alive"
-msgstr "[Service & daemon](./service.md): プロセスを存続させる"
+msgstr "[サービスとデーモン](./service.md): プロセスを存続させる"
 
 #: src/channels/telegram.md
 msgid "[Service management](../setup/service.md)"
@@ -64771,7 +64774,7 @@ msgstr "[トラッカー #7432: v0.9.0 認証、セキュリティ、ゲート�
 #: src/architecture/decisions/ADR-017-inbound-authentication-and-principals.md
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "[Tracker #8289: OIDC milestone: canonical principals and inbound authentication](https://github.com/zeroclaw-labs/zeroclaw/issues/8289)"
-msgstr "[Tracker #8289: OIDC マイルストーン: 正規のプリンシパルと受信認証](https://github.com/zeroclaw-labs/zeroclaw/issues/8289)"
+msgstr "[トラッカー #8289: OIDC マイルストーン: 正規のプリンシパルと受信認証](https://github.com/zeroclaw-labs/zeroclaw/issues/8289)"
 
 #: src/architecture/decisions/ADR-017-inbound-authentication-and-principals.md
 msgid "[Tracker #8290: multi-user milestone: per-principal isolation + per-sender authz](https://github.com/zeroclaw-labs/zeroclaw/issues/8290)"
@@ -64811,7 +64814,7 @@ msgstr "[スキルからのリレーションシップメモリの使用](./rela
 
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "[Vale documentation](https://vale.sh/docs): Setup guide and configuration reference for the prose linter proposed in Section 10."
-msgstr "[Vale documentation](https://vale.sh/docs): セクション10で提案されている文章リンターのセットアップガイドと設定リファレンス。"
+msgstr "[Vale ドキュメント](https://vale.sh/docs): セクション10で提案されている文章リンターのセットアップガイドと設定リファレンス。"
 
 #: src/maintainers/release-runbook.md
 msgid "[Verify the release exists and assets are downloadable](#step-6-verify-the-release)"
@@ -64896,7 +64899,7 @@ msgstr "[YOLO モード](./yolo.md) では、最速だが安全ではないロ�
 
 #: src/philosophy/index.md
 msgid "[You own it](./you-own-it.md) is the foundational constraint."
-msgstr "[You own it](./you-own-it.md) は、基盤となる制約です。"
+msgstr "[あなたの所有物です](./you-own-it.md) は、基盤となる制約です。"
 
 #: src/integrations/zega-ai.md
 msgid "[ZEGA AI](https://github.com/siabang35/zega.ai) is an external fintech platform that connects to a ZeroClaw v0.8.x gateway daemon through a TypeScript bridge package (`@zega/zeroclaw-bridge`). The bridge is an **external prototype** maintained in the ZEGA monorepo and is not part of ZeroClaw itself."
@@ -85480,7 +85483,7 @@ msgstr "containers"
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "conversation binding loads and appends history through a serialized per-conversation owner, cron `session_target = \"main\"` becomes visible in the next interactive turn, and `isolated` remains deliberately unbound;"
-msgstr "conversation binding は直列化された会話ごとのオーナーを通じて履歴を読み込み、追記します。cron の `session_target = \"main\"` は次の対話ターンで表示され、`isolated` は意図的にバインドされないままです。"
+msgstr "会話バインディングは直列化された会話ごとのオーナーを通じて履歴を読み込み、追記します。cron の `session_target = \"main\"` は次の対話ターンで表示され、`isolated` は意図的にバインドされないままです。"
 
 #: src/contributing/agent-guidelines.md
 msgid "copying a provider credential into another runtime field."
@@ -85777,7 +85780,7 @@ msgstr "委譲ツールは親ツールへのハンドルを保持します。"
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "direct, nested, scheduled, delegated, SOP, gateway, RPC, and security-sensitive tool paths cannot bypass the registered pipeline boundary, and unknown or unclassified protected actions fail closed;"
-msgstr "direct、nested、scheduled、delegated、SOP、gateway、RPC、および security-sensitive なツールパスは、登録済みのパイプライン境界を迂回できず、未知または未分類の保護対象アクションはフェイルクローズドで拒否されます;"
+msgstr "直接、ネスト、スケジュール、委任、SOP、ゲートウェイ、RPC、およびセキュリティ上重要なツールパスは、登録済みのパイプライン境界を迂回できず、未知または未分類の保護対象アクションはフェイルクローズドで拒否されます;"
 
 #: src/architecture/decisions/ADR-006-runtime-channel-plugins.md
 msgid "discovered channel plugins can be configured and registered by a running daemon;"
@@ -86001,7 +86004,7 @@ msgstr "glob により除外されているか、`events` の種類の範囲外�
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "execution, delivery, and persistence outcomes remain independently stored or emitted, with any compatibility rollup derived from those axes;"
-msgstr "execution、delivery、persistenceの各結果は、それぞれ独立して保存または出力され、互換性のための集約値はこれら各軸から導出される。"
+msgstr "実行、配信、永続化の各結果は、それぞれ独立して保存または出力され、互換性のための集約値はこれら各軸から導出される。"
 
 #: src/architecture/decisions/ADR-017-inbound-authentication-and-principals.md
 msgid "existing remote WSS and Nevis users have documented and tested migration paths, and local-only recovery can repair lockout without restoring unauthenticated remote access;"
@@ -86595,7 +86598,7 @@ msgstr "integer?"
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "internal principals are implemented for cron, daemon/SOP, peer-agent, and subturn entry points, with tests proving they are provenance facts and never peer-membership grants;"
-msgstr "internal principals は cron、daemon/SOP、peer-agent、subturn のエントリポイントに実装されており、テストによって、それらが出所（プロビナンス）に関する事実であり、peer-membership の付与では決してないことが証明されています;"
+msgstr "内部プリンシパルは cron、daemon/SOP、peer-agent、subturn のエントリポイントに実装されており、テストによって、それらが来歴に関する事実であり、peer-membership の付与では決してないことが証明されています;"
 
 #: src/setup/container.md
 msgid "interval"
@@ -86872,7 +86875,7 @@ msgstr "name"
 
 #: src/ops/observability.md
 msgid "namespaced LogRecord attributes, including `zeroclaw.sop_run_id`"
-msgstr "namespaced LogRecord 属性（`zeroclaw.sop_run_id` を含む）"
+msgstr "名前空間付きの LogRecord 属性（`zeroclaw.sop_run_id` を含む）"
 
 #: src/architecture/decisions/ADR-017-inbound-authentication-and-principals.md
 msgid "native pairing, local peer credentials, RPC dispatch, WSS startup validation, and reconnect continuity enforce authentication by construction without creating an enforced-but-unusable remote interval;"
@@ -87122,7 +87125,7 @@ msgstr "ユーザー、HTTPリクエスト、チャネルペイロード、ま�
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "peer reply provenance delivers or records completed live-process recipient output without exposing the sender's session handle to the recipient, and `require` cannot be weakened by the recipient or message content;"
-msgstr "peer reply provenance は、完了したライブプロセスの受信者出力を、送信者のセッションハンドルを受信者に公開せずに配信または記録します。また、`require` は受信者やメッセージ内容によって弱められることはありません;"
+msgstr "ピア返信の来歴は、完了したライブプロセスの受信者出力を、送信者のセッションハンドルを受信者に公開せずに配信または記録します。また、`require` は受信者やメッセージ内容によって弱められることはありません;"
 
 #: src/channels/overview.md
 msgid "per channel"
@@ -87262,11 +87265,11 @@ msgstr "qwen3 ファミリー、各種フロンティアホスト型モデル"
 
 #: src/maintainers/docs-and-translations.md
 msgid "qwen3, mistral, gemma3, hosted"
-msgstr "qwen3、mistral、gemma3、hosted"
+msgstr "qwen3、mistral、gemma3、ホスト型モデル"
 
 #: src/gateway/api.md
 msgid "rate-limit JSON or `webhook queue full`"
-msgstr "rate-limit JSON または `webhook queue full`"
+msgstr "レート制限の JSON または `webhook queue full`"
 
 #: src/sop/how-it-works.md
 msgid "re-runs strict save validation, so it cannot put a definition back on disk that the authoring surface would have refused to write;"
@@ -87462,7 +87465,7 @@ msgstr "services"
 
 #: src/architecture/decisions/ADR-017-inbound-authentication-and-principals.md
 msgid "sessions, approvals, attachments, resumes, deletes, private-memory reads, and private-memory mutations enforce principal ownership at the storage boundary, including documented treatment for legacy records and an explicit internal-origin owner rule for scheduled or SOP-initiated work;"
-msgstr "sessions、approvals、attachments、resumes、deletes、private-memory の読み取りおよび変更は、ストレージ境界でプリンシパルの所有権を強制します。これには、レガシーレコードに対する文書化された扱いと、スケジュール実行または SOP 起点の作業に対する明示的な内部起点の所有者ルールが含まれます。"
+msgstr "セッション、承認、添付ファイル、再開、削除、プライベートメモリの読み取り、およびプライベートメモリの変更は、ストレージ境界でプリンシパルの所有権を強制します。これには、レガシーレコードに対する文書化された扱いと、スケジュール実行または SOP 起点の作業に対する明示的な内部起点の所有者ルールが含まれます。"
 
 #: src/ops/observability.md
 msgid "severity"
@@ -87595,7 +87598,7 @@ msgstr "ドラフトのストリーミング更新とマルチメッセージ動
 
 #: src/architecture/tool-execution-lifecycle.md
 msgid "strict parsing can hide the text tool protocol entirely;"
-msgstr "strict parsing はテキストツールプロトコルを完全に隠蔽できます。"
+msgstr "厳密なパースにより、テキストツールプロトコルが完全に隠されることがあります。"
 
 #: src/reference/config.md src/ops/observability.md src/sop/fan-in/mqtt.md
 #: src/sop/fan-in/filesystem.md src/sop/fan-in/amqp.md
@@ -87889,7 +87892,7 @@ msgstr "共有ガードプリミティブが `zeroclaw-infra::net_guard` にあ�
 
 #: src/sop/fan-in/overview.md
 msgid "the step's `scope` excludes it under `step_scope_enforce`, or it is a SOP control tool"
-msgstr "the step's `scope` で `step_scope_enforce` によって除外されているか、SOP 制御ツールである"
+msgstr "ステップの `scope` で `step_scope_enforce` によって除外されているか、SOP 制御ツールである"
 
 #: src/plugins/migrating-to-typed-config.md
 msgid "the stored string does not parse as the declared type"
@@ -87965,7 +87968,7 @@ msgstr "トランスポート境界での認証、ペアリング、許可リス
 
 #: src/channels/filesystem.md
 msgid "trigger `path` glob does not match"
-msgstr "trigger `path` glob がマッチしません"
+msgstr "トリガーの `path` の glob が一致しません"
 
 #: src/sop/fan-in/overview.md
 msgid "trigger pattern mismatch or a failing `condition`"
