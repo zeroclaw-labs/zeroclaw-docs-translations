@@ -1368,7 +1368,7 @@ msgstr "\"name\""
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "\"no Rust toolchain\""
-msgstr "\"Aucune chaîne d'outils Rust\""
+msgstr "\"no Rust toolchain\""
 
 #: src/tools/relationship-memory.md
 #: src/tools/relationship-memory-skill-template.md
@@ -2906,8 +2906,7 @@ msgstr "# en cours d'exécution / arrêté, dernier code de sortie\n"
 
 #: src/zerocode/environment.md
 msgid "# runs (git push, ssh, gpg-sign) gets SSH_AUTH_SOCK from your terminal.\n"
-msgstr ""
-"# exécute (git push, ssh, gpg-sign) récupère SSH_AUTH_SOCK depuis votre terminal.\n"
+msgstr "# exécute (git push, ssh, gpg-sign) récupère SSH_AUTH_SOCK depuis votre terminal.\n"
 
 #: src/developing/building-docs.md src/maintainers/docs-and-translations.md
 msgid "# serve all locales at http://localhost:3000/en/\n"
@@ -6165,7 +6164,7 @@ msgstr "**Modèle de PR** : `.github/pull_request_template.md`. Complétez-le. L
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid "**Package and tool names must not conflict with a registered tool.** Registration refuses a conflict instead of letting one tool shadow another. If your package name (the manifest `name`) matches an already registered tool, the plugin is refused before its component is instantiated, and the host logs a `WARN` event with `error_key` `plugin_package_name_conflict` in its `attributes`. If the name your `name` export returns matches one, the tool is not registered, and the `error_key` is `plugin_tool_name_conflict`. A `name` export that contains `__` is never registered either: MCP tools use that separator (`<server>__<tool>`), and the `error_key` is `plugin_tool_name_reserved`. The names checked are the host's built-in tools, including ones the current tool selection leaves out, plus plugin tools accepted before yours. `mcp_resources` and `mcp_prompts` are always reserved, and `execute_pipeline` is reserved when `[pipeline] enabled = true`. The set depends on the host's build and config, so a name that loads on one host can be refused on another. A tool named like one a connected peripheral or a skill contributes is dropped later, when the agent's tools are assembled, with the same `plugin_tool_name_conflict` `error_key`. Pick names that are unique outright. See [Tool name conflicts](../developing/how-plugins-work.md#tool-name-conflicts) for the operator view."
-msgstr "**Les noms de package et d'outil ne doivent pas entrer en conflit avec un outil enregistré.** L'enregistrement refuse tout conflit au lieu de laisser un outil en masquer un autre. Si le nom de votre package (le `name` du manifeste) correspond à un outil déjà enregistré, le plugin est refusé avant l'instanciation de son composant, et l'hôte journalise un événement `WARN` dont `error_key` dans ses `attributes` vaut `plugin_package_name_conflict`. Si le nom renvoyé par votre export `name` correspond à un outil existant, l'outil n'est pas enregistré et `error_key` vaut `plugin_tool_name_conflict`. Un export `name` qui contient `__` n'est jamais enregistré non plus : les outils MCP utilisent ce séparateur (`<server>__<tool>`), et `error_key` vaut `plugin_tool_name_reserved`. Les noms vérifiés sont les outils intégrés de l'hôte, y compris ceux que la sélection d'outils courante exclut, ainsi que les outils de plugins acceptés avant le vôtre. `mcp_resources` et `mcp_prompts` sont toujours réservés, et `execute_pipeline` est réservé lorsque `[pipeline] enabled = true`. L'ensemble dépend de la build et de la configuration de l'hôte : un nom accepté sur un hôte peut être refusé sur un autre. Un outil portant le nom d'un outil fourni par un périphérique connecté ou par un skill est supprimé ultérieurement, lors de l'assemblage des outils de l'agent, avec le même `error_key` `plugin_tool_name_conflict`. Choisissez des noms uniques en toutes circonstances. Voir [Tool name conflicts](../developing/how-plugins-work.md#tool-name-conflicts) pour la vue côté opérateur."
+msgstr "**Les noms de package et d'outil ne doivent pas entrer en conflit avec un outil enregistré.** L'enregistrement refuse tout conflit au lieu de laisser un outil en masquer un autre. Si le nom de votre package (le `name` du manifeste) correspond à un outil déjà enregistré, le plugin est refusé avant l'instanciation de son composant, et l'hôte journalise un événement `WARN` dont `error_key` dans ses `attributes` vaut `plugin_package_name_conflict`. Si le nom renvoyé par votre export `name` correspond à un outil existant, l'outil n'est pas enregistré et `error_key` vaut `plugin_tool_name_conflict`. Un export `name` qui contient `__` n'est jamais enregistré non plus : les outils MCP utilisent ce séparateur (`<server>__<tool>`), et `error_key` vaut `plugin_tool_name_reserved`. Les noms vérifiés sont les outils intégrés de l'hôte, y compris ceux que la sélection d'outils courante exclut, ainsi que les outils de plugins acceptés avant le vôtre. `mcp_resources` et `mcp_prompts` sont toujours réservés, et `execute_pipeline` est réservé lorsque `[pipeline] enabled = true`. L'ensemble dépend de la build et de la configuration de l'hôte : un nom accepté sur un hôte peut être refusé sur un autre. Un outil portant le nom d'un outil fourni par un périphérique connecté ou par un skill est supprimé ultérieurement, lors de l'assemblage des outils de l'agent, avec le même `error_key` `plugin_tool_name_conflict`. Choisissez des noms uniques en toutes circonstances. Voir [Conflits de noms d'outils](../developing/how-plugins-work.md#tool-name-conflicts) pour la vue côté opérateur."
 
 #: src/architecture/decisions/ADR-015-unified-capability-catalog.md
 msgid "**Package artifact:** a built-in, installed, or registry-available artifact, identified by package source, namespace/name, version, and immutable content or admission revision when an artifact exists."
@@ -6301,7 +6300,7 @@ msgstr "**Choisissez un profil de compilation plus léger** : `cargo build --pro
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "**Platform test accounts.** For Discord, a dedicated bot application in a small test server, never a production bot, with the **Message Content Intent** on and the bot invited (see the [Discord quickstart](../channels/discord.md#quickstart)), plus a second Discord account for the tester. Plan to reset the bot token when the run is over."
-msgstr "**Comptes de test des plateformes.** Pour Discord, une application de bot dédiée dans un petit serveur de test, jamais un bot de production, avec **Message Content Intent** activé et le bot invité (voir le [guide de démarrage rapide Discord](../channels/discord.md#quickstart)), ainsi qu'un second compte Discord pour le testeur. Prévoyez de réinitialiser le token du bot une fois l'exécution terminée."
+msgstr "**Comptes de test des plateformes.** Pour Discord, une application de bot dédiée dans un petit serveur de test, jamais un bot de production, avec **Message Content Intent** activé et le bot invité (voir le [guide de démarrage rapide Discord](../channels/discord.md#quickstart)), ainsi qu'un second compte Discord pour le testeur. Prévoyez de réinitialiser le jeton du bot une fois l'exécution terminée."
 
 #: src/getting-started/quickstart.md
 msgid "**Plugins**"
@@ -10768,7 +10767,7 @@ msgstr "4"
 
 #: src/channels/discord.md
 msgid "4. Check that it runs"
-msgstr "4. Vérifier que cela fonctionne"
+msgstr "4. Vérifiez que cela fonctionne"
 
 #: src/sop/example.md
 msgid "4. Deployment"
@@ -12614,7 +12613,7 @@ msgstr "Un serveur distant communiquant en MCP via HTTP POST"
 
 #: src/plugins/index.md
 msgid "A remove that stops after claiming the directory but before deleting it, or that cannot put back a directory that changed since it was loaded (it reports the retained files), leaves what it claimed in a hidden recovery transaction that records only the package name. The next `plugin remove <name>` puts that back at `<plugins_dir>/<name>`, not in the directory it was loaded from, and refuses for as long as something else occupies `<name>`. To finish, move whatever is at `<name>` aside and run `zeroclaw plugin remove <name>` twice: the first run puts the package back at `<name>` and leaves it there, because the host did not load it from there, and the second run removes it. Then move the other directory back if you still need it. A delete that had already begun is finished by the next remove instead."
-msgstr "Une suppression qui s'interrompt après avoir réservé le répertoire mais avant de le supprimer, ou qui ne peut pas remettre en place un répertoire modifié depuis son chargement (elle signale les fichiers conservés), laisse ce qu'elle a réservé dans une transaction de récupération cachée qui n'enregistre que le nom du paquet. La prochaine commande `plugin remove <name>` la remet à `<plugins_dir>/<name>`, et non dans le répertoire depuis lequel elle a été chargée, et refuse tant qu'un autre élément occupe `<name>`. Pour terminer, déplacez ce qui se trouve à `<name>` à l'écart puis exécutez deux fois `zeroclaw plugin remove <name>` : la première exécution remet le paquet à `<name>` et l'y laisse, car l'hôte ne l'a pas chargé depuis cet emplacement, et la seconde exécution le supprime. Ensuite, remettez l'autre répertoire en place si vous en avez encore besoin. Une suppression déjà commencée est terminée par la commande remove suivante à la place."
+msgstr "Une suppression qui s'interrompt après avoir réservé le répertoire mais avant de le supprimer, ou qui ne peut pas remettre en place un répertoire modifié depuis son chargement (elle signale les fichiers conservés), laisse ce qu'elle a réservé dans une transaction de récupération cachée qui n'enregistre que le nom du paquet. La prochaine commande `plugin remove <name>` le remet à `<plugins_dir>/<name>`, et non dans le répertoire depuis lequel il a été chargé, et refuse tant qu'un autre élément occupe `<name>`. Pour terminer, déplacez ce qui se trouve à `<name>` à l'écart puis exécutez deux fois `zeroclaw plugin remove <name>` : la première exécution remet le paquet à `<name>` et l'y laisse, car l'hôte ne l'a pas chargé depuis cet emplacement, et la seconde exécution le supprime. Ensuite, remettez l'autre répertoire en place si vous en avez encore besoin. Une suppression déjà commencée est terminée par la commande remove suivante à la place."
 
 #: src/sop/how-it-works.md
 msgid "A rename:"
@@ -16910,7 +16909,7 @@ msgstr "Le binding n'est ni une livraison ni un rappel de mémoire. Le binding d
 
 #: src/channels/discord.md
 msgid "Binding never turns on the plugin system and never assigns the instance to an agent. Turn the plugin system on:"
-msgstr "Le binding n'active jamais le système de plugins et n'assigne jamais l'instance à un agent. Activez le système de plugins :"
+msgstr "La liaison n'active jamais le système de plugins et n'assigne jamais l'instance à un agent. Activez le système de plugins :"
 
 #: src/plugins/migrating-to-typed-config.md
 msgid "Binding the alias derives, prints, and seeds that key. To put a channel instance's values on it:"
@@ -21180,7 +21179,7 @@ msgstr "Fournisseurs personnalisés"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Cut the machine's network for at least two minutes, then restore it"
-msgstr "Couper le réseau de la machine pendant au moins deux minutes, puis le rétablir"
+msgstr "Coupez le réseau de la machine pendant au moins deux minutes, puis rétablissez-le"
 
 #: src/contributing/agent-policy-parity-harness.md
 msgid "Cut-over status (the strangle, one site per PR): the **gateway** (#8640), `loop_::run` (#8700), and `process_message` (#8701) all construct through `assemble` today. The gateway cut-over - both its registry builders, the dashboard-agent seed and the per-agent `/api/tools` listings - closed the gateway's filter gap by construction: its listings previously showed unfiltered built-ins the agent's policy denies (live gateway chat resolves through `process_message`, which already filtered), plus a `tool_search` stub even when policy denied every deferred MCP tool. One scoping note keeps the listings claim honest: peripherals are excluded from listings by design (`connect_peripherals: false` - enumerating them without connecting hardware is a future refinement). The `process_message` cut-over closed a second, independent divergence: it previously filtered built-ins through `filter_channel_builtin_tools`, a variant that admitted the canonical read-only defaults past `allowed_tools` at non-Full autonomy, while every other path applied the plain `apply_policy_tool_filter`. #8701 retired that variant, so every path now applies the same plain filter (ledger A4, backed by an in-file positive parity test rather than a divergence characterization)."
@@ -25110,7 +25109,7 @@ msgstr "Chaque transition comporte une question de validation. La question doit 
 
 #: src/plugins/index.md
 msgid "Every value in an instance's `config` map is encrypted at rest, whatever the schema says. `zeroclaw config set plugins.entries.<key>.config.<name>` asks for an `x-secret` value with masked input and, unless `--no-interactive` is given, does not take one from the command line. A property the installed package declares without `x-secret` takes the value given on the command line, or prompts with echo when none is given. A name `config set` cannot match to an installed package's schema, for example on a row whose package is not installed, is treated as secret."
-msgstr "Chaque valeur du dictionnaire `config` d'une instance est chiffrée au repos, quel que soit le schéma. `zeroclaw config set plugins.entries.<key>.config.<name>` demande une valeur `x-secret` en saisie masquée et, sauf si `--no-interactive` est fourni, ne la prend pas depuis la ligne de commande. Une propriété que le package installé déclare sans `x-secret` prend la valeur donnée sur la ligne de commande ou, si aucune n'est donnée, demande la saisie avec affichage. Un nom que `config set` ne peut pas faire correspondre au schéma d'un package installé, par exemple sur une ligne dont le package n'est pas installé, est traité comme secret."
+msgstr "Chaque valeur du dictionnaire `config` d'une instance est chiffrée au repos, quel que soit le schéma. `zeroclaw config set plugins.entries.<key>.config.<name>` demande une valeur `x-secret` en saisie masquée et, sauf si `--no-interactive` est fourni, ne la prend pas depuis la ligne de commande. Une propriété que le paquet installé déclare sans `x-secret` prend la valeur donnée sur la ligne de commande ou, si aucune n'est donnée, demande la saisie avec affichage. Un nom que `config set` ne peut pas faire correspondre au schéma d'un paquet installé, par exemple sur une ligne dont le paquet n'est pas installé, est traité comme secret."
 
 #: src/developing/how-plugins-work.md
 msgid "Every well-formed plugin, signed or not"
@@ -25182,7 +25181,7 @@ msgstr "Tout est simulé"
 
 #: src/channels/discord.md
 msgid "Everything on this page"
-msgstr "Tout sur cette page"
+msgstr "Tout ce qui est décrit sur cette page"
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid "Everything on this page is checked against the contract source: the `tool-plugin` world in `wit/v0/tool.wit`, the host-side call path in `crates/zeroclaw-plugins/src/runtime.rs` and `wasm_tool.rs`, and manifest validation in `host.rs`. Source paths are citations into the ZeroClaw repository for verification; the plugin itself is your own crate in your own repository. You never need a ZeroClaw checkout to build one, only the `wit/` contract files (fetched in step 1) and an installed `zeroclaw` binary with the plugin host compiled in to run it."
@@ -29033,7 +29032,7 @@ msgstr "Comment la passerelle est exposée à l'internet public pour que les web
 
 #: src/channels/discord.md
 msgid "How the plugin differs from the built-in channel"
-msgstr "Comment le plugin diffère du canal intégré"
+msgstr "En quoi le plugin diffère du canal intégré"
 
 #: src/contributing/how-to.md
 msgid "How to Contribute"
@@ -30071,7 +30070,7 @@ msgstr "Dans un SOP adossé à un fichier, ajoutez une table `[decision]` à `SO
 
 #: src/channels/discord.md
 msgid "In a private channel, the bot (or one of its roles) needs **View Channel**, **Send Messages**, and **Read Message History** on that channel. Discord sends no events for a channel the bot cannot see, and the plugin logs nothing about it: the bot connects and looks healthy but never sees a message. The same applies when `channel_ids` names a channel the bot cannot view."
-msgstr "Dans un salon privé, le bot (ou l'un de ses rôles) doit disposer des autorisations **Voir le salon**, **Envoyer des messages** et **Voir l'historique des messages** sur ce salon. Discord n'envoie aucun événement pour un salon que le bot ne peut pas voir, et le plugin ne journalise rien à ce sujet : le bot se connecte, semble fonctionner normalement, mais ne reçoit jamais de message. Il en va de même lorsque `channel_ids` désigne un salon que le bot ne peut pas voir."
+msgstr "Dans un salon privé, le bot (ou l'un de ses rôles) doit disposer des autorisations **Voir le salon**, **Envoyer des messages** et **Voir les anciens messages** sur ce salon. Discord n'envoie aucun événement pour un salon que le bot ne peut pas voir, et le plugin ne journalise rien à ce sujet : le bot se connecte, semble fonctionner normalement, mais ne reçoit jamais de message. Il en va de même lorsque `channel_ids` désigne un salon que le bot ne peut pas voir."
 
 #: src/architecture/rpc-socket.md
 msgid "In a second terminal on Unix, connect with `socat`:"
@@ -32707,7 +32706,7 @@ msgstr "Il ne supprime, ne restreint ni ne déplace aucun outil. Le registre enr
 
 #: src/getting-started/quickstart.md
 msgid "It downloads and verifies the archive, confirms that the manifest provides a tool, admits the package, checks that its config entry can be seeded, and runs the install-time load check. When any of these steps fails, Quickstart reports it, writes nothing for that plugin, and moves on to the next one. The config entry check fails, for example, when the config still holds the plugin's pre-1.0 entry, named only after the package, which `zeroclaw plugin remove` keeps: `zeroclaw plugin install` refuses to create an entry beside it, and Quickstart reports the same reason before it asks anything about the plugin. Quickstart has no `--no-verify`: for a plugin that fails the load check it prints the `zeroclaw plugin install <name> --no-verify` command, which installs a plugin that the daemon then skips at startup. That command is the plugin CLI, not Quickstart: it asks no signature question and no network access question, and a config entry it creates is seeded with the destinations the manifest declares for `http_client`, `websocket_client`, or `socket_client`."
-msgstr "Il télécharge et vérifie l'archive, confirme que le manifeste fournit un outil, admet le paquet, vérifie que son entrée de configuration peut être initialisée et exécute la vérification de chargement effectuée à l'installation. Si l'une de ces étapes échoue, Quickstart le signale, n'écrit rien pour ce plugin et passe au suivant. La vérification de l'entrée de configuration échoue par exemple lorsque la configuration contient encore l'entrée pré-1.0 du plugin, nommée uniquement d'après le paquet, que `zeroclaw plugin remove` conserve : `zeroclaw plugin install` refuse de créer une entrée à côté de celle-ci, et Quickstart signale la même raison avant de poser la moindre question au sujet du plugin. Quickstart n'a pas de `--no-verify` : pour un plugin qui échoue à la vérification de chargement, il affiche la commande `zeroclaw plugin install <name> --no-verify`, qui installe un plugin que le démon ignore ensuite au démarrage. Cette commande relève de la CLI du plugin, et non de Quickstart : elle ne pose aucune question sur la signature ni sur l'accès réseau, et une entrée de configuration qu'elle crée est initialisée avec les destinations que le manifeste déclare pour `http_client`, `websocket_client` ou `socket_client`."
+msgstr "Il télécharge et vérifie l'archive, confirme que le manifeste fournit un outil, admet le paquet, vérifie que son entrée de configuration peut être initialisée et exécute la vérification de chargement effectuée à l'installation. Si l'une de ces étapes échoue, Quickstart le signale, n'écrit rien pour ce plugin et passe au suivant. La vérification de l'entrée de configuration échoue par exemple lorsque la configuration contient encore l'entrée pré-1.0 du plugin, nommée uniquement d'après le paquet, que `zeroclaw plugin remove` conserve : `zeroclaw plugin install` refuse de créer une entrée à côté de celle-ci, et Quickstart signale la même raison avant de poser la moindre question au sujet du plugin. Quickstart n'a pas de `--no-verify` : pour un plugin qui échoue à la vérification de chargement, il affiche la commande `zeroclaw plugin install <name> --no-verify`, qui installe un plugin que le démon ignore ensuite au démarrage. Cette commande relève de la CLI des plugins, et non de Quickstart : elle ne pose aucune question sur la signature ni sur l'accès réseau, et une entrée de configuration qu'elle crée est initialisée avec les destinations que le manifeste déclare pour `http_client`, `websocket_client` ou `socket_client`."
 
 #: src/contributing/agent-policy-parity-harness.md
 msgid "It grows one surface at a time and asserts only what no other test covers:"
@@ -32811,7 +32810,7 @@ msgstr "Son point d'entrée encapsule le travail dans `attribution_span!(self)`,
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Its load verdict"
-msgstr "Son verdict de charge"
+msgstr "Son verdict de chargement"
 
 #: src/channels/overview.md
 msgid "JSON API"
@@ -37684,7 +37683,7 @@ msgstr "Une fois qu’un jalon nommé est actif, limitez les nouvelles demandes 
 
 #: src/getting-started/quickstart.md
 msgid "Once the agent is created, Quickstart prints the status of each picked plugin that is installed: admitted as a tool, with its config entry key, or the reason it is not admitted, such as `plugins.enabled` or `plugins.auto_discover` being off or the `plugins.max_active_instances` limit being reached. A plugin is reported admitted only when its config entry passes the settings check the runtime applies on every call. Admitted is not yet registered: the tool registry registers the plugin when it is next built, and it still refuses a package whose name clashes with a tool already registered, such as a built-in tool, or whose tool description it cannot read. The runtime log records those refusals. When the settings check fails instead, for example when you installed the plugin without its required settings, its status shows the reason the check gives, names the required settings that are missing, and prints the `zeroclaw config set` command that asks for each value. Quickstart prints commands only for setting names in the portable key grammar, which are safe to show and to paste into a shell. A required setting with any other name is named without a command: set it in the config file, or with a `zeroclaw config set` command you quote yourself. A required name that the plugin's schema does not declare is named too, since no config entry can satisfy that schema until the plugin's publisher fixes it. A plugin whose config entry is missing, for example because you skipped creating it, is not reported active either: `zeroclaw config set` only changes entries that exist, so its status prints the command that creates the entry instead. That command grants no network access; for a plugin that requests a network transport and declares destinations, a separate line gives the command that grants them once the entry exists. When the config still holds the plugin's pre-1.0 entry, named only after the package, its status prints neither command, since a new entry beside the old one would leave the old entry's settings and network grant behind. It names the instance key to rename the old entry to instead. When `zeroclaw plugin list` prints the update steps for that entry, which it does for a plugin with a network transport unless the deployment refuses every plugin's network grant, the status also gives that command: its steps include any network grant the renamed entry still needs. A plugin with nothing to configure and no network access needs no config entry."
-msgstr "Une fois l'agent créé, Quickstart affiche l'état de chaque plugin sélectionné et installé : admis comme outil, avec la clé de son entrée de configuration, ou la raison de son refus, par exemple `plugins.enabled` ou `plugins.auto_discover` désactivé, ou la limite `plugins.max_active_instances` atteinte. Un plugin n'est signalé comme admis que si son entrée de configuration réussit la vérification des paramètres que le runtime applique à chaque appel. Admis ne signifie pas encore enregistré : le registre des outils enregistre le plugin lors de sa prochaine construction, et il refuse toujours un paquet dont le nom entre en conflit avec un outil déjà enregistré, comme un outil intégré, ou dont il ne peut pas lire la description de l'outil. Le journal d'exécution consigne ces refus. Lorsque la vérification des paramètres échoue, par exemple parce que vous avez installé le plugin sans ses paramètres requis, son état affiche la raison donnée par la vérification, nomme les paramètres requis manquants et affiche la commande `zeroclaw config set` qui demande chaque valeur. Quickstart n'affiche de commandes que pour les noms de paramètres conformes à la grammaire de clés portable, qui peuvent être affichés et collés dans un shell en toute sécurité. Un paramètre requis dont le nom ne respecte pas cette grammaire est nommé sans commande : définissez-le dans le fichier de configuration, ou avec une commande `zeroclaw config set` que vous citez vous-même. Un nom requis que le schéma du plugin ne déclare pas est aussi signalé, car aucune entrée de configuration ne peut satisfaire ce schéma tant que l'éditeur du plugin ne l'a pas corrigé. Un plugin dont l'entrée de configuration est absente, par exemple parce que vous n'avez pas créé cette entrée, n'est pas non plus signalé comme actif : `zeroclaw config set` ne modifie que les entrées existantes, donc son état affiche plutôt la commande qui crée l'entrée. Cette commande n'accorde aucun accès réseau ; pour un plugin qui demande un transport réseau et déclare des destinations, une ligne distincte donne la commande qui accorde ces destinations une fois l'entrée créée. Lorsque la configuration contient encore l'entrée pré-1.0 du plugin, nommée seulement d'après le paquet, son état n'affiche aucune de ces deux commandes, car une nouvelle entrée à côté de l'ancienne laisserait les paramètres et l'accès réseau de l'ancienne entrée en place. Il indique plutôt la clé d'instance vers laquelle renommer l'ancienne entrée. Lorsque `zeroclaw plugin list` affiche les étapes de mise à jour de cette entrée, ce qu'il fait pour un plugin avec un transport réseau sauf si le déploiement refuse toute autorisation réseau pour tous les plugins, l'état donne aussi cette commande : ses étapes incluent toute autorisation réseau dont l'entrée renommée a encore besoin. Un plugin sans rien à configurer et sans accès réseau n'a pas besoin d'entrée de configuration."
+msgstr "Une fois l'agent créé, Quickstart affiche l'état de chaque plugin sélectionné et installé : admis comme outil, avec la clé de son entrée de configuration, ou la raison de son refus, par exemple `plugins.enabled` ou `plugins.auto_discover` désactivé, ou la limite `plugins.max_active_instances` atteinte. Un plugin n'est signalé comme admis que si son entrée de configuration réussit la vérification des paramètres que le runtime applique à chaque appel. Admis ne signifie pas encore enregistré : le registre des outils enregistre le plugin lors de sa prochaine construction, et il refuse toujours un paquet dont le nom entre en conflit avec un outil déjà enregistré, comme un outil intégré, ou dont il ne peut pas lire la description de l'outil. Le journal d'exécution consigne ces refus. Lorsque la vérification des paramètres échoue, par exemple parce que vous avez installé le plugin sans ses paramètres requis, son état affiche la raison donnée par la vérification, nomme les paramètres requis manquants et affiche la commande `zeroclaw config set` qui demande chaque valeur. Quickstart n'affiche de commandes que pour les noms de paramètres conformes à la grammaire de clés portable, qui peuvent être affichés et collés dans un shell en toute sécurité. Un paramètre requis dont le nom ne respecte pas cette grammaire est nommé sans commande : définissez-le dans le fichier de configuration, ou avec une commande `zeroclaw config set` en ajoutant vous-même les guillemets nécessaires. Un nom requis que le schéma du plugin ne déclare pas est aussi signalé, car aucune entrée de configuration ne peut satisfaire ce schéma tant que l'éditeur du plugin ne l'a pas corrigé. Un plugin dont l'entrée de configuration est absente, par exemple parce que vous n'avez pas créé cette entrée, n'est pas non plus signalé comme actif : `zeroclaw config set` ne modifie que les entrées existantes, donc son état affiche plutôt la commande qui crée l'entrée. Cette commande n'accorde aucun accès réseau ; pour un plugin qui demande un transport réseau et déclare des destinations, une ligne distincte donne la commande qui accorde ces destinations une fois l'entrée créée. Lorsque la configuration contient encore l'entrée pré-1.0 du plugin, nommée seulement d'après le paquet, son état n'affiche aucune de ces deux commandes, car une nouvelle entrée à côté de l'ancienne laisserait les paramètres et l'accès réseau de l'ancienne entrée en place. Il indique plutôt la clé d'instance vers laquelle renommer l'ancienne entrée. Lorsque `zeroclaw plugin list` affiche les étapes de mise à jour de cette entrée, ce qu'il fait pour un plugin avec un transport réseau sauf si le déploiement refuse toute autorisation réseau pour tous les plugins, l'état donne aussi cette commande : ses étapes incluent toute autorisation réseau dont l'entrée renommée a encore besoin. Un plugin sans rien à configurer et sans accès réseau n'a pas besoin d'entrée de configuration."
 
 #: src/gateway/a2a-discovery.md
 msgid "Once you have an agent's interface URL and a skill, you send work as a JSON-RPC `SendMessage` POST to that URL, advertising the A2A protocol version you speak in the `A2A-Version` header (this server speaks `1.0`):"
@@ -37772,7 +37771,7 @@ msgstr "Une matrice de publication comporte dix cibles, avec des noms d'archives
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "One run proves one package version on one published build of the host. It says nothing about other targets, other host versions, or behavior under load."
-msgstr "Une exécution ne valide qu'une version de package sur un seul build publié de l'hôte. Elle ne dit rien des autres cibles, des autres versions de l'hôte, ni du comportement sous charge."
+msgstr "Une exécution ne valide qu'une version de paquet sur un seul build publié de l'hôte. Elle ne dit rien des autres cibles, des autres versions de l'hôte, ni du comportement sous charge."
 
 #: src/architecture/decisions/ADR-017-inbound-authentication-and-principals.md
 msgid "One shared ZeroClaw resolver maps that authenticated identity to a canonical `PrincipalId` and the current permission-profile grants."
@@ -40038,7 +40037,7 @@ msgstr "Les opérateurs disposent d'un paramètre en clair, auditable, par insta
 
 #: src/plugins/distributing-plugins.md
 msgid "Operators install, inspect, and configure a package by its registry `name`. That name is not a Cargo feature, even where the two look alike. The official Discord channel plugin is the package `discord`, installed with `zeroclaw plugin install discord`. `channel-discord` is the Cargo feature that compiles the built-in Discord channel into the binary (see the [channels overview](../channels/overview.md)); no package has that name. [FND-001](../foundations/fnd-001-intentional-architecture.md) and [FND-004](../foundations/fnd-004-engineering-infrastructure.md) predate the package and call it `channel-discord` and `channel-discord.wasm`; read both as the `discord` package."
-msgstr "Les opérateurs installent, inspectent et configurent un paquet par son `name` dans le registre. Ce `name` n'est pas une fonctionnalité Cargo, même lorsque les deux se ressemblent. Le plugin de canal Discord officiel est le paquet `discord`, installé avec `zeroclaw plugin install discord`. `channel-discord` est la fonctionnalité Cargo qui compile le canal Discord intégré dans le binaire (voir la [vue d'ensemble des canaux](../channels/overview.md)) ; aucun paquet ne porte ce nom. [FND-001](../foundations/fnd-001-intentional-architecture.md) et [FND-004](../foundations/fnd-004-engineering-infrastructure.md) sont antérieurs au paquet et les appellent `channel-discord` et `channel-discord.wasm` ; il faut les lire comme le paquet `discord`."
+msgstr "Les opérateurs installent, inspectent et configurent un paquet par son `name` dans le registre. Ce nom n'est pas une fonctionnalité Cargo, même lorsque les deux se ressemblent. Le plugin de canal Discord officiel est le paquet `discord`, installé avec `zeroclaw plugin install discord`. `channel-discord` est la fonctionnalité Cargo qui compile le canal Discord intégré dans le binaire (voir la [vue d'ensemble des canaux](../channels/overview.md)) ; aucun paquet ne porte ce nom. [FND-001](../foundations/fnd-001-intentional-architecture.md) et [FND-004](../foundations/fnd-004-engineering-infrastructure.md) sont antérieurs au paquet et l'appellent `channel-discord` et `channel-discord.wasm` ; il faut les lire comme le paquet `discord`."
 
 #: src/architecture/decisions/ADR-010-memory-authority-boundaries.md
 msgid "Operators may temporarily see both legacy conversation rows and canonical session history while migration remains active."
@@ -40509,7 +40508,7 @@ msgstr "Ordre des tentatives"
 
 #: src/security/sandboxing.md
 msgid "Order tried"
-msgstr "Ordre tenté"
+msgstr "Ordre d'essai"
 
 #: src/providers/catalog.md src/providers/custom.md
 msgid "Ordered alternate models to try on THIS provider before falling over to the `fallback` aliases. Same endpoint, key, and headers as the primary `model`. Only the model identifier changes. Use this when a provider serves a backup model (e.g. a smaller or older variant) that should be tried before leaving the provider entirely. Empty means only `model` is tried."
@@ -43426,7 +43425,7 @@ msgstr "Pousse les images vers GHCR"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Put `*.discord.gg` back and apply it to the running daemon with `POST /admin/reload` from the same machine (see [Remote daemon reload](../ops/network-deployment.md#remote-daemon-reload)), without a full restart. Saving the change, with `zeroclaw config set` or by editing `config.toml`, does not reach the running daemon on its own"
-msgstr "Rétablissez `*.discord.gg` et appliquez-le au démon en cours d'exécution avec `POST /admin/reload` depuis la même machine (voir [Remote daemon reload](../ops/network-deployment.md#remote-daemon-reload)), sans redémarrage complet. Enregistrer la modification, avec `zeroclaw config set` ou en éditant `config.toml`, ne suffit pas à la transmettre au démon en cours d'exécution."
+msgstr "Rétablissez `*.discord.gg` et appliquez-le au démon en cours d'exécution avec `POST /admin/reload` depuis la même machine (voir [Rechargement du démon distant](../ops/network-deployment.md#remote-daemon-reload)), sans redémarrage complet. Enregistrer la modification, avec `zeroclaw config set` ou en éditant `config.toml`, ne suffit pas à la transmettre au démon en cours d'exécution."
 
 #: src/channels/matrix.md
 msgid "Put `access_token`, `device_id`, and `user_id` from the response into your `[channels.matrix.<alias>]` block (see [§2](#2-configuration) for where to set them), then restart: `zeroclaw service restart`."
@@ -43993,7 +43992,7 @@ msgstr "Lisez le résumé du sélecteur ainsi que la conclusion et les journaux 
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Read the startup output and `/health`"
-msgstr "Lire la sortie de démarrage et `/health`"
+msgstr "Lisez la sortie de démarrage et `/health`"
 
 #: src/foundations/index.md
 msgid "Read these in order if you can. Each document builds on the ones before it, and the sequence tells a story. You can enter anywhere and learn something useful, but reading them from the beginning gives you the full arc: from the shape of the architecture, to how we record and coordinate and ship and collaborate, to what it means to write the code well at the sentence level."
@@ -47892,7 +47891,7 @@ msgstr "Envoyez tous les contrôles configurés. Lorsque `gateway.require_pairin
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Send from an account outside the peer group"
-msgstr "Envoyer depuis un compte extérieur au groupe de pairs"
+msgstr "Envoyez un message depuis un compte extérieur au groupe de pairs"
 
 #: src/channels/telegram.md
 msgid "Send the printed code to the bot from the Telegram account you want to approve:"
@@ -48416,7 +48415,7 @@ msgstr "Configuration de friction"
 
 #: src/architecture/config-lifecycle.md
 msgid "Setup guidance"
-msgstr "Guide de configuration"
+msgstr "Indications de configuration"
 
 #: src/foundations/fnd-003-governance.md
 msgid "Setup, configuration, and usage help"
@@ -49734,7 +49733,7 @@ msgstr "Arrêter les exécutions routées qui revisitent une étape trop de fois
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Stop the daemon"
-msgstr "Arrêter le démon"
+msgstr "Arrêtez le démon"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Stop the daemon and run `zeroclaw plugin remove discord`. Removal keeps the instance's `[[plugins.entries]]` row and its `[channels.plugin.acceptance]` binding and prints both; delete them."
@@ -51901,7 +51900,7 @@ msgstr "Le dispositif du bot doit avoir reçu les clés de salle depuis des disp
 
 #: src/channels/discord.md
 msgid "The bot from the [Quickstart](#quickstart): its token, the **Message Content Intent** switched on, and the bot invited to your server."
-msgstr "Le bot du [Quickstart](#quickstart) : son token, l'option **Message Content Intent** activée, et le bot invité sur votre serveur."
+msgstr "Le bot du [Démarrage rapide](#quickstart) : son jeton, l'option **Message Content Intent** activée, et le bot invité sur votre serveur."
 
 #: src/channels/mattermost.md
 msgid "The bot identity is fetched once via `GET /api/v4/users/me` and cached for the process lifetime. Username changes require a restart."
@@ -52009,7 +52008,7 @@ msgstr "Les catégories ci-dessous décrivent la propriété de l'implémentatio
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "The built-in channel handled nothing"
-msgstr "Le canal intégré ne gérait rien"
+msgstr "Le canal intégré n'a rien traité"
 
 #: src/agents/portability.md
 msgid "The bundle carries a skill bundle's content: instructions the agent reads, and files it may run."
@@ -54611,7 +54610,7 @@ msgstr "L’environnement d’exécution démarre avec une référence active ve
 
 #: src/developing/plugin-protocol.md
 msgid "The runtime stores one authenticated envelope per value in `data/plugin-state.db`, encrypted with the install's existing `.secret_key`. The database contains only keyed blind indexes and `enc2:` ciphertext. Missing or replaced install keys fail closed and are never silently regenerated while durable rows exist. Back up the database and `.secret_key` together."
-msgstr "Le runtime stocke une enveloppe authentifiée par valeur dans `data/plugin-state.db`, chiffrée avec la `.secret_key` existante de l'installation. La base de données ne contient que des index aveugles à clé et du texte chiffré `enc2:`. Des clés d'installation manquantes ou remplacées entraînent un échec fermé et ne sont jamais régénérées silencieusement tant que des lignes durables existent. Sauvegardez ensemble la base de données et `.secret_key`."
+msgstr "Le runtime stocke une enveloppe authentifiée par valeur dans `data/plugin-state.db`, chiffrée avec la `.secret_key` existante de l'installation. La base de données ne contient que des index aveugles à clé et du texte chiffré `enc2:`. Des clés d'installation manquantes ou remplacées entraînent un échec en mode fermé et ne sont jamais régénérées silencieusement tant que des lignes durables existent. Sauvegardez ensemble la base de données et `.secret_key`."
 
 #: src/security/model.md
 msgid "The runtime wraps it as a `ToolResult::Err` and hands it back to the model"
@@ -54691,7 +54690,7 @@ msgstr "Le bac à sable limite ce qu'un plugin chargé peut faire ; la politique
 
 #: src/security/model.md
 msgid "The sandbox confines filesystem access to the workspace and removes access to the parent process's secrets. Network handling varies by backend; see [Sandboxing](./sandboxing.md#network)."
-msgstr "Le bac à sable limite l'accès au système de fichiers à l'espace de travail et supprime l'accès aux secrets du processus parent. La gestion du réseau varie selon le backend ; voir [Sandboxing](./sandboxing.md#network)."
+msgstr "Le bac à sable limite l'accès au système de fichiers à l'espace de travail et supprime l'accès aux secrets du processus parent. La gestion du réseau varie selon le backend ; voir [Isolation](./sandboxing.md#network)."
 
 #: src/security/sandboxing.md
 msgid "The sandbox passes through only the env vars listed in `[risk_profiles.<alias>].shell_env_passthrough`. Inherited secrets do not reach sandboxed tools unless explicitly passed."
@@ -55995,7 +55994,7 @@ msgstr "Cette classification est une proposition pour [\\#10998](https://github.
 
 #: src/contributing/pr-review-protocol.md
 msgid "This classification requires `gh >= 2.50.0`. Stop and upgrade an older client rather than silently dropping required-check data. Record `headRefOid` as the revision being reviewed. `gh pr checks` is keyed by the mutable PR number, not by a commit, so the trailing `headRefOid` re-read is what binds the check output and the `behind_by` comparison to `HEAD_SHA`. If the head moved during the capture, discard everything captured in this step and repeat it from `PR_STATE`; never classify a comparison from one head against checks from another. Treat the check output and `behind_by` comparison as current only for the captured head. The recipe records the exit status and output of both fetches: a non-zero comparison status means the base comparison is unavailable, not `behind_by: 0`, and a non-zero checks status must be classified from its returned JSON as pending, failing, or absent. `gh pr checks` exits non-zero by design when required checks are pending (exit 8), failing, or absent. Treat that exit code as state to classify, not as a failed fetch, and inspect any JSON output it returned. Use this state for the CI freshness and base drift rules below, never an author's description of the state."
-msgstr "Cette classification nécessite `gh >= 2.50.0`. Arrêtez-vous et mettez à niveau un client plus ancien plutôt que d'abandonner silencieusement les données des vérifications requises. Enregistrez `headRefOid` comme la révision examinée. `gh pr checks` est indexé par le numéro de PR, qui est mutable, et non par un commit : la relecture finale de `headRefOid` est ce qui lie la sortie des vérifications et la comparaison `behind_by` à `HEAD_SHA`. Si la tête a changé pendant la capture, rejetez tout ce qui a été capturé à cette étape et répétez-la depuis `PR_STATE` ; ne classifiez jamais une comparaison d'une tête avec des vérifications d'une autre. Ne considérez la sortie des vérifications et la comparaison `behind_by` comme à jour que pour la tête capturée. La recette enregistre le code de sortie et la sortie des deux récupérations : un statut de comparaison non nul signifie que la comparaison de base est indisponible, et non `behind_by: 0`, et un statut de vérifications non nul doit être classifié à partir du JSON renvoyé comme en attente, en échec ou absent. `gh pr checks` se termine avec un code non nul par conception lorsque les vérifications requises sont en attente (code 8), en échec ou absentes. Traitez ce code de sortie comme un état à classifier, et non comme une récupération échouée, et inspectez tout JSON qu'il a renvoyé. Utilisez cet état pour les règles de fraîcheur CI et de dérive de base ci-dessous, jamais la description d'un auteur de cet état."
+msgstr "Cette classification nécessite `gh >= 2.50.0`. Arrêtez-vous et mettez à niveau un client plus ancien plutôt que d'abandonner silencieusement les données des vérifications requises. Enregistrez `headRefOid` comme la révision examinée. `gh pr checks` est indexé par le numéro de PR, qui est mutable, et non par un commit : la relecture finale de `headRefOid` est ce qui lie la sortie des vérifications et la comparaison `behind_by` à `HEAD_SHA`. Si la tête a changé pendant la capture, rejetez tout ce qui a été capturé à cette étape et répétez-la depuis `PR_STATE` ; ne classifiez jamais une comparaison d'une tête avec des vérifications d'une autre. Ne considérez la sortie des vérifications et la comparaison `behind_by` comme à jour que pour la tête capturée. La recette enregistre le code de sortie et la sortie des deux récupérations : un statut de comparaison non nul signifie que la comparaison avec la base est indisponible, et non `behind_by: 0`, et un statut de vérifications non nul doit être classifié à partir du JSON renvoyé comme en attente, en échec ou absent. `gh pr checks` se termine avec un code non nul par conception lorsque les vérifications requises sont en attente (code 8), en échec ou absentes. Traitez ce code de sortie comme un état à classifier, et non comme une récupération échouée, et inspectez tout JSON qu'il a renvoyé. Utilisez cet état pour les règles de fraîcheur de la CI et de dérive de la base ci-dessous, jamais la description d'un auteur de cet état."
 
 #: src/getting-started/quickstart.md
 msgid "This command installs the core `zeroclaw` binary; it does not install optional apps."
@@ -57319,7 +57318,7 @@ msgstr "Les outils s'exécutent en tant qu'utilisateur du processus ZeroClaw"
 
 #: src/developing/how-plugins-work.md
 msgid "Tools that a connected peripheral or a skill contributes join the registry later, when the agent's tool set is assembled. They own their names too: a plugin tool with such a name is dropped at that point, and the host logs a `WARN` event with `error_key` `plugin_tool_name_conflict` naming the tool. A peripheral's tool names are known only once its board is connected, so while a board is absent, and wherever tools are assembled without connecting hardware, such as tool listings, a plugin tool with one of those names can still appear. Give plugin packages and tools names that are unique outright rather than relying on these checks."
-msgstr "Les outils fournis par un périphérique connecté ou par une skill rejoignent le registre plus tard, lorsque l'ensemble d'outils de l'agent est assemblé. Ces outils possèdent également leurs noms : un outil de plugin portant un tel nom est alors écarté, et l'hôte consigne un événement `WARN` avec `error_key` `plugin_tool_name_conflict`, en nommant l'outil. Les noms d'outils d'un périphérique ne sont connus qu'une fois sa carte connectée. Ainsi, tant que la carte est absente, et partout où les outils sont assemblés sans connecter de matériel, par exemple dans les listes d'outils, un outil de plugin portant l'un de ces noms peut tout de même apparaître. Donnez aux packages et aux outils de plugin des noms uniques dès le départ, plutôt que de vous fier à ces vérifications."
+msgstr "Les outils fournis par un périphérique connecté ou par une compétence rejoignent le registre plus tard, lorsque l'ensemble d'outils de l'agent est assemblé. Ces outils possèdent également leurs noms : un outil de plugin portant un tel nom est alors écarté, et l'hôte consigne un événement `WARN` avec `error_key` `plugin_tool_name_conflict`, en nommant l'outil. Les noms d'outils d'un périphérique ne sont connus qu'une fois sa carte connectée. Ainsi, tant que la carte est absente, et partout où les outils sont assemblés sans connecter de matériel, par exemple dans les listes d'outils, un outil de plugin portant l'un de ces noms peut tout de même apparaître. Donnez aux paquets et aux outils de plugin des noms uniques dès le départ, plutôt que de vous fier à ces vérifications."
 
 #: src/reference/config.md
 msgid "Tools that always require approval in this profile."
@@ -57744,7 +57743,7 @@ msgstr "Faire confiance lors de la première utilisation ; enregistrer le code P
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Trust policy holds"
-msgstr "Trust policy holds"
+msgstr "La politique de confiance est respectée"
 
 #: src/reference/config.md
 msgid "Trust proxy-forwarded client IP headers (`X-Forwarded-For`, `X-Real-IP`)."
@@ -59004,7 +59003,7 @@ msgstr "Utilisateur, changer avec les API de la plateforme amont"
 
 #: src/security/sandboxing.md
 msgid "User-namespace-based sandbox from Flatpak. Confines filesystem and runs without network access. Requires `bubblewrap` installed."
-msgstr "Bac à sable basé sur les espaces de noms utilisateur, issu de Flatpak. Restreint l'accès au système de fichiers et exécute sans accès réseau. Nécessite que `bubblewrap` soit installé."
+msgstr "Bac à sable basé sur les espaces de noms utilisateur, issu de Flatpak. Restreint l'accès au système de fichiers et s'exécute sans accès réseau. Nécessite que `bubblewrap` soit installé."
 
 #: src/contributing/architecture-map.md
 msgid "User-visible behavior or validation evidence for a command, terminal, daemon, browser, channel, provider, tool, background job, or install path"
@@ -60348,7 +60347,7 @@ msgstr "Ce que vous perdez"
 
 #: src/channels/discord.md
 msgid "What you need"
-msgstr "De quoi vous avez besoin"
+msgstr "Ce dont vous avez besoin"
 
 #: src/channels/acp.md
 msgid "What you'd use it for"
@@ -64066,7 +64065,7 @@ msgstr "[Protocole des plugins](./plugin-protocol.md)"
 
 #: src/maintainers/index.md
 msgid "[Plugin release acceptance](./plugin-release-acceptance.md): proving a first-party plugin installs and runs from a published binary, with an evidence template"
-msgstr "[Acceptation de la publication du plugin](./plugin-release-acceptance.md) : vérifier qu'un plugin de première partie s'installe et s'exécute à partir d'un binaire publié, avec un modèle de preuves"
+msgstr "[Acceptation de la version du plugin](./plugin-release-acceptance.md) : vérifier qu'un plugin de première partie s'installe et s'exécute à partir d'un binaire publié, avec un modèle de preuves"
 
 #: src/architecture/decisions/ADR-015-unified-capability-catalog.md
 msgid "[Plugins documentation](../../plugins/index.md)"
@@ -76017,7 +76016,7 @@ msgstr "`discord`"
 
 #: src/channels/discord.md
 msgid "`discord` plugin"
-msgstr "`discord` plugin"
+msgstr "Plugin `discord`"
 
 #: src/reference/cli.md
 msgid "`discover` — Enumerate USB devices (VID/PID) and show known boards"

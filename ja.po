@@ -2547,8 +2547,7 @@ msgstr "# aarch64 = 64 ビット（実験的なビルド済みバイナリを利
 
 #: src/hardware/raspberry-pi-setup.md
 msgid "# aarch64 → 64-bit (use the aarch64-unknown-linux-gnu binary)\n"
-msgstr ""
-"# aarch64 → 64ビット（aarch64-unknown-linux-gnu バイナリを使用）\n"
+msgstr "# aarch64 → 64ビット（aarch64-unknown-linux-gnu バイナリを使用）\n"
 
 #: src/providers/openai-codex-subscription.md
 msgid "# account_id is OPTIONAL in auth.json; ZeroClaw falls back to the OAuth JWT when\n"
@@ -2732,8 +2731,7 @@ msgstr "# インタラクティブピッカー\n"
 
 #: src/getting-started/language.md
 msgid "# just CLI strings\n"
-msgstr ""
-"# CLI 文字列のみ\n"
+msgstr "# CLI 文字列のみ\n"
 
 #: src/contributing/testing.md
 msgid "# level-specific CI commands (Docker)\n"
@@ -2826,8 +2824,7 @@ msgstr "# 存在し、有効期限内である\n"
 
 #: src/developing/web.md
 msgid "# production bundle into web/dist/\n"
-msgstr ""
-"# 本番バンドルを web/dist/ へ\n"
+msgstr "# 本番バンドルを web/dist/ へ\n"
 
 #: src/channels/matrix.md src/channels/discord.md src/channels/slack.md
 #: src/channels/mattermost.md src/channels/whatsapp.md src/channels/email.md
@@ -4432,7 +4429,7 @@ msgstr "**決定: オプション A。** コントラクトは `zeroclaw-runtime
 
 #: src/plugins/index.md
 msgid "**Declaration versus grant.** Quickstart shows you the manifest's `[egress]` declaration, which grants nothing by itself. Whenever it creates a row for a package whose manifest requests a network transport and declares destinations, the only declaration a created row is seeded with, you choose whether the new row grants them, whether the package is new or was already installed without its row. The question starts on installing without network access, which leaves `egress_hosts` empty and prints the command that grants the destinations later, as `plugin bind --egress none` does for a channel instance. Skipping an already installed package leaves its row absent and prints the command that creates it with an empty grant, then, on its own line, the command that grants the declared destinations. The command Quickstart prints to create a missing row never grants network access; a grant is always a command of its own. The `plugin install --no-verify` command Quickstart prints for a plugin that fails the load check is the plugin CLI's install, which seeds a row it creates with the destinations the manifest declares for `http_client`, `websocket_client`, or `socket_client`."
-msgstr "**宣言と付与の違い。** クイックスタートでは、マニフェストの `[egress]` 宣言を表示しますが、それ自体では何も付与されません。ネットワークトランスポートを要求し接続先を宣言しているパッケージの行を作成する場合、作成される行に設定される唯一の宣言は、その接続先を付与するかどうかをユーザーが選択できるというものです。これは、パッケージが新規であるか、行なしで既にインストールされていたかに関係ありません。この質問は、ネットワークアクセスなしでインストールする場合に始まります。その場合 `egress_hosts` は空のままとなり、宣言された接続先を後で付与するコマンドを表示します。チャネルインスタンスに対する `plugin bind --egress none` と同様です。既にインストールされているパッケージをスキップする場合は、その行は作成されず、空の付与で行を作成するコマンドを表示した後、宣言された接続先を付与するコマンドを別の行に表示します。クイックスタートが欠落した行を作成するために表示するコマンドは、ネットワークアクセスを決して付与しません。付与は常に独立したコマンドです。ロードチェックに失敗したプラグインに対してクイックスタートが表示する `plugin install --no-verify` コマンドは、プラグインCLIのインストールです。これは、作成する行に対して、マニフェストが `http_client`、`websocket_client`、または `socket_client` に対して宣言した接続先を設定します。"
+msgstr "**宣言と付与の違い。** クイックスタートでは、マニフェストの `[egress]` 宣言を表示しますが、それ自体では何も付与されません。ネットワークトランスポートを要求し接続先を宣言しているパッケージの行を作成するときは常に、新しい行でその接続先（作成される行にシードされる唯一の宣言）を付与するかどうかを選択します。これは、パッケージが新規であるか、行なしで既にインストールされていたかに関係ありません。この質問では、最初に「ネットワークアクセスなしでインストール」が選択されています。その場合 `egress_hosts` は空のままとなり、宣言された接続先を後で付与するコマンドが表示されます。チャネルインスタンスに対する `plugin bind --egress none` と同様です。既にインストールされているパッケージをスキップする場合は、その行は作成されず、空の付与で行を作成するコマンドを表示した後、宣言された接続先を付与するコマンドを別の行に表示します。クイックスタートが欠落した行を作成するために表示するコマンドは、ネットワークアクセスを決して付与しません。付与は常に独立したコマンドです。ロードチェックに失敗したプラグインに対してクイックスタートが表示する `plugin install --no-verify` コマンドは、プラグインCLIのインストールです。これは、作成する行に対して、マニフェストが `http_client`、`websocket_client`、または `socket_client` に対して宣言した接続先をシードします。"
 
 #: src/architecture/request-lifecycle.md
 msgid "**Decoding**: platform-specific payload → canonical message format"
@@ -7473,7 +7470,7 @@ msgstr "**答え:** いいえ。なぜそうなのかを理解することが重
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "**The artifact.** A published `zeroclaw` CLI archive for a 64-bit target whose plugin host compiles `.wasm` components. Check it first with [Release artifact verification](./release-verification.md). An x86_64 Linux archive in a fresh container is the simplest place to show that no toolchain was involved."
-msgstr "**成果物。** 64ビットターゲット向けに公開された `zeroclaw` CLI アーカイブで、そのプラグインホストは `.wasm` コンポーネントをコンパイルします。まず [Release artifact verification](./release-verification.md) を使って確認してください。x86_64 Linux のアーカイブを新規コンテナで実行するのが、ツールチェーンが一切関与していないことを示す最も簡単な方法です。"
+msgstr "**成果物。** 64ビットターゲット向けに公開された `zeroclaw` CLI アーカイブで、そのプラグインホストは `.wasm` コンポーネントをコンパイルします。まず [リリース成果物の検証](./release-verification.md) を使って確認してください。x86_64 Linux のアーカイブを新規コンテナで実行するのが、ツールチェーンが一切関与していないことを示す最も簡単な方法です。"
 
 #: src/channels/git.md
 msgid "**The bigger picture:** [Agents](../agents/overview.md) · [Channels overview](./overview.md)"
@@ -11958,7 +11955,7 @@ msgstr "接続が確立されてから30秒以内に`initialize`を完了しな�
 
 #: src/channels/discord.md
 msgid "A connection to a host outside the grant is refused. A refused HTTP request is logged with `error_key = plugin_egress_denied`, the refused host, and the `zeroclaw config set` command that grants it. A refused gateway connection is not logged yet, so a bot that stays offline after a change to `egress_hosts` has most likely lost `*.discord.gg`."
-msgstr "許可（grant）の範囲外にあるホストへの接続は拒否されます。拒否された `HTTP` リクエストは、`error_key = plugin_egress_denied`、拒否されたホスト、およびそれを許可する `zeroclaw config set` コマンドとともにログに記録されます。拒否されたゲートウェイ接続はまだログに記録されないため、`egress_hosts` を変更した後にボットがオフラインのままであれば、`*.discord.gg` が失われた可能性が高いです。"
+msgstr "許可（grant）の範囲外にあるホストへの接続は拒否されます。拒否された HTTP リクエストは、`error_key = plugin_egress_denied`、拒否されたホスト、およびそれを許可する `zeroclaw config set` コマンドとともにログに記録されます。拒否されたゲートウェイ接続はまだログに記録されないため、`egress_hosts` を変更した後にボットがオフラインのままであれば、`*.discord.gg` の許可が外れた可能性が高いです。"
 
 #: src/foundations/fnd-004-engineering-infrastructure.md
 msgid "A contributor can replicate all CI checks locally with four commands"
@@ -12620,7 +12617,7 @@ msgstr "HTTP POST 経由で MCP を扱うリモートサーバー"
 
 #: src/plugins/index.md
 msgid "A remove that stops after claiming the directory but before deleting it, or that cannot put back a directory that changed since it was loaded (it reports the retained files), leaves what it claimed in a hidden recovery transaction that records only the package name. The next `plugin remove <name>` puts that back at `<plugins_dir>/<name>`, not in the directory it was loaded from, and refuses for as long as something else occupies `<name>`. To finish, move whatever is at `<name>` aside and run `zeroclaw plugin remove <name>` twice: the first run puts the package back at `<name>` and leaves it there, because the host did not load it from there, and the second run removes it. Then move the other directory back if you still need it. A delete that had already begun is finished by the next remove instead."
-msgstr "`plugin remove` が、ディレクトリを確保したものの削除前に中断された場合、または読み込み後に変更されたディレクトリを元に戻せなかった場合（保持されたファイルを報告する）、確保したものはパッケージ名のみを記録する隠しリカバリートランザクションに残ります。次の `plugin remove <name>` は、それを読み込み元のディレクトリではなく `<plugins_dir>/<name>` に戻します。`<name>` に別のものが存在する限り、処理を拒否します。完了させるには、`<name>` にあるものを脇に移動し、`zeroclaw plugin remove <name>` を2回実行します。1回目の実行でパッケージは `<name>` に戻され、ホストがそこから読み込んでいないため、そのまま残ります。2回目の実行で削除されます。その後、必要であれば、もう一方のディレクトリを元に戻してください。削除がすでに開始されていた場合は、代わりに次の remove が完了させます。"
+msgstr "削除処理が、ディレクトリを確保したものの削除前に中断された場合、または読み込み後に変更されたディレクトリを元に戻せなかった場合（保持されたファイルを報告する）、確保したものはパッケージ名のみを記録する隠しリカバリートランザクションに残ります。次の `plugin remove <name>` は、それを読み込み元のディレクトリではなく `<plugins_dir>/<name>` に戻します。`<name>` に別のものが存在する限り、処理を拒否します。完了させるには、`<name>` にあるものを脇に移動し、`zeroclaw plugin remove <name>` を2回実行します。1回目の実行でパッケージは `<name>` に戻され、ホストがそこから読み込んでいないため、そのまま残ります。2回目の実行で削除されます。その後、必要であれば、もう一方のディレクトリを元に戻してください。削除がすでに開始されていた場合は、代わりに次の remove が完了させます。"
 
 #: src/sop/how-it-works.md
 msgid "A rename:"
@@ -14278,7 +14275,7 @@ msgstr "mdBook への移行後、リポジトリのコード隣接ドキュメ�
 
 #: src/security/sandboxing.md
 msgid "After the platform list, `auto` tries Docker only when the runtime kind is neither `native` nor `docker`. Docker is not part of the native runtime's automatic fallback: with `[runtime] kind = \"native\"` (the default), `auto` never selects Docker even when the daemon is reachable. Docker is also skipped when the runtime is already `docker`, because the runtime container is the boundary. The only other runtime kind, `cloudflare`, is rejected by `create_runtime` in `crates/zeroclaw-config/src/platform/mod.rs` as not implemented, so on a runnable configuration `auto` never reaches the Docker backend."
-msgstr "プラットフォーム一覧の後、`auto` は runtime の kind が `native` でも `docker` でもない場合にのみ Docker を試行します。Docker は native runtime の自動フォールバックには含まれません。`[runtime] kind = \"native\"`（デフォルト）の場合、Docker デーモンに到達可能であっても `auto` が Docker を選択することはありません。runtime がすでに `docker` の場合も、runtime コンテナが境界となるため Docker はスキップされます。もう一つの runtime kind である `cloudflare` は、`crates/zeroclaw-config/src/platform/mod.rs` の `create_runtime` によって未実装として拒否されるため、実行可能な設定では `auto` が Docker バックエンドに到達することはありません。"
+msgstr "プラットフォーム一覧の後、`auto` はランタイムの種類が `native` でも `docker` でもない場合にのみ Docker を試行します。Docker はネイティブランタイムの自動フォールバックには含まれません。`[runtime] kind = \"native\"`（デフォルト）の場合、Docker デーモンに到達可能であっても `auto` が Docker を選択することはありません。ランタイムがすでに `docker` の場合も、ランタイムのコンテナが境界となるため Docker はスキップされます。もう一つのランタイムの種類である `cloudflare` は、`crates/zeroclaw-config/src/platform/mod.rs` の `create_runtime` によって未実装として拒否されるため、実行可能な設定では `auto` が Docker バックエンドに到達することはありません。"
 
 #: src/setup/linux.md
 msgid "After updating, restart the service:"
@@ -16434,7 +16431,7 @@ msgstr "バックエンド固有: SQLite/Postgres/Lucid/Qdrant/共有ストア�
 
 #: src/security/sandboxing.md
 msgid "Backends: `crates/zeroclaw-runtime/src/security/` (`landlock.rs`, `firejail.rs`, `bubblewrap.rs`, `docker.rs`, `seatbelt.rs`)"
-msgstr "Backends: `crates/zeroclaw-runtime/src/security/` (`landlock.rs`, `firejail.rs`, `bubblewrap.rs`, `docker.rs`, `seatbelt.rs`)"
+msgstr "バックエンド: `crates/zeroclaw-runtime/src/security/` (`landlock.rs`, `firejail.rs`, `bubblewrap.rs`, `docker.rs`, `seatbelt.rs`)"
 
 #: src/architecture/runtime-state-and-persistence.md
 msgid "Background delegate output"
@@ -18798,7 +18795,7 @@ msgstr "Chunked upload のステージング: 順序保証、接続ごとの上�
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Claim"
-msgstr "Claim"
+msgstr "確認項目"
 
 #: src/architecture/generated-documentation-pipeline.md
 msgid "Clap command tree in `src/main.rs`"
@@ -22855,7 +22852,7 @@ msgstr "Docker `dist` イメージ"
 
 #: src/security/model.md
 msgid "Docker comes after the platform list and only when the runtime kind is neither `native` nor `docker`, so the native runtime never falls back to it. When no backend is available, the native runtime uses application-layer security only (`none`), while the Docker runtime keeps its container boundary (`docker-runtime`)."
-msgstr "Docker は platform list の後に来て、runtime kind が `native` でも `docker` でもない場合にのみ使われるため、native runtime がそれにフォールバックすることはありません。利用可能な backend がない場合、native runtime はアプリケーション層のセキュリティのみ（`none`）を使用しますが、Docker runtime はコンテナ境界（`docker-runtime`）を維持します。"
+msgstr "Docker はプラットフォーム一覧の後に来て、ランタイムの種類が `native` でも `docker` でもない場合にのみ使われるため、ネイティブランタイムが Docker にフォールバックすることはありません。利用可能なバックエンドがない場合、ネイティブランタイムはアプリケーション層のセキュリティのみ（`none`）を使用しますが、Docker ランタイムはコンテナ境界（`docker-runtime`）を維持します。"
 
 #: src/ops/troubleshooting.md
 msgid "Docker daemon not reachable from the ZeroClaw user, check `docker info`"
@@ -24541,7 +24538,7 @@ msgstr "すべてのプラグインが実行時にOTelスパンを出力する�
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Enter the bot token only at the masked `zeroclaw config set` prompt. Never put it in a file, on a command line, in shell history, in a screenshot, or in the evidence."
-msgstr "Bot token は、マスク表示された `zeroclaw config set` のプロンプトにのみ入力してください。ファイル、コマンドライン、シェル履歴、スクリーンショット、証跡のいずれにも絶対に残さないでください。"
+msgstr "ボットトークンは、マスク表示された `zeroclaw config set` のプロンプトにのみ入力してください。ファイル、コマンドライン、シェル履歴、スクリーンショット、証拠のいずれにも絶対に残さないでください。"
 
 #: src/maintainers/release-runbook.md
 msgid "Enter the tag (e.g., `v0.7.5` or `master`)"
@@ -28328,7 +28325,7 @@ msgstr "特許ライセンスの付与"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Grant restored"
-msgstr "Grantを復元しました"
+msgstr "許可を復元しました"
 
 #: src/ops/network-deployment.md
 msgid "Grants access to GPIO, I2C, SPI via `rppal` when you pick the hardware features. The stock service unit already adds the user to the `gpio`, `spi`, `i2c` groups."
@@ -29079,7 +29076,7 @@ msgstr "ゲートウェイをパブリックインターネットに公開して
 
 #: src/channels/discord.md
 msgid "How the plugin differs from the built-in channel"
-msgstr "Plugin と組み込みチャネルの違い"
+msgstr "プラグインと組み込みチャネルの違い"
 
 #: src/contributing/how-to.md
 msgid "How to Contribute"
@@ -29676,7 +29673,7 @@ msgstr "元の決定日が不明な場合は、ADRレコードが追加された
 
 #: src/channels/discord.md
 msgid "If the package is already installed, bind the alias on its own:"
-msgstr "もしパッケージが既にインストールされている場合は、エイリアスだけを単独で設定してください:"
+msgstr "パッケージが既にインストールされている場合は、エイリアスだけを単独でバインドしてください:"
 
 #: src/ops/troubleshooting.md
 msgid "If the paths differ between `zeroclaw config list` (as you) and the service (as its user), either:"
@@ -32011,7 +32008,7 @@ msgstr "受信コンテンツの判断、ステアリングメッセージ、ス
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Inbound goes through the plugin"
-msgstr "Inbound（受信）はプラグイン経由で処理されます"
+msgstr "受信はプラグイン経由で処理されます"
 
 #: src/channels/telegram.md
 msgid "Inbound message debounce window in milliseconds for this Telegram alias. When set, overrides the global `[channels].debounce_ms` for this channel only. `0` or unset falls back to the global value."
@@ -32437,7 +32434,7 @@ msgstr "Termux経由のインストール"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Installed by name with no toolchain"
-msgstr "インストール時にツールチェーンを指定せず、名前で指定してインストール"
+msgstr "ツールチェーンのない環境で、名前を指定してインストール"
 
 #: src/architecture/decisions/ADR-015-unified-capability-catalog.md
 msgid "Installed package and admission state"
@@ -32760,10 +32757,7 @@ msgstr "どのツールも削除、ゲート化、移動することはありま
 
 #: src/getting-started/quickstart.md
 msgid "It downloads and verifies the archive, confirms that the manifest provides a tool, admits the package, checks that its config entry can be seeded, and runs the install-time load check. When any of these steps fails, Quickstart reports it, writes nothing for that plugin, and moves on to the next one. The config entry check fails, for example, when the config still holds the plugin's pre-1.0 entry, named only after the package, which `zeroclaw plugin remove` keeps: `zeroclaw plugin install` refuses to create an entry beside it, and Quickstart reports the same reason before it asks anything about the plugin. Quickstart has no `--no-verify`: for a plugin that fails the load check it prints the `zeroclaw plugin install <name> --no-verify` command, which installs a plugin that the daemon then skips at startup. That command is the plugin CLI, not Quickstart: it asks no signature question and no network access question, and a config entry it creates is seeded with the destinations the manifest declares for `http_client`, `websocket_client`, or `socket_client`."
-msgstr ""
-"これはアーカイブをダウンロードして検証し、マニフェストがツールを提供していることを確認し、パッケージを受け入れ、設定エントリをシードできるかを確認し、インストール時のロードチェックを実行します。これらのいずれかのステップが失敗すると、Quickstart はその理由を報告し、そのプラグインについては何も書き込まず、次のプラグインに進みます。たとえば、設定にプラグインの pre-1.0 エントリが残っている場合、設定エントリのチェックは失敗します。このエントリはパッケージ名のみで命名されており、`zeroclaw plugin remove` では削除されずに残ります。`zeroclaw plugin install` は、そのエントリの隣に新しいエントリを作成することを拒否します。Quickstart は、プラグインについて何かを尋ねる前に、同じ理由を報告します。\n"
-"\n"
-"Quickstart には `--no-verify` がありません。ロードチェックに失敗したプラグインについては、`zeroclaw plugin install <name> --no-verify` コマンドを表示します。このコマンドでインストールされたプラグインは、デーモンが起動時にスキップします。このコマンドは Quickstart ではなくプラグイン CLI です。署名に関する質問もネットワークアクセスに関する質問も行いません。作成される設定エントリには、マニフェストで宣言された `http_client`、`websocket_client`、または `socket_client` の送信先がシードされます。"
+msgstr "これはアーカイブをダウンロードして検証し、マニフェストがツールを提供していることを確認し、パッケージを受け入れ、設定エントリをシードできるかを確認し、インストール時のロードチェックを実行します。これらのいずれかのステップが失敗すると、Quickstart はその理由を報告し、そのプラグインについては何も書き込まず、次のプラグインに進みます。たとえば、設定にプラグインの pre-1.0 エントリが残っている場合、設定エントリのチェックは失敗します。このエントリはパッケージ名のみで命名されており、`zeroclaw plugin remove` では削除されずに残ります。`zeroclaw plugin install` は、そのエントリの隣に新しいエントリを作成することを拒否します。Quickstart は、プラグインについて何かを尋ねる前に、同じ理由を報告します。Quickstart には `--no-verify` がありません。ロードチェックに失敗したプラグインについては、`zeroclaw plugin install <name> --no-verify` コマンドを表示します。このコマンドでインストールされたプラグインは、デーモンが起動時にスキップします。このコマンドは Quickstart ではなくプラグイン CLI です。署名に関する質問もネットワークアクセスに関する質問も行いません。作成される設定エントリには、マニフェストで宣言された `http_client`、`websocket_client`、または `socket_client` の送信先がシードされます。"
 
 #: src/contributing/agent-policy-parity-harness.md
 msgid "It grows one surface at a time and asserts only what no other test covers:"
@@ -34016,7 +34010,7 @@ msgstr "コミュニティスキルを読み込んでいます"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Loads on this host"
-msgstr "Loads on this host"
+msgstr "このホストで読み込める"
 
 #: src/hardware/hardware-peripherals-design.md
 msgid "Local (GPIO, I2C, SPI)"
@@ -40094,7 +40088,7 @@ msgstr "Operatorは、インスタンスごとに監査可能なプレーンテ�
 
 #: src/plugins/distributing-plugins.md
 msgid "Operators install, inspect, and configure a package by its registry `name`. That name is not a Cargo feature, even where the two look alike. The official Discord channel plugin is the package `discord`, installed with `zeroclaw plugin install discord`. `channel-discord` is the Cargo feature that compiles the built-in Discord channel into the binary (see the [channels overview](../channels/overview.md)); no package has that name. [FND-001](../foundations/fnd-001-intentional-architecture.md) and [FND-004](../foundations/fnd-004-engineering-infrastructure.md) predate the package and call it `channel-discord` and `channel-discord.wasm`; read both as the `discord` package."
-msgstr "オペレーターは、パッケージをレジストリの `name` でインストール、確認、設定します。この `name` は、見た目が似ている場合でも Cargo feature ではありません。公式の Discord チャネルプラグインはパッケージ `discord` で、`zeroclaw plugin install discord` でインストールします。`channel-discord` は、組み込みの Discord チャネルをバイナリにコンパイルする Cargo feature です（[チャネルの概要](../channels/overview.md)を参照）。`channel-discord` という名前のパッケージは存在しません。[FND-001](../foundations/fnd-001-intentional-architecture.md) と [FND-004](../foundations/fnd-004-engineering-infrastructure.md) はパッケージより前に作成されたもので、これを `channel-discord` および `channel-discord.wasm` と呼んでいます。これらは `discord` パッケージを指すものとして読んでください。"
+msgstr "オペレーターは、パッケージをレジストリの `name` でインストール、確認、設定します。この名前は、見た目が似ている場合でも Cargo フィーチャではありません。公式の Discord チャネルプラグインはパッケージ `discord` で、`zeroclaw plugin install discord` でインストールします。`channel-discord` は、組み込みの Discord チャネルをバイナリにコンパイルする Cargo フィーチャです（[チャネルの概要](../channels/overview.md)を参照）。その名前のパッケージは存在しません。[FND-001](../foundations/fnd-001-intentional-architecture.md) と [FND-004](../foundations/fnd-004-engineering-infrastructure.md) はパッケージより前に作成されたもので、これを `channel-discord` および `channel-discord.wasm` と呼んでいます。これらは `discord` パッケージを指すものとして読んでください。"
 
 #: src/architecture/decisions/ADR-010-memory-authority-boundaries.md
 msgid "Operators may temporarily see both legacy conversation rows and canonical session history while migration remains active."
@@ -40677,7 +40671,7 @@ msgstr "アウトバウンドクレデンシャル漏洩検出の設定。"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Outbound goes through the plugin"
-msgstr "Outbound（送信）はプラグイン経由で行われます"
+msgstr "送信はプラグイン経由で行われます"
 
 #: src/architecture/request-lifecycle.md
 msgid "Outbound messages go back through the same channel adapter. Adapters with multi-message support (Discord, Slack) can stream long replies as a sequence of messages; others (email, SMS) flush on stream completion."
@@ -45667,7 +45661,7 @@ msgstr "Restrictive overlays may deny an action, narrow its resources, or requir
 #: src/zerocode/environment.md src/channels/git.md
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Result"
-msgstr "Result"
+msgstr "結果"
 
 #: src/architecture/tool-execution-lifecycle.md
 msgid "Result collection/history append: `crates/zeroclaw-runtime/src/agent/turn/results_collect.rs` and `crates/zeroclaw-runtime/src/agent/turn/history_append.rs`"
@@ -47510,7 +47504,7 @@ msgstr "シークレット"
 
 #: src/providers/catalog.md src/providers/custom.md
 msgid "Secret API token for this model_provider. Grab it from the model_provider's dashboard (OpenAI platform, Anthropic console, OpenRouter keys page, etc.). Stored encrypted in config.toml, with the key in `.secret_key` beside it (plaintext if `secrets.encrypt = false`). Set it with `zeroclaw config set` rather than pasting it into the file, and keep `.secret_key` out of version control."
-msgstr "シークレットAPIトークンです。モデルプロバイダーのダッシュボード（OpenAIプラットフォーム、Anthropicコンソール、OpenRouterのキーページなど）から取得してください。トークンは config.toml に暗号化されて保存され、その隣の `.secret_key` に鍵が置かれます（`secrets.encrypt = false` の場合は平文で保存されます）。ファイルに直接貼り付けるのではなく `zeroclaw config set` で設定し、`.secret_key` はバージョン管理に含めないようにしてください。"
+msgstr "このモデルプロバイダーのシークレット API トークンです。モデルプロバイダーのダッシュボード（OpenAIプラットフォーム、Anthropicコンソール、OpenRouterのキーページなど）から取得してください。トークンは config.toml に暗号化されて保存され、その隣の `.secret_key` に鍵が置かれます（`secrets.encrypt = false` の場合は平文で保存されます）。ファイルに直接貼り付けるのではなく `zeroclaw config set` で設定し、`.secret_key` はバージョン管理に含めないようにしてください。"
 
 #: src/developing/plugin-protocol.md
 msgid "Secret property names use the same portable plugin-local grammar as state keys: 1–128 ASCII bytes containing only letters, digits, `_`, `-`, or `.`. URI, path, namespace, control, and non-ASCII syntax is rejected during manifest admission."
@@ -51270,7 +51264,7 @@ msgstr "ZeroClaw Maturity Framework"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "The [Discord page](../channels/discord.md#running-discord-as-a-plugin-experimental) shows both. Configure no `[channels.discord.<alias>]` table anywhere, then start the daemon. Keep a copy of `config.toml` for the evidence; its secrets stay encrypted."
-msgstr "[Discord ページ](../channels/discord.md#running-discord-as-a-plugin-experimental)に両方が示されています。`[channels.discord.<alias>]` テーブルはどこにも設定せず、その後デーモンを起動してください。証跡として `config.toml` のコピーを保管してください。シークレットは暗号化されたままです。"
+msgstr "[Discord ページ](../channels/discord.md#running-discord-as-a-plugin-experimental)に両方が示されています。`[channels.discord.<alias>]` テーブルはどこにも設定せず、その後デーモンを起動してください。証拠として `config.toml` のコピーを保管してください。シークレットは暗号化されたままです。"
 
 #: src/channels/git-gitea-forgejo.md
 msgid "The [Git channel](./git.md) with `provider = \"gitea\"` or `provider = \"forgejo\"` authenticates with a **personal access token** against the instance's Gitea-compatible REST API, and replies as the token owner. Both providers share one internal implementation; the only real difference from GitHub is that there is no app, only a token and an explicit API base URL."
@@ -54007,7 +54001,7 @@ msgstr "元の評価では、3つのWASMランタイムオプションが検討�
 
 #: src/channels/discord.md
 msgid "The other settings sit beside the token under `.config.` and are optional: `guild_ids` and `channel_ids` narrow where the bot listens (see [Narrowing where the bot listens](#narrowing-where-the-bot-listens)), and `mention_only` and `listen_to_bots` take `true` or `false`. ZeroClaw stores every plugin setting encrypted, so `zeroclaw config set` prompts for each one as it does for the token; pass `--no-interactive` to give a setting that is not secret on the command line. Set a list as JSON text:"
-msgstr "もう一つの設定はトークンと同じ `.config.` の下に置かれ、任意です。`guild_ids` と `channel_ids` はボットが反応する場所を絞り込みます（[Narrowing where the bot listens](#narrowing-where-the-bot-listens) を参照）。`mention_only` と `listen_to_bots` は `true` または `false` を取ります。ZeroClaw はプラグインのすべての設定を暗号化して保存するため、`zeroclaw config set` はトークンと同様に各設定の入力を求めます。秘密ではない設定をコマンドラインで指定するには `--no-interactive` を渡してください。リストは JSON テキストとして設定します:"
+msgstr "その他の設定はトークンと同じ `.config.` の下に置かれ、任意です。`guild_ids` と `channel_ids` はボットが反応する場所を絞り込みます（[ボットがリッスンする範囲を絞り込む](#narrowing-where-the-bot-listens) を参照）。`mention_only` と `listen_to_bots` は `true` または `false` を取ります。ZeroClaw はプラグインのすべての設定を暗号化して保存するため、`zeroclaw config set` はトークンと同様に各設定の入力を求めます。秘密ではない設定をコマンドラインで指定するには `--no-interactive` を渡してください。リストは JSON テキストとして設定します:"
 
 #: src/developing/plugin-protocol.md
 msgid "The output component is at `target/wasm32-wasip2/release/<crate_name>.wasm`. Copy it alongside your `manifest.toml`. For a runtime-only host build with no JIT backend, precompile the component to a `.cwasm` with a matching wasmtime and ship that instead, since such a host deserializes rather than compiles on load."
@@ -54788,7 +54782,7 @@ msgstr "サンドボックスは読み込まれたプラグインが実行でき
 
 #: src/security/model.md
 msgid "The sandbox confines filesystem access to the workspace and removes access to the parent process's secrets. Network handling varies by backend; see [Sandboxing](./sandboxing.md#network)."
-msgstr "サンドボックスはファイルシステムへのアクセスをワークスペースに限定し、親プロセスのシークレットへのアクセスを削除します。ネットワークの扱いはバックエンドによって異なります。詳細は [Sandboxing](./sandboxing.md#network) を参照してください。"
+msgstr "サンドボックスはファイルシステムへのアクセスをワークスペースに限定し、親プロセスのシークレットへのアクセスを削除します。ネットワークの扱いはバックエンドによって異なります。詳細は [サンドボックス化](./sandboxing.md#network) を参照してください。"
 
 #: src/security/sandboxing.md
 msgid "The sandbox passes through only the env vars listed in `[risk_profiles.<alias>].shell_env_passthrough`. Inherited secrets do not reach sandboxed tools unless explicitly passed."
@@ -55269,7 +55263,7 @@ msgstr "テストは続いて、マニフェストとテスト用オペレータ
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "The tester sends a message"
-msgstr "The tester sends a message"
+msgstr "テスターがメッセージを送信します"
 
 #: src/channels/telegram.md
 msgid "The text alternatives remain available: `/model <hint>` for a session-scoped route, `/model --user <hint>` / `/model --agent <hint>` for the broader scopes (if permitted), and `/models <provider>` to list models of a provider."
@@ -55633,7 +55627,7 @@ msgstr "次に、新しい構造体の隣に `impl Attributable for X` を追加
 
 #: src/channels/discord.md
 msgid "Then add `plugin.main` to the `channels` list of the agent that should answer, keeping the channels it already has, and admit your users with a peer group on the same channel:"
-msgstr "次に、応答すべきエージェントの `channels` リストに `plugin.main` を追加します。既存のチャンネルはそのまま残し、同じチャンネル上の peer group でユーザーを許可します:"
+msgstr "次に、応答すべきエージェントの `channels` リストに `plugin.main` を追加します。既存のチャンネルはそのまま残し、同じチャンネル上のピアグループでユーザーを許可します:"
 
 #: src/ops/network-deployment.md
 msgid "Then any device on the LAN can reach `http://<pi-ip>:42617`. Doesn't help for internet-reachable webhooks, your router's public IP isn't forwarded to the Pi."
@@ -56097,7 +56091,7 @@ msgstr "この分類は [\\#10998](https://github.com/zeroclaw-labs/zeroclaw/iss
 
 #: src/contributing/pr-review-protocol.md
 msgid "This classification requires `gh >= 2.50.0`. Stop and upgrade an older client rather than silently dropping required-check data. Record `headRefOid` as the revision being reviewed. `gh pr checks` is keyed by the mutable PR number, not by a commit, so the trailing `headRefOid` re-read is what binds the check output and the `behind_by` comparison to `HEAD_SHA`. If the head moved during the capture, discard everything captured in this step and repeat it from `PR_STATE`; never classify a comparison from one head against checks from another. Treat the check output and `behind_by` comparison as current only for the captured head. The recipe records the exit status and output of both fetches: a non-zero comparison status means the base comparison is unavailable, not `behind_by: 0`, and a non-zero checks status must be classified from its returned JSON as pending, failing, or absent. `gh pr checks` exits non-zero by design when required checks are pending (exit 8), failing, or absent. Treat that exit code as state to classify, not as a failed fetch, and inspect any JSON output it returned. Use this state for the CI freshness and base drift rules below, never an author's description of the state."
-msgstr "この分類には `gh >= 2.50.0` が必要です。古いクライアントは停止してアップグレードしてください。必須チェックのデータを黙って削除しないでください。レビュー対象のリビジョンとして `headRefOid` を記録します。`gh pr checks` は、コミットではなく変動しうる PR 番号をキーとしています。そのため、末尾で `headRefOid` を再取得することで、チェック出力と `behind_by` の比較を `HEAD_SHA` に紐付けます。取得中にヘッドが移動した場合は、そのステップで取得したものをすべて破棄し、`PR_STATE` から繰り返してください。あるヘッドの比較結果を、別のヘッドのチェックと組み合わせて分類しないでください。チェック出力と `behind_by` の比較は、取得したヘッドについてのみ現在有効なものとして扱います。このレシピは両方の取得の終了ステータスと出力を記録します。比較のステータスが非ゼロの場合、ベース比較は利用できないことを意味し、`behind_by: 0` ではありません。チェックのステータスが非ゼロの場合は、返された JSON から保留中、失敗、または欠落のいずれかに分類してください。`gh pr checks` は、必須チェックが保留中（終了コード 8）、失敗、または欠落している場合に、設計上非ゼロで終了します。この終了コードは取得失敗ではなく分類すべき状態として扱い、返された JSON 出力を確認してください。CI の鮮度とベースのドリフトに関する以下のルールには、作成者の説明ではなく、この状態を使用してください。"
+msgstr "この分類には `gh >= 2.50.0` が必要です。必須チェックのデータを黙って取りこぼすのではなく、作業を中止して古いクライアントをアップグレードしてください。レビュー対象のリビジョンとして `headRefOid` を記録します。`gh pr checks` は、コミットではなく変動しうる PR 番号をキーとしています。そのため、末尾で `headRefOid` を再取得することで、チェック出力と `behind_by` の比較を `HEAD_SHA` に紐付けます。取得中にヘッドが移動した場合は、そのステップで取得したものをすべて破棄し、`PR_STATE` から繰り返してください。あるヘッドの比較結果を、別のヘッドのチェックと組み合わせて分類しないでください。チェック出力と `behind_by` の比較は、取得したヘッドについてのみ現在有効なものとして扱います。このレシピは両方の取得の終了ステータスと出力を記録します。比較のステータスが非ゼロの場合、ベース比較は利用できないことを意味し、`behind_by: 0` ではありません。チェックのステータスが非ゼロの場合は、返された JSON から保留中、失敗、または欠落のいずれかに分類してください。`gh pr checks` は、必須チェックが保留中（終了コード 8）、失敗、または欠落している場合に、設計上非ゼロで終了します。この終了コードは取得失敗ではなく分類すべき状態として扱い、返された JSON 出力を確認してください。CI の鮮度とベースのドリフトに関する以下のルールには、作成者の説明ではなく、この状態を使用してください。"
 
 #: src/getting-started/quickstart.md
 msgid "This command installs the core `zeroclaw` binary; it does not install optional apps."
@@ -60118,7 +60112,7 @@ msgstr "エージェントが何を表示するかを選択します"
 
 #: src/architecture/decisions/ADR-016-holding-crate-exceptions.md
 msgid "What an exception is not"
-msgstr "例外とは何でないか"
+msgstr "例外が意味しないこと"
 
 #: src/architecture/decisions/ADR-016-holding-crate-exceptions.md
 msgid "What an exception must state"
@@ -61110,7 +61104,7 @@ msgstr "専用ガイドを優先すべき場合"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "When to run it"
-msgstr "この内容をいつ実行するか"
+msgstr "実行するタイミング"
 
 #: src/tools/mcp.md src/maintainers/reviewer-playbook.md
 msgid "When to use"
@@ -64186,7 +64180,7 @@ msgstr "[プラグインプロトコル](./plugin-protocol.md)"
 
 #: src/maintainers/index.md
 msgid "[Plugin release acceptance](./plugin-release-acceptance.md): proving a first-party plugin installs and runs from a published binary, with an evidence template"
-msgstr "[プラグインリリースの受け入れ](./plugin-release-acceptance.md)：公開済みバイナリからファーストパーティプラグインがインストールされ、実行されることを確認するための、エビデンステンプレート付きガイド"
+msgstr "[プラグインリリースの受け入れ](./plugin-release-acceptance.md)：公開済みバイナリからファーストパーティプラグインがインストールされ、実行されることを確認するための、証拠テンプレート付きガイド"
 
 #: src/architecture/decisions/ADR-015-unified-capability-catalog.md
 msgid "[Plugins documentation](../../plugins/index.md)"
@@ -84303,12 +84297,7 @@ msgstr "`zeroclaw plugin list` と `zeroclaw plugin info` は、パッケージ�
 
 #: src/plugins/index.md
 msgid "`zeroclaw plugin list` repeats the same comparison as a standing diagnostic, one instance at a time, for every installed plugin holding `http_client`, `websocket_client`, or `socket_client`: a tool plugin's default tool binding, printed as the package name, and every bound channel alias, printed as `package (plugin.<alias>)`. For each, one line names the destinations it declares that its row does not grant, since requests there are denied, plus the command that closes the gap; for an instance with no row yet, that command creates the row with the grant. A channel instance with no row yet whose alias the config alias grammar rejects, such as a hand-written `[channels.plugin.ops-team]`, gets the grammar's reason and the table to rename instead, since the command that creates the row validates the whole configuration and would refuse that alias. Every instance counts every transport the egress authority governs because a plugin that speaks only over a socket or a WebSocket, such as IRC or MQTT, would otherwise never be reported. The reverse is never flagged. A grant with no matching declaration is a first-class path, not a finding: the plugin whose destination is deployment configuration (a self-hosted Gitea, a LAN Nextcloud) cannot have that host declared by its author, so you author it."
-msgstr ""
-"`zeroclaw plugin list` は、インストール済みプラグインのうち `http_client`、`websocket_client`、`socket_client` のいずれかを保持するものすべてについて、同じ比較を常設の診断として1インスタンスずつ繰り返します。ツールプラグインのデフォルトのツールバインディングはパッケージ名として出力され、バインドされた各チャネルエイリアスは `package (plugin.<alias>)` として出力されます。各インスタンスについて、そのプラグインが宣言しているものの行で許可されていない宛先を1行で示します。そこへのリクエストは拒否されるためです。併せて、そのギャップを解消するコマンドも示します。まだ行が存在しないインスタンスの場合、そのコマンドは許可付きの行を作成します。\n"
-"\n"
-"設定エイリアス文法が拒否するエイリアスを持ち、まだ行が存在しないチャネルインスタンス（手書きの `[channels.plugin.ops-team]` など）については、文法による理由と、代わりにリネームすべきテーブルを示します。行を作成するコマンドは設定全体を検証するため、そのエイリアスを拒否してしまうからです。\n"
-"\n"
-"すべてのインスタンスについて、送信（egress）権限が管理するすべてのトランスポートを対象にします。ソケットやWebSocketのみで通信するプラグイン（IRCやMQTTなど）が報告されないまま残ることを防ぐためです。逆方向は指摘しません。宣言に対応しない許可は一級の経路であり、指摘事項ではありません。宛先がデプロイ設定で決まるプラグイン（セルフホストのGiteaやLAN上のNextcloudなど）は、そのホストを作者が宣言できないため、ユーザー側で宣言を作成します。"
+msgstr "`zeroclaw plugin list` は、インストール済みプラグインのうち `http_client`、`websocket_client`、`socket_client` のいずれかを保持するものすべてについて、同じ比較を常設の診断として1インスタンスずつ繰り返します。ツールプラグインのデフォルトのツールバインディングはパッケージ名として出力され、バインドされた各チャネルエイリアスは `package (plugin.<alias>)` として出力されます。各インスタンスについて、そのプラグインが宣言しているものの行で許可されていない宛先を1行で示します。そこへのリクエストは拒否されるためです。併せて、そのギャップを解消するコマンドも示します。まだ行が存在しないインスタンスの場合、そのコマンドは許可付きの行を作成します。設定エイリアス文法が拒否するエイリアスを持ち、まだ行が存在しないチャネルインスタンス（手書きの `[channels.plugin.ops-team]` など）については、文法による理由と、代わりにリネームすべきテーブルを示します。行を作成するコマンドは設定全体を検証するため、そのエイリアスを拒否してしまうからです。すべてのインスタンスについて、送信（egress）権限が管理するすべてのトランスポートを対象にします。ソケットやWebSocketのみで通信するプラグイン（IRCやMQTTなど）が報告されないまま残ることを防ぐためです。逆方向は指摘しません。宣言に対応しない許可は一級の経路であり、指摘事項ではありません。宛先がデプロイ設定で決まるプラグイン（セルフホストのGiteaやLAN上のNextcloudなど）は、そのホストを作者が宣言できないため、ユーザー側で許可を作成します。"
 
 #: src/developing/plugin-protocol.md
 msgid "`zeroclaw plugin remove <name>` can recover an unloaded, empty or structurally incomplete package directory that holds only what an install writes: a manifest naming that package, the component file at `wasm_path` with the folders on its way, and, for a skill plugin, a `skills/` tree of folders and files. Signature-policy refusals, healthy packages, loaded aliases, symlinks, uninspectable contents, and directories holding anything else remain protected. Recovery claims a single directory generation before admission and deletion; it never uses a stale verdict to recursively delete a replacement at the package name."

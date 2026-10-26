@@ -2063,8 +2063,7 @@ msgstr "# /run/user/1000/gnupg/S.gpg-agent.ssh\n"
 
 #: src/hardware/raspberry-pi-setup.md
 msgid "# 32-bit (Pi Zero 2 W, older Pi 3 with 32-bit OS)\n"
-msgstr ""
-"# 32 bits (Pi Zero 2 W, Pi 3 más antiguas con SO de 32 bits)\n"
+msgstr "# 32 bits (Pi Zero 2 W, Pi 3 más antiguas con SO de 32 bits)\n"
 
 #: src/hardware/raspberry-pi-setup.md
 msgid "# 64-bit (Pi 4/5 with 64-bit Raspberry Pi OS)\n"
@@ -9428,7 +9427,7 @@ msgstr "**check-32bit**: `i686-unknown-linux-gnu` sin características predeterm
 
 #: src/maintainers/ci-and-actions.md
 msgid "**check-plugin-backends**: selected by `scripts/ci/plugin_backend_change_filter.sh`. Compiles `zeroclaw-plugins` under each execution backend and runs the component, runtime admission, and root CLI plugin tests under `plugins-wasm-cranelift`. A separate `plugin artifact smoke` leg builds the `zeroclaw` binary with the same feature and runs `scripts/ci/plugin_artifact_smoke.sh` against it, with packages from `scripts/ci/build_plugin_smoke_packages.sh`. The smoke takes any `zeroclaw` binary, uses a throwaway configuration directory and the scripted local provider in `scripts/ci/plugin_smoke_provider.py`, and drives the operator's own commands: `plugin install`, `config set`, and an agent turn that executes the tool. It checks that an installed plugin stays unused until the operator enables the plugin system, turns discovery on, and approves the tool; that values configured for a package that does not request them are not delivered; that a payload with the wrong digest, a payload that is not a component, and a component for another WIT world are refused; and that strict signature mode refuses an unsigned, untrusted, or edited package while it runs a trusted one. The leg's last step runs the smoke with the opposite expectation and requires the exit status reserved for a failed check. The agent turn also depends on crates the path filter does not select, such as `zeroclaw-providers`, `zeroclaw-tools`, `zeroclaw-memory`, and `zeroclaw-api`, so a break there first shows on merge-queue and `master` runs, where the job always runs"
-msgstr "**check-plugin-backends**: seleccionado por `scripts/ci/plugin_backend_change_filter.sh`. Compila `zeroclaw-plugins` con cada backend de ejecución y ejecuta las pruebas de componentes, de admisión en tiempo de ejecución y de plugins de la CLI raíz bajo `plugins-wasm-cranelift`. Un paso separado, `plugin artifact smoke`, compila el binario `zeroclaw` con la misma feature y ejecuta `scripts/ci/plugin_artifact_smoke.sh` contra él, con los paquetes generados por `scripts/ci/build_plugin_smoke_packages.sh`. El smoke acepta cualquier binario `zeroclaw`, usa un directorio de configuración desechable y el proveedor local scriptado de `scripts/ci/plugin_smoke_provider.py`, y ejecuta los comandos propios del operador: `plugin install`, `config set` y un turno de agente que ejecuta la herramienta. Comprueba que un plugin instalado permanece sin usarse hasta que el operador habilita el sistema de plugins, activa el descubrimiento y aprueba la herramienta; que los valores configurados para un paquete que no los solicita no se entregan; que una carga útil con digest incorrecto, una carga útil que no es un componente y un componente para otro mundo WIT son rechazados; y que el modo de firma estricto rechaza un paquete sin firma, no confiable o editado, mientras ejecuta uno confiable. El último paso del paso ejecuta el smoke con la expectativa opuesta y exige el código de salida reservado para una comprobación fallida. El turno de agente también depende de crates que el filtro de rutas no selecciona, como `zeroclaw-providers`, `zeroclaw-tools`, `zeroclaw-memory` y `zeroclaw-api`, por lo que una rotura en ellos aparece primero en las ejecuciones de la cola de merge y de `master`, donde el job siempre se ejecuta."
+msgstr "**check-plugin-backends**: seleccionado por `scripts/ci/plugin_backend_change_filter.sh`. Compila `zeroclaw-plugins` con cada backend de ejecución y ejecuta las pruebas de componentes, de admisión en tiempo de ejecución y de plugins de la CLI raíz bajo `plugins-wasm-cranelift`. Una etapa separada, `plugin artifact smoke`, compila el binario `zeroclaw` con la misma feature y ejecuta `scripts/ci/plugin_artifact_smoke.sh` contra él, con los paquetes generados por `scripts/ci/build_plugin_smoke_packages.sh`. El smoke acepta cualquier binario `zeroclaw`, usa un directorio de configuración desechable y el proveedor local scriptado de `scripts/ci/plugin_smoke_provider.py`, y ejecuta los comandos propios del operador: `plugin install`, `config set` y un turno de agente que ejecuta la herramienta. Comprueba que un plugin instalado permanece sin usarse hasta que el operador habilita el sistema de plugins, activa el descubrimiento y aprueba la herramienta; que los valores configurados para un paquete que no los solicita no se entregan; que una carga útil con digest incorrecto, una carga útil que no es un componente y un componente para otro mundo WIT son rechazados; y que el modo de firma estricto rechaza un paquete sin firma, no confiable o editado, mientras ejecuta uno confiable. El último paso de esa etapa ejecuta el smoke con la expectativa opuesta y exige el código de salida reservado para una comprobación fallida. El turno de agente también depende de crates que el filtro de rutas no selecciona, como `zeroclaw-providers`, `zeroclaw-tools`, `zeroclaw-memory` y `zeroclaw-api`, por lo que una rotura en ellos aparece primero en las ejecuciones de la cola de merge y de `master`, donde el job siempre se ejecuta."
 
 #: src/maintainers/ci-and-actions.md
 msgid "**docs-style**: markdown lint, em-dash prose check, and changed-line link gate via `scripts/ci/docs_quality_gate.sh` and `scripts/ci/docs_links_gate.sh`"
@@ -9720,13 +9719,11 @@ msgstr "/// Un turno de agente sin daemon: la ruta de consumidor independiente.\
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid "/// Redact the input. Returns the output and the number of masked spans.\n"
-msgstr ""
-"/// Censura la entrada. Devuelve la salida y el número de fragmentos enmascarados.\n"
+msgstr "/// Censura la entrada. Devuelve la salida y el número de fragmentos enmascarados.\n"
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid "/// Redaction policy resolved from the plugin's own config section.\n"
-msgstr ""
-"/// Política de censura resuelta a partir de la propia sección de configuración del plugin.\n"
+msgstr "/// Política de censura resuelta a partir de la propia sección de configuración del plugin.\n"
 
 #: src/hardware/hardware-peripherals-design.md
 msgid "/// Tools this peripheral provides (gpio_read, gpio_write, sensor_read, etc.)\n"
@@ -16908,7 +16905,7 @@ msgstr "Vincular no es entrega ni recuperación de memoria. El vínculo responde
 
 #: src/channels/discord.md
 msgid "Binding never turns on the plugin system and never assigns the instance to an agent. Turn the plugin system on:"
-msgstr "Binding nunca activa el sistema de plugins y nunca asigna la instancia a un agente. Activa el sistema de plugins:"
+msgstr "La vinculación nunca activa el sistema de plugins y nunca asigna la instancia a un agente. Activa el sistema de plugins:"
 
 #: src/plugins/migrating-to-typed-config.md
 msgid "Binding the alias derives, prints, and seeds that key. To put a channel instance's values on it:"
@@ -18768,7 +18765,7 @@ msgstr "Ordenamiento de la preparación de cargas por fragmentos: límites por c
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Claim"
-msgstr "Reclamación"
+msgstr "Afirmación"
 
 #: src/architecture/generated-documentation-pipeline.md
 msgid "Clap command tree in `src/main.rs`"
@@ -26356,7 +26353,7 @@ msgstr "Firejail"
 
 #: src/security/sandboxing.md
 msgid "Firejail's default profile is fairly permissive, and ZeroClaw skips it with `--noprofile`, passing an explicit flag set instead."
-msgstr "Firejail con su perfil predeterminado es bastante permisivo, y ZeroClaw lo omite con `--noprofile`, pasando en su lugar un conjunto explícito de opciones."
+msgstr "El perfil predeterminado de Firejail es bastante permisivo, y ZeroClaw lo omite con `--noprofile`, pasando en su lugar un conjunto explícito de opciones."
 
 #: src/security/sandboxing.md
 msgid "Firejail, Bubblewrap, and macOS Seatbelt replace the host command with a sandbox launcher. When the requested shell identity differs from the canonical executable path, the wrapper must preserve that identity (for example, `sh` selecting a BusyBox applet or Bash compatibility mode) while executing the validated canonical target. On Linux, Firejail and Bubblewrap require a GNU-compatible `env` or `genv` with `--argv0` support on the host process's absolute `PATH` entries. ZeroClaw probes each candidate for up to two seconds; the helper and its libraries must be accessible inside the sandbox. On macOS, Seatbelt uses the system `/bin/bash` with a fixed `exec -a` trampoline, so a separate GNU coreutils installation is not required. The trampoline passes the requested identity and command arguments as process arguments, not interpolated shell source. ZeroClaw does not widen filesystem access or fall back to an unsandboxed command when a required helper cannot execute. The Linux host-helper lookup does not use the TUI-only environment overlay."
@@ -32261,7 +32258,7 @@ msgstr "Los comandos install e info pueden derivar una instancia de herramienta 
 
 #: src/developing/plugin-protocol.md
 msgid "Install and recovery coordinate through a persistent hidden OS lock under the plugins root. Only install, update, remove, and listing what an interrupted update displaced open that root and its lock, so a host that only discovers plugins, such as one the daemon keeps, holds nothing in the plugins directory. On Windows an open root pins the plugins directory and its ancestors against rename until its host drops. A process that cannot take the lock within 60 seconds gives up and names the lock file. Any account that can read that file can hold the lock, so the plugins directory is treated as one account's state: on Unix the lock and each transaction lease are created readable and writable by their owner only (mode `0600`). A lock another account created, for example with `sudo`, cannot be opened, so install, update and remove fail at once and name it; remove that file while nothing is installing. Where the operating system or filesystem offers no file locking, install, update and remove refuse. New staging directories use unique generations and an OS-held lease, rather than a PID as ownership evidence. Recovery cleans an abandoned protocol stage only while recovering an actual final package, or while finishing the delete of one an earlier remove had judged. Legacy PID-only stages without proof of abandonment are retained and their paths are printed; they do not prevent a new install from using fresh staging."
-msgstr "La instalación y la recuperación se coordinan mediante un bloqueo persistente y oculto del sistema operativo bajo la raíz de plugins. Solo las operaciones de instalar, actualizar, eliminar y listar, así como la recuperación de lo que una actualización interrumpida desplazó, abren esa raíz y su bloqueo, de modo que un host que solo descubre plugins, como el que mantiene el demonio, no retiene nada en el directorio de plugins. En Windows, una raíz abierta impide que el directorio de plugins y sus ancestros se renombren mientras el host no la libere. Un proceso que no pueda obtener el bloqueo en 60 segundos se rinde e indica el nombre del archivo de bloqueo. Cualquier cuenta que pueda leer ese archivo puede mantener el bloqueo, por lo que el directorio de plugins se trata como estado de una única cuenta: en Unix, el bloqueo y cada arrendamiento de transacción se crean con permisos de lectura y escritura solo para su propietario (modo `0600`). Un bloqueo creado por otra cuenta, por ejemplo con `sudo`, no puede abrirse, así que instalar, actualizar y eliminar fallan de inmediato e indican dicho archivo; elimínelo mientras no haya ninguna instalación en curso. Cuando el sistema operativo o el sistema de archivos no ofrece bloqueo de archivos, instalar, actualizar y eliminar se niegan a continuar. Los nuevos directorios de preparación usan generaciones únicas y un arrendamiento retenido por el sistema operativo, en lugar de un PID como prueba de propiedad. La recuperación limpia una etapa de protocolo abandonada solo al recuperar un paquete final real, o al completar la eliminación de uno que una eliminación anterior había determinado. Las etapas heredadas que solo tienen PID y carecen de prueba de abandono se conservan y sus rutas se imprimen; no impiden que una nueva instalación use una preparación nueva."
+msgstr "La instalación y la recuperación se coordinan mediante un bloqueo persistente y oculto del sistema operativo bajo la raíz de plugins. Solo la instalación, la actualización, la eliminación y el listado de lo que desplazó una actualización interrumpida abren esa raíz y su bloqueo, de modo que un host que solo descubre plugins, como el que mantiene el demonio, no retiene nada en el directorio de plugins. En Windows, una raíz abierta impide que el directorio de plugins y sus ancestros se renombren mientras el host no la libere. Un proceso que no pueda obtener el bloqueo en 60 segundos se rinde e indica el nombre del archivo de bloqueo. Cualquier cuenta que pueda leer ese archivo puede mantener el bloqueo, por lo que el directorio de plugins se trata como estado de una única cuenta: en Unix, el bloqueo y cada arrendamiento de transacción se crean con permisos de lectura y escritura solo para su propietario (modo `0600`). Un bloqueo creado por otra cuenta, por ejemplo con `sudo`, no puede abrirse, así que instalar, actualizar y eliminar fallan de inmediato e indican dicho archivo; elimínelo mientras no haya ninguna instalación en curso. Cuando el sistema operativo o el sistema de archivos no ofrece bloqueo de archivos, instalar, actualizar y eliminar se niegan a continuar. Los nuevos directorios de preparación usan generaciones únicas y un arrendamiento retenido por el sistema operativo, en lugar de un PID como prueba de propiedad. La recuperación limpia una etapa de protocolo abandonada solo al recuperar un paquete final real, o al completar la eliminación de uno que una eliminación anterior había determinado. Las etapas heredadas que solo tienen PID y carecen de prueba de abandono se conservan y sus rutas se imprimen; no impiden que una nueva instalación use una preparación nueva."
 
 #: src/tools/skill-bundles.md
 msgid "Install and verify"
@@ -37675,7 +37672,7 @@ msgstr "Una vez que un hito con nombre esté activo, limita la recepción de nue
 
 #: src/getting-started/quickstart.md
 msgid "Once the agent is created, Quickstart prints the status of each picked plugin that is installed: admitted as a tool, with its config entry key, or the reason it is not admitted, such as `plugins.enabled` or `plugins.auto_discover` being off or the `plugins.max_active_instances` limit being reached. A plugin is reported admitted only when its config entry passes the settings check the runtime applies on every call. Admitted is not yet registered: the tool registry registers the plugin when it is next built, and it still refuses a package whose name clashes with a tool already registered, such as a built-in tool, or whose tool description it cannot read. The runtime log records those refusals. When the settings check fails instead, for example when you installed the plugin without its required settings, its status shows the reason the check gives, names the required settings that are missing, and prints the `zeroclaw config set` command that asks for each value. Quickstart prints commands only for setting names in the portable key grammar, which are safe to show and to paste into a shell. A required setting with any other name is named without a command: set it in the config file, or with a `zeroclaw config set` command you quote yourself. A required name that the plugin's schema does not declare is named too, since no config entry can satisfy that schema until the plugin's publisher fixes it. A plugin whose config entry is missing, for example because you skipped creating it, is not reported active either: `zeroclaw config set` only changes entries that exist, so its status prints the command that creates the entry instead. That command grants no network access; for a plugin that requests a network transport and declares destinations, a separate line gives the command that grants them once the entry exists. When the config still holds the plugin's pre-1.0 entry, named only after the package, its status prints neither command, since a new entry beside the old one would leave the old entry's settings and network grant behind. It names the instance key to rename the old entry to instead. When `zeroclaw plugin list` prints the update steps for that entry, which it does for a plugin with a network transport unless the deployment refuses every plugin's network grant, the status also gives that command: its steps include any network grant the renamed entry still needs. A plugin with nothing to configure and no network access needs no config entry."
-msgstr "Una vez creado el agente, Quickstart muestra el estado de cada plugin seleccionado que esté instalado: admitido como herramienta, con la clave de su entrada de configuración, o el motivo por el que no fue admitido, como que `plugins.enabled` o `plugins.auto_discover` estén desactivados, o que se haya alcanzado el límite de `plugins.max_active_instances`. Un plugin solo se informa como admitido cuando su entrada de configuración supera la comprobación de ajustes que el runtime aplica en cada llamada. Admitido no significa todavía registrado: el registro de herramientas registra el plugin la próxima vez que se construya y, aun así, rechaza un paquete cuyo nombre entre en conflicto con una herramienta ya registrada, como una herramienta integrada, o cuya descripción de herramienta no pueda leer. El registro del runtime guarda esos rechazos. Cuando la comprobación de ajustes falla, por ejemplo si instalaste el plugin sin sus ajustes obligatorios, su estado muestra el motivo que indica la comprobación, nombra los ajustes obligatorios que faltan e imprime el comando `zeroclaw config set` que solicita cada valor. Quickstart solo imprime comandos para nombres de ajuste que cumplen la gramática portable de claves, que son seguros para mostrarse y pegarse en una shell. Un ajuste obligatorio con cualquier otro nombre se nombra sin comando: establécelo en el archivo de configuración o con un comando `zeroclaw config set` que tú mismo entrecomillas. También se nombra un nombre obligatorio que el esquema del plugin no declara, ya que ninguna entrada de configuración puede cumplir ese esquema hasta que el editor del plugin lo corrija. Tampoco se informa como activo un plugin cuya entrada de configuración falta, por ejemplo porque omitiste crearla: `zeroclaw config set` solo modifica entradas que existen, así que su estado imprime el comando que crea la entrada en su lugar. Ese comando no concede acceso de red; para un plugin que solicita un transporte de red y declara destinos, una línea aparte muestra el comando que los concede una vez que la entrada existe. Cuando la configuración aún contiene la entrada pre-1.0 del plugin, nombrada solo con el nombre del paquete, su estado no imprime ninguno de los dos comandos, ya que una entrada nueva junto a la antigua dejaría los ajustes y la concesión de red de la entrada antigua sin cambios. En su lugar, indica la clave de instancia a la que hay que renombrar la entrada antigua. Cuando `zeroclaw plugin list` imprime los pasos de actualización de esa entrada, lo que hace para un plugin con transporte de red salvo que el despliegue rechace la concesión de red de todos los plugins, el estado también muestra ese comando: sus pasos incluyen cualquier concesión de red que la entrada renombrada aún necesite. Un plugin sin nada que configurar y sin acceso de red no necesita entrada de configuración."
+msgstr "Una vez creado el agente, Quickstart muestra el estado de cada plugin seleccionado que esté instalado: admitido como herramienta, con la clave de su entrada de configuración, o el motivo por el que no fue admitido, como que `plugins.enabled` o `plugins.auto_discover` estén desactivados, o que se haya alcanzado el límite de `plugins.max_active_instances`. Un plugin solo se informa como admitido cuando su entrada de configuración supera la comprobación de ajustes que el runtime aplica en cada llamada. Admitido no significa todavía registrado: el registro de herramientas registra el plugin la próxima vez que se construya y, aun así, rechaza un paquete cuyo nombre entre en conflicto con una herramienta ya registrada, como una herramienta integrada, o cuya descripción de herramienta no pueda leer. El registro del runtime guarda esos rechazos. Cuando la comprobación de ajustes falla, por ejemplo si instalaste el plugin sin sus ajustes obligatorios, su estado muestra el motivo que indica la comprobación, nombra los ajustes obligatorios que faltan e imprime el comando `zeroclaw config set` que solicita cada valor. Quickstart solo imprime comandos para nombres de ajuste que cumplen la gramática portable de claves, que son seguros para mostrarse y pegarse en una shell. Un ajuste obligatorio con cualquier otro nombre se nombra sin comando: establécelo en el archivo de configuración o con un comando `zeroclaw config set` que tú mismo entrecomillas. También se nombra un nombre obligatorio que el esquema del plugin no declara, ya que ninguna entrada de configuración puede cumplir ese esquema hasta que el editor del plugin lo corrija. Tampoco se informa como activo un plugin cuya entrada de configuración falta, por ejemplo porque omitiste crearla: `zeroclaw config set` solo modifica entradas que existen, así que su estado imprime el comando que crea la entrada en su lugar. Ese comando no concede acceso de red; para un plugin que solicita un transporte de red y declara destinos, una línea aparte muestra el comando que los concede una vez que la entrada existe. Cuando la configuración aún contiene la entrada pre-1.0 del plugin, nombrada solo con el nombre del paquete, su estado no imprime ninguno de los dos comandos, ya que una entrada nueva junto a la antigua dejaría atrás los ajustes y la concesión de red de la entrada antigua. En su lugar, indica la clave de instancia a la que hay que renombrar la entrada antigua. Cuando `zeroclaw plugin list` imprime los pasos de actualización de esa entrada, lo que hace para un plugin con transporte de red salvo que el despliegue rechace la concesión de red de todos los plugins, el estado también muestra ese comando: sus pasos incluyen cualquier concesión de red que la entrada renombrada aún necesite. Un plugin sin nada que configurar y sin acceso de red no necesita entrada de configuración."
 
 #: src/gateway/a2a-discovery.md
 msgid "Once you have an agent's interface URL and a skill, you send work as a JSON-RPC `SendMessage` POST to that URL, advertising the A2A protocol version you speak in the `A2A-Version` header (this server speaks `1.0`):"
@@ -40236,7 +40233,7 @@ msgstr "Lista de permitidos opcional de nombres de herramientas para trabajos de
 
 #: src/architecture/decisions/ADR-018-runtime-security-and-provenance.md
 msgid "Optional audit sinks and responders are separate extension points. They can receive redacted projections or add containment and notification behavior, but they cannot remove, rewrite, delay, or replace the runtime-created canonical event and baseline runtime hooks."
-msgstr "Los receptores y sinks de auditoría opcionales son puntos de extensión independientes. Pueden recibir proyecciones censuradas o añadir comportamientos de contención y notificación, pero no pueden eliminar, reescribir, retrasar ni reemplazar el evento canónico creado en tiempo de ejecución ni los hooks base del runtime."
+msgstr "Los destinos de auditoría y los respondedores opcionales son puntos de extensión independientes. Pueden recibir proyecciones censuradas o añadir comportamientos de contención y notificación, pero no pueden eliminar, reescribir, retrasar ni reemplazar el evento canónico creado en tiempo de ejecución ni los hooks base del runtime."
 
 #: src/reference/config.md
 msgid "Optional bearer token for computer-use sidecar"
@@ -40500,7 +40497,7 @@ msgstr "Orden de intentos"
 
 #: src/security/sandboxing.md
 msgid "Order tried"
-msgstr "Orden probada"
+msgstr "Orden en que se prueban"
 
 #: src/providers/catalog.md src/providers/custom.md
 msgid "Ordered alternate models to try on THIS provider before falling over to the `fallback` aliases. Same endpoint, key, and headers as the primary `model`. Only the model identifier changes. Use this when a provider serves a backup model (e.g. a smaller or older variant) that should be tried before leaving the provider entirely. Empty means only `model` is tried."
@@ -44577,7 +44574,7 @@ msgstr "Release Stable llama al publicador dos veces mediante su entrada `stage`
 
 #: src/maintainers/ci-and-actions.md
 msgid "Release `validate` failed"
-msgstr "Falló `validate` en la versión"
+msgstr "Falló `validate` en el lanzamiento"
 
 #: src/tools/overview.md
 msgid "Release archive"
@@ -44769,7 +44766,7 @@ msgstr "Las remociones funcionan igual que las admisiones: son decisiones, regis
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Remove `*.discord.gg` from the instance's `egress_hosts`, restart"
-msgstr "Elimina `*.discord.gg` de `egress_hosts` de la instancia y reinícia"
+msgstr "Elimina `*.discord.gg` de `egress_hosts` de la instancia y reinicia"
 
 #: src/foundations/fnd-002-documentation-standards.md
 msgid "Remove `docs/i18n/` entirely"
@@ -46074,7 +46071,7 @@ msgstr "La entrega de rutas no tiene cola de reintentos duradera. Una salida del
 
 #: src/architecture/config-lifecycle.md
 msgid "Route guidance shares the required-value checks used by `Config::validate`. Cloud TTS key guidance shares the trimmed-key accessor used by its constructors. Missing secret values are checked against typed values before display masking. Model-provider authentication remains conditional on the provider and authentication mode; setup metadata does not check external logins, executables, connectivity, or provider readiness."
-msgstr "La orientación de rutas comparte las comprobaciones de valores obligatorios usadas por `Config::validate`. La orientación de la clave de TTS en la nube comparte el accesor de clave sin espacios usado por sus constructores. Los valores secretos ausentes se comprueban frente a los valores introducidos antes del enmascaramiento para mostrar. La autenticación del proveedor de modelos sigue condicionada al proveedor y al modo de autenticación; los metadatos de configuración no comprueban inicios de sesión externos, ejecutables, conectividad ni la disponibilidad del proveedor."
+msgstr "La orientación de rutas comparte las comprobaciones de valores obligatorios usadas por `Config::validate`. La orientación de la clave de TTS en la nube comparte el accesor de clave sin espacios usado por sus constructores. Los valores secretos ausentes se comprueban frente a los valores tipados antes del enmascaramiento para mostrar. La autenticación del proveedor de modelos sigue condicionada al proveedor y al modo de autenticación; los metadatos de configuración no comprueban inicios de sesión externos, ejecutables, conectividad ni la disponibilidad del proveedor."
 
 #: src/channels/telegram.md
 msgid "Route hints that would collide with the command flag syntax (`--user`, `--agent`, or any `--flag`) are filtered out of the picker. The text command is not a fallback for them: `/model --user <hint>` and `/model --agent <hint>` are broader-scope commands, and any other leading `--flag` opens the help response. Rename or fix the hint in `config.toml` instead, and use `/model <hint>` only for hints that round-trip through the parser without being read as scope syntax. Unselectable options are also skipped when the provider or target no longer resolves, and so is a hint that an earlier route already claims (the same hint in a different case, or a hint equal to an earlier route's model identifier): `/model <hint>` would resolve to that earlier route first. Every route the picker leaves out is reported in the daemon log with its reason, so check the log when an expected option is missing."
@@ -46370,7 +46367,7 @@ msgstr "Ejecutando"
 
 #: src/channels/discord.md
 msgid "Running Discord as a plugin (experimental)"
-msgstr "Ejecutar Discord como complemento (experimental)"
+msgstr "Ejecutar Discord como plugin (experimental)"
 
 #: src/tools/python-skills.md
 msgid "Running Python Skills"
@@ -46756,7 +46753,7 @@ msgstr "Los marcadores de posición en literales de cadena de Rust como `\"raw e
 
 #: src/contributing/how-to.md
 msgid "Rustdoc (`///`) changes update the API reference automatically on deploy"
-msgstr "Rustdoc (`///`) actualiza automáticamente la referencia de la API durante el despliegue."
+msgstr "Los cambios en Rustdoc (`///`) actualizan automáticamente la referencia de la API durante el despliegue"
 
 #: src/foundations/fnd-003-governance.md
 msgid "S"
@@ -47883,7 +47880,7 @@ msgstr "Envía todos los controles configurados. Con `gateway.require_pairing = 
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Send from an account outside the peer group"
-msgstr "Enviar desde una cuenta fuera del grupo de pares"
+msgstr "Envía desde una cuenta fuera del grupo de pares"
 
 #: src/channels/telegram.md
 msgid "Send the printed code to the bot from the Telegram account you want to approve:"
@@ -48227,7 +48224,7 @@ msgstr "Establece `mcp.enabled = false` para deshabilitar la carga de herramient
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Set `plugins.security.signature_mode` to `strict` without trusting the package's publisher key, restart"
-msgstr "Establezca `plugins.security.signature_mode` en `strict` sin confiar en la clave del editor del paquete y reinicie"
+msgstr "Establece `plugins.security.signature_mode` en `strict` sin confiar en la clave del editor del paquete y reinicia"
 
 #: src/tools/python-skills.md
 msgid "Set `sandbox_backend = \"none\"` to avoid wrapping the Docker runtime in a second, separate sandbox container. In this pattern the Docker runtime is the execution boundary for built-in shell invocations, and `runtime.docker` is where the image and container limits are configured."
@@ -49725,7 +49722,7 @@ msgstr "Detén las ejecuciones enrutadas que revisitan un paso demasiadas veces.
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Stop the daemon"
-msgstr "Detener el daemon"
+msgstr "Detén el daemon"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Stop the daemon and run `zeroclaw plugin remove discord`. Removal keeps the instance's `[[plugins.entries]]` row and its `[channels.plugin.acceptance]` binding and prints both; delete them."
@@ -54692,7 +54689,7 @@ msgstr "El sandbox limita lo que puede hacer un plugin cargado; la política de 
 
 #: src/security/model.md
 msgid "The sandbox confines filesystem access to the workspace and removes access to the parent process's secrets. Network handling varies by backend; see [Sandboxing](./sandboxing.md#network)."
-msgstr "El sandbox limita el acceso al sistema de archivos al espacio de trabajo y elimina el acceso a los secretos del proceso padre. El manejo de la red varía según el backend; consulta [Sandboxing](./sandboxing.md#network)."
+msgstr "El sandbox limita el acceso al sistema de archivos al espacio de trabajo y elimina el acceso a los secretos del proceso padre. El manejo de la red varía según el backend; consulta [Aislamiento](./sandboxing.md#network)."
 
 #: src/security/sandboxing.md
 msgid "The sandbox passes through only the env vars listed in `[risk_profiles.<alias>].shell_env_passthrough`. Inherited secrets do not reach sandboxed tools unless explicitly passed."
@@ -55168,7 +55165,7 @@ msgstr "La prueba envuelve un `PluginConfigResolver::new` respaldado por el mani
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "The tester sends a message"
-msgstr "The tester sends a message"
+msgstr "El probador envía un mensaje"
 
 #: src/channels/telegram.md
 msgid "The text alternatives remain available: `/model <hint>` for a session-scoped route, `/model --user <hint>` / `/model --agent <hint>` for the broader scopes (if permitted), and `/models <provider>` to list models of a provider."
@@ -64070,7 +64067,7 @@ msgstr "[Protocolo de plugins](./plugin-protocol.md)"
 
 #: src/maintainers/index.md
 msgid "[Plugin release acceptance](./plugin-release-acceptance.md): proving a first-party plugin installs and runs from a published binary, with an evidence template"
-msgstr "[Aceptación de lanzamiento de plugins](./plugin-release-acceptance.md): demostrar que un plugin de primera parte se instala y se ejecuta desde un binario publicado, con una plantilla de evidencias"
+msgstr "[Aceptación de la publicación del plugin](./plugin-release-acceptance.md): demostrar que un plugin de primera parte se instala y se ejecuta desde un binario publicado, con una plantilla de evidencias"
 
 #: src/architecture/decisions/ADR-015-unified-capability-catalog.md
 msgid "[Plugins documentation](../../plugins/index.md)"
@@ -76021,7 +76018,7 @@ msgstr "`discord`"
 
 #: src/channels/discord.md
 msgid "`discord` plugin"
-msgstr "Complemento `discord`"
+msgstr "Plugin `discord`"
 
 #: src/reference/cli.md
 msgid "`discover` — Enumerate USB devices (VID/PID) and show known boards"
@@ -87154,7 +87151,7 @@ msgstr "sustituye cada valor `enc2:` de la copia de la configuración por `<encr
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "replace user, server, and channel IDs with placeholders;"
-msgstr "reemplazar los IDs de usuario, de servidor y de canal por marcadores de posición;"
+msgstr "reemplaza los IDs de usuario, de servidor y de canal por marcadores de posición;"
 
 #: src/setup/container.md
 msgid "replicas"

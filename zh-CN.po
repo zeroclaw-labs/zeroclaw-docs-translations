@@ -2903,8 +2903,7 @@ msgstr "# 运行中 / 已停止，上次退出代码\n"
 
 #: src/zerocode/environment.md
 msgid "# runs (git push, ssh, gpg-sign) gets SSH_AUTH_SOCK from your terminal.\n"
-msgstr ""
-"# 运行的命令（git push、ssh、gpg-sign）会从你的终端获取 SSH_AUTH_SOCK。\n"
+msgstr "# 运行的命令（git push、ssh、gpg-sign）会从你的终端获取 SSH_AUTH_SOCK。\n"
 
 #: src/developing/building-docs.md src/maintainers/docs-and-translations.md
 msgid "# serve all locales at http://localhost:3000/en/\n"
@@ -4740,7 +4739,7 @@ msgstr "**事件驱动自动化：** [标准操作程序](../sop/index.md) · [G
 
 #: src/channels/git.md
 msgid "**Events API backbone (optional, GitHub).** `events_backbone = true` additionally polls `/repos/{owner}/{repo}/events` with ETag-conditional requests (one request per repo per tick; an idle repo answers 304 and costs almost nothing). Caveats: the feed lags by up to ~5 minutes, payloads are trimmed, and **Actions events never appear in it**: workflow runs always use their dedicated endpoint. Anything surfaced by both the feed and a targeted endpoint is de-duplicated, so it's safe to combine. Gitea/Forgejo ignore this option today."
-msgstr "**Events API 骨干（可选，GitHub）。** `events_backbone = true` 还会使用 ETag 条件请求轮询 `/repos/{owner}/{repo}/events`（每个 repo 每个 tick 一次请求；空闲 repo 会返回 304，几乎没有成本）。注意事项：该 feed 最多会滞后约 5 分钟，payload 会被裁剪，而且 **Actions 事件永远不会出现在其中**：工作流运行始终使用其专用端点。凡是同时出现在 feed 和目标端点中的内容都会去重，因此可以安全组合。Gitea/Forgejo 目前会忽略此选项。"
+msgstr "**Events API 骨干（可选，GitHub）。** `events_backbone = true` 还会使用 ETag 条件请求轮询 `/repos/{owner}/{repo}/events`（每个仓库每个轮询周期一次请求；空闲仓库会返回 304，几乎没有成本）。注意事项：该事件流最多会滞后约 5 分钟，负载会被裁剪，而且 **Actions 事件永远不会出现在其中**：工作流运行始终使用其专用端点。凡是同时出现在事件流和目标端点中的内容都会去重，因此可以安全组合。Gitea/Forgejo 目前会忽略此选项。"
 
 #: src/channels/mattermost.md
 msgid "**Everyone in the channel can read the tool arguments.** The prompt includes the tool name and a summary of its arguments. Route approvals to a channel whose membership you are comfortable showing those to."
@@ -7469,7 +7468,7 @@ msgstr "**答案：** 不是。理解其中的原因非常重要。"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "**The artifact.** A published `zeroclaw` CLI archive for a 64-bit target whose plugin host compiles `.wasm` components. Check it first with [Release artifact verification](./release-verification.md). An x86_64 Linux archive in a fresh container is the simplest place to show that no toolchain was involved."
-msgstr "**产物。** 一个已发布的 `zeroclaw` CLI 压缩包，面向 64 位目标平台，其插件宿主会编译 `.wasm` 组件。请先参考 [Release artifact verification](./release-verification.md) 进行检查。在全新容器中使用 x86_64 Linux 压缩包，是展示未涉及任何工具链的最简单方式。"
+msgstr "**产物。** 一个已发布的 `zeroclaw` CLI 压缩包，面向 64 位目标平台，其插件宿主会编译 `.wasm` 组件。请先参考 [发布产物验证](./release-verification.md) 进行检查。在全新容器中使用 x86_64 Linux 压缩包，是展示未涉及任何工具链的最简单方式。"
 
 #: src/channels/git.md
 msgid "**The bigger picture:** [Agents](../agents/overview.md) · [Channels overview](./overview.md)"
@@ -12060,7 +12059,7 @@ msgstr "在每个运行时路径使用它之前，一个字段可以先对 schem
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "A first-party plugin is accepted for a release when an operator can install it by name on a published `zeroclaw` binary, with no Rust toolchain on the machine, and can show that the plugin, not a built-in feature, does the work. This page is the runbook for that proof and the template for its evidence. It uses the Discord channel plugin as the worked example. For another package, substitute its name, its alias, its required keys, and its destinations."
-msgstr "一方插件要通过发布验收，需要满足两点：运维人员能在已发布的 `zeroclaw` 二进制文件上按名称安装该插件，且机器上无需 Rust 工具链；并且能够证明实际完成工作的是该插件，而不是内置功能。本页是这一验证的操作手册，也是证据模板。文中以 Discord 渠道插件为示例。若换成其他包，请替换其名称、别名、必需的密钥和目标地址。"
+msgstr "第一方插件要通过发布验收，需要满足两点：运维人员能在已发布的 `zeroclaw` 二进制文件上按名称安装该插件，且机器上无需 Rust 工具链；并且能够证明实际完成工作的是该插件，而不是内置功能。本页是这一验证的操作手册，也是证据模板。文中以 Discord 渠道插件为示例。若换成其他包，请替换其名称、别名、必需的配置键和目标地址。"
 
 #: src/channels/matrix.md
 msgid "A fresh login creates a new device with a new `device_id`, sidestepping the OTK conflict entirely (no UIA-gated device deletion required)."
@@ -16908,7 +16907,7 @@ msgstr "绑定不等于投递，也不等于记忆召回。绑定决定由哪个
 
 #: src/channels/discord.md
 msgid "Binding never turns on the plugin system and never assigns the instance to an agent. Turn the plugin system on:"
-msgstr "Binding 从不启用插件系统，也从不将实例分配给代理。请启用插件系统："
+msgstr "绑定从不启用插件系统，也从不将实例分配给代理。请启用插件系统："
 
 #: src/plugins/migrating-to-typed-config.md
 msgid "Binding the alias derives, prints, and seeds that key. To put a channel instance's values on it:"
@@ -17543,7 +17542,7 @@ msgstr "内置可用性"
 
 #: src/channels/discord.md
 msgid "Built-in channel"
-msgstr "内置频道"
+msgstr "内置渠道"
 
 #: src/contributing/agent-guidelines.md
 msgid "Built-in command catalog and metadata"
@@ -18720,7 +18719,7 @@ msgstr "为你的操作系统或部署目标选择安装路径。"
 
 #: src/plugins/distributing-plugins.md
 msgid "Choose the name before the first release and keep it. Every instance key is derived from it, so a package republished under a new name starts with no config, no egress grants, and no stored state for the instances operators already set up."
-msgstr "选择名称要在首次发布前完成，并保持不变。每个实例键都由该名称派生，因此以新名称重新发布的包，将没有任何配置、出口授权和已存储的状态，原有实例的设置也会失效。"
+msgstr "选择名称要在首次发布前完成，并保持不变。每个实例键都由该名称派生，因此以新名称重新发布的包，对于运维人员已经设置好的实例，将没有任何配置、出口授权和已存储的状态。"
 
 #: src/providers/configuration.md
 msgid "Choosing a 1h cache lifetime"
@@ -18768,7 +18767,7 @@ msgstr "分块上传暂存：顺序、单连接与进程级上限"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Claim"
-msgstr "Claim"
+msgstr "验证项"
 
 #: src/architecture/generated-documentation-pipeline.md
 msgid "Clap command tree in `src/main.rs`"
@@ -20412,7 +20411,7 @@ msgstr "对话式 AI 智能体构建器配置（`[conversational_ai]` 部分）�
 
 #: src/channels/discord.md
 msgid "Conversations are kept per channel name, so a bot moved from `discord.main` to `plugin.main` starts new conversations."
-msgstr "对话按频道名称分别保存，因此将机器人从 `discord.main` 迁移到 `plugin.main` 后会开始新的对话。"
+msgstr "对话按渠道名称分别保存，因此将机器人从 `discord.main` 迁移到 `plugin.main` 后会开始新的对话。"
 
 #: src/channels/git.md
 msgid "Converse with the agent through a git forge's issue and pull-request comments, and surface repository events, including PR lifecycle, review comments, CI outcomes, and releases, through a per-event routing table. The channel is built around a **provider seam**: a `provider` field selects the forge. GitHub, Gitea, and Forgejo are wired providers; additional forges drop in as sibling providers without changing the generic channel."
@@ -22081,11 +22080,11 @@ msgstr "不同的交付渠道具有不同的保障"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Denied destination"
-msgstr "Denied destination"
+msgstr "被拒绝的目标地址"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Denied sender"
-msgstr "拒绝的发送方"
+msgstr "被拒绝的发送方"
 
 #: src/reference/cli.md
 msgid "Deny (cancel) a SOP run waiting for approval (talks to the running daemon)"
@@ -24509,7 +24508,7 @@ msgstr "确保每个插件在执行时都生成 OTel 跨度，以便用户可以
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Enter the bot token only at the masked `zeroclaw config set` prompt. Never put it in a file, on a command line, in shell history, in a screenshot, or in the evidence."
-msgstr "在被遮蔽的 `zeroclaw config set` 提示符处输入机器人令牌。切勿将其写入文件、放在命令行中、保存到 shell 历史记录里、出现在截图中，或记入证据材料。"
+msgstr "只能在被遮蔽的 `zeroclaw config set` 提示符处输入机器人令牌。切勿将其写入文件、放在命令行中、保存到 shell 历史记录里、出现在截图中，或记入证据材料。"
 
 #: src/maintainers/release-runbook.md
 msgid "Enter the tag (e.g., `v0.7.5` or `master`)"
@@ -25184,7 +25183,7 @@ msgstr "所有功能均已模拟"
 
 #: src/channels/discord.md
 msgid "Everything on this page"
-msgstr "本页内容"
+msgstr "本页介绍的全部功能"
 
 #: src/plugins/writing-a-tool-plugin.md
 msgid "Everything on this page is checked against the contract source: the `tool-plugin` world in `wit/v0/tool.wit`, the host-side call path in `crates/zeroclaw-plugins/src/runtime.rs` and `wasm_tool.rs`, and manifest validation in `host.rs`. Source paths are citations into the ZeroClaw repository for verification; the plugin itself is your own crate in your own repository. You never need a ZeroClaw checkout to build one, only the `wit/` contract files (fetched in step 1) and an installed `zeroclaw` binary with the plugin host compiled in to run it."
@@ -25196,7 +25195,7 @@ msgstr "你在这里实践的每一件事——在动手实现前先理解 RFC�
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Evidence"
-msgstr "Evidence"
+msgstr "证据"
 
 #: src/architecture/runtime-composition.md
 msgid "Evidence required"
@@ -26357,7 +26356,7 @@ msgstr "Firejail"
 
 #: src/security/sandboxing.md
 msgid "Firejail's default profile is fairly permissive, and ZeroClaw skips it with `--noprofile`, passing an explicit flag set instead."
-msgstr "Firejail 的默认配置文件相当宽松,而 ZeroClaw 通过 `--noprofile` 跳过它,改为传入显式的标志集。"
+msgstr "Firejail 的默认配置文件相当宽松，而 ZeroClaw 通过 `--noprofile` 跳过它，改为传入显式的标志集。"
 
 #: src/security/sandboxing.md
 msgid "Firejail, Bubblewrap, and macOS Seatbelt replace the host command with a sandbox launcher. When the requested shell identity differs from the canonical executable path, the wrapper must preserve that identity (for example, `sh` selecting a BusyBox applet or Bash compatibility mode) while executing the validated canonical target. On Linux, Firejail and Bubblewrap require a GNU-compatible `env` or `genv` with `--argv0` support on the host process's absolute `PATH` entries. ZeroClaw probes each candidate for up to two seconds; the helper and its libraries must be accessible inside the sandbox. On macOS, Seatbelt uses the system `/bin/bash` with a fixed `exec -a` trampoline, so a separate GNU coreutils installation is not required. The trampoline passes the requested identity and command arguments as process arguments, not interpolated shell source. ZeroClaw does not widen filesystem access or fall back to an unsandboxed command when a required helper cannot execute. The Linux host-helper lookup does not use the TUI-only environment overlay."
@@ -26796,7 +26795,7 @@ msgstr "对于一个技能包：`capabilities` 仅包含 `skill`，不包含 `wa
 
 #: src/plugins/index.md
 msgid "For a tool plugin whose component instantiates, both commands also apply the check the runtime makes on the tool's configuration before it registers the tool. `plugin remove` keeps the package's `[[plugins.entries]]` row and its values, so a reinstall can meet values its manifest does not accept: any value at all when the new package declares no `config_schema`. The runtime skips such a tool, so the verdict is that it does not load, with the runtime's reason and the row that holds the values."
-msgstr "对于组件能够成功实例化的工具插件，这两个命令还会对运行时在注册该工具前对其配置执行的检查进行验证。`plugin remove` 会保留该插件包的 `[[plugins.entries]]` 行及其配置值，因此重新安装时，这些值可能不符合新清单的要求：如果新包未声明 `config_schema`，则任何值都会被视为不符合要求。运行时会跳过此类工具，因此结论是该工具无法加载，并会给出运行时的原因以及保存这些值的那一行。"
+msgstr "对于组件能够成功实例化的工具插件，这两个命令还会执行运行时在注册该工具前对其配置所做的检查。`plugin remove` 会保留该插件包的 `[[plugins.entries]]` 行及其配置值，因此重新安装时，这些值可能不符合新清单的要求：如果新包未声明 `config_schema`，则任何值都会被视为不符合要求。运行时会跳过此类工具，因此结论是该工具无法加载，并会给出运行时的原因以及保存这些值的那一行。"
 
 #: src/providers/catalog.md
 msgid "For a worked example per family, see [Configuration](./configuration.md). If your vendor isn't listed, use the `custom` slot ([Custom providers](./custom.md))."
@@ -28284,7 +28283,7 @@ msgstr "专利许可授予"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Grant restored"
-msgstr "Grant restored"
+msgstr "授权已恢复"
 
 #: src/ops/network-deployment.md
 msgid "Grants access to GPIO, I2C, SPI via `rppal` when you pick the hardware features. The stock service unit already adds the user to the `gpio`, `spi`, `i2c` groups."
@@ -31961,7 +31960,7 @@ msgstr "Inbound 内容决策、转向消息、定时任务和对等代理回复�
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Inbound goes through the plugin"
-msgstr "Inbound 请求经由插件处理"
+msgstr "入站消息经由插件处理"
 
 #: src/channels/telegram.md
 msgid "Inbound message debounce window in milliseconds for this Telegram alias. When set, overrides the global `[channels].debounce_ms` for this channel only. `0` or unset falls back to the global value."
@@ -32520,7 +32519,7 @@ msgstr "无效或缺失的启动配置"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Invalid token"
-msgstr "Invalid token"
+msgstr "无效令牌"
 
 #: src/foundations/fnd-006-zero-compromise-in-practice.md
 msgid "Invariant violated; should be impossible in correct code"
@@ -32813,7 +32812,7 @@ msgstr "其入口点将工作封装在 `attribution_span!(self)` 中，这会打
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Its load verdict"
-msgstr "负载判定"
+msgstr "其加载判定"
 
 #: src/channels/overview.md
 msgid "JSON API"
@@ -33971,7 +33970,7 @@ msgstr "正在加载社区技能"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Loads on this host"
-msgstr "加载于此主机"
+msgstr "可在此主机上加载"
 
 #: src/hardware/hardware-peripherals-design.md
 msgid "Local (GPIO, I2C, SPI)"
@@ -36519,7 +36518,7 @@ msgstr "网络部署"
 
 #: src/security/sandboxing.md
 msgid "Network access is per backend, and most of them leave it alone:"
-msgstr "网络访问按后端单独设置，大多数后端保持默认。"
+msgstr "网络访问按后端单独设置，大多数后端保持默认："
 
 #: src/ops/network-deployment.md
 msgid "Network connectivity (WiFi or Ethernet)"
@@ -36863,7 +36862,7 @@ msgstr "没有限制的路径"
 
 #: src/channels/discord.md
 msgid "No per-host grant"
-msgstr "未针对该主机授权"
+msgstr "不受按主机授权的限制"
 
 #: src/maintainers/reviewer-playbook.md
 msgid "No personal or sensitive data leaked into diff artifacts; tests use neutral, project-scoped placeholders."
@@ -37700,14 +37699,7 @@ msgstr "一旦某个命名里程碑处于活动状态，新接收的工作仅限
 
 #: src/getting-started/quickstart.md
 msgid "Once the agent is created, Quickstart prints the status of each picked plugin that is installed: admitted as a tool, with its config entry key, or the reason it is not admitted, such as `plugins.enabled` or `plugins.auto_discover` being off or the `plugins.max_active_instances` limit being reached. A plugin is reported admitted only when its config entry passes the settings check the runtime applies on every call. Admitted is not yet registered: the tool registry registers the plugin when it is next built, and it still refuses a package whose name clashes with a tool already registered, such as a built-in tool, or whose tool description it cannot read. The runtime log records those refusals. When the settings check fails instead, for example when you installed the plugin without its required settings, its status shows the reason the check gives, names the required settings that are missing, and prints the `zeroclaw config set` command that asks for each value. Quickstart prints commands only for setting names in the portable key grammar, which are safe to show and to paste into a shell. A required setting with any other name is named without a command: set it in the config file, or with a `zeroclaw config set` command you quote yourself. A required name that the plugin's schema does not declare is named too, since no config entry can satisfy that schema until the plugin's publisher fixes it. A plugin whose config entry is missing, for example because you skipped creating it, is not reported active either: `zeroclaw config set` only changes entries that exist, so its status prints the command that creates the entry instead. That command grants no network access; for a plugin that requests a network transport and declares destinations, a separate line gives the command that grants them once the entry exists. When the config still holds the plugin's pre-1.0 entry, named only after the package, its status prints neither command, since a new entry beside the old one would leave the old entry's settings and network grant behind. It names the instance key to rename the old entry to instead. When `zeroclaw plugin list` prints the update steps for that entry, which it does for a plugin with a network transport unless the deployment refuses every plugin's network grant, the status also gives that command: its steps include any network grant the renamed entry still needs. A plugin with nothing to configure and no network access needs no config entry."
-msgstr ""
-"安装代理后，Quickstart 会打印每个已选插件（且已安装）的状态：是否已作为工具被接纳，以及对应的配置条目键；若未被接纳，则给出原因，例如 `plugins.enabled` 或 `plugins.auto_discover` 处于关闭状态，或已达到 `plugins.max_active_instances` 上限。只有当插件的配置条目通过运行时在每次调用时执行的设置检查，才会被报告为已接纳。已接纳并不等于已注册：工具注册表会在下次构建时注册该插件；若插件包的名称与已注册的工具（例如内置工具）冲突，或注册表无法读取其工具描述，注册表仍会拒绝该插件包。运行时日志会记录这些拒绝情况。\n"
-"\n"
-"如果设置检查失败，例如安装插件时未提供其所需的设置，则状态会显示检查给出的原因，列出缺失的必需设置名称，并打印用于逐个填写这些值的 `zeroclaw config set` 命令。Quickstart 只会为符合可移植键语法的设置名称打印命令，这些名称可以安全地显示并粘贴到 shell 中。名称不符合该语法的必需设置只会被列出，不附带命令：请在配置文件中设置，或者自行加引号后使用 `zeroclaw config set` 命令。插件的 schema 未声明的必需名称也会被列出，因为在插件发布者修正 schema 之前，任何配置条目都无法满足该 schema。\n"
-"\n"
-"如果插件的配置条目缺失（例如你跳过了创建该条目），其状态也不会报告为已激活。`zeroclaw config set` 只会修改已存在的条目，因此状态会改为打印用于创建该条目的命令。该命令不授予任何网络访问权限；对于请求网络传输并声明了目标地址的插件，会另起一行给出条目存在后用于授予这些目标地址的命令。\n"
-"\n"
-"如果配置中仍保留该插件的 1.0 之前版本条目（仅以包名命名），其状态既不会打印上述命令，因为在旧条目旁边新建条目会导致旧条目的设置和网络授权被遗留。状态会改为指明应将旧条目重命名为的实例键。当 `zeroclaw plugin list` 为该条目打印更新步骤时（对于带有网络传输的插件，除非部署拒绝所有插件的网络授权，通常都会打印），状态还会给出该命令：其步骤包括重命名后的条目仍需要的任何网络授权。没有可配置项且不需要网络访问的插件无需配置条目。"
+msgstr "创建智能体后，Quickstart 会打印每个已选插件（且已安装）的状态：是否已作为工具被接纳，以及对应的配置条目键；若未被接纳，则给出原因，例如 `plugins.enabled` 或 `plugins.auto_discover` 处于关闭状态，或已达到 `plugins.max_active_instances` 上限。只有当插件的配置条目通过运行时在每次调用时执行的设置检查，才会被报告为已接纳。已接纳并不等于已注册：工具注册表会在下次构建时注册该插件；若插件包的名称与已注册的工具（例如内置工具）冲突，或注册表无法读取其工具描述，注册表仍会拒绝该插件包。运行时日志会记录这些拒绝情况。如果设置检查失败，例如安装插件时未提供其所需的设置，则状态会显示检查给出的原因，列出缺失的必需设置名称，并打印用于逐个填写这些值的 `zeroclaw config set` 命令。Quickstart 只会为符合可移植键语法的设置名称打印命令，这些名称可以安全地显示并粘贴到 shell 中。名称不符合该语法的必需设置只会被列出，不附带命令：请在配置文件中设置，或者自行加引号后使用 `zeroclaw config set` 命令。插件的 schema 未声明的必需名称也会被列出，因为在插件发布者修正 schema 之前，任何配置条目都无法满足该 schema。如果插件的配置条目缺失（例如你跳过了创建该条目），其状态也不会报告为已激活。`zeroclaw config set` 只会修改已存在的条目，因此状态会改为打印用于创建该条目的命令。该命令不授予任何网络访问权限；对于请求网络传输并声明了目标地址的插件，会另起一行给出条目存在后用于授予这些目标地址的命令。如果配置中仍保留该插件的 1.0 之前版本条目（仅以包名命名），其状态不会打印上述任一命令，因为在旧条目旁边新建条目会导致旧条目的设置和网络授权被遗留。状态会改为指明应将旧条目重命名为的实例键。当 `zeroclaw plugin list` 为该条目打印更新步骤时（对于带有网络传输的插件，除非部署拒绝所有插件的网络授权，否则都会打印），状态还会给出该命令：其步骤包括重命名后的条目仍需要的任何网络授权。没有可配置项且不需要网络访问的插件无需配置条目。"
 
 #: src/gateway/a2a-discovery.md
 msgid "Once you have an agent's interface URL and a skill, you send work as a JSON-RPC `SendMessage` POST to that URL, advertising the A2A protocol version you speak in the `A2A-Version` header (this server speaks `1.0`):"
@@ -40644,7 +40636,7 @@ msgstr "出站凭据泄露检测配置。"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Outbound goes through the plugin"
-msgstr "出站流量经由插件转发。"
+msgstr "出站流量经由插件转发"
 
 #: src/architecture/request-lifecycle.md
 msgid "Outbound messages go back through the same channel adapter. Adapters with multi-message support (Discord, Slack) can stream long replies as a sequence of messages; others (email, SMS) flush on stream completion."
@@ -41018,7 +41010,7 @@ msgstr "包标识必须与现有的注册表方向建立映射，而不是另造
 
 #: src/plugins/distributing-plugins.md
 msgid "Package names and Cargo features"
-msgstr "Package 名称与 Cargo 功能特性"
+msgstr "软件包名称与 Cargo 功能特性"
 
 #: src/architecture/decisions/ADR-015-unified-capability-catalog.md
 msgid "Package-coordinate reconciliation must happen early enough to avoid another registry identity system."
@@ -42206,7 +42198,7 @@ msgstr "插件注册表"
 
 #: src/SUMMARY.md
 msgid "Plugin release acceptance"
-msgstr "Plugin 发布验收"
+msgstr "插件发布验收"
 
 #: src/reference/config.md
 msgid "Plugin signature verification configuration (`[plugins.security]`)."
@@ -44208,7 +44200,7 @@ msgstr "记录实际应用的生成结果"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Record the archive name and digest, the version string, and the registry entry the install resolves: its name, version, archive URL, and `sha256`."
-msgstr "记录安装所解析的归档文件名与摘要、版本字符串，以及注册中心条目的名称、版本、归档 URL 和 `sha256`。"
+msgstr "记录归档文件名与摘要、版本字符串，以及安装所解析的注册表条目：其名称、版本、归档 URL 和 `sha256`。"
 
 #: src/maintainers/release-runbook.md
 msgid "Record the binary size change"
@@ -46308,7 +46300,7 @@ msgstr "为配置的通道运行健康检查（异步在 main.rs 中处理）"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Run it after the release is published and the package version is in the registry, once for each package version the release claims to support. Run it again when either side changes: a new package version, or a host release that changes the plugin interface."
-msgstr "Release 发布且包版本进入 registry 之后运行，针对该 release 声明支持的每个包版本各运行一次。当任一侧发生变化时再次运行：出现新的包版本，或宿主 release 改变了插件接口。"
+msgstr "在本次发布完成且包版本已进入注册表之后运行，针对本次发布声明支持的每个包版本各运行一次。当任一侧发生变化时再次运行：出现新的包版本，或宿主发布了改变插件接口的新版本。"
 
 #: src/tools/browser.md
 msgid "Run it on your server"
@@ -47917,7 +47909,7 @@ msgstr "发送所有已配置的控制项。设置了 `gateway.require_pairing =
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Send from an account outside the peer group"
-msgstr "发送自不在对等组中的账户"
+msgstr "从不在对等组中的账户发送消息"
 
 #: src/channels/telegram.md
 msgid "Send the printed code to the bot from the Telegram account you want to approve:"
@@ -48441,7 +48433,7 @@ msgstr "设置摩擦力"
 
 #: src/architecture/config-lifecycle.md
 msgid "Setup guidance"
-msgstr "安装指南"
+msgstr "设置指引"
 
 #: src/foundations/fnd-003-governance.md
 msgid "Setup, configuration, and usage help"
@@ -51214,7 +51206,7 @@ msgstr "ZeroClaw Maturity Framework"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "The [Discord page](../channels/discord.md#running-discord-as-a-plugin-experimental) shows both. Configure no `[channels.discord.<alias>]` table anywhere, then start the daemon. Keep a copy of `config.toml` for the evidence; its secrets stay encrypted."
-msgstr "[Discord 页面](../channels/discord.md#running-discord-as-a-plugin-experimental)对这两种方式都有说明。请勿在任何位置配置 `[channels.discord.<alias>]` 表，然后启动守护进程。保留一份 `config.toml` 副本作为证据；其中的机密信息保持加密状态。"
+msgstr "[Discord 页面](../channels/discord.md#running-discord-as-a-plugin-experimental)对这两项都有说明。请勿在任何位置配置 `[channels.discord.<alias>]` 表，然后启动守护进程。保留一份 `config.toml` 副本作为证据；其中的机密信息保持加密状态。"
 
 #: src/channels/git-gitea-forgejo.md
 msgid "The [Git channel](./git.md) with `provider = \"gitea\"` or `provider = \"forgejo\"` authenticates with a **personal access token** against the instance's Gitea-compatible REST API, and replies as the token owner. Both providers share one internal implementation; the only real difference from GitHub is that there is no app, only a token and an explicit API base URL."
@@ -51662,7 +51654,7 @@ msgstr "该代理仅接收由 bundles、MCP config、risk profile 以及每次�
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "The agent replies"
-msgstr "Agent 回复"
+msgstr "智能体回复"
 
 #: src/gateway/a2a-discovery.md
 msgid "The agent runs the turn and answers with a completed task. The reply is the text part inside the task's artifact; the result is a `SendMessageResponse` whose `task` branch carries the `Task`:"
@@ -53427,7 +53419,7 @@ msgstr "安装路径为本地插件目录；注册表只是一个 JSON 索引，
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "The install prints the binding and the hosts it granted. `plugin info` must report that the package loads on this host and that the instance key above exists. Then, by hand:"
-msgstr "安装时会打印绑定信息以及已授予的主机。`plugin info` 必须报告该软件包可以在此主机上加载，并且上方的实例密钥存在。然后手动执行："
+msgstr "安装时会打印绑定信息以及已授予的主机。`plugin info` 必须报告该软件包可以在此主机上加载，并且上方的实例键存在。然后手动执行："
 
 #: src/ops/service.md
 msgid "The installed systemd user unit (`~/.config/systemd/user/zeroclaw.service`) uses:"
@@ -53805,7 +53797,7 @@ msgstr "下一个发布里程碑跟踪问题"
 
 #: src/channels/discord.md
 msgid "The numeric user ID of each person allowed to talk to the agent. Enable **Developer Mode** (User Settings -> Advanced), right-click the user, and click **Copy User ID**."
-msgstr "每个允许与智能体对话的用户的数字用户 ID。请启用 **Developer Mode**（用户设置 -> Advanced），右键点击该用户，然后点击 **Copy User ID**。"
+msgstr "每个允许与智能体对话的用户的数字用户 ID。请启用**开发者模式**（用户设置 -> 高级），右键点击该用户，然后点击**复制用户 ID**。"
 
 #: src/providers/configuration.md
 msgid "The numeric values above are an intentional local budget, not a recommendation to fill the model's advertised window. The provider entry records the endpoint capability and output cap, while the runtime profile keeps a smaller estimated input budget and bounds the tool loop. Adjust them for the workload and leave output headroom. The fields have separate owners:"
@@ -54081,7 +54073,7 @@ msgstr "插件模型意味着频道和工具可以拥有独立的发布周期。
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "The plugin reports Discord's authentication refusal and backs off; no reconnect loop in the log over five minutes. A malformed token rejected locally by `configure()` does not exercise platform authentication or backoff"
-msgstr "插件会报告 Discord 的身份验证拒绝并进行退避;五分钟内日志中没有重连循环。由 `configure()` 在本地拒绝的格式错误令牌,并不会触发平台身份验证或退避机制。"
+msgstr "插件会报告 Discord 的身份验证拒绝并进行退避；五分钟内日志中没有重连循环。由 `configure()` 在本地拒绝的格式错误令牌，并不会触发平台身份验证或退避机制。"
 
 #: src/channels/discord.md
 msgid "The plugin reports each sender by numeric user ID, and a plugin channel matches senders exactly, so list user IDs, not usernames. Restart ZeroClaw (`zeroclaw service restart`) to start the instance."
@@ -55265,7 +55257,7 @@ msgstr "该令牌需要对仓库的读取访问权限，以及对 issue/PR 评�
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "The token never appears in the evidence, redacted or not."
-msgstr "令牌从未出现在证据中，无论是否已脱敏。"
+msgstr "令牌绝不能出现在证据中，无论是否已脱敏。"
 
 #: src/foundations/fnd-001-intentional-architecture.md
 msgid "The tool call parsing logic in `src/agent/loop_.rs` is approximately 1,400 lines of pure text transformation: it takes a string from the LLM and returns a list of structured tool calls. It has no dependency on agent state, memory, providers, or channels. It handles a dozen different LLM output formats (JSON, XML, GLM-style, MiniMax, Perl-style, markdown fences, and more)."
@@ -55573,7 +55565,7 @@ msgstr "然后在新结构体旁添加 `impl Attributable for X`（`fn role() ->
 
 #: src/channels/discord.md
 msgid "Then add `plugin.main` to the `channels` list of the agent that should answer, keeping the channels it already has, and admit your users with a peer group on the same channel:"
-msgstr "然后将 `plugin.main` 添加到负责应答的 agent 的 `channels` 列表中，保留其已有的渠道，并通过同一渠道上的 peer group 允许你的用户接入："
+msgstr "然后将 `plugin.main` 添加到负责应答的代理的 `channels` 列表中，保留其已有的渠道，并通过同一渠道上的对等组允许你的用户接入："
 
 #: src/ops/network-deployment.md
 msgid "Then any device on the LAN can reach `http://<pi-ip>:42617`. Doesn't help for internet-reachable webhooks, your router's public IP isn't forwarded to the Pi."
@@ -57791,7 +57783,7 @@ msgstr "首次使用时信任；将 pin 持久化到 `<config-dir>/relay/relay_p
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "Trust policy holds"
-msgstr "信任策略保持不变"
+msgstr "信任策略生效"
 
 #: src/reference/config.md
 msgid "Trust proxy-forwarded client IP headers (`X-Forwarded-For`, `X-Real-IP`)."
@@ -64113,7 +64105,7 @@ msgstr "[插件协议](./plugin-protocol.md)"
 
 #: src/maintainers/index.md
 msgid "[Plugin release acceptance](./plugin-release-acceptance.md): proving a first-party plugin installs and runs from a published binary, with an evidence template"
-msgstr "[Plugin 发布验收](./plugin-release-acceptance.md)：验证第一方插件能从已发布的二进制文件中安装并运行，并附带证据模板"
+msgstr "[插件发布验收](./plugin-release-acceptance.md)：验证第一方插件能从已发布的二进制文件中安装并运行，并附带证据模板"
 
 #: src/architecture/decisions/ADR-015-unified-capability-catalog.md
 msgid "[Plugins documentation](../../plugins/index.md)"
@@ -84184,7 +84176,7 @@ msgstr "`zeroclaw plugin info discord`"
 
 #: src/channels/discord.md
 msgid "`zeroclaw plugin info discord` reports whether the package loads on this host, prints the instance key, and lists anything the instance still needs before it can start."
-msgstr "`zeroclaw plugin info discord` 用于检查该软件包能否在当前主机上加载，输出实例密钥，并列出实例启动前仍需满足的各项要求。"
+msgstr "`zeroclaw plugin info discord` 用于检查该软件包能否在当前主机上加载，输出实例键，并列出实例启动前仍需满足的各项要求。"
 
 #: src/foundations/fnd-001-intentional-architecture.md
 msgid "`zeroclaw plugin install ./my-plugin/`"
@@ -87180,7 +87172,7 @@ msgstr "移除架构或添加权限"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "replace every `enc2:` value in the config copy with `<encrypted>`;"
-msgstr "将配置副本中的每个 `enc2:` 值替换为 `<encrypted>`;"
+msgstr "将配置副本中的每个 `enc2:` 值替换为 `<encrypted>`；"
 
 #: src/maintainers/plugin-release-acceptance.md
 msgid "replace user, server, and channel IDs with placeholders;"
